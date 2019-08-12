@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    name="TemplateVariableRepository" nsURI="http://palladiosimulator.org/EnvironmentalDynamics/1.0"
-    nsPrefix="environmentaldynamics"/>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="environment" nsURI="http://palladiosimulator.org/Environment/1.0"
+    nsPrefix="environment">
+  <eSubpackages name="template" nsURI="http://palladiosimulator.org/Environment/Template/1.0"
+      nsPrefix="template">
+    <eClassifiers xsi:type="ecore:EClass" name="TemplateDefinitions">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+          eType="#//template/TemplateVariable" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="factors" upperBound="-1"
+          eType="#//template/TemplateFactor" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TemplateVariable" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TemplateFactor">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="scope" lowerBound="1"
+          upperBound="-1" eType="#//template/TemplateVariable"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BasicTemplateVariable" eSuperTypes="#//template/TemplateVariable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isHidden" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComposedTemplateVariable" eSuperTypes="#//template/TemplateVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IntersectedTemplateVariable" eSuperTypes="#//template/TemplateVariable"/>
+  </eSubpackages>
+</ecore:EPackage>
