@@ -9,9 +9,16 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated environmentaldynamics -->
       <package
-            uri="http://palladiosimulator.org/Environment/TemplateDefinitions/1.0"
-            class="org.palladiosimulator.envdyn.environment.templatedefinitions.TemplatedefinitionsPackage"
+            uri="http://palladiosimulator.org/Environment/Template/1.0"
+            class="org.palladiosimulator.envdyn.environment.template.TemplatePackage"
             genModel="model/environmentaldynamics.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated environmentaldynamics -->
+      <package
+            uri="http://palladiosimulator.org/Environment/Instantiation/1.0"
+            class="org.palladiosimulator.envdyn.environment.instantiation.InstantiationPackage"
+            genModel="model/environmentaldynamics.genmodel"/>
+   </extension>
 </plugin>

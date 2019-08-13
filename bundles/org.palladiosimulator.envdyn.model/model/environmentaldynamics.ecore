@@ -11,22 +11,67 @@
           eType="#//template/TemplateFactor" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+          eType="#//template/Argument" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relation" upperBound="-1"
+          eType="#//template/Relation" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TemplateVariable" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="TemplateVariable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="signature" lowerBound="1"
+          upperBound="-1" eType="#//template/Argument"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isHidden" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="valueSpace" lowerBound="1"
+          eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isShared" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TemplateFactor">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TemplateFactor" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="scope" lowerBound="1"
           upperBound="-1" eType="#//template/TemplateVariable"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BasicTemplateVariable" eSuperTypes="#//template/TemplateVariable">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isHidden" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Argument">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="objectClass" lowerBound="1"
+          eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ComposedTemplateVariable" eSuperTypes="#//template/TemplateVariable"/>
-    <eClassifiers xsi:type="ecore:EClass" name="IntersectedTemplateVariable" eSuperTypes="#//template/TemplateVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Relation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//template/TemplateVariable"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+          eType="#//template/TemplateVariable"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//template/RelationType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="RelationType">
+      <eLiterals name="DIRECTED"/>
+      <eLiterals name="UNDIRECTED" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticTemplateFactor" eSuperTypes="#//template/TemplateFactor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="distributionClass" lowerBound="1"
+          eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="instantiation" nsURI="http://palladiosimulator.org/Environment/Instantiation/1.0"
+      nsPrefix="instantiation">
+    <eClassifiers xsi:type="ecore:EClass" name="ProbabilitySpace">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="groundRandomVariables"
+          upperBound="-1" eType="#//instantiation/GroundRandomVariable" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedfactors"
+          upperBound="-1" eType="#//instantiation/InstantiatedFactor" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GroundRandomVariable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedTemplate"
+          lowerBound="1" eType="#//template/TemplateVariable"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dependenceStructure"
+          lowerBound="1" upperBound="-1" eType="#//template/Relation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedfactor" lowerBound="1"
+          eType="#//instantiation/InstantiatedFactor"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InstantiatedFactor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedFactor" lowerBound="1"
+          eType="#//template/TemplateFactor"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

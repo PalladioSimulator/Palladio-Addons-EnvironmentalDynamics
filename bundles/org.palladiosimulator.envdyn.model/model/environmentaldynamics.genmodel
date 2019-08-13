@@ -9,24 +9,64 @@
   <genPackages prefix="Environment" basePackage="org.palladiosimulator.envdyn" disposableProviderFactory="true"
       ecorePackage="environmentaldynamics.ecore#/">
     <nestedGenPackages prefix="Template" disposableProviderFactory="true" ecorePackage="environmentaldynamics.ecore#//template">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="environmentaldynamics.ecore#//template/RelationType">
+        <genEnumLiterals ecoreEnumLiteral="environmentaldynamics.ecore#//template/RelationType/DIRECTED"/>
+        <genEnumLiterals ecoreEnumLiteral="environmentaldynamics.ecore#//template/RelationType/UNDIRECTED"/>
+      </genEnums>
       <genClasses ecoreClass="environmentaldynamics.ecore#//template/TemplateDefinitions">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/TemplateDefinitions/variables"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/TemplateDefinitions/factors"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//template/TemplateDefinitions/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/TemplateDefinitions/arguments"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/TemplateDefinitions/relation"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//template/TemplateVariable">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//template/TemplateVariable/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/TemplateVariable/signature"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//template/TemplateVariable/isHidden"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/TemplateVariable/valueSpace"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//template/TemplateVariable/isShared"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//template/TemplateFactor">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//template/TemplateFactor/name"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/TemplateFactor/scope"/>
       </genClasses>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//template/BasicTemplateVariable">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//template/BasicTemplateVariable/isHidden"/>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//template/Argument">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/Argument/objectClass"/>
       </genClasses>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//template/ComposedTemplateVariable"/>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//template/IntersectedTemplateVariable"/>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//template/Relation">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/Relation/source"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/Relation/target"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//template/Relation/type"/>
+      </genClasses>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//template/ProbabilisticTemplateFactor">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/ProbabilisticTemplateFactor/distributionClass"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Instantiation" disposableProviderFactory="true" ecorePackage="environmentaldynamics.ecore#//instantiation">
+      <genClasses ecoreClass="environmentaldynamics.ecore#//instantiation/ProbabilitySpace">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//instantiation/ProbabilitySpace/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//instantiation/ProbabilitySpace/groundRandomVariables"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//instantiation/ProbabilitySpace/instantiatedfactors"/>
+      </genClasses>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//instantiation/GroundRandomVariable">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//instantiation/GroundRandomVariable/instantiatedTemplate"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//instantiation/GroundRandomVariable/dependenceStructure"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//instantiation/GroundRandomVariable/instantiatedfactor"/>
+      </genClasses>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//instantiation/InstantiatedFactor">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//instantiation/InstantiatedFactor/instantiatedFactor"/>
+      </genClasses>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>
