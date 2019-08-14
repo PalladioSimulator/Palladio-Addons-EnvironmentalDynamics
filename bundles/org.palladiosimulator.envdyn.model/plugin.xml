@@ -17,8 +17,17 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated environmentaldynamics -->
       <package
-            uri="http://palladiosimulator.org/Environment/Instantiation/1.0"
-            class="org.palladiosimulator.envdyn.environment.instantiation.InstantiationPackage"
+            uri="http://palladiosimulator.org/Environment/Model/1.0"
+            class="org.palladiosimulator.envdyn.environment.model.ModelPackage"
             genModel="model/environmentaldynamics.genmodel"/>
    </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated environmentaldynamics -->
+      <package
+            uri="http://palladiosimulator.org/Environment/Dynamics/1.0"
+            class="org.palladiosimulator.envdyn.environment.dynamics.DynamicsPackage"
+            genModel="model/environmentaldynamics.genmodel"/>
+   </extension>
+
 </plugin>

@@ -8,9 +8,12 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: org.palladiosimulator.envdyn.environment.instantiation,
- org.palladiosimulator.envdyn.environment.instantiation.impl,
- org.palladiosimulator.envdyn.environment.instantiation.util,
+Export-Package: org.palladiosimulator.envdyn.environment.dynamics,
+ org.palladiosimulator.envdyn.environment.dynamics.impl,
+ org.palladiosimulator.envdyn.environment.dynamics.util,
+ org.palladiosimulator.envdyn.environment.model,
+ org.palladiosimulator.envdyn.environment.model.impl,
+ org.palladiosimulator.envdyn.environment.model.util,
  org.palladiosimulator.envdyn.environment.template,
  org.palladiosimulator.envdyn.environment.template.impl,
  org.palladiosimulator.envdyn.environment.template.util
