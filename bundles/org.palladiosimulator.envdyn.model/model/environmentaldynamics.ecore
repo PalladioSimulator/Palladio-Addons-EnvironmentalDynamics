@@ -66,27 +66,21 @@
   </eSubpackages>
   <eSubpackages name="model" nsURI="http://palladiosimulator.org/Environment/Model/1.0"
       nsPrefix="model">
-    <eClassifiers xsi:type="ecore:EClass" name="BayesianNetwork" eSuperTypes="#//model/ProbabilisticModel">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="groundRandomVariables"
-          upperBound="-1" eType="#//model/GroundRandomVariable" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedfactors"
-          upperBound="-1" eType="#//model/InstantiatedFactor" containment="true"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GroundRandomVariable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedTemplate"
           lowerBound="1" eType="#//template/TemplateVariable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dependenceStructure"
           lowerBound="1" upperBound="-1" eType="#//template/DependenceRelation"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="describingFactor" lowerBound="1"
-          eType="#//model/InstantiatedFactor"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="appliedObject" lowerBound="1"
           eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="InstantiatedFactor">
+    <eClassifiers xsi:type="ecore:EClass" name="LocalProbabilisticModel">
       <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedFactor" lowerBound="1"
-          eType="#//template/TemplateFactor"/>
+          eType="#//template/ProbabilisticTemplateFactor"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="distParams" lowerBound="1"
           eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="describedVariable" lowerBound="1"
+          eType="#//model/GroundRandomVariable"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticModelRepository">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -95,6 +89,10 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticModel">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="groundRandomVariables"
+          upperBound="-1" eType="#//model/GroundRandomVariable" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="localModels" upperBound="-1"
+          eType="#//model/LocalProbabilisticModel" containment="true"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="dynamics" nsURI="http://palladiosimulator.org/Environment/Dynamics/1.0"
@@ -102,10 +100,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="DynamicBehaviourRepository">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="behaviourDescs" upperBound="-1"
-          eType="#//dynamics/DynamicBehaviourDescription" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="extensions" upperBound="-1"
+          eType="#//dynamics/DynamicBehaviourExtension" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DynamicBehaviourDescription">
+    <eClassifiers xsi:type="ecore:EClass" name="DynamicBehaviourExtension">
       <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1"
           eType="#//model/ProbabilisticModel"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="behaviour" lowerBound="1"
@@ -122,10 +120,15 @@
     <eClassifiers xsi:type="ecore:EClass" name="InterTimeSliceBehaviour">
       <eStructuralFeatures xsi:type="ecore:EReference" name="temporalStructure" lowerBound="1"
           upperBound="-1" eType="#//template/TemporalRelation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedTemplate"
+          lowerBound="1" eType="#//template/TemplateFactor"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IntraTimeSliceBehaviour">
       <eStructuralFeatures xsi:type="ecore:EReference" name="dependenceStructure"
           lowerBound="1" upperBound="-1" eType="#//template/DependenceRelation"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DeductiveDynamicBehaviour" abstract="true"
+        eSuperTypes="#//dynamics/DynamicBehaviour"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TransitionMatrix" eSuperTypes="#//dynamics/DeductiveDynamicBehaviour"/>
   </eSubpackages>
 </ecore:EPackage>
