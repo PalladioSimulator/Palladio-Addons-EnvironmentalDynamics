@@ -67,14 +67,14 @@
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//model/GroundRandomVariable/dependenceStructure"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//model/GroundRandomVariable/appliedObject"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//model/GroundRandomVariable/descriptiveModel"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//model/LocalProbabilisticModel">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//model/LocalProbabilisticModel/instantiatedFactor"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//model/LocalProbabilisticModel/distParams"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//model/LocalProbabilisticModel/describedVariable"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//model/ProbabilisticModelRepository">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//model/ProbabilisticModelRepository/name"/>
@@ -87,6 +87,10 @@
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Dynamics" disposableProviderFactory="true" ecorePackage="environmentaldynamics.ecore#//dynamics">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="environmentaldynamics.ecore#//dynamics/TransitionMatrixType">
+        <genEnumLiterals ecoreEnumLiteral="environmentaldynamics.ecore#//dynamics/TransitionMatrixType/STATE"/>
+        <genEnumLiterals ecoreEnumLiteral="environmentaldynamics.ecore#//dynamics/TransitionMatrixType/OBSERVATION"/>
+      </genEnums>
       <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/DynamicBehaviourRepository">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//dynamics/DynamicBehaviourRepository/name"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/DynamicBehaviourRepository/extensions"/>
@@ -96,23 +100,38 @@
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/DynamicBehaviourExtension/model"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/DynamicBehaviourExtension/behaviour"/>
       </genClasses>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/DynamicBehaviour"/>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/DynamicBehaviour">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/DynamicBehaviour/localModels"/>
+      </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/InductiveDynamicBehaviour">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/InductiveDynamicBehaviour/interTimeSliceBehaviour"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/InductiveDynamicBehaviour/intraTimeSliceBehaviour"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/InductiveDynamicBehaviour/interTimeSliceInductions"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/InductiveDynamicBehaviour/intraTimeSliceEffects"/>
       </genClasses>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/InterTimeSliceBehaviour">
+      <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/InterTimeSliceInduction">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/InterTimeSliceBehaviour/temporalStructure"/>
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/InterTimeSliceInduction/temporalStructure"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/InterTimeSliceBehaviour/instantiatedTemplate"/>
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/InterTimeSliceInduction/descriptiveModel"/>
       </genClasses>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/IntraTimeSliceBehaviour">
+      <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/IntraTimeSliceEffect">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/IntraTimeSliceBehaviour/dependenceStructure"/>
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/IntraTimeSliceEffect/dependenceStructure"/>
       </genClasses>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/DeductiveDynamicBehaviour"/>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/TransitionMatrix"/>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/DeductiveDynamicBehaviour">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/DeductiveDynamicBehaviour/stateTransitionMatrix"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/DeductiveDynamicBehaviour/observationMatrix"/>
+      </genClasses>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/LocalDynamicModel">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/LocalDynamicModel/instantiatedTemplate"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/LocalDynamicModel/distParams"/>
+      </genClasses>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/TransitionMatrix">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//dynamics/TransitionMatrix/type"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/TransitionMatrix/rowDistributions"/>
+      </genClasses>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>
