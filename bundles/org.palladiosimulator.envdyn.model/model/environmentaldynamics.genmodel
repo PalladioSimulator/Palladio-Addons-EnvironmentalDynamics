@@ -25,9 +25,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/TemplateVariable/signature"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//template/TemplateVariable/isHidden"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/TemplateVariable/valueSpace"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//template/TemplateVariable/isShared"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//template/TemplateVariable/valueSpaceDummy"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//template/TemplateFactor">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -35,12 +33,11 @@
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//template/Argument">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/Argument/objectClass"/>
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/Argument/classProfile"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//template/Relation"/>
       <genClasses ecoreClass="environmentaldynamics.ecore#//template/ProbabilisticTemplateFactor">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/ProbabilisticTemplateFactor/distributionClass"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//template/ProbabilisticTemplateFactor/distributionClassDummy"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//template/DependenceRelation">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//template/DependenceRelation/type"/>
@@ -66,15 +63,14 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//model/GroundRandomVariable/dependenceStructure"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//model/GroundRandomVariable/appliedObject"/>
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//model/GroundRandomVariable/classManifestation"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//model/GroundRandomVariable/descriptiveModel"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//model/LocalProbabilisticModel">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//model/LocalProbabilisticModel/instantiatedFactor"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//model/LocalProbabilisticModel/distParams"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//model/LocalProbabilisticModel/distParamsDummy"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//model/ProbabilisticModelRepository">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//model/ProbabilisticModelRepository/name"/>
@@ -124,8 +120,7 @@
       <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/LocalDynamicModel">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/LocalDynamicModel/instantiatedTemplate"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/LocalDynamicModel/distParams"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//dynamics/LocalDynamicModel/distParamsDummy"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/TransitionMatrix">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//dynamics/TransitionMatrix/type"/>
@@ -133,5 +128,46 @@
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/TransitionMatrix/rowDistributions"/>
       </genClasses>
     </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="Characteristic" ecorePackage="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicApplicability">
+      <genEnumLiterals ecoreEnumLiteral="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicApplicability/Mandatory"/>
+      <genEnumLiterals ecoreEnumLiteral="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicApplicability/Optional"/>
+      <genEnumLiterals ecoreEnumLiteral="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicApplicability/Invalid"/>
+    </genEnums>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/Characteristic">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/Characteristic/valueType"/>
+      <genOperations ecoreOperation="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/Characteristic/computeCharacteristic"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicApplicationRule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicApplicationRule/allowedCharacteristics"/>
+      <genOperations ecoreOperation="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicApplicationRule/determineApplicability">
+        <genParameters ecoreParameter="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicApplicationRule/determineApplicability/element"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicCatalog">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicCatalog/characteristics"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicCatalog/profiles"/>
+    </genClasses>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicProfile">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicProfile/applicationRules"/>
+    </genClasses>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/TypeBasedCharacteristicApplicationRule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/TypeBasedCharacteristicApplicationRule/legalTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/TypeBasedCharacteristicApplicationRule/mandatory"/>
+      <genOperations ecoreOperation="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/TypeBasedCharacteristicApplicationRule/determineApplicability">
+        <genParameters ecoreParameter="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/TypeBasedCharacteristicApplicationRule/determineApplicability/element"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/Characterizing">
+      <genOperations ecoreOperation="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/Characterizing/computeCharacteristic"/>
+    </genClasses>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicReference/referencedCharacteristic"/>
+      <genOperations ecoreOperation="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/CharacteristicReference/computeCharacteristic"/>
+    </genClasses>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/ProfileActivation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/ProfileActivation/activatedProfile"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
