@@ -11,6 +11,13 @@
     <semanticResources>model/WirelessFailureType.reliability</semanticResources>
     <semanticResources>model/DeltaIotAllocation.allocation</semanticResources>
     <semanticResources>model/DeltaIotAllocation.allocation_diagram</semanticResources>
+    <semanticResources>model/DeltaIoTCharacteristics.characteristic</semanticResources>
+    <semanticResources>pathmap://CHARACTERISTICS_RESOURCES/basetypes.valuetype</semanticResources>
+    <semanticResources>platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore</semanticResources>
+    <semanticResources>model/DeltaIoTManifestations.manifestation</semanticResources>
+    <semanticResources>model/DeltaIoTProbabilitySpace.model</semanticResources>
+    <semanticResources>model/DeltaIoTTemplateVariables.templatevariable</semanticResources>
+    <semanticResources>model/DeltaIoTProbabilitySpace.staticmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_uEYAYMS5Eem6vJHOl6M9XA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_uGPBkMS5Eem6vJHOl6M9XA" name="DeltaIoT Repository Diagram" repPath="#_uEmC0MS5Eem6vJHOl6M9XA">

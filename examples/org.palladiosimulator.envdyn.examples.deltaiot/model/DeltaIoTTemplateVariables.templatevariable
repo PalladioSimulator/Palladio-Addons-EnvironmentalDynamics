@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templatevariable:TemplateVariableDefinitions xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:templatevariable="http://palladiosimulator.org/Environment/TemplateVariable/1.0" id="_yT-0gMWiEemeD8HH3Gbl-Q" entityName="DeltaIoTTemplateVariables">
+  <variables id="_1rlpgMWiEemeD8HH3Gbl-Q" entityName="WirelessInterference" signature="//@arguments.0"/>
+  <variables id="_QCuf4MWkEemeD8HH3Gbl-Q" entityName="SignalToNoiseRatio" signature="//@arguments.0"/>
+  <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_1K4W4MWnEemx1KrwIzdqtQ" entityName="WIFactor" scope="_1rlpgMWiEemeD8HH3Gbl-Q" distributionClassDummy="MultinomialDistributed"/>
+  <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_CV7b4cWoEemx1KrwIzdqtQ" entityName="WI_SNR_Factor" scope="_1rlpgMWiEemeD8HH3Gbl-Q _QCuf4MWkEemeD8HH3Gbl-Q" distributionClassDummy="MultinomialDistributed"/>
+  <arguments>
+    <classProfile href="DeltaIoTCharacteristics.characteristic#_oaYLwcWaEem9c_bgEaWPJg"/>
+  </arguments>
+  <relation xsi:type="templatevariable:DependenceRelation" target="_QCuf4MWkEemeD8HH3Gbl-Q" source="_1rlpgMWiEemeD8HH3Gbl-Q"/>
+</templatevariable:TemplateVariableDefinitions>

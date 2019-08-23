@@ -9,25 +9,24 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated environmentaldynamics -->
       <package
-            uri="http://palladiosimulator.org/Environment/Template/1.0"
-            class="org.palladiosimulator.envdyn.environment.template.TemplatePackage"
+            uri="http://palladiosimulator.org/Environment/TemplateVariable/1.0"
+            class="org.palladiosimulator.envdyn.environment.templatevariable.TemplatevariablePackage"
             genModel="model/environmentaldynamics.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated environmentaldynamics -->
       <package
-            uri="http://palladiosimulator.org/Environment/Model/1.0"
-            class="org.palladiosimulator.envdyn.environment.model.ModelPackage"
+            uri="http://palladiosimulator.org/Environment/StaticModel/1.0"
+            class="org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage"
             genModel="model/environmentaldynamics.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated environmentaldynamics -->
       <package
-            uri="http://palladiosimulator.org/Environment/Dynamics/1.0"
-            class="org.palladiosimulator.envdyn.environment.dynamics.DynamicsPackage"
+            uri="http://palladiosimulator.org/Environment/DynamicModel/1.0"
+            class="org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicmodelPackage"
             genModel="model/environmentaldynamics.genmodel"/>
    </extension>
-
 </plugin>
