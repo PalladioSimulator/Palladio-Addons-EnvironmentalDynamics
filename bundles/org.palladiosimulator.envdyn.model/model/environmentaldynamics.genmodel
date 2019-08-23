@@ -16,12 +16,10 @@
       <genClasses ecoreClass="environmentaldynamics.ecore#//template/TemplateDefinitions">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/TemplateDefinitions/variables"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/TemplateDefinitions/factors"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//template/TemplateDefinitions/name"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/TemplateDefinitions/arguments"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/TemplateDefinitions/relation"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//template/TemplateVariable">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//template/TemplateVariable/name"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//template/TemplateVariable/signature"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//template/TemplateVariable/isHidden"/>
@@ -73,11 +71,9 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//model/LocalProbabilisticModel/distParamsDummy"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//model/ProbabilisticModelRepository">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//model/ProbabilisticModelRepository/name"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//model/ProbabilisticModelRepository/models"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//model/ProbabilisticModel">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//model/ProbabilisticModel/name"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//model/ProbabilisticModel/groundRandomVariables"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//model/ProbabilisticModel/localModels"/>
       </genClasses>
@@ -88,7 +84,6 @@
         <genEnumLiterals ecoreEnumLiteral="environmentaldynamics.ecore#//dynamics/TransitionMatrixType/OBSERVATION"/>
       </genEnums>
       <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/DynamicBehaviourRepository">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//dynamics/DynamicBehaviourRepository/name"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamics/DynamicBehaviourRepository/extensions"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//dynamics/DynamicBehaviourExtension">
@@ -168,6 +163,108 @@
     </genClasses>
     <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/ProfileActivation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//characteristic/ProfileActivation/activatedProfile"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Manifestation" ecorePackage="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation">
+    <genDataTypes ecoreDataType="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/EManifestationObject"/>
+    <genDataTypes ecoreDataType="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/EManifestationSpecification"/>
+    <genClasses image="false" ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/DerivedManifestation"/>
+    <genClasses image="false" ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/Manifestation">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/Manifestation/container"/>
+      <genOperations ecoreOperation="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/Manifestation/sample"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/ProbabilisticManifestation"/>
+    <genClasses image="false" ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/DiscreteProbabilityDistributionManifestation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/DiscreteProbabilityDistributionManifestation/manifestations"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/StaticManifestation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/StaticManifestation/value"/>
+      <genOperations ecoreOperation="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/StaticManifestation/sample"/>
+    </genClasses>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/SingleValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/SingleValue/explicitValue"/>
+    </genClasses>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/CategoricalProbabilityMassFunction">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/CategoricalProbabilityMassFunction/sumOfCategoryWeights"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/CategoricalProbabilityMassFunction/categories"/>
+    </genClasses>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/Category">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/Category/weight"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/Category/probability"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/Category/probabilityMassFunction"/>
+      <genOperations ecoreOperation="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/Category/determineValueType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/ManifestationContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/ManifestationContainer/manifestation"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/ManifestationContainer/valuetype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/ManifestationContainer/specification"/>
+      <genOperations ecoreOperation="../../tools.mdsd.characteristics/model/characteristics.ecore#//manifestation/ManifestationContainer/determineValueType"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Identifier" ecorePackage="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#/">
+    <genClasses image="false" ecoreClass="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Identifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Identifier/id"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement/entityName"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity"/>
+  </genPackages>
+  <genPackages prefix="Valuetype" ecorePackage="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype">
+    <genClasses image="false" ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/ValueType">
+      <genOperations ecoreOperation="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/ValueType/getProperty">
+        <genParameters ecoreParameter="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/ValueType/getProperty/propertyType"/>
+        <genTypeParameters ecoreTypeParameter="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/ValueType/getProperty/P"/>
+      </genOperations>
+      <genOperations ecoreOperation="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/ValueType/adheresToValueType">
+        <genParameters ecoreParameter="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/ValueType/adheresToValueType/instance"/>
+      </genOperations>
+      <genOperations ecoreOperation="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/ValueType/hasProperty">
+        <genParameters ecoreParameter="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/ValueType/hasProperty/propertyType"/>
+        <genTypeParameters ecoreTypeParameter="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/ValueType/hasProperty/P"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/EDataTypeValueType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/EDataTypeValueType/baseType"/>
+      <genOperations ecoreOperation="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/EDataTypeValueType/adheresToValueType">
+        <genParameters ecoreParameter="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/EDataTypeValueType/adheresToValueType/instance"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/StructuredValueType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/StructuredValueType/elements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/BaseValueType"/>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/EnumValueType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/EnumValueType/literals"/>
+    </genClasses>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/CollectionValueType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/CollectionValueType/nestedType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/CollectionValueType/lowerBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/CollectionValueType/upperBound"/>
+    </genClasses>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/ValueTypeRepository">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/ValueTypeRepository/valuetype"/>
+    </genClasses>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/ValueTypeAlias">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/ValueTypeAlias/originalValueType"/>
+    </genClasses>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/StructuredValueTypeElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/StructuredValueTypeElement/valuetype"/>
+    </genClasses>
+    <genClasses ecoreClass="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/EnumLiteral">
+      <genOperations ecoreOperation="../../tools.mdsd.characteristics/model/characteristics.ecore#//valuetype/EnumLiteral/determineValueType"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Realm" ecorePackage="../../tools.mdsd.somde.realm/model/realm.ecore#/">
+    <genClasses ecoreClass="../../tools.mdsd.somde.realm/model/realm.ecore#//ServiceOrientedModelingRealm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../tools.mdsd.somde.realm/model/realm.ecore#//ServiceOrientedModelingRealm/configuration"/>
+      <genOperations ecoreOperation="../../tools.mdsd.somde.realm/model/realm.ecore#//ServiceOrientedModelingRealm/getAPI">
+        <genParameters ecoreParameter="../../tools.mdsd.somde.realm/model/realm.ecore#//ServiceOrientedModelingRealm/getAPI/apiType"/>
+        <genTypeParameters ecoreTypeParameter="../../tools.mdsd.somde.realm/model/realm.ecore#//ServiceOrientedModelingRealm/getAPI/APIType"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../tools.mdsd.somde.realm/model/realm.ecore#//ConfigurationItem">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../tools.mdsd.somde.realm/model/realm.ecore#//ConfigurationItem/modelingRealm"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

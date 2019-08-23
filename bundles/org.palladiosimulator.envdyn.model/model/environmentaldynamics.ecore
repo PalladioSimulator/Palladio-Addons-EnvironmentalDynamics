@@ -4,21 +4,17 @@
     nsPrefix="environment">
   <eSubpackages name="template" nsURI="http://palladiosimulator.org/Environment/Template/1.0"
       nsPrefix="template">
-    <eClassifiers xsi:type="ecore:EClass" name="TemplateDefinitions">
+    <eClassifiers xsi:type="ecore:EClass" name="TemplateDefinitions" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
           eType="#//template/TemplateVariable" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="factors" upperBound="-1"
           eType="#//template/TemplateFactor" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
           eType="#//template/Argument" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relation" upperBound="-1"
           eType="#//template/Relation" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TemplateVariable">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TemplateVariable" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="signature" lowerBound="1"
           upperBound="-1" eType="#//template/Argument"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isHidden" lowerBound="1"
@@ -80,13 +76,11 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="distParamsDummy" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticModelRepository">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticModelRepository" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
           eType="#//model/ProbabilisticModel" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticModel">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticModel" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="groundRandomVariables"
           lowerBound="1" upperBound="-1" eType="#//model/GroundRandomVariable" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="localModels" lowerBound="1"
@@ -95,9 +89,7 @@
   </eSubpackages>
   <eSubpackages name="dynamics" nsURI="http://palladiosimulator.org/Environment/Dynamics/1.0"
       nsPrefix="dynamics">
-    <eClassifiers xsi:type="ecore:EClass" name="DynamicBehaviourRepository">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DynamicBehaviourRepository" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="extensions" upperBound="-1"
           eType="#//dynamics/DynamicBehaviourExtension" containment="true"/>
     </eClassifiers>
