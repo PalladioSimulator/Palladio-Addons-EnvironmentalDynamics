@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<distributiontype:ProbabilityDistributionRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:distributiontype="http://www.mdsd.tools/probabilitydistributions/distributiontype">
+  <distributionFamilies id="_6Ox74M_qEemGSMt6VgDXiw" entityName="MultinomialDistributionType" paramStructures="_14SnUc_rEemBRfgTMg4KMw"/>
+  <parameters id="_14SnUc_rEemBRfgTMg4KMw" entityName="EventProbability"/>
+</distributiontype:ProbabilityDistributionRepository>
