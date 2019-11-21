@@ -27,7 +27,7 @@
       <steps_Behaviour xsi:type="seff:StopAction" id="_2S4KgsTHEem6vJHOl6M9XA" predecessor_AbstractAction="_2S4KgcTHEem6vJHOl6M9XA"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
-  <components__Repository xsi:type="repository:BasicComponent" id="_sFgc8MTaEem6vJHOl6M9XA" entityName="DualTransmitter">
+  <components__Repository xsi:type="repository:BasicComponent" id="_sFgc8MTaEem6vJHOl6M9XA" entityName="DualTransmitter1">
     <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_azVfoMTcEem6vJHOl6M9XA" entityName="dualTransmittingProvider" providedInterface__OperationProvidedRole="_tGPEsMTbEem6vJHOl6M9XA"/>
     <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_vdR3wMTfEem6vJHOl6M9XA" entityName="dualComConsumer1" requiredInterface__OperationRequiredRole="_tPpiYMS6Eem6vJHOl6M9XA"/>
     <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_ydncQMTfEem6vJHOl6M9XA" entityName="dualComConsumer2" requiredInterface__OperationRequiredRole="_tPpiYMS6Eem6vJHOl6M9XA"/>
@@ -39,24 +39,23 @@
           <branchBehaviour_BranchTransition id="_b9JK4cTdEem6vJHOl6M9XA">
             <steps_Behaviour xsi:type="seff:StartAction" id="_b9Jx8MTdEem6vJHOl6M9XA" entityName="StartForwardingToNeighbour1" successor_AbstractAction="_SobBxsTeEem6vJHOl6M9XA"/>
             <steps_Behaviour xsi:type="seff:StopAction" id="_b9Jx8cTdEem6vJHOl6M9XA" entityName="StopForwardingToNeighbour1" predecessor_AbstractAction="_SobBxsTeEem6vJHOl6M9XA"/>
-            <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_SobBxsTeEem6vJHOl6M9XA" entityName="transmitToNeighbour1" predecessor_AbstractAction="_b9Jx8MTdEem6vJHOl6M9XA" successor_AbstractAction="_b9Jx8cTdEem6vJHOl6M9XA" calledService_ExternalService="_wEwEQMTbEem6vJHOl6M9XA" role_ExternalService="_vdR3wMTfEem6vJHOl6M9XA"/>
+            <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_SobBxsTeEem6vJHOl6M9XA" entityName="transmitToNeighbour1" predecessor_AbstractAction="_b9Jx8MTdEem6vJHOl6M9XA" successor_AbstractAction="_b9Jx8cTdEem6vJHOl6M9XA" calledService_ExternalService="_qaz0gMTAEem6vJHOl6M9XA" role_ExternalService="_vdR3wMTfEem6vJHOl6M9XA"/>
           </branchBehaviour_BranchTransition>
         </branches_Branch>
         <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_exC14MTdEem6vJHOl6M9XA" entityName="TransmitToNeighbour1" branchProbability="0.4">
           <branchBehaviour_BranchTransition id="_exC14cTdEem6vJHOl6M9XA">
             <steps_Behaviour xsi:type="seff:StartAction" id="_exC14sTdEem6vJHOl6M9XA" successor_AbstractAction="_jqHoNsTeEem6vJHOl6M9XA"/>
             <steps_Behaviour xsi:type="seff:StopAction" id="_exC148TdEem6vJHOl6M9XA" predecessor_AbstractAction="_jqHoNsTeEem6vJHOl6M9XA"/>
-            <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_jqHoNsTeEem6vJHOl6M9XA" entityName="transmitToNeighbour2" predecessor_AbstractAction="_exC14sTdEem6vJHOl6M9XA" successor_AbstractAction="_exC148TdEem6vJHOl6M9XA" calledService_ExternalService="_wEwEQMTbEem6vJHOl6M9XA" role_ExternalService="_ydncQMTfEem6vJHOl6M9XA"/>
+            <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_jqHoNsTeEem6vJHOl6M9XA" entityName="transmitToNeighbour2" predecessor_AbstractAction="_exC14sTdEem6vJHOl6M9XA" successor_AbstractAction="_exC148TdEem6vJHOl6M9XA" calledService_ExternalService="_qaz0gMTAEem6vJHOl6M9XA" role_ExternalService="_ydncQMTfEem6vJHOl6M9XA"/>
           </branchBehaviour_BranchTransition>
         </branches_Branch>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
-  <components__Repository xsi:type="repository:BasicComponent" id="_KS5BkMTbEem6vJHOl6M9XA" entityName="TripleTransmitter">
-    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_iTrroMTcEem6vJHOl6M9XA" entityName="tripleTransmittingProvider" providedInterface__OperationProvidedRole="_tGPEsMTbEem6vJHOl6M9XA"/>
-    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_c6ULgMTiEem6vJHOl6M9XA" entityName="tripleComConsumer1" requiredInterface__OperationRequiredRole="_tPpiYMS6Eem6vJHOl6M9XA"/>
-    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_fENQMMTiEem6vJHOl6M9XA" entityName="tripleComConsumer2" requiredInterface__OperationRequiredRole="_tPpiYMS6Eem6vJHOl6M9XA"/>
-    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_hLEPAMTiEem6vJHOl6M9XA" entityName="tripleComConsumer3" requiredInterface__OperationRequiredRole="_tPpiYMS6Eem6vJHOl6M9XA"/>
+  <components__Repository xsi:type="repository:BasicComponent" id="_KS5BkMTbEem6vJHOl6M9XA" entityName="DualTransmitter2">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_iTrroMTcEem6vJHOl6M9XA" entityName="dualTransmittingProvider2" providedInterface__OperationProvidedRole="_tGPEsMTbEem6vJHOl6M9XA"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_c6ULgMTiEem6vJHOl6M9XA" entityName="dualComConsumer1" requiredInterface__OperationRequiredRole="_tPpiYMS6Eem6vJHOl6M9XA"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_fENQMMTiEem6vJHOl6M9XA" entityName="dualComConsumer2" requiredInterface__OperationRequiredRole="_tPpiYMS6Eem6vJHOl6M9XA"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_iTsSsMTcEem6vJHOl6M9XA" describedService__SEFF="_wEwEQMTbEem6vJHOl6M9XA">
       <steps_Behaviour xsi:type="seff:StartAction" id="_iTsSscTcEem6vJHOl6M9XA" successor_AbstractAction="_vvhhgMTjEem6vJHOl6M9XA"/>
       <steps_Behaviour xsi:type="seff:StopAction" id="_iTsSssTcEem6vJHOl6M9XA" predecessor_AbstractAction="_vvhhgMTjEem6vJHOl6M9XA"/>
@@ -65,21 +64,14 @@
           <branchBehaviour_BranchTransition id="_1MC0kMTjEem6vJHOl6M9XA">
             <steps_Behaviour xsi:type="seff:StartAction" id="_1MC0kcTjEem6vJHOl6M9XA" successor_AbstractAction="_JTRolsTkEem6vJHOl6M9XA"/>
             <steps_Behaviour xsi:type="seff:StopAction" id="_1MC0ksTjEem6vJHOl6M9XA" predecessor_AbstractAction="_JTRolsTkEem6vJHOl6M9XA"/>
-            <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_JTRolsTkEem6vJHOl6M9XA" entityName="sendToNeighbour1" predecessor_AbstractAction="_1MC0kcTjEem6vJHOl6M9XA" successor_AbstractAction="_1MC0ksTjEem6vJHOl6M9XA" calledService_ExternalService="_wEwEQMTbEem6vJHOl6M9XA" role_ExternalService="_c6ULgMTiEem6vJHOl6M9XA"/>
+            <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_JTRolsTkEem6vJHOl6M9XA" entityName="sendToNeighbour1" predecessor_AbstractAction="_1MC0kcTjEem6vJHOl6M9XA" successor_AbstractAction="_1MC0ksTjEem6vJHOl6M9XA" calledService_ExternalService="_qaz0gMTAEem6vJHOl6M9XA" role_ExternalService="_c6ULgMTiEem6vJHOl6M9XA"/>
           </branchBehaviour_BranchTransition>
         </branches_Branch>
-        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_3LSIcMTjEem6vJHOl6M9XA" entityName="ProbabilisticTransmittingTransition2" branchProbability="0.2">
+        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_3LSIcMTjEem6vJHOl6M9XA" entityName="ProbabilisticTransmittingTransition2" branchProbability="0.4">
           <branchBehaviour_BranchTransition id="_3LSIccTjEem6vJHOl6M9XA">
             <steps_Behaviour xsi:type="seff:StartAction" id="_3LSvgMTjEem6vJHOl6M9XA" successor_AbstractAction="_M7DnlsTkEem6vJHOl6M9XA"/>
             <steps_Behaviour xsi:type="seff:StopAction" id="_3LSvgcTjEem6vJHOl6M9XA" predecessor_AbstractAction="_M7DnlsTkEem6vJHOl6M9XA"/>
-            <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_M7DnlsTkEem6vJHOl6M9XA" entityName="sendToNeighbour2" predecessor_AbstractAction="_3LSvgMTjEem6vJHOl6M9XA" successor_AbstractAction="_3LSvgcTjEem6vJHOl6M9XA" calledService_ExternalService="_wEwEQMTbEem6vJHOl6M9XA" role_ExternalService="_fENQMMTiEem6vJHOl6M9XA"/>
-          </branchBehaviour_BranchTransition>
-        </branches_Branch>
-        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_3j2ZcMTjEem6vJHOl6M9XA" entityName="ProbabilisticTransmittingTransition3" branchProbability="0.2">
-          <branchBehaviour_BranchTransition id="_3j2ZccTjEem6vJHOl6M9XA">
-            <steps_Behaviour xsi:type="seff:StartAction" id="_3j2ZcsTjEem6vJHOl6M9XA" successor_AbstractAction="_O6H8VsTkEem6vJHOl6M9XA"/>
-            <steps_Behaviour xsi:type="seff:StopAction" id="_3j2Zc8TjEem6vJHOl6M9XA" predecessor_AbstractAction="_O6H8VsTkEem6vJHOl6M9XA"/>
-            <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_O6H8VsTkEem6vJHOl6M9XA" entityName="sendToNeighbour3" predecessor_AbstractAction="_3j2ZcsTjEem6vJHOl6M9XA" successor_AbstractAction="_3j2Zc8TjEem6vJHOl6M9XA" calledService_ExternalService="_wEwEQMTbEem6vJHOl6M9XA" role_ExternalService="_hLEPAMTiEem6vJHOl6M9XA"/>
+            <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_M7DnlsTkEem6vJHOl6M9XA" entityName="sendToNeighbour2" predecessor_AbstractAction="_3LSvgMTjEem6vJHOl6M9XA" successor_AbstractAction="_3LSvgcTjEem6vJHOl6M9XA" calledService_ExternalService="_qaz0gMTAEem6vJHOl6M9XA" role_ExternalService="_fENQMMTiEem6vJHOl6M9XA"/>
           </branchBehaviour_BranchTransition>
         </branches_Branch>
       </steps_Behaviour>
@@ -92,6 +84,31 @@
       <steps_Behaviour xsi:type="seff:StartAction" id="_Tzat4cThEem6vJHOl6M9XA" successor_AbstractAction="_CyOL1sTjEem6vJHOl6M9XA"/>
       <steps_Behaviour xsi:type="seff:StopAction" id="_Tzat4sThEem6vJHOl6M9XA" predecessor_AbstractAction="_CyOL1sTjEem6vJHOl6M9XA"/>
       <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_CyOL1sTjEem6vJHOl6M9XA" entityName="send" predecessor_AbstractAction="_Tzat4cThEem6vJHOl6M9XA" successor_AbstractAction="_Tzat4sThEem6vJHOl6M9XA" calledService_ExternalService="_wEwEQMTbEem6vJHOl6M9XA" role_ExternalService="_aii4UMThEem6vJHOl6M9XA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_gw6rMMooEem4ZN5Unn2ciQ" entityName="DualTransmitter3">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_vAkn0MooEem4ZN5Unn2ciQ" entityName="dualTransmittingProvider" providedInterface__OperationProvidedRole="_tGPEsMTbEem6vJHOl6M9XA"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_lXZuIMooEem4ZN5Unn2ciQ" entityName="dualComConsumer2" requiredInterface__OperationRequiredRole="_tPpiYMS6Eem6vJHOl6M9XA"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_pwRL0MooEem4ZN5Unn2ciQ" entityName="dualComConsumer1" requiredInterface__OperationRequiredRole="_tPpiYMS6Eem6vJHOl6M9XA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_vAsjoMooEem4ZN5Unn2ciQ" describedService__SEFF="_wEwEQMTbEem6vJHOl6M9XA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_vAuY0MooEem4ZN5Unn2ciQ" entityName="start" successor_AbstractAction="_Ev9agMorEem4ZN5Unn2ciQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_vAuY0cooEem4ZN5Unn2ciQ" entityName="stop" predecessor_AbstractAction="_Ev9agMorEem4ZN5Unn2ciQ"/>
+      <steps_Behaviour xsi:type="seff:BranchAction" id="_Ev9agMorEem4ZN5Unn2ciQ" entityName="ProbabilisticTransmitting" predecessor_AbstractAction="_vAuY0MooEem4ZN5Unn2ciQ" successor_AbstractAction="_vAuY0cooEem4ZN5Unn2ciQ">
+        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_LRnwsMorEem4ZN5Unn2ciQ" entityName="ProbabilisticTransmittingTransition1" branchProbability="0.6">
+          <branchBehaviour_BranchTransition id="_LRoXwMorEem4ZN5Unn2ciQ">
+            <steps_Behaviour xsi:type="seff:StartAction" id="_LRoXwcorEem4ZN5Unn2ciQ" successor_AbstractAction="_RMVboMorEem4ZN5Unn2ciQ"/>
+            <steps_Behaviour xsi:type="seff:StopAction" id="_LRoXwsorEem4ZN5Unn2ciQ" predecessor_AbstractAction="_RMVboMorEem4ZN5Unn2ciQ"/>
+            <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_RMVboMorEem4ZN5Unn2ciQ" entityName="ExternalCallAction1" predecessor_AbstractAction="_LRoXwcorEem4ZN5Unn2ciQ" successor_AbstractAction="_LRoXwsorEem4ZN5Unn2ciQ" calledService_ExternalService="_qaz0gMTAEem6vJHOl6M9XA" role_ExternalService="_vdR3wMTfEem6vJHOl6M9XA"/>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_ZfeWgMorEem4ZN5Unn2ciQ" entityName="ProbabilisticTransmittingTransition2" branchProbability="0.4">
+          <branchBehaviour_BranchTransition id="_ZfeWgcorEem4ZN5Unn2ciQ">
+            <steps_Behaviour xsi:type="seff:StartAction" id="_ZfeWgsorEem4ZN5Unn2ciQ" successor_AbstractAction="_c__P4MorEem4ZN5Unn2ciQ"/>
+            <steps_Behaviour xsi:type="seff:StopAction" id="_ZfeWg8orEem4ZN5Unn2ciQ" predecessor_AbstractAction="_c__P4MorEem4ZN5Unn2ciQ"/>
+            <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_c__P4MorEem4ZN5Unn2ciQ" entityName="ExternalCallAction1" predecessor_AbstractAction="_ZfeWgsorEem4ZN5Unn2ciQ" successor_AbstractAction="_ZfeWg8orEem4ZN5Unn2ciQ" calledService_ExternalService="_qaz0gMTAEem6vJHOl6M9XA" role_ExternalService="_lXZuIMooEem4ZN5Unn2ciQ"/>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+      </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <interfaces__Repository xsi:type="repository:OperationInterface" id="_tPpiYMS6Eem6vJHOl6M9XA" entityName="IReceiver">
