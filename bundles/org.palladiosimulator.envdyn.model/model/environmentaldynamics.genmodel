@@ -4,13 +4,13 @@
     editorDirectory="/org.palladiosimulator.envdyn.model.editor/src-gen" modelPluginID="org.palladiosimulator.envdyn.model"
     modelName="Environmentaldynamics" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
-    copyrightFields="false" usedGenPackages="../../tools.mdsd.characteristics/model/characteristics.genmodel#//characteristics platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier ../../tools.mdsd.somde.realm/model/realm.genmodel#//realm"
+    copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier ../../tools.mdsd.probdist.model/model/probdist.genmodel#//probdist"
     operationReflection="true" importOrganizing="true">
   <foreignModel>environmentaldynamics.ecore</foreignModel>
   <genPackages prefix="Environment" basePackage="org.palladiosimulator.envdyn" disposableProviderFactory="true"
       ecorePackage="environmentaldynamics.ecore#/">
-    <nestedGenPackages prefix="Templatevariable" disposableProviderFactory="true"
-        ecorePackage="environmentaldynamics.ecore#//templatevariable">
+    <nestedGenPackages prefix="Templatevariable" basePackage="org.palladiosimulator.envdyn.environment"
+        disposableProviderFactory="true" ecorePackage="environmentaldynamics.ecore#//templatevariable">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="environmentaldynamics.ecore#//templatevariable/DependenceType">
         <genEnumLiterals ecoreEnumLiteral="environmentaldynamics.ecore#//templatevariable/DependenceType/DIRECTED"/>
         <genEnumLiterals ecoreEnumLiteral="environmentaldynamics.ecore#//templatevariable/DependenceType/UNDIRECTED"/>
@@ -20,23 +20,23 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariableDefinitions/factors"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariableDefinitions/arguments"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariableDefinitions/relation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariableDefinitions/templateGroups"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/TemplateVariable">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//templatevariable/TemplateVariable/shared"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariable/signature"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariable/signature"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//templatevariable/TemplateVariable/isHidden"/>
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariable/refines"/>
       </genClasses>
       <genClasses image="false" ecoreClass="environmentaldynamics.ecore#//templatevariable/TemplateFactor">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateFactor/scope"/>
       </genClasses>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/Argument">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/Argument/classProfile"/>
-      </genClasses>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/Argument"/>
       <genClasses image="false" ecoreClass="environmentaldynamics.ecore#//templatevariable/Relation"/>
       <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/ProbabilisticTemplateFactor">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//templatevariable/ProbabilisticTemplateFactor/distributionClassDummy"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/ProbabilisticTemplateFactor/distributionFamily"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/DependenceRelation">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//templatevariable/DependenceRelation/type"/>
@@ -44,6 +44,7 @@
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/DependenceRelation/target"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/DependenceRelation/source"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//templatevariable/DependenceRelation/contingent"/>
       </genClasses>
       <genClasses image="false" ecoreClass="environmentaldynamics.ecore#//templatevariable/TemporalRelation"/>
       <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/PresistenceRelation">
@@ -54,32 +55,43 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TimeSliceRelation/temporalDependence"/>
       </genClasses>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/TemplateVariableGroup">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariableGroup/groupedTemplates"/>
+      </genClasses>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/LogicalVariable">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/LogicalVariable/argument"/>
+      </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Staticmodel" disposableProviderFactory="true" ecorePackage="environmentaldynamics.ecore#//staticmodel">
+    <nestedGenPackages prefix="Staticmodel" basePackage="org.palladiosimulator.envdyn.environment"
+        disposableProviderFactory="true" ecorePackage="environmentaldynamics.ecore#//staticmodel">
       <genClasses ecoreClass="environmentaldynamics.ecore#//staticmodel/GroundRandomVariable">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/GroundRandomVariable/instantiatedTemplate"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/GroundRandomVariable/dependenceStructure"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/GroundRandomVariable/classManifestation"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/GroundRandomVariable/descriptiveModel"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/GroundRandomVariable/appliedObjects"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//staticmodel/LocalProbabilisticModel">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/LocalProbabilisticModel/instantiatedFactor"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//staticmodel/LocalProbabilisticModel/distParamsDummy"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/LocalProbabilisticModel/distribution"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//staticmodel/ProbabilisticModelRepository">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/ProbabilisticModelRepository/models"/>
       </genClasses>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//staticmodel/ProbabilisticModel">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/ProbabilisticModel/groundRandomVariables"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/ProbabilisticModel/localModels"/>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//staticmodel/GroundProbabilisticNetwork">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/GroundProbabilisticNetwork/groundRandomVariables"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/GroundProbabilisticNetwork/localModels"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Dynamicmodel" disposableProviderFactory="true" ecorePackage="environmentaldynamics.ecore#//dynamicmodel">
+    <nestedGenPackages prefix="Dynamicmodel" basePackage="org.palladiosimulator.envdyn.environment"
+        disposableProviderFactory="true" ecorePackage="environmentaldynamics.ecore#//dynamicmodel">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="environmentaldynamics.ecore#//dynamicmodel/TransitionMatrixType">
         <genEnumLiterals ecoreEnumLiteral="environmentaldynamics.ecore#//dynamicmodel/TransitionMatrixType/STATE"/>
         <genEnumLiterals ecoreEnumLiteral="environmentaldynamics.ecore#//dynamicmodel/TransitionMatrixType/OBSERVATION"/>
@@ -116,7 +128,8 @@
       <genClasses ecoreClass="environmentaldynamics.ecore#//dynamicmodel/LocalDynamicModel">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamicmodel/LocalDynamicModel/instantiatedTemplate"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//dynamicmodel/LocalDynamicModel/distParamsDummy"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamicmodel/LocalDynamicModel/distributionFunction"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//dynamicmodel/TransitionMatrix">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//dynamicmodel/TransitionMatrix/type"/>

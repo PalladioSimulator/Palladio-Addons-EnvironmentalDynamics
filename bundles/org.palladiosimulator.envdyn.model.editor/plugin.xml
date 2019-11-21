@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated environmentaldynamics -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.palladiosimulator.envdyn.environment.templatevariable.presentation.TemplatevariableModelWizardID"
+            name="%_UI_TemplatevariableModelWizard_label"
+            class="org.palladiosimulator.envdyn.environment.templatevariable.presentation.TemplatevariableModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TemplatevariableModelFile.gif">
+         <description>%_UI_TemplatevariableModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated environmentaldynamics -->
+      <editor
+            id="org.palladiosimulator.envdyn.environment.templatevariable.presentation.TemplatevariableEditorID"
+            name="%_UI_TemplatevariableEditor_label"
+            icon="icons/full/obj16/TemplatevariableModelFile.gif"
+            extensions="templatevariable"
+            class="org.palladiosimulator.envdyn.environment.templatevariable.presentation.TemplatevariableEditor"
+            contributorClass="org.palladiosimulator.envdyn.environment.templatevariable.presentation.TemplatevariableActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated environmentaldynamics -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.palladiosimulator.envdyn.environment.staticmodel.presentation.StaticmodelModelWizardID"
+            name="%_UI_StaticmodelModelWizard_label"
+            class="org.palladiosimulator.envdyn.environment.staticmodel.presentation.StaticmodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/StaticmodelModelFile.gif">
+         <description>%_UI_StaticmodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated environmentaldynamics -->
+      <editor
+            id="org.palladiosimulator.envdyn.environment.staticmodel.presentation.StaticmodelEditorID"
+            name="%_UI_StaticmodelEditor_label"
+            icon="icons/full/obj16/StaticmodelModelFile.gif"
+            extensions="staticmodel"
+            class="org.palladiosimulator.envdyn.environment.staticmodel.presentation.StaticmodelEditor"
+            contributorClass="org.palladiosimulator.envdyn.environment.staticmodel.presentation.StaticmodelActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated environmentaldynamics -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.palladiosimulator.envdyn.environment.dynamicmodel.presentation.DynamicmodelModelWizardID"
+            name="%_UI_DynamicmodelModelWizard_label"
+            class="org.palladiosimulator.envdyn.environment.dynamicmodel.presentation.DynamicmodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/DynamicmodelModelFile.gif">
+         <description>%_UI_DynamicmodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated environmentaldynamics -->
+      <editor
+            id="org.palladiosimulator.envdyn.environment.dynamicmodel.presentation.DynamicmodelEditorID"
+            name="%_UI_DynamicmodelEditor_label"
+            icon="icons/full/obj16/DynamicmodelModelFile.gif"
+            extensions="dynamicmodel"
+            class="org.palladiosimulator.envdyn.environment.dynamicmodel.presentation.DynamicmodelEditor"
+            contributorClass="org.palladiosimulator.envdyn.environment.dynamicmodel.presentation.DynamicmodelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
