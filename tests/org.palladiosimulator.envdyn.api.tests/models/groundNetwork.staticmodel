@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ASCII"?>
+<staticmodel:GroundProbabilisticNetwork xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:staticmodel="http://palladiosimulator.org/Environment/StaticModel/1.0" xmlns:templatevariable="http://palladiosimulator.org/Environment/TemplateVariable/1.0" id="_HXKy8BBsEeqyw8zQlFtnMw">
+  <localModels>
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_CV7b4cWoEemx1KrwIzdqtQ"/>
+  </localModels>
+  <localModels>
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_CV7b4cWoEemx1KrwIzdqtQ"/>
+  </localModels>
+  <localModels>
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_CV7b4cWoEemx1KrwIzdqtQ"/>
+  </localModels>
+  <localModels>
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_CV7b4cWoEemx1KrwIzdqtQ"/>
+  </localModels>
+  <localModels>
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_drQgMQxzEeqUBrWYKlRSOQ"/>
+  </localModels>
+  <localModels>
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_PCasccsVEem-osfd2_mNhw"/>
+  </localModels>
+  <localModels>
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_1K4W4MWnEemx1KrwIzdqtQ"/>
+  </localModels>
+  <localModels>
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_1K4W4MWnEemx1KrwIzdqtQ"/>
+  </localModels>
+  <localModels>
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_1K4W4MWnEemx1KrwIzdqtQ"/>
+  </localModels>
+  <localModels>
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_1K4W4MWnEemx1KrwIzdqtQ"/>
+  </localModels>
+  <localModels>
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_CV7b4cWoEemx1KrwIzdqtQ"/>
+  </localModels>
+  <localModels>
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_PCasccsVEem-osfd2_mNhw"/>
+  </localModels>
+  <localModels>
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_R6ZsYcr4EemPmcCIsj28kQ"/>
+  </localModels>
+  <localModels>
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_1K4W4MWnEemx1KrwIzdqtQ"/>
+  </localModels>
+  <localProbabilisticModels>
+    <groundRandomVariables id="_GROekBBsEeqyw8zQlFtnMw" descriptiveModel="//@localModels.0">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_QCuf4MWkEemeD8HH3Gbl-Q"/>
+      <dependenceStructure href="DeltaIoTTemplateVariables.templatevariable#//@relation.0"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_RkgrcMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_GfN3QBBsEeqyw8zQlFtnMw" descriptiveModel="//@localModels.1">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_QCuf4MWkEemeD8HH3Gbl-Q"/>
+      <dependenceStructure href="DeltaIoTTemplateVariables.templatevariable#//@relation.0"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_e2HEYMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_Gk3MQBBsEeqyw8zQlFtnMw" descriptiveModel="//@localModels.2">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_QCuf4MWkEemeD8HH3Gbl-Q"/>
+      <dependenceStructure href="DeltaIoTTemplateVariables.templatevariable#//@relation.0"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_kPLa0MWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_Go9pIBBsEeqyw8zQlFtnMw" descriptiveModel="//@localModels.3">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_QCuf4MWkEemeD8HH3Gbl-Q"/>
+      <dependenceStructure href="DeltaIoTTemplateVariables.templatevariable#//@relation.0"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_Yi0hYMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_Gv27UBBsEeqyw8zQlFtnMw" descriptiveModel="//@localModels.4">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_cXAfgAxyEeqUBrWYKlRSOQ"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_e2HEYMWTEem8XvI7PKw-OA"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_kPLa0MWTEem8XvI7PKw-OA"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_Yi0hYMWTEem8XvI7PKw-OA"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_RkgrcMWTEem8XvI7PKw-OA"/>
+      <appliedObjects href="DeltaIoTSystem.system#_rh4NoMTpEem6vJHOl6M9XA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_GzmL0BBsEeqyw8zQlFtnMw" descriptiveModel="//@localModels.5">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_GZdDoMr2EemPmcCIsj28kQ"/>
+      <appliedObjects href="DeltaIoTSystem.system#_rh4NoMTpEem6vJHOl6M9XA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_G5D6oBBsEeqyw8zQlFtnMw" descriptiveModel="//@localModels.6">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_1rlpgMWiEemeD8HH3Gbl-Q"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_RkgrcMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_G9VWoBBsEeqyw8zQlFtnMw" descriptiveModel="//@localModels.7">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_1rlpgMWiEemeD8HH3Gbl-Q"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_e2HEYMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_HBihMBBsEeqyw8zQlFtnMw" descriptiveModel="//@localModels.8">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_1rlpgMWiEemeD8HH3Gbl-Q"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_kPLa0MWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_HE5-QBBsEeqyw8zQlFtnMw" descriptiveModel="//@localModels.9">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_1rlpgMWiEemeD8HH3Gbl-Q"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_Yi0hYMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+  </localProbabilisticModels>
+  <localProbabilisticModels>
+    <groundRandomVariables id="_HMChABBsEeqyw8zQlFtnMw" descriptiveModel="//@localModels.10">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_QCuf4MWkEemeD8HH3Gbl-Q"/>
+      <dependenceStructure href="DeltaIoTTemplateVariables.templatevariable#//@relation.0"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_9BF1QMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_HPlkQBBsEeqyw8zQlFtnMw" descriptiveModel="//@localModels.11">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_GZdDoMr2EemPmcCIsj28kQ"/>
+      <appliedObjects href="DeltaIoTSystem.system#_efL5UMVrEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_HSqtcBBsEeqyw8zQlFtnMw" descriptiveModel="//@localModels.12">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_uszBEMr1EemPmcCIsj28kQ"/>
+      <dependenceStructure href="DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+      <dependenceStructure href="DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_9BF1QMWTEem8XvI7PKw-OA"/>
+      <appliedObjects href="DeltaIoTSystem.system#_efL5UMVrEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_HW2p4BBsEeqyw8zQlFtnMw" descriptiveModel="//@localModels.13">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_1rlpgMWiEemeD8HH3Gbl-Q"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_9BF1QMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+  </localProbabilisticModels>
+</staticmodel:GroundProbabilisticNetwork>

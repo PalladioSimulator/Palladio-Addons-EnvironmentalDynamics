@@ -6,7 +6,7 @@
   <variables id="_QCuf4MWkEemeD8HH3Gbl-Q" entityName="SignalToNoiseRatio">
     <signature argument="_BPv0UMr1EemPmcCIsj28kQ"/>
   </variables>
-  <variables id="_uszBEMr1EemPmcCIsj28kQ" entityName="TrafficLoad">
+  <variables id="_uszBEMr1EemPmcCIsj28kQ" entityName="TrafficLoad" shared="true">
     <signature argument="_e9Dxwcr1EemPmcCIsj28kQ"/>
     <signature argument="_BPv0UMr1EemPmcCIsj28kQ"/>
   </variables>

@@ -1,8 +1,11 @@
 package org.palladiosimulator.envdyn.api.tests.util;
 
+import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Collections;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -74,6 +77,16 @@ public class ModelLoader {
 
 	public Resource loadSystem() {
 		return resourceSet.getResource(systemURI, true);
+	}
+	
+	public void persist(EObject eObj) {
+		Resource resource = resourceSet.createResource(URI.createFileURI(constructPath("groundNetwork.staticmodel")));
+		resource.getContents().add(eObj);
+		try {
+            resource.save(Collections.EMPTY_MAP);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 
 }

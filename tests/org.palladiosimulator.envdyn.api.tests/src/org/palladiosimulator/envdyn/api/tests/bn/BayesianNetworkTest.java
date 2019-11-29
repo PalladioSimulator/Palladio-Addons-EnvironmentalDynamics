@@ -37,6 +37,7 @@ public class BayesianNetworkTest {
 
 	private void whenGeneratingBN() {
 		bayNetwork = new BayesianNetworkGenerator(templateDefinitions).generate(appliedModels);
+		ModelLoader.get().persist(bayNetwork.get());
 	}
 
 	private void thenBNIsProperlyGenerated() {
