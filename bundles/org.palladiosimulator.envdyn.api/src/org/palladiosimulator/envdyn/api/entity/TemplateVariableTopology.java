@@ -1,19 +1,20 @@
 package org.palladiosimulator.envdyn.api.entity;
 
-import java.util.ArrayList;
+import static org.palladiosimulator.envdyn.api.util.TemplateDefinitionsQuerying.contains;
+
 import java.util.Iterator;
-import java.util.List;
+import java.util.Map;
 import java.util.Set;
-import java.util.function.Predicate;
 
 import org.palladiosimulator.envdyn.api.exception.EnvironmentalDynamicsException;
-import org.palladiosimulator.envdyn.api.util.TemplateVariableFilter;
-import org.palladiosimulator.envdyn.environment.templatevariable.DependenceRelation;
+import org.palladiosimulator.envdyn.api.util.TemplateDefinitionsQuerying;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariable;
+
+import com.google.common.collect.Maps;
 
 public class TemplateVariableTopology {
 
-	public class TopologyIterator implements Iterator<Set<TemplateVariable>> {
+	public class TopologyIterator implements Iterator<TemplateVariable> {
 
 		private int levelCounter = 0;
 		private int increment = 1;
@@ -24,8 +25,8 @@ public class TemplateVariableTopology {
 		}
 
 		@Override
-		public Set<TemplateVariable> next() {
-			Set<TemplateVariable> next = topologyLevels.get(levelCounter);
+		public TemplateVariable next() {
+			TemplateVariable next = topologyLevels.get(levelCounter);
 
 			incrementCounter();
 
@@ -47,11 +48,12 @@ public class TemplateVariableTopology {
 
 	}
 
-	private final List<Set<TemplateVariable>> topologyLevels = new ArrayList<>();
-	private final TemplateVariableFilter variableFilter;
+	private final TemplateDefinitionsQuerying templateQuery;
+	private final Map<Integer, TemplateVariable> topologyLevels;
 
-	public TemplateVariableTopology(TemplateVariableFilter variableFilter) {
-		this.variableFilter = variableFilter;
+	public TemplateVariableTopology(TemplateDefinitionsQuerying templateQuery) {
+		this.templateQuery = templateQuery;
+		this.topologyLevels = Maps.newHashMap();
 
 		orderTopologically();
 	}
@@ -61,39 +63,36 @@ public class TemplateVariableTopology {
 	}
 
 	private void orderTopologically() {
-		boolean stillTemplatesToOrder = true;
-		while (stillTemplatesToOrder) {
-			Set<TemplateVariable> level;
-			if (topologyLevels.isEmpty()) {
-				level = variableFilter.filterParentless();
-			} else {
-				level = filterNextTopologicalStage();
-			}
-
-			if (level.isEmpty()) {
-				stillTemplatesToOrder = false;
-			} else {
-				addTopologyLevel(level);
-			}
+		Set<TemplateVariable> templates = templateQuery.getTemplateVariables();
+		for (int i = 0; i < templates.size(); i++) {
+			TemplateVariable template = selectAnyWithOrderedParents(templates);
+			
+			addToTopology(i, template);
+			
+			templates.remove(template);
 		}
 	}
 
-	private Set<TemplateVariable> filterNextTopologicalStage() {
-		Set<TemplateVariable> lastStage = topologyLevels.get(topologyLevels.size());
-		Set<TemplateVariable> candidates = variableFilter.filterAllChildsOf(lastStage);
-		Set<DependenceRelation> relations = variableFilter.filterRelationsWithSource(candidates);
-		
-		candidates.removeIf(isTargetIn(relations));
-		
-		return candidates;
+	private TemplateVariable selectAnyWithOrderedParents(Set<TemplateVariable> templates) {
+		for (TemplateVariable any : templates) {
+			Set<TemplateVariable> parents = templateQuery.filterAllParentsOf(any);
+			if (inTopology(parents)) {
+				return any;
+			}
+		}
+
+		throw new EnvironmentalDynamicsException("The templates cannot be ordered topologically.");
 	}
 
-	private Predicate<TemplateVariable> isTargetIn(Set<DependenceRelation> relations) {
-		return t -> relations.stream().anyMatch(r -> r.getTarget().getId().equals(t.getId()));
+	private boolean inTopology(Set<TemplateVariable> parents) {
+		if (parents.isEmpty()) {
+			return true;
+		}
+		return parents.stream().allMatch(p -> contains(p, topologyLevels.values()));
 	}
 
-	private void addTopologyLevel(Set<TemplateVariable> level) {
-		topologyLevels.add(level);
+	private void addToTopology(Integer level, TemplateVariable template) {
+		topologyLevels.put(level, template);
 	}
 
 }

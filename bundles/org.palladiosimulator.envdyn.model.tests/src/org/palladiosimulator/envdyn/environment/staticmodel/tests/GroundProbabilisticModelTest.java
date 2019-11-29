@@ -6,24 +6,24 @@ import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
-import org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel;
+import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel;
 import org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Local Probabilistic Model</b></em>'.
+ * A test case for the model object '<em><b>Ground Probabilistic Model</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class LocalProbabilisticModelTest extends TestCase {
+public class GroundProbabilisticModelTest extends TestCase {
 
 	/**
-	 * The fixture for this Local Probabilistic Model test case.
+	 * The fixture for this Ground Probabilistic Model test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LocalProbabilisticModel fixture = null;
+	protected GroundProbabilisticModel fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class LocalProbabilisticModelTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(LocalProbabilisticModelTest.class);
+		TestRunner.run(GroundProbabilisticModelTest.class);
 	}
 
 	/**
-	 * Constructs a new Local Probabilistic Model test case with the given name.
+	 * Constructs a new Ground Probabilistic Model test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LocalProbabilisticModelTest(String name) {
+	public GroundProbabilisticModelTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Local Probabilistic Model test case.
+	 * Sets the fixture for this Ground Probabilistic Model test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(LocalProbabilisticModel fixture) {
+	protected void setFixture(GroundProbabilisticModel fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Local Probabilistic Model test case.
+	 * Returns the fixture for this Ground Probabilistic Model test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LocalProbabilisticModel getFixture() {
+	protected GroundProbabilisticModel getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class LocalProbabilisticModelTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(StaticmodelFactory.eINSTANCE.createLocalProbabilisticModel());
+		setFixture(StaticmodelFactory.eINSTANCE.createGroundProbabilisticModel());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class LocalProbabilisticModelTest extends TestCase {
 		setFixture(null);
 	}
 
-} //LocalProbabilisticModelTest
+} //GroundProbabilisticModelTest

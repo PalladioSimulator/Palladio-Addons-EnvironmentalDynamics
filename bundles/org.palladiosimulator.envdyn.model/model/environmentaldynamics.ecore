@@ -68,17 +68,17 @@
   </eSubpackages>
   <eSubpackages name="staticmodel" nsURI="http://palladiosimulator.org/Environment/StaticModel/1.0"
       nsPrefix="staticmodel">
-    <eClassifiers xsi:type="ecore:EClass" name="GroundRandomVariable">
+    <eClassifiers xsi:type="ecore:EClass" name="GroundRandomVariable" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Identifier">
       <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedTemplate"
           lowerBound="1" eType="#//templatevariable/TemplateVariable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dependenceStructure"
           lowerBound="1" upperBound="-1" eType="#//templatevariable/DependenceRelation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="descriptiveModel" lowerBound="1"
-          eType="#//staticmodel/LocalProbabilisticModel"/>
+          eType="#//staticmodel/GroundProbabilisticModel"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="appliedObjects" lowerBound="1"
           upperBound="-1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LocalProbabilisticModel">
+    <eClassifiers xsi:type="ecore:EClass" name="GroundProbabilisticModel">
       <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedFactor" lowerBound="1"
           eType="#//templatevariable/TemplateFactor"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="distribution" lowerBound="1"
@@ -89,11 +89,16 @@
           eType="#//staticmodel/GroundProbabilisticNetwork" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GroundProbabilisticNetwork" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="localModels" lowerBound="1"
+          upperBound="-1" eType="#//staticmodel/GroundProbabilisticModel" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="localProbabilisticModels"
+          lowerBound="1" upperBound="-1" eType="#//staticmodel/LocalProbabilisticNetwork"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LocalProbabilisticNetwork">
       <eStructuralFeatures xsi:type="ecore:EReference" name="groundRandomVariables"
           lowerBound="1" upperBound="-1" eType="#//staticmodel/GroundRandomVariable"
           containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="localModels" lowerBound="1"
-          upperBound="-1" eType="#//staticmodel/LocalProbabilisticModel" containment="true"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="dynamicmodel" nsURI="http://palladiosimulator.org/Environment/DynamicModel/1.0"

@@ -15,26 +15,31 @@
         <genEnumLiterals ecoreEnumLiteral="environmentaldynamics.ecore#//templatevariable/DependenceType/DIRECTED"/>
         <genEnumLiterals ecoreEnumLiteral="environmentaldynamics.ecore#//templatevariable/DependenceType/UNDIRECTED"/>
       </genEnums>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/TemplateVariableDefinitions">
+      <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/TemplateVariableDefinitions"
+          labelFeature="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariableDefinitions/variables"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariableDefinitions/factors"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariableDefinitions/arguments"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariableDefinitions/relation"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariableDefinitions/templateGroups"/>
       </genClasses>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/TemplateVariable">
+      <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/TemplateVariable"
+          labelFeature="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//templatevariable/TemplateVariable/shared"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariable/signature"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariable/refines"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="environmentaldynamics.ecore#//templatevariable/TemplateFactor">
+      <genClasses image="false" ecoreClass="environmentaldynamics.ecore#//templatevariable/TemplateFactor"
+          labelFeature="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateFactor/scope"/>
       </genClasses>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/Argument"/>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/Argument"
+          labelFeature="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName"/>
       <genClasses image="false" ecoreClass="environmentaldynamics.ecore#//templatevariable/Relation"/>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/ProbabilisticTemplateFactor">
+      <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/ProbabilisticTemplateFactor"
+          labelFeature="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/ProbabilisticTemplateFactor/distributionFamily"/>
       </genClasses>
@@ -76,18 +81,23 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/GroundRandomVariable/appliedObjects"/>
       </genClasses>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//staticmodel/LocalProbabilisticModel">
+      <genClasses ecoreClass="environmentaldynamics.ecore#//staticmodel/GroundProbabilisticModel">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/LocalProbabilisticModel/instantiatedFactor"/>
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/GroundProbabilisticModel/instantiatedFactor"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/LocalProbabilisticModel/distribution"/>
+            ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/GroundProbabilisticModel/distribution"/>
       </genClasses>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//staticmodel/ProbabilisticModelRepository">
+      <genClasses ecoreClass="environmentaldynamics.ecore#//staticmodel/ProbabilisticModelRepository"
+          labelFeature="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/ProbabilisticModelRepository/models"/>
       </genClasses>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//staticmodel/GroundProbabilisticNetwork">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/GroundProbabilisticNetwork/groundRandomVariables"/>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//staticmodel/GroundProbabilisticNetwork"
+          labelFeature="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/GroundProbabilisticNetwork/localModels"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/GroundProbabilisticNetwork/localProbabilisticModels"/>
+      </genClasses>
+      <genClasses ecoreClass="environmentaldynamics.ecore#//staticmodel/LocalProbabilisticNetwork">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//staticmodel/LocalProbabilisticNetwork/groundRandomVariables"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Dynamicmodel" basePackage="org.palladiosimulator.envdyn.environment"
@@ -96,7 +106,8 @@
         <genEnumLiterals ecoreEnumLiteral="environmentaldynamics.ecore#//dynamicmodel/TransitionMatrixType/STATE"/>
         <genEnumLiterals ecoreEnumLiteral="environmentaldynamics.ecore#//dynamicmodel/TransitionMatrixType/OBSERVATION"/>
       </genEnums>
-      <genClasses ecoreClass="environmentaldynamics.ecore#//dynamicmodel/DynamicBehaviourRepository">
+      <genClasses ecoreClass="environmentaldynamics.ecore#//dynamicmodel/DynamicBehaviourRepository"
+          labelFeature="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//dynamicmodel/DynamicBehaviourRepository/extensions"/>
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//dynamicmodel/DynamicBehaviourExtension">

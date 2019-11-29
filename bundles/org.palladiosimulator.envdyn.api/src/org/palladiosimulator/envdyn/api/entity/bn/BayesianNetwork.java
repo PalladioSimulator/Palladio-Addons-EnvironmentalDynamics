@@ -1,24 +1,27 @@
 package org.palladiosimulator.envdyn.api.entity.bn;
 
-import java.util.ArrayList;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
+import static org.palladiosimulator.envdyn.api.util.TemplateDefinitionsQuerying.areEqual;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
-import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.envdyn.api.entity.ProbabilisticModel;
 import org.palladiosimulator.envdyn.api.entity.TemplateVariableTopology;
+import org.palladiosimulator.envdyn.api.entity.TemplateVariableTopology.TopologyIterator;
 import org.palladiosimulator.envdyn.api.entity.bn.BayesianNetwork.InputValue;
 import org.palladiosimulator.envdyn.api.exception.EnvironmentalDynamicsException;
-import org.palladiosimulator.envdyn.api.util.TemplateVariableFilter;
+import org.palladiosimulator.envdyn.api.util.TemplateDefinitionsQuerying;
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork;
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable;
+import org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticNetwork;
 import org.palladiosimulator.envdyn.environment.templatevariable.DependenceRelation;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariable;
+
+import com.google.common.collect.Lists;
 
 import tools.mdsd.probdist.api.builder.ProbabilityDistributionBuilder;
 import tools.mdsd.probdist.api.entity.CategoricalValue;
@@ -29,6 +32,7 @@ import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
 import tools.mdsd.probdist.api.entity.UnivariateProbabilitiyMassFunction;
 import tools.mdsd.probdist.api.entity.UnivariateProbabilityDensityFunction;
 import tools.mdsd.probdist.api.entity.Value;
+import tools.mdsd.probdist.model.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.model.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.model.probdist.distributiontype.ProbabilityDistributionSkeleton;
 import tools.mdsd.probdist.model.probdist.distributiontype.ProbabilityDistributionType;
@@ -60,46 +64,45 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 
 	}
 
-	private static class LocalProbabilisticModelHandler {
-
-		private final static LocalProbabilisticModelHandler handlerInstance = new LocalProbabilisticModelHandler();
+	private class LocalProbabilisticModelHandler {
 
 		private final Map<GroundRandomVariable, ProbabilityDistributionFunction<?>> modelCache = new HashMap<>();
 
-		private LocalProbabilisticModelHandler() {
-
+		public ProbabilityDistributionFunction<?> getPDF(GroundRandomVariable variable) {
+			if (modelCache.isEmpty()) {
+				initialize();
+			}
+			return modelCache.get(variable);
 		}
 
-		public static LocalProbabilisticModelHandler get() {
-			return handlerInstance;
+		private void initialize() {
+			BayesianNetwork.this.groundNetwork.getLocalProbabilisticModels().forEach(this::createAndCache);
 		}
 
-		public ProbabilityDistributionFunction<?> getLocalPD(GroundRandomVariable variable) {
-			return queryCache(variable).orElse(createAndCachePD(variable));
+		private void createAndCache(LocalProbabilisticNetwork localNetwork) {
+			TemplateDefinitionsQuerying defQuery = TemplateDefinitionsQuerying
+					.withTemplateScope(getTemplates(localNetwork));
+			for (GroundRandomVariable each : localNetwork.getGroundRandomVariables()) {
+				if (defQuery.filterAllChildsOf(each.getInstantiatedTemplate()).isEmpty()) {
+					createAndCachePD(each);
+				} else {
+					createAndCacheCPD(each);
+				}
+			}
 		}
 
-		public ConditionalProbabilityDistribution getLocalCPD(GroundRandomVariable variable) {
-			return (ConditionalProbabilityDistribution) queryCache(variable).orElse(createAndCacheCPD(variable));
-		}
-
-		private Optional<ProbabilityDistributionFunction<?>> queryCache(GroundRandomVariable variable) {
-			return Optional.ofNullable(modelCache.get(variable));
-		}
-
-		private ProbabilityDistributionFunction<?> createAndCachePD(GroundRandomVariable variable) {
+		private void createAndCachePD(GroundRandomVariable variable) {
 			ProbabilityDistribution distribution = variable.getDescriptiveModel().getDistribution();
 			ProbabilityDistributionFunction<?> pdf = ProbabilityDistributionBuilder.create().withStructure(distribution)
 					.build();
 			cache(variable, pdf);
-			return pdf;
 		}
 
-		private ProbabilityDistributionFunction<?> createAndCacheCPD(GroundRandomVariable variable) {
+		private void createAndCacheCPD(GroundRandomVariable variable) {
 			ProbabilityDistribution distribution = variable.getDescriptiveModel().getDistribution();
 			ProbabilityDistributionFunction<?> pdf = ProbabilityDistributionBuilder.create().withStructure(distribution)
 					.asConditionalProbabilityDistribution().build();
 			cache(variable, pdf);
-			return pdf;
 		}
 
 		private void cache(GroundRandomVariable variable, ProbabilityDistributionFunction<?> pdf) {
@@ -109,22 +112,28 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 	}
 
 	private final GroundProbabilisticNetwork groundNetwork;
-	private final TemplateVariableTopology templateTopology;
-	private final TemplateVariableFilter variableFilter;
-
+	private final LocalProbabilisticModelHandler probModelHandler;
+	
 	public BayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, GroundProbabilisticNetwork groundNetwork) {
 		super(distSkeleton);
 
 		this.groundNetwork = groundNetwork;
-		this.variableFilter = TemplateVariableFilter.get(resolveAllTemplates(), resolveAllRelations());
-		this.templateTopology = new TemplateVariableTopology(this.variableFilter);
+		this.probModelHandler = new LocalProbabilisticModelHandler();
 
 		checkConsistency();
 	}
 
+	public GroundProbabilisticNetwork get() {
+		return groundNetwork;
+	}
+	
 	private void checkConsistency() {
-		for (GroundRandomVariable each : groundNetwork.getGroundRandomVariables()) {
-			if (allParentsInstantiated(each) == false) {
+		groundNetwork.getLocalProbabilisticModels().forEach(this::allParentsInstantiated);
+	}
+
+	private void allParentsInstantiated(LocalProbabilisticNetwork localNetwork) {
+		for (GroundRandomVariable each : localNetwork.getGroundRandomVariables()) {
+			if (allParentsInstantiated(each, localNetwork) == false) {
 				throw new EnvironmentalDynamicsException(
 						String.format("The parents of ground variable with template %s is not instantiated correctly.",
 								each.getInstantiatedTemplate().getEntityName()));
@@ -132,100 +141,54 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 		}
 	}
 
-	private boolean allParentsInstantiated(GroundRandomVariable variable) {
-		Set<TemplateVariable> parents = variableFilter.filterAllParentsOf(variable.getInstantiatedTemplate());
+	private boolean allParentsInstantiated(GroundRandomVariable variable, LocalProbabilisticNetwork localNetwork) {
+		TemplateDefinitionsQuerying templateQuery = TemplateDefinitionsQuerying
+				.withTemplateScope(getTemplates(localNetwork));
+
+		TemplateVariable templateToCheck = variable.getInstantiatedTemplate();
+		Set<TemplateVariable> parents = templateQuery.filterAllParentsOf(templateToCheck);
 		if (parents.isEmpty()) {
 			return true;
 		}
 
-		List<GroundRandomVariable> instantiatedParents = filterAllGroundVaribales(
-				v -> parents.contains(v.getInstantiatedTemplate()));
-		instantiatedParents.removeIf(appliedObjectsAreSubsetOf(variable.getAppliedObjects()));
-		return instantiatedParents.isEmpty() == false
-				&& instantiatedParents.size() <= variable.getAppliedObjects().size();
+		for (TemplateVariable eachParent : parents) {
+			List<GroundRandomVariable> instantiated = filterGroundVariablesInstantiating(eachParent, localNetwork);
+			if (instantiated.isEmpty()) {
+				DependenceRelation relation = templateQuery.findRelation(eachParent, templateToCheck).get();
+				if (relation.isContingent() == false) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 
-	private Predicate<GroundRandomVariable> appliedObjectsAreSubsetOf(List<EObject> appliedObjects) {
-		return v -> appliedObjects.containsAll(v.getAppliedObjects());
+	private List<GroundRandomVariable> filterGroundVariablesInstantiating(TemplateVariable template,
+			LocalProbabilisticNetwork localNetwork) {
+		return localNetwork.getGroundRandomVariables().stream()
+				.filter(v -> areEqual(template, v.getInstantiatedTemplate())).collect(toList());
 	}
 
-	private List<GroundRandomVariable> filterAllGroundVaribales(Predicate<GroundRandomVariable> criteria) {
-		return getGroundVariables().stream().filter(criteria).collect(Collectors.toList());
+	private Set<TemplateVariable> getTemplates(LocalProbabilisticNetwork localNetwork) {
+		return localNetwork.getGroundRandomVariables().stream().map(GroundRandomVariable::getInstantiatedTemplate)
+				.distinct().collect(toSet());
 	}
 
-	// TODO Input specification has to be reconsidered
 	@Override
 	public Double probability(List<InputValue> value) {
 		checkValidity(value);
 
-		var result = 1.0;
-		for (GroundRandomVariable each : getTopologicallyOrderedGroundVariables()) {
-			result *= calculateLocalProbability(each, value);
-		}
-		return result;
+		throw new UnsupportedOperationException("The method is not implemented yet.");
 	}
 
 	@Override
 	public List<InputValue> sample() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		return sampleNext();
 	}
 
 	@Override
 	public Double infer(List<InputValue> inputs) {
 		throw new UnsupportedOperationException("The method is not implemented yet.");
-	}
-
-	private List<GroundRandomVariable> getTopologicallyOrderedGroundVariables() {
-		List<GroundRandomVariable> topologicallyOrdered = new ArrayList<>();
-		templateTopology.getTopologicallyOrderedTemplates()
-				.forEachRemaining((templates) -> topologicallyOrdered.addAll(filterAllGroundVariables(templates)));
-		return topologicallyOrdered;
-	}
-
-	private List<GroundRandomVariable> filterAllGroundVariables(Set<TemplateVariable> templates) {
-		return getGroundVariables().stream().filter(v -> templates.contains(v.getInstantiatedTemplate()))
-				.collect(Collectors.toList());
-	}
-
-	private double calculateLocalProbability(GroundRandomVariable variable, List<InputValue> inputs) {
-		ProbabilityDistributionFunction<?> pdf;
-		if (isParentless(variable)) {
-			pdf = LocalProbabilisticModelHandler.get().getLocalPD(variable);
-		} else {
-			pdf = LocalProbabilisticModelHandler.get().getLocalCPD(variable)
-					.given(resolveConditionals(variable, inputs));
-		}
-
-		return calculateLocalProbability(pdf, getInputValue(variable, inputs));
-	}
-
-	private List<Conditional> resolveConditionals(GroundRandomVariable variable, List<InputValue> inputs) {
-		// TODO this has to be addressed differently
-		return null;
-	}
-
-	private double calculateLocalProbability(ProbabilityDistributionFunction<?> pdf, InputValue inputValue) {
-		try {
-			ProbabilityDistributionSkeleton skeleton = pdf.getDistributionSkeleton();
-			if (skeleton.getType() == ProbabilityDistributionType.DISCRETE) {
-				return UnivariateProbabilitiyMassFunction.class.cast(pdf).probability(inputValue.asCategorical());
-			}
-			return UnivariateProbabilityDensityFunction.class.cast(pdf).probability(inputValue.asNumerical());
-		} catch (ClassCastException e) {
-			throw new EnvironmentalDynamicsException("The distributions input space do not match.", e);
-		}
-
-	}
-
-	private boolean isParentless(GroundRandomVariable variable) {
-		return variableFilter.filterAllParentsOf(variable.getInstantiatedTemplate()).isEmpty();
-	}
-
-	private InputValue getInputValue(GroundRandomVariable variable, List<InputValue> inputs) {
-		return inputs.stream().filter(input -> input.variable == variable).findFirst()
-				.orElseThrow(() -> new IllegalArgumentException(
-						String.format("The network does not contain the ground random variable for template %s",
-								variable.getInstantiatedTemplate().getEntityName())));
 	}
 
 	@Override
@@ -234,7 +197,8 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 	}
 
 	public List<GroundRandomVariable> getGroundVariables() {
-		return groundNetwork.getGroundRandomVariables();
+		return groundNetwork.getLocalProbabilisticModels().stream().flatMap(v -> v.getGroundRandomVariables().stream())
+				.collect(toList());
 	}
 
 	// Assuming no random variable needs to be marginalized
@@ -252,14 +216,80 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 		}
 	}
 
-	private Set<DependenceRelation> resolveAllRelations() {
-		return getGroundVariables().stream().flatMap(v -> v.getDependenceStructure().stream()).distinct()
-				.collect(Collectors.toSet());
+	private List<InputValue> sampleNext() {
+		List<InputValue> samples = Lists.newArrayList();
+		for (LocalProbabilisticNetwork eachLocal : groundNetwork.getLocalProbabilisticModels()) {
+			for (GroundRandomVariable eachVariable : orderGroundVariablesTopologically(eachLocal)) {
+				Value<?> value = (Value<?>) getPDF(eachVariable, samples).sample();
+				samples.add(InputValue.create(value, eachVariable));
+			}
+		}
+		return samples;
 	}
 
-	private Set<TemplateVariable> resolveAllTemplates() {
-		return getGroundVariables().stream().map(GroundRandomVariable::getInstantiatedTemplate).distinct()
-				.collect(Collectors.toSet());
+	private List<GroundRandomVariable> orderGroundVariablesTopologically(LocalProbabilisticNetwork localNetwork) {
+		List<GroundRandomVariable> topologicallyOrdered = Lists.newArrayList();
+
+		TopologyIterator iterator = getTopologyIterator(localNetwork);
+		while (iterator.hasNext()) {
+			topologicallyOrdered.addAll(filterGroundVariablesInstantiating(iterator.next(), localNetwork));
+		}
+
+		return topologicallyOrdered;
+	}
+
+	private TopologyIterator getTopologyIterator(LocalProbabilisticNetwork localNetwork) {
+		TemplateDefinitionsQuerying templateQuery = TemplateDefinitionsQuerying
+				.withTemplateScope(getTemplates(localNetwork));
+		return new TemplateVariableTopology(templateQuery).getTopologicallyOrderedTemplates();
+	}
+
+	private ProbabilityDistributionFunction<?> getPDF(GroundRandomVariable variable, List<InputValue> history) {
+		ProbabilityDistributionFunction<?> pdf = probModelHandler.getPDF(variable);
+		if (ConditionalProbabilityDistribution.class.isInstance(pdf)) {
+			ConditionalProbabilityDistribution.class.cast(pdf).given(resolveConditionals(variable, history));
+		}
+		return pdf;
+	}
+
+	private List<Conditional> resolveConditionals(GroundRandomVariable variable, List<InputValue> history) {
+		LocalProbabilisticNetwork localNetwork = (LocalProbabilisticNetwork) variable.eContainer();
+		List<GroundRandomVariable> instantiatedParents = filterGroundVariablesInstantiating(
+				variable.getInstantiatedTemplate(), localNetwork);
+		return instantiatedParents.stream().map(each -> getInputValue(each, history)).map(this::toConditional)
+				.collect(toList());
+	}
+
+	private Conditional toConditional(InputValue value) {
+		return new Conditional(getDomain(value), value.value);
+	}
+
+	private Domain getDomain(InputValue value) {
+		if (NumericalValue.class.isInstance(value)) {
+			return NumericalValue.class.cast(value).getDomain();
+		} else {
+			return CategoricalValue.class.cast(value).getDomain();
+		}
+	}
+
+	private InputValue getInputValue(GroundRandomVariable variable, List<InputValue> inputs) {
+		return inputs.stream().filter(input -> input.variable == variable).findFirst()
+				.orElseThrow(() -> new IllegalArgumentException(
+						String.format("The network does not contain the ground random variable for template %s",
+								variable.getInstantiatedTemplate().getEntityName())));
+	}
+
+	private double calculateLocalProbability(ProbabilityDistributionFunction<?> pdf, InputValue inputValue) {
+		try {
+			ProbabilityDistributionSkeleton skeleton = pdf.getDistributionSkeleton();
+			if (skeleton.getType() == ProbabilityDistributionType.DISCRETE) {
+				return UnivariateProbabilitiyMassFunction.class.cast(pdf).probability(inputValue.asCategorical());
+			}
+			return UnivariateProbabilityDensityFunction.class.cast(pdf).probability(inputValue.asNumerical());
+		} catch (ClassCastException e) {
+			throw new EnvironmentalDynamicsException("The distributions input space do not match.", e);
+		}
+
 	}
 
 }

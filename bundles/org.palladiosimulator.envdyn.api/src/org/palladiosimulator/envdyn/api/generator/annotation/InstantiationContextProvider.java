@@ -2,20 +2,22 @@ package org.palladiosimulator.envdyn.api.generator.annotation;
 
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toSet;
-import static org.palladiosimulator.envdyn.api.util.AnnotationHandler.getInstantiationTag;
 import static org.palladiosimulator.envdyn.api.util.AnnotationHandler.filterAnnotated;
+import static org.palladiosimulator.envdyn.api.util.AnnotationHandler.getInstantiationTag;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.modelversioning.emfprofile.Stereotype;
 import org.palladiosimulator.envdyn.api.util.AnnotationHandler;
+import org.palladiosimulator.envdyn.environment.templatevariable.Argument;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariable;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariableDefinitions;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariableGroup;
@@ -67,7 +69,7 @@ public class InstantiationContextProvider {
 			if (template.isShared()) {
 				return true;
 			}
-			return filterContextsIncluding(template).size() == 1;
+			return nonMultiInstantiation(template);
 		}
 
 		public Set<EObject> filterElementsInstantiating(TemplateVariable template) {
@@ -85,6 +87,12 @@ public class InstantiationContextProvider {
 
 		private boolean contains(TemplateVariable template, Set<TemplateVariable> templates) {
 			return templates.stream().anyMatch(t -> t.getId().equals(template.getId()));
+		}
+
+		private boolean nonMultiInstantiation(TemplateVariable template) {
+			Map<Argument, List<InstantiationContext>> instantiationCluster = filterContextsIncluding(template).stream()
+					.collect(Collectors.groupingBy(InstantiationContext::getArgument));
+			return instantiationCluster.values().stream().allMatch(contexts -> contexts.size() == 1);
 		}
 
 		private Set<TemplateVariable> getCommonTemplateStructure(Set<InstantiationContext> contexts) {
@@ -149,7 +157,7 @@ public class InstantiationContextProvider {
 	private void resolveInstantationContexts(String tag, List<InstantiationContext> contexts) {
 		ResolvedInstantiationContext context = ResolvedInstantiationContext.create(tag, Sets.newHashSet(contexts));
 		context.resolve();
-		
+
 		addResolvedInstantiationContext(tag, context);
 	}
 

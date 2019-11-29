@@ -70,6 +70,10 @@ public class InstantiationContext {
 		return signaturesIntersect(signatureAsArgs(template));
 	}
 
+	public boolean signaturesIntersect(List<Argument> signature) {
+		return isIncluded(getArgument(), signature);
+	}
+
 	private List<Argument> signatureAsArgs(TemplateVariable template) {
 		List<Argument> argSignature = Lists.newArrayList();
 		
@@ -80,11 +84,7 @@ public class InstantiationContext {
 		}
 		return argSignature;
 	}
-
-	public boolean signaturesIntersect(List<Argument> signature) {
-		return isIncluded(getArgument(), signature);
-	}
-
+	
 	private boolean isIncluded(Argument arg, List<Argument> signature) {
 		return signature.stream().anyMatch(equalArgs(arg));
 	}
