@@ -7,10 +7,12 @@ import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariabl
 
 public abstract class ProbabilisticNetworkGenerator<T> {
 	
+	protected final TemplateVariableDefinitions definitions;
 	protected final NetworkInstantiationStrategy instantiationStrategy;
 
 	protected ProbabilisticNetworkGenerator(TemplateVariableDefinitions definitions,
 			NetworkInstantiationStrategy instantiationStrategy) {
+		this.definitions = definitions;
 		this.instantiationStrategy = instantiationStrategy;
 	}
 
@@ -22,5 +24,5 @@ public abstract class ProbabilisticNetworkGenerator<T> {
 		return createProbabilisticNetwork(instantiationStrategy.instantiate(appliedModels));
 	}
 
-	protected abstract T createProbabilisticNetwork(GroundProbabilisticNetwork network);
+	public abstract T createProbabilisticNetwork(GroundProbabilisticNetwork network);
 }

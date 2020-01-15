@@ -21,7 +21,7 @@ public class TemplateVariableTopology {
 
 		@Override
 		public boolean hasNext() {
-			return increment > 0 ? levelCounter == (topologyLevels.size() - 1) : levelCounter < 0;
+			return increment > 0 ? levelCounter != topologyLevels.size() : levelCounter < 0;
 		}
 
 		@Override
@@ -64,7 +64,8 @@ public class TemplateVariableTopology {
 
 	private void orderTopologically() {
 		Set<TemplateVariable> templates = templateQuery.getTemplateVariables();
-		for (int i = 0; i < templates.size(); i++) {
+		int topologyDepth = templates.size();
+		for (int i = 0; i < topologyDepth; i++) {
 			TemplateVariable template = selectAnyWithOrderedParents(templates);
 			
 			addToTopology(i, template);

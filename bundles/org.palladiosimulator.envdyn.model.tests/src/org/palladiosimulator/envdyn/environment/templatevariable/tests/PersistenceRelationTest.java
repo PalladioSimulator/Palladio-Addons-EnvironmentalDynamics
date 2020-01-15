@@ -4,16 +4,16 @@ package org.palladiosimulator.envdyn.environment.templatevariable.tests;
 
 import junit.textui.TestRunner;
 
-import org.palladiosimulator.envdyn.environment.templatevariable.PresistenceRelation;
+import org.palladiosimulator.envdyn.environment.templatevariable.PersistenceRelation;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplatevariableFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Presistence Relation</b></em>'.
+ * A test case for the model object '<em><b>Persistence Relation</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class PresistenceRelationTest extends TemporalRelationTest {
+public class PersistenceRelationTest extends TemporalRelationTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class PresistenceRelationTest extends TemporalRelationTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(PresistenceRelationTest.class);
+		TestRunner.run(PersistenceRelationTest.class);
 	}
 
 	/**
-	 * Constructs a new Presistence Relation test case with the given name.
+	 * Constructs a new Persistence Relation test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PresistenceRelationTest(String name) {
+	public PersistenceRelationTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Presistence Relation test case.
+	 * Returns the fixture for this Persistence Relation test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected PresistenceRelation getFixture() {
-		return (PresistenceRelation) fixture;
+	protected PersistenceRelation getFixture() {
+		return (PersistenceRelation) fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class PresistenceRelationTest extends TemporalRelationTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(TemplatevariableFactory.eINSTANCE.createPresistenceRelation());
+		setFixture(TemplatevariableFactory.eINSTANCE.createPersistenceRelation());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class PresistenceRelationTest extends TemporalRelationTest {
 		setFixture(null);
 	}
 
-} //PresistenceRelationTest
+} //PersistenceRelationTest

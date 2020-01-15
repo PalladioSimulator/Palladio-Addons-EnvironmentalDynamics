@@ -22,7 +22,7 @@ public class BayesianNetworkGenerator extends ProbabilisticNetworkGenerator<Baye
 	}
 
 	@Override
-	protected BayesianNetwork createProbabilisticNetwork(GroundProbabilisticNetwork network) {
+	public BayesianNetwork createProbabilisticNetwork(GroundProbabilisticNetwork network) {
 		return new BayesianNetwork(createDistributionSkeleton(network), network);
 	}
 

@@ -2,8 +2,6 @@
  */
 package org.palladiosimulator.envdyn.environment.dynamicmodel.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicmodelFactory;
@@ -15,15 +13,7 @@ import org.palladiosimulator.envdyn.environment.dynamicmodel.InterTimeSliceInduc
  * <!-- end-user-doc -->
  * @generated
  */
-public class InterTimeSliceInductionTest extends TestCase {
-
-	/**
-	 * The fixture for this Inter Time Slice Induction test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InterTimeSliceInduction fixture = null;
+public class InterTimeSliceInductionTest extends TimeSliceInductionTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +35,14 @@ public class InterTimeSliceInductionTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Inter Time Slice Induction test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(InterTimeSliceInduction fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Inter Time Slice Induction test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected InterTimeSliceInduction getFixture() {
-		return fixture;
+		return (InterTimeSliceInduction) fixture;
 	}
 
 	/**

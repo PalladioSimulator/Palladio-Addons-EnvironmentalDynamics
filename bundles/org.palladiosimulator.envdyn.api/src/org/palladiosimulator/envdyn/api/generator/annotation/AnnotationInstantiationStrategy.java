@@ -1,5 +1,8 @@
 package org.palladiosimulator.envdyn.api.generator.annotation;
 
+import static org.palladiosimulator.envdyn.api.generator.annotation.AnnotationConstants.GROUND_VARIABLE_DELIMITER;
+import static org.palladiosimulator.envdyn.api.generator.annotation.AnnotationConstants.INSTANTIATION_POSTFIX;
+
 import java.util.List;
 import java.util.Set;
 
@@ -8,6 +11,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.palladiosimulator.envdyn.api.exception.EnvironmentalDynamicsException;
 import org.palladiosimulator.envdyn.api.generator.NetworkInstantiationStrategy;
 import org.palladiosimulator.envdyn.api.generator.annotation.InstantiationContextProvider.ResolvedInstantiationContext;
+import org.palladiosimulator.envdyn.api.util.AnnotationHandler;
 import org.palladiosimulator.envdyn.api.util.TemplateDefinitionsQuerying;
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel;
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork;
@@ -26,11 +30,9 @@ public class AnnotationInstantiationStrategy implements NetworkInstantiationStra
 
 	private final static StaticmodelFactory MODEL_FACTORY = StaticmodelFactory.eINSTANCE;
 
-	// private final TemplateVariableDefinitions templateDefinitions;
 	private final InstantiationContextProvider contextProvider;
 
 	public AnnotationInstantiationStrategy(TemplateVariableDefinitions templateDefinitions) {
-		// this.templateDefinitions = templateDefinitions;
 		this.contextProvider = new InstantiationContextProvider(templateDefinitions);
 	}
 
@@ -103,6 +105,7 @@ public class AnnotationInstantiationStrategy implements NetworkInstantiationStra
 	private GroundRandomVariable createRandomVariable(TemplateVariable template,
 			Set<DependenceRelation> dependenceStructure, Set<EObject> appliedObjects) {
 		GroundRandomVariable variable = MODEL_FACTORY.createGroundRandomVariable();
+		variable.setEntityName(constructNameOf(template, appliedObjects));
 		variable.getAppliedObjects().addAll(appliedObjects);
 		variable.setInstantiatedTemplate(template);
 		variable.getDependenceStructure().addAll(dependenceStructure);
@@ -122,6 +125,7 @@ public class AnnotationInstantiationStrategy implements NetworkInstantiationStra
 
 	private GroundProbabilisticModel createLocalModel(GroundRandomVariable variable, TemplateFactor factor) {
 		GroundProbabilisticModel localModel = MODEL_FACTORY.createGroundProbabilisticModel();
+		localModel.setEntityName(constructNameOf(variable, factor));
 		localModel.setInstantiatedFactor(factor);
 		return localModel;
 	}
@@ -134,7 +138,7 @@ public class AnnotationInstantiationStrategy implements NetworkInstantiationStra
 		List<TemplateVariable> scope = Lists.newArrayList(instantiated);
 		scope.addAll(defQuery.getParents(defQuery.filterRelationsWithTarget(Sets.newHashSet(instantiated))));
 
-		return defQuery.findTemplateFactorWith(scope)
+		return defQuery.findNonTemporalTemplateFactorWith(scope)
 				.orElseThrow(() -> new EnvironmentalDynamicsException(
 						String.format("There is no template factor for template variable %s",
 								variable.getInstantiatedTemplate().getEntityName())));
@@ -147,4 +151,27 @@ public class AnnotationInstantiationStrategy implements NetworkInstantiationStra
 		network.getLocalProbabilisticModels().addAll(localNetworks);
 		return network;
 	}
+
+	private String constructNameOf(TemplateVariable template, Set<EObject> appliedObjects) {
+		StringBuilder builder = new StringBuilder();
+		builder.append(constructNameOf(Lists.newArrayList(appliedObjects)));
+		builder.append(GROUND_VARIABLE_DELIMITER);
+		builder.append(template.getEntityName());
+		builder.append(INSTANTIATION_POSTFIX);
+		return builder.toString();
+	}
+
+	private String constructNameOf(GroundRandomVariable variable, TemplateFactor factor) {
+		return concat(variable.getEntityName(), concat(factor.getEntityName(), INSTANTIATION_POSTFIX));
+	}
+
+	private String constructNameOf(List<EObject> appliedObjects) {
+		EObject any = appliedObjects.get(0);
+		return AnnotationHandler.getTaggedId(any, AnnotationHandler.getInstantiationTag(any));
+	}
+
+	private String concat(String string1, String string2) {
+		return string1.concat(GROUND_VARIABLE_DELIMITER).concat(string2);
+	}
+
 }

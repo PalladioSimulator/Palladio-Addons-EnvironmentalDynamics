@@ -26,6 +26,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="TemplateFactor" abstract="true" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="scope" lowerBound="1"
           upperBound="-1" eType="#//templatevariable/TemplateVariable"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="temporal" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Argument" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity"/>
     <eClassifiers xsi:type="ecore:EClass" name="Relation" abstract="true"/>
@@ -49,13 +51,15 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TemporalRelation" abstract="true"
         eSuperTypes="#//templatevariable/Relation"/>
-    <eClassifiers xsi:type="ecore:EClass" name="PresistenceRelation" eSuperTypes="#//templatevariable/TemporalRelation">
+    <eClassifiers xsi:type="ecore:EClass" name="PersistenceRelation" eSuperTypes="#//templatevariable/TemporalRelation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceVariable" lowerBound="1"
           eType="#//templatevariable/TemplateVariable"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TimeSliceRelation" eSuperTypes="#//templatevariable/TemporalRelation">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="temporalDependence" lowerBound="1"
-          eType="#//templatevariable/DependenceRelation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//templatevariable/TemplateVariable"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+          eType="#//templatevariable/TemplateVariable"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TemplateVariableGroup" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="groupedTemplates" lowerBound="1"
@@ -68,7 +72,7 @@
   </eSubpackages>
   <eSubpackages name="staticmodel" nsURI="http://palladiosimulator.org/Environment/StaticModel/1.0"
       nsPrefix="staticmodel">
-    <eClassifiers xsi:type="ecore:EClass" name="GroundRandomVariable" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Identifier">
+    <eClassifiers xsi:type="ecore:EClass" name="GroundRandomVariable" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedTemplate"
           lowerBound="1" eType="#//templatevariable/TemplateVariable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dependenceStructure"
@@ -78,7 +82,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="appliedObjects" lowerBound="1"
           upperBound="-1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="GroundProbabilisticModel">
+    <eClassifiers xsi:type="ecore:EClass" name="GroundProbabilisticModel" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedFactor" lowerBound="1"
           eType="#//templatevariable/TemplateFactor"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="distribution" lowerBound="1"
@@ -107,7 +111,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="extensions" upperBound="-1"
           eType="#//dynamicmodel/DynamicBehaviourExtension" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DynamicBehaviourExtension">
+    <eClassifiers xsi:type="ecore:EClass" name="DynamicBehaviourExtension" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1"
           eType="#//staticmodel/GroundProbabilisticNetwork"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="behaviour" lowerBound="1"
@@ -115,46 +119,32 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DynamicBehaviour" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="localModels" lowerBound="1"
-          upperBound="-1" eType="#//dynamicmodel/LocalDynamicModel" containment="true"/>
+          upperBound="-1" eType="#//dynamicmodel/TemporalDynamic" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InductiveDynamicBehaviour" eSuperTypes="#//dynamicmodel/DynamicBehaviour">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="interTimeSliceInductions"
-          lowerBound="1" upperBound="-1" eType="#//dynamicmodel/InterTimeSliceInduction"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="timeSliceInductions"
+          lowerBound="1" upperBound="-1" eType="#//dynamicmodel/TimeSliceInduction"
           containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="intraTimeSliceEffects"
-          upperBound="-1" eType="#//dynamicmodel/IntraTimeSliceEffect" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="InterTimeSliceInduction">
+    <eClassifiers xsi:type="ecore:EClass" name="InterTimeSliceInduction" eSuperTypes="#//dynamicmodel/TimeSliceInduction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="temporalStructure" lowerBound="1"
           upperBound="-1" eType="#//templatevariable/TemporalRelation"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="descriptiveModel" lowerBound="1"
-          eType="#//dynamicmodel/LocalDynamicModel"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IntraTimeSliceEffect">
+    <eClassifiers xsi:type="ecore:EClass" name="IntraTimeSliceInduction" eSuperTypes="#//dynamicmodel/TimeSliceInduction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="dependenceStructure"
           lowerBound="1" upperBound="-1" eType="#//templatevariable/DependenceRelation"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DeductiveDynamicBehaviour" eSuperTypes="#//dynamicmodel/DynamicBehaviour">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="stateTransitionMatrix"
-          lowerBound="1" eType="#//dynamicmodel/TransitionMatrix" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="observationMatrix" eType="#//dynamicmodel/TransitionMatrix"
-          containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LocalDynamicModel">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedTemplate"
-          lowerBound="1" eType="#//templatevariable/TemplateFactor"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TemporalDynamic" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedFactor" lowerBound="1"
+          eType="#//templatevariable/TemplateFactor"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="distributionFunction"
           lowerBound="1" eType="ecore:EClass ../../tools.mdsd.probdist.model/model/probdist.ecore#//distributionfunction/ProbabilityDistribution"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TransitionMatrix">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
-          eType="#//dynamicmodel/TransitionMatrixType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rowDistributions" lowerBound="1"
-          upperBound="-1" eType="#//dynamicmodel/LocalDynamicModel"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="TransitionMatrixType">
-      <eLiterals name="STATE"/>
-      <eLiterals name="OBSERVATION" value="1"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeSliceInduction" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="descriptiveModel" lowerBound="1"
+          eType="#//dynamicmodel/TemporalDynamic"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="appliedGroundVariable"
+          lowerBound="1" eType="#//staticmodel/GroundRandomVariable"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

@@ -4,16 +4,16 @@ package org.palladiosimulator.envdyn.environment.dynamicmodel.tests;
 
 import junit.textui.TestRunner;
 
-import org.palladiosimulator.envdyn.environment.dynamicmodel.DeductiveDynamicBehaviour;
 import org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicmodelFactory;
+import org.palladiosimulator.envdyn.environment.dynamicmodel.IntraTimeSliceInduction;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Deductive Dynamic Behaviour</b></em>'.
+ * A test case for the model object '<em><b>Intra Time Slice Induction</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeductiveDynamicBehaviourTest extends DynamicBehaviourTest {
+public class IntraTimeSliceInductionTest extends TimeSliceInductionTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class DeductiveDynamicBehaviourTest extends DynamicBehaviourTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(DeductiveDynamicBehaviourTest.class);
+		TestRunner.run(IntraTimeSliceInductionTest.class);
 	}
 
 	/**
-	 * Constructs a new Deductive Dynamic Behaviour test case with the given name.
+	 * Constructs a new Intra Time Slice Induction test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeductiveDynamicBehaviourTest(String name) {
+	public IntraTimeSliceInductionTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Deductive Dynamic Behaviour test case.
+	 * Returns the fixture for this Intra Time Slice Induction test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected DeductiveDynamicBehaviour getFixture() {
-		return (DeductiveDynamicBehaviour) fixture;
+	protected IntraTimeSliceInduction getFixture() {
+		return (IntraTimeSliceInduction) fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class DeductiveDynamicBehaviourTest extends DynamicBehaviourTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(DynamicmodelFactory.eINSTANCE.createDeductiveDynamicBehaviour());
+		setFixture(DynamicmodelFactory.eINSTANCE.createIntraTimeSliceInduction());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class DeductiveDynamicBehaviourTest extends DynamicBehaviourTest {
 		setFixture(null);
 	}
 
-} //DeductiveDynamicBehaviourTest
+} //IntraTimeSliceInductionTest

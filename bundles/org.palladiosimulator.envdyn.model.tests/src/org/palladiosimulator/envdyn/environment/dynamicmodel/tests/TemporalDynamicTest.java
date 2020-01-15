@@ -7,23 +7,23 @@ import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
 import org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicmodelFactory;
-import org.palladiosimulator.envdyn.environment.dynamicmodel.IntraTimeSliceEffect;
+import org.palladiosimulator.envdyn.environment.dynamicmodel.TemporalDynamic;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Intra Time Slice Effect</b></em>'.
+ * A test case for the model object '<em><b>Temporal Dynamic</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class IntraTimeSliceEffectTest extends TestCase {
+public class TemporalDynamicTest extends TestCase {
 
 	/**
-	 * The fixture for this Intra Time Slice Effect test case.
+	 * The fixture for this Temporal Dynamic test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IntraTimeSliceEffect fixture = null;
+	protected TemporalDynamic fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class IntraTimeSliceEffectTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(IntraTimeSliceEffectTest.class);
+		TestRunner.run(TemporalDynamicTest.class);
 	}
 
 	/**
-	 * Constructs a new Intra Time Slice Effect test case with the given name.
+	 * Constructs a new Temporal Dynamic test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IntraTimeSliceEffectTest(String name) {
+	public TemporalDynamicTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Intra Time Slice Effect test case.
+	 * Sets the fixture for this Temporal Dynamic test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(IntraTimeSliceEffect fixture) {
+	protected void setFixture(TemporalDynamic fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Intra Time Slice Effect test case.
+	 * Returns the fixture for this Temporal Dynamic test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IntraTimeSliceEffect getFixture() {
+	protected TemporalDynamic getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class IntraTimeSliceEffectTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(DynamicmodelFactory.eINSTANCE.createIntraTimeSliceEffect());
+		setFixture(DynamicmodelFactory.eINSTANCE.createTemporalDynamic());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class IntraTimeSliceEffectTest extends TestCase {
 		setFixture(null);
 	}
 
-} //IntraTimeSliceEffectTest
+} //TemporalDynamicTest
