@@ -34,6 +34,8 @@
     <semanticResources>http://www.mdsd.tools/probabilitydistributions/distributionfunction</semanticResources>
     <semanticResources>platform:/plugin/EnvironmentalDynamicsProfile.EnvironmentalDynamicsProfile/profile.emfprofile_diagram</semanticResources>
     <semanticResources>platform:/plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram</semanticResources>
+    <semanticResources>model/DeltaIoTDistributionFunctions.distributionfunction</semanticResources>
+    <semanticResources>model/DeltaIoTDistributionTypes.distributiontype</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_uEYAYMS5Eem6vJHOl6M9XA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_uGPBkMS5Eem6vJHOl6M9XA" name="DeltaIoT Repository Diagram" repPath="#_uEmC0MS5Eem6vJHOl6M9XA">
@@ -1199,16 +1201,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']/@additionalLayers[name='DataTypes']/@containerMappings[name='CompositeDataType']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_30nvcsTaEem6vJHOl6M9XA" name="ID : INT">
-        <target xmi:type="repository:InnerDeclaration" href="model/DeltaIoTRepository.repository#/0/@dataTypes__Repository.0/@innerDeclaration_CompositeDataType.0"/>
-        <semanticElements xmi:type="repository:InnerDeclaration" href="model/DeltaIoTRepository.repository#/0/@dataTypes__Repository.0/@innerDeclaration_CompositeDataType.0"/>
+        <target xmi:type="repository:InnerDeclaration" href="model/DeltaIoTRepository.repository#//@dataTypes__Repository.0/@innerDeclaration_CompositeDataType.0"/>
+        <semanticElements xmi:type="repository:InnerDeclaration" href="model/DeltaIoTRepository.repository#//@dataTypes__Repository.0/@innerDeclaration_CompositeDataType.0"/>
         <ownedStyle xmi:type="diagram:Square" uid="_31NlUMTaEem6vJHOl6M9XA" labelPosition="node">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']/@additionalLayers[name='DataTypes']/@containerMappings[name='CompositeDataType']/@subNodeMappings[name='InnerDeclaration']/@conditionnalStyles.0/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']/@additionalLayers[name='DataTypes']/@containerMappings[name='CompositeDataType']/@subNodeMappings[name='InnerDeclaration']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_31NlUcTaEem6vJHOl6M9XA" name="sensorData : ByteArray">
-        <target xmi:type="repository:InnerDeclaration" href="model/DeltaIoTRepository.repository#/0/@dataTypes__Repository.0/@innerDeclaration_CompositeDataType.1"/>
-        <semanticElements xmi:type="repository:InnerDeclaration" href="model/DeltaIoTRepository.repository#/0/@dataTypes__Repository.0/@innerDeclaration_CompositeDataType.1"/>
+        <target xmi:type="repository:InnerDeclaration" href="model/DeltaIoTRepository.repository#//@dataTypes__Repository.0/@innerDeclaration_CompositeDataType.1"/>
+        <semanticElements xmi:type="repository:InnerDeclaration" href="model/DeltaIoTRepository.repository#//@dataTypes__Repository.0/@innerDeclaration_CompositeDataType.1"/>
         <ownedStyle xmi:type="diagram:Square" uid="_31aZoMTaEem6vJHOl6M9XA" labelPosition="node">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']/@additionalLayers[name='DataTypes']/@containerMappings[name='CompositeDataType']/@subNodeMappings[name='InnerDeclaration']/@conditionnalStyles.2/@style"/>
         </ownedStyle>
@@ -3056,8 +3058,8 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.sirius.seff/description/seff.odesign#//@ownedViewpoints[name='Seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='InternalAction']/@subContainerMappings[name='ResourceDemand%20Container']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_hF8-IMTlEem6vJHOl6M9XA" name="5.0 &lt;CPU>">
-          <target xmi:type="seff_performance:ParametricResourceDemand" href="model/DeltaIoTRepository.repository#/0/@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@resourceDemand_Action.0"/>
-          <semanticElements xmi:type="seff_performance:ParametricResourceDemand" href="model/DeltaIoTRepository.repository#/0/@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+          <target xmi:type="seff_performance:ParametricResourceDemand" href="model/DeltaIoTRepository.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+          <semanticElements xmi:type="seff_performance:ParametricResourceDemand" href="model/DeltaIoTRepository.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@resourceDemand_Action.0"/>
           <ownedStyle xmi:type="diagram:Square" uid="_hF9lMMTlEem6vJHOl6M9XA" labelPosition="node">
             <labelFormat>bold</labelFormat>
             <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.sirius.seff/description/seff.odesign#//@ownedViewpoints[name='Seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='InternalAction']/@subContainerMappings[name='ResourceDemand%20Container']/@subNodeMappings[name='ResourceDemand']/@style"/>
