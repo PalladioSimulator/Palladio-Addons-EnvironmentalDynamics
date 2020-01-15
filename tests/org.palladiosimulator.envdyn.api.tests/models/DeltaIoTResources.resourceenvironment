@@ -227,30 +227,30 @@
     </resourceContainer_ResourceEnvironment>
   </resourceenvironment:ResourceEnvironment>
   <emfprofileapplication:ProfileApplication>
-    <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_kPLa0MWTEem8XvI7PKw-OA" taggedValue="GatewayMote">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
-      <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
-      <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.1"/>
-    </stereotypeApplications>
-    <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_9BF1QMWTEem8XvI7PKw-OA" taggedValue="TS9Mote">
+    <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_kPLa0MWTEem8XvI7PKw-OA" taggedValue="9to1Link">
       <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
-    <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_RkgrcMWTEem8XvI7PKw-OA" taggedValue="GatewayMote">
+    <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_9BF1QMWTEem8XvI7PKw-OA" taggedValue="5to9Link">
       <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
-      <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.1"/>
+      <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
-    <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_Yi0hYMWTEem8XvI7PKw-OA" taggedValue="GatewayMote">
+    <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_RkgrcMWTEem8XvI7PKw-OA" taggedValue="3to1Link">
       <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
-      <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.1"/>
+      <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
-    <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_e2HEYMWTEem8XvI7PKw-OA" taggedValue="GatewayMote">
+    <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_Yi0hYMWTEem8XvI7PKw-OA" taggedValue="8to1Link">
       <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
-      <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.1"/>
+      <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_e2HEYMWTEem8XvI7PKw-OA" taggedValue="4to1Link">
+      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
+      <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <importedProfiles nsURI="InstantiationTag" location="platform:/plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram"/>
   </emfprofileapplication:ProfileApplication>

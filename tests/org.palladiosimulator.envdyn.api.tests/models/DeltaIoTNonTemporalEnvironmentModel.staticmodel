@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ASCII"?>
+<staticmodel:GroundProbabilisticNetwork xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:staticmodel="http://palladiosimulator.org/Environment/StaticModel/1.0" xmlns:templatevariable="http://palladiosimulator.org/Environment/TemplateVariable/1.0" id="_yDu14BKtEeqX18r3QwxObg">
+  <localModels id="_yDkd0BKtEeqX18r3QwxObg" entityName="5to9Link_SignalToNoiseRatioInstantiation_WI_SNR_Factor_Instantiation">
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_CV7b4cWoEemx1KrwIzdqtQ"/>
+    <distribution href="DeltaIoTDistributionFunctions.distributionfunction#_QMq_YBKuEeqXWPQDIrbTtg"/>
+  </localModels>
+  <localModels id="_yDkd0RKtEeqX18r3QwxObg" entityName="5to9Link_WirelessInterferenceInstantiation_WIFactor_Instantiation">
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_1K4W4MWnEemx1KrwIzdqtQ"/>
+    <distribution href="DeltaIoTDistributionFunctions.distributionfunction#_5q-tcBHkEeql1bYozZsqEg"/>
+  </localModels>
+  <localModels id="_yDoIMBKtEeqX18r3QwxObg" entityName="9to1Link_SignalToNoiseRatioInstantiation_WI_SNR_Factor_Instantiation">
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_CV7b4cWoEemx1KrwIzdqtQ"/>
+    <distribution href="DeltaIoTDistributionFunctions.distributionfunction#_8bisYBHrEeqoTZlPvrooWg"/>
+  </localModels>
+  <localModels id="_yDovQBKtEeqX18r3QwxObg" entityName="9to1Link_WirelessInterferenceInstantiation_WIFactor_Instantiation">
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_1K4W4MWnEemx1KrwIzdqtQ"/>
+    <distribution href="DeltaIoTDistributionFunctions.distributionfunction#_5q-tcBHkEeql1bYozZsqEg"/>
+  </localModels>
+  <localModels id="_yDpWUBKtEeqX18r3QwxObg" entityName="3to1Link_SignalToNoiseRatioInstantiation_WI_SNR_Factor_Instantiation">
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_CV7b4cWoEemx1KrwIzdqtQ"/>
+    <distribution href="DeltaIoTDistributionFunctions.distributionfunction#_7qyk4BHrEeqoTZlPvrooWg"/>
+  </localModels>
+  <localModels id="_yDpWURKtEeqX18r3QwxObg" entityName="3to1Link_WirelessInterferenceInstantiation_WIFactor_Instantiation">
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_1K4W4MWnEemx1KrwIzdqtQ"/>
+    <distribution href="DeltaIoTDistributionFunctions.distributionfunction#_5q-tcBHkEeql1bYozZsqEg"/>
+  </localModels>
+  <localModels id="_yDqkcBKtEeqX18r3QwxObg" entityName="GatewayMote_MoteActivationInstantiation_MAFactor_Instantiation">
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_PCasccsVEem-osfd2_mNhw"/>
+    <distribution href="DeltaIoTDistributionFunctions.distributionfunction#_Osu54BHuEeqoTZlPvrooWg"/>
+  </localModels>
+  <localModels id="_yDqkchKtEeqX18r3QwxObg" entityName="TS9Mote_MoteActivationInstantiation_MAFactor_Instantiation">
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_PCasccsVEem-osfd2_mNhw"/>
+    <distribution href="DeltaIoTDistributionFunctions.distributionfunction#_X3ZLQBHxEeqoTZlPvrooWg"/>
+  </localModels>
+  <localModels id="_yDrykBKtEeqX18r3QwxObg" entityName="4to1Link_SignalToNoiseRatioInstantiation_WI_SNR_Factor_Instantiation">
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_CV7b4cWoEemx1KrwIzdqtQ"/>
+    <distribution href="DeltaIoTDistributionFunctions.distributionfunction#_iUMF0BHnEeqap-evF1dF6w"/>
+  </localModels>
+  <localModels id="_yDrykRKtEeqX18r3QwxObg" entityName="4to1Link_WirelessInterferenceInstantiation_WIFactor_Instantiation">
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_1K4W4MWnEemx1KrwIzdqtQ"/>
+    <distribution href="DeltaIoTDistributionFunctions.distributionfunction#_5q-tcBHkEeql1bYozZsqEg"/>
+  </localModels>
+  <localModels id="_yDtnwBKtEeqX18r3QwxObg" entityName="8to1Link_SignalToNoiseRatioInstantiation_WI_SNR_Factor_Instantiation">
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_CV7b4cWoEemx1KrwIzdqtQ"/>
+    <distribution href="DeltaIoTDistributionFunctions.distributionfunction#_8H9pEBHrEeqoTZlPvrooWg"/>
+  </localModels>
+  <localModels id="_yDtnwRKtEeqX18r3QwxObg" entityName="8to1Link_WirelessInterferenceInstantiation_WIFactor_Instantiation">
+    <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_1K4W4MWnEemx1KrwIzdqtQ"/>
+    <distribution href="DeltaIoTDistributionFunctions.distributionfunction#_5q7qIBHkEeql1bYozZsqEg"/>
+  </localModels>
+  <localProbabilisticModels>
+    <groundRandomVariables id="_yDWbYBKtEeqX18r3QwxObg" entityName="5to9Link_SignalToNoiseRatioInstantiation" descriptiveModel="_yDkd0BKtEeqX18r3QwxObg">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_QCuf4MWkEemeD8HH3Gbl-Q"/>
+      <dependenceStructure href="DeltaIoTTemplateVariables.templatevariable#//@relation.0"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_9BF1QMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_yDYQkBKtEeqX18r3QwxObg" entityName="5to9Link_WirelessInterferenceInstantiation" descriptiveModel="_yDkd0RKtEeqX18r3QwxObg">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_1rlpgMWiEemeD8HH3Gbl-Q"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_9BF1QMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+  </localProbabilisticModels>
+  <localProbabilisticModels>
+    <groundRandomVariables id="_yDmTABKtEeqX18r3QwxObg" entityName="9to1Link_SignalToNoiseRatioInstantiation" descriptiveModel="_yDoIMBKtEeqX18r3QwxObg">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_QCuf4MWkEemeD8HH3Gbl-Q"/>
+      <dependenceStructure href="DeltaIoTTemplateVariables.templatevariable#//@relation.0"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_kPLa0MWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_yDm6EBKtEeqX18r3QwxObg" entityName="9to1Link_WirelessInterferenceInstantiation" descriptiveModel="_yDovQBKtEeqX18r3QwxObg">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_1rlpgMWiEemeD8HH3Gbl-Q"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_kPLa0MWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+  </localProbabilisticModels>
+  <localProbabilisticModels>
+    <groundRandomVariables id="_yDovQRKtEeqX18r3QwxObg" entityName="3to1Link_SignalToNoiseRatioInstantiation" descriptiveModel="_yDpWUBKtEeqX18r3QwxObg">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_QCuf4MWkEemeD8HH3Gbl-Q"/>
+      <dependenceStructure href="DeltaIoTTemplateVariables.templatevariable#//@relation.0"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_RkgrcMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_yDovQhKtEeqX18r3QwxObg" entityName="3to1Link_WirelessInterferenceInstantiation" descriptiveModel="_yDpWURKtEeqX18r3QwxObg">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_1rlpgMWiEemeD8HH3Gbl-Q"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_RkgrcMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+  </localProbabilisticModels>
+  <localProbabilisticModels>
+    <groundRandomVariables id="_yDpWUhKtEeqX18r3QwxObg" entityName="GatewayMote_MoteActivationInstantiation" descriptiveModel="_yDqkcBKtEeqX18r3QwxObg">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_GZdDoMr2EemPmcCIsj28kQ"/>
+      <appliedObjects href="DeltaIoTSystem.system#_rh4NoMTpEem6vJHOl6M9XA"/>
+    </groundRandomVariables>
+  </localProbabilisticModels>
+  <localProbabilisticModels>
+    <groundRandomVariables id="_yDqkcRKtEeqX18r3QwxObg" entityName="TS9Mote_MoteActivationInstantiation" descriptiveModel="_yDqkchKtEeqX18r3QwxObg">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_GZdDoMr2EemPmcCIsj28kQ"/>
+      <appliedObjects href="DeltaIoTSystem.system#_efL5UMVrEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+  </localProbabilisticModels>
+  <localProbabilisticModels>
+    <groundRandomVariables id="_yDrLgBKtEeqX18r3QwxObg" entityName="4to1Link_SignalToNoiseRatioInstantiation" descriptiveModel="_yDrykBKtEeqX18r3QwxObg">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_QCuf4MWkEemeD8HH3Gbl-Q"/>
+      <dependenceStructure href="DeltaIoTTemplateVariables.templatevariable#//@relation.0"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_e2HEYMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_yDrLgRKtEeqX18r3QwxObg" entityName="4to1Link_WirelessInterferenceInstantiation" descriptiveModel="_yDrykRKtEeqX18r3QwxObg">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_1rlpgMWiEemeD8HH3Gbl-Q"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_e2HEYMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+  </localProbabilisticModels>
+  <localProbabilisticModels>
+    <groundRandomVariables id="_yDrykhKtEeqX18r3QwxObg" entityName="8to1Link_SignalToNoiseRatioInstantiation" descriptiveModel="_yDtnwBKtEeqX18r3QwxObg">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_QCuf4MWkEemeD8HH3Gbl-Q"/>
+      <dependenceStructure href="DeltaIoTTemplateVariables.templatevariable#//@relation.0"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_Yi0hYMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+    <groundRandomVariables id="_yDtAsBKtEeqX18r3QwxObg" entityName="8to1Link_WirelessInterferenceInstantiation" descriptiveModel="_yDtnwRKtEeqX18r3QwxObg">
+      <instantiatedTemplate href="DeltaIoTTemplateVariables.templatevariable#_1rlpgMWiEemeD8HH3Gbl-Q"/>
+      <appliedObjects href="DeltaIoTResources.resourceenvironment#_Yi0hYMWTEem8XvI7PKw-OA"/>
+    </groundRandomVariables>
+  </localProbabilisticModels>
+</staticmodel:GroundProbabilisticNetwork>

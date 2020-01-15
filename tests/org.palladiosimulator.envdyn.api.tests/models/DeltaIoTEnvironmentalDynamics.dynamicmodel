@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dynamicmodel:DynamicBehaviourRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dynamicmodel="http://palladiosimulator.org/Environment/DynamicModel/1.0" xmlns:templatevariable="http://palladiosimulator.org/Environment/TemplateVariable/1.0" id="_vwmg8BqVEeqqMa9E01NFjQ" entityName="DeltaIoTDynamicBehaviourExtensions">
+  <extensions id="_a84hwBqSEeqPLK5OkEnPyw">
+    <model href="DeltaIoTNonTemporalEnvironmentModel.staticmodel#_yDu14BKtEeqX18r3QwxObg"/>
+    <behaviour xsi:type="dynamicmodel:InductiveDynamicBehaviour">
+      <localModels id="_a9GkMBqSEeqPLK5OkEnPyw" entityName="5to9_WItoSNR_DynamicFactor">
+        <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+        <distributionFunction href="DeltaIoTDistributionFunctions.distributionfunction#_QMq_YBKuEeqXWPQDIrbTtg"/>
+      </localModels>
+      <localModels id="_a9HLQBqSEeqPLK5OkEnPyw" entityName="5to9_WI_DynamicFactor">
+        <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+        <distributionFunction href="DeltaIoTDistributionFunctions.distributionfunction#_5q-tcBHkEeql1bYozZsqEg"/>
+      </localModels>
+      <localModels id="_a9HLQRqSEeqPLK5OkEnPyw" entityName="9to1_WItoSNR_DynamicFactor">
+        <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+        <distributionFunction href="DeltaIoTDistributionFunctions.distributionfunction#_8bisYBHrEeqoTZlPvrooWg"/>
+      </localModels>
+      <localModels id="_a9HyUBqSEeqPLK5OkEnPyw" entityName="9to1_WI_DynamicFactor">
+        <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+        <distributionFunction href="DeltaIoTDistributionFunctions.distributionfunction#_5q-tcBHkEeql1bYozZsqEg"/>
+      </localModels>
+      <localModels id="_a9HyURqSEeqPLK5OkEnPyw" entityName="3to1_WItoSNR_DynamicFactor">
+        <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+        <distributionFunction href="DeltaIoTDistributionFunctions.distributionfunction#_7qyk4BHrEeqoTZlPvrooWg"/>
+      </localModels>
+      <localModels id="_a9HyUhqSEeqPLK5OkEnPyw" entityName="3to1_WI_DynamicFactor">
+        <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+        <distributionFunction href="DeltaIoTDistributionFunctions.distributionfunction#_5q-tcBHkEeql1bYozZsqEg"/>
+      </localModels>
+      <localModels id="_a9HyUxqSEeqPLK5OkEnPyw" entityName="GatewayMA_DynamicFactor">
+        <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+        <distributionFunction href="DeltaIoTDistributionFunctions.distributionfunction#_Osu54BHuEeqoTZlPvrooWg"/>
+      </localModels>
+      <localModels id="_a9IZYBqSEeqPLK5OkEnPyw" entityName="TS9MA_DynamicFactor">
+        <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+        <distributionFunction href="DeltaIoTDistributionFunctions.distributionfunction#_X3ZLQBHxEeqoTZlPvrooWg"/>
+      </localModels>
+      <localModels id="_a9IZYRqSEeqPLK5OkEnPyw" entityName="4to1_WI_DynamicFactor">
+        <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+        <distributionFunction href="DeltaIoTDistributionFunctions.distributionfunction#_5q-tcBHkEeql1bYozZsqEg"/>
+      </localModels>
+      <localModels id="_a9JAcBqSEeqPLK5OkEnPyw" entityName="4to1_WItoSNR_DynamicFactor">
+        <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+        <distributionFunction href="DeltaIoTDistributionFunctions.distributionfunction#_iUMF0BHnEeqap-evF1dF6w"/>
+      </localModels>
+      <localModels id="_a9JAcRqSEeqPLK5OkEnPyw" entityName="8to1_WItoSNR_DynamicFactor">
+        <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+        <distributionFunction href="DeltaIoTDistributionFunctions.distributionfunction#_8H9pEBHrEeqoTZlPvrooWg"/>
+      </localModels>
+      <localModels id="_a9JAchqSEeqPLK5OkEnPyw" entityName="8to1_WI_DynamicFactor">
+        <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+        <distributionFunction href="DeltaIoTDistributionFunctions.distributionfunction#_5q7qIBHkEeql1bYozZsqEg"/>
+      </localModels>
+      <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_a9GkMBqSEeqPLK5OkEnPyw">
+        <appliedGroundVariable href="DeltaIoTNonTemporalEnvironmentModel.staticmodel#_yDWbYBKtEeqX18r3QwxObg"/>
+        <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.4"/>
+        <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+      </timeSliceInductions>
+      <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_a9HLQBqSEeqPLK5OkEnPyw">
+        <appliedGroundVariable href="DeltaIoTNonTemporalEnvironmentModel.staticmodel#_yDYQkBKtEeqX18r3QwxObg"/>
+        <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+      </timeSliceInductions>
+      <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_a9HLQRqSEeqPLK5OkEnPyw">
+        <appliedGroundVariable href="DeltaIoTNonTemporalEnvironmentModel.staticmodel#_yDmTABKtEeqX18r3QwxObg"/>
+        <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.4"/>
+        <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+      </timeSliceInductions>
+      <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_a9HyUBqSEeqPLK5OkEnPyw">
+        <appliedGroundVariable href="DeltaIoTNonTemporalEnvironmentModel.staticmodel#_yDm6EBKtEeqX18r3QwxObg"/>
+        <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+      </timeSliceInductions>
+      <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_a9HyURqSEeqPLK5OkEnPyw">
+        <appliedGroundVariable href="DeltaIoTNonTemporalEnvironmentModel.staticmodel#_yDovQRKtEeqX18r3QwxObg"/>
+        <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.4"/>
+        <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+      </timeSliceInductions>
+      <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_a9HyUhqSEeqPLK5OkEnPyw">
+        <appliedGroundVariable href="DeltaIoTNonTemporalEnvironmentModel.staticmodel#_yDovQhKtEeqX18r3QwxObg"/>
+        <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+      </timeSliceInductions>
+      <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_a9HyUxqSEeqPLK5OkEnPyw">
+        <appliedGroundVariable href="DeltaIoTNonTemporalEnvironmentModel.staticmodel#_yDpWUhKtEeqX18r3QwxObg"/>
+        <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+      </timeSliceInductions>
+      <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_a9IZYBqSEeqPLK5OkEnPyw">
+        <appliedGroundVariable href="DeltaIoTNonTemporalEnvironmentModel.staticmodel#_yDqkcRKtEeqX18r3QwxObg"/>
+        <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+      </timeSliceInductions>
+      <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_a9IZYRqSEeqPLK5OkEnPyw">
+        <appliedGroundVariable href="DeltaIoTNonTemporalEnvironmentModel.staticmodel#_yDrLgRKtEeqX18r3QwxObg"/>
+        <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+      </timeSliceInductions>
+      <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_a9JAcBqSEeqPLK5OkEnPyw">
+        <appliedGroundVariable href="DeltaIoTNonTemporalEnvironmentModel.staticmodel#_yDrLgBKtEeqX18r3QwxObg"/>
+        <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.4"/>
+        <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+      </timeSliceInductions>
+      <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_a9JAcRqSEeqPLK5OkEnPyw">
+        <appliedGroundVariable href="DeltaIoTNonTemporalEnvironmentModel.staticmodel#_yDrykhKtEeqX18r3QwxObg"/>
+        <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.4"/>
+        <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+      </timeSliceInductions>
+      <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_a9JAchqSEeqPLK5OkEnPyw">
+        <appliedGroundVariable href="DeltaIoTNonTemporalEnvironmentModel.staticmodel#_yDtAsBKtEeqX18r3QwxObg"/>
+        <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+      </timeSliceInductions>
+    </behaviour>
+  </extensions>
+</dynamicmodel:DynamicBehaviourRepository>

@@ -1,27 +1,30 @@
 package org.palladiosimulator.envdyn.api.tests.bn;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertTrue;
 
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.junit.BeforeClass;
+import java.util.List;
+
+import org.junit.Before;
 import org.junit.Test;
 import org.palladiosimulator.envdyn.api.entity.bn.BayesianNetwork;
+import org.palladiosimulator.envdyn.api.entity.bn.BayesianNetwork.InputValue;
 import org.palladiosimulator.envdyn.api.generator.BayesianNetworkGenerator;
 import org.palladiosimulator.envdyn.api.tests.util.ModelLoader;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariableDefinitions;
 
-public class BayesianNetworkTest {
-
-	private final static ResourceSet appliedModels = new ResourceSetImpl();
+public class BayesianNetworkTest extends BayesianModelTest {
 
 	private TemplateVariableDefinitions templateDefinitions;
 	private BayesianNetwork bayNetwork;
+	private List<InputValue> sample;
 
-	@BeforeClass
-	public static void setUpModels() {
-		appliedModels.getResources().add(ModelLoader.get().loadResourceEnvironment());
-		appliedModels.getResources().add(ModelLoader.get().loadSystem());
+	@Before
+	public void reset() {
+		templateDefinitions = null;
+		bayNetwork = null;
+		sample = null;
 	}
 
 	@Test
@@ -31,17 +34,37 @@ public class BayesianNetworkTest {
 		thenBNIsProperlyGenerated();
 	}
 
+	@Test
+	public void bnSampleTest() {
+		givenBayesianNetwork();
+		whenStartSampling();
+		thenSampleIsValid();
+	}
+
 	private void givenAnnotatedModelsAndTemplateDefinitions() {
 		templateDefinitions = (TemplateVariableDefinitions) ModelLoader.get().loadTemplates().getContents().get(0);
 	}
 
 	private void whenGeneratingBN() {
-		bayNetwork = new BayesianNetworkGenerator(templateDefinitions).generate(appliedModels);
-		ModelLoader.get().persist(bayNetwork.get());
+		bayNetwork = new BayesianNetworkGenerator(templateDefinitions).generate(APPLIED_MODELS);
 	}
 
 	private void thenBNIsProperlyGenerated() {
 		assertTrue(bayNetwork.getGroundVariables().size() > 0);
+	}
+
+	private void givenBayesianNetwork() {
+		bayNetwork = loadBayesianNetwork();
+	}
+
+	private void whenStartSampling() {
+		sample = bayNetwork.sample();
+	}
+
+	private void thenSampleIsValid() {
+		Double probability = bayNetwork.probability(sample);
+		assertNotNull(probability);
+		assertNotSame(ZERO_PROBABILITY, probability.doubleValue());
 	}
 
 }

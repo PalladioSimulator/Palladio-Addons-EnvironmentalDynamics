@@ -6,28 +6,36 @@
   <variables id="_QCuf4MWkEemeD8HH3Gbl-Q" entityName="SignalToNoiseRatio">
     <signature argument="_BPv0UMr1EemPmcCIsj28kQ"/>
   </variables>
-  <variables id="_uszBEMr1EemPmcCIsj28kQ" entityName="TrafficLoad" shared="true">
-    <signature argument="_e9Dxwcr1EemPmcCIsj28kQ"/>
-    <signature argument="_BPv0UMr1EemPmcCIsj28kQ"/>
-  </variables>
   <variables id="_GZdDoMr2EemPmcCIsj28kQ" entityName="MoteActivation">
     <signature argument="_e9Dxwcr1EemPmcCIsj28kQ"/>
   </variables>
-  <variables id="_cXAfgAxyEeqUBrWYKlRSOQ" entityName="QuadrupleTrafficLoad" shared="true" refines="_uszBEMr1EemPmcCIsj28kQ">
-    <signature argument="_BPv0UMr1EemPmcCIsj28kQ"/>
-    <signature argument="_BPv0UMr1EemPmcCIsj28kQ"/>
-    <signature argument="_BPv0UMr1EemPmcCIsj28kQ"/>
-  </variables>
-  <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_1K4W4MWnEemx1KrwIzdqtQ" entityName="WIFactor" scope="_1rlpgMWiEemeD8HH3Gbl-Q"/>
-  <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_CV7b4cWoEemx1KrwIzdqtQ" entityName="WI_SNR_Factor" scope="_1rlpgMWiEemeD8HH3Gbl-Q _QCuf4MWkEemeD8HH3Gbl-Q"/>
-  <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_R6ZsYcr4EemPmcCIsj28kQ" entityName="SNR_TL_MA_Factor" scope="_uszBEMr1EemPmcCIsj28kQ _QCuf4MWkEemeD8HH3Gbl-Q _GZdDoMr2EemPmcCIsj28kQ"/>
-  <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_PCasccsVEem-osfd2_mNhw" entityName="MAFactor" scope="_GZdDoMr2EemPmcCIsj28kQ"/>
-  <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_drQgMQxzEeqUBrWYKlRSOQ" entityName="4SNR_TL_MA_Factor" scope="_GZdDoMr2EemPmcCIsj28kQ _QCuf4MWkEemeD8HH3Gbl-Q _cXAfgAxyEeqUBrWYKlRSOQ"/>
+  <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_1K4W4MWnEemx1KrwIzdqtQ" entityName="WIFactor" scope="_1rlpgMWiEemeD8HH3Gbl-Q">
+    <distributionFamily href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+  </factors>
+  <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_CV7b4cWoEemx1KrwIzdqtQ" entityName="WI_SNR_Factor" scope="_1rlpgMWiEemeD8HH3Gbl-Q _QCuf4MWkEemeD8HH3Gbl-Q">
+    <distributionFamily href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+  </factors>
+  <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_PCasccsVEem-osfd2_mNhw" entityName="MAFactor" scope="_GZdDoMr2EemPmcCIsj28kQ">
+    <distributionFamily href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+  </factors>
+  <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_4A_uARqOEeqUnKwnXyGFlw" entityName="DynamicalMAFactor" scope="_GZdDoMr2EemPmcCIsj28kQ" temporal="true">
+    <distributionFamily href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+  </factors>
+  <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_-c_hERqOEeqUnKwnXyGFlw" entityName="DynamicalWIFactor" scope="_1rlpgMWiEemeD8HH3Gbl-Q" temporal="true">
+    <distributionFamily href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+  </factors>
+  <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_FdUJMRqPEeqUnKwnXyGFlw" entityName="DynamicalSNRFactor" scope="_QCuf4MWkEemeD8HH3Gbl-Q" temporal="true">
+    <distributionFamily href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+  </factors>
+  <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_Moy4cRqPEeqUnKwnXyGFlw" entityName="DynamicalWItoSNRFactor" scope="_QCuf4MWkEemeD8HH3Gbl-Q _1rlpgMWiEemeD8HH3Gbl-Q" temporal="true">
+    <distributionFamily href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+  </factors>
   <arguments id="_BPv0UMr1EemPmcCIsj28kQ" entityName="WirelessLink"/>
   <arguments id="_e9Dxwcr1EemPmcCIsj28kQ" entityName="IoTMote"/>
   <relation xsi:type="templatevariable:DependenceRelation" target="_QCuf4MWkEemeD8HH3Gbl-Q" source="_1rlpgMWiEemeD8HH3Gbl-Q"/>
-  <relation xsi:type="templatevariable:DependenceRelation" target="_uszBEMr1EemPmcCIsj28kQ" source="_QCuf4MWkEemeD8HH3Gbl-Q"/>
-  <relation xsi:type="templatevariable:DependenceRelation" target="_uszBEMr1EemPmcCIsj28kQ" source="_GZdDoMr2EemPmcCIsj28kQ" contingent="true"/>
-  <templateGroups entityName="SingleTrafficLoadInstantiationGroup" groupedTemplates="_1rlpgMWiEemeD8HH3Gbl-Q _GZdDoMr2EemPmcCIsj28kQ _QCuf4MWkEemeD8HH3Gbl-Q _uszBEMr1EemPmcCIsj28kQ"/>
-  <templateGroups entityName="QuadrupleTrafficLoadInstantiationGroup" groupedTemplates="_1rlpgMWiEemeD8HH3Gbl-Q _cXAfgAxyEeqUBrWYKlRSOQ _GZdDoMr2EemPmcCIsj28kQ _QCuf4MWkEemeD8HH3Gbl-Q"/>
+  <relation xsi:type="templatevariable:PersistenceRelation" interfaceVariable="_GZdDoMr2EemPmcCIsj28kQ"/>
+  <relation xsi:type="templatevariable:PersistenceRelation" interfaceVariable="_QCuf4MWkEemeD8HH3Gbl-Q"/>
+  <relation xsi:type="templatevariable:PersistenceRelation" interfaceVariable="_1rlpgMWiEemeD8HH3Gbl-Q"/>
+  <relation xsi:type="templatevariable:TimeSliceRelation" source="_1rlpgMWiEemeD8HH3Gbl-Q" target="_QCuf4MWkEemeD8HH3Gbl-Q"/>
+  <templateGroups entityName="WirelessLinkGroup" groupedTemplates="_1rlpgMWiEemeD8HH3Gbl-Q _QCuf4MWkEemeD8HH3Gbl-Q"/>
 </templatevariable:TemplateVariableDefinitions>

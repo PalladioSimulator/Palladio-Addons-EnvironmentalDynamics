@@ -2,174 +2,203 @@
 <distributionfunction:ProbabilityDistributionFunctionRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:distributionfunction="http://www.mdsd.tools/probabilitydistributions/distributionfunction" id="_5q3YsBHkEeql1bYozZsqEg" entityName="DeltaIoTDistributionRepo">
   <distributions xsi:type="distributionfunction:ProbabilityDistribution" id="_5q7qIBHkEeql1bYozZsqEg" entityName="WirelessInterference1" params="_5q_7kBHkEeql1bYozZsqEg">
     <randomVariables id="_5q9fUBHkEeql1bYozZsqEg" entityName="WI1" valueSpace="CATEGORY"/>
-    <instantiated href="DistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
   </distributions>
   <distributions xsi:type="distributionfunction:ProbabilityDistribution" id="_5q-tcBHkEeql1bYozZsqEg" entityName="WirelessInterference2" params="_5rBwwBHkEeql1bYozZsqEg">
     <randomVariables id="_zpyKkBHlEeqap-evF1dF6w" entityName="WI2" valueSpace="CATEGORY"/>
-    <instantiated href="DistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
   </distributions>
   <distributions xsi:type="distributionfunction:ProbabilityDistribution" id="_iUMF0BHnEeqap-evF1dF6w" entityName="SignalToNoiseRatio4to1" params="_rXkf8RHpEeqoTZlPvrooWg">
     <randomVariables id="_mYWXcBHqEeqoTZlPvrooWg" entityName="SNR_4to1" valueSpace="CATEGORY"/>
-    <instantiated href="DistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
   </distributions>
   <distributions xsi:type="distributionfunction:ProbabilityDistribution" id="_7qyk4BHrEeqoTZlPvrooWg" entityName="SignalToNoiseRatio3to1" params="_4JFOIRHqEeqoTZlPvrooWg">
     <randomVariables id="_FLrFQBHsEeqoTZlPvrooWg" entityName="SNR_3to1" valueSpace="CATEGORY"/>
-    <instantiated href="DistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
   </distributions>
   <distributions xsi:type="distributionfunction:ProbabilityDistribution" id="_8H9pEBHrEeqoTZlPvrooWg" entityName="SignalToNoiseRatio8to1" params="_6u1vcRHqEeqoTZlPvrooWg">
     <randomVariables id="_J3U8EBHsEeqoTZlPvrooWg" entityName="SNR_8to1" valueSpace="CATEGORY"/>
-    <instantiated href="DistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
   </distributions>
   <distributions xsi:type="distributionfunction:ProbabilityDistribution" id="_8bisYBHrEeqoTZlPvrooWg" entityName="SignalToNoiseRatio9to1" params="_9AaJcRHqEeqoTZlPvrooWg">
     <randomVariables id="_Q0Q5ABHsEeqoTZlPvrooWg" entityName="SNR_9to1" valueSpace="CATEGORY"/>
-    <instantiated href="DistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
   </distributions>
   <distributions xsi:type="distributionfunction:ProbabilityDistribution" id="_Osu54BHuEeqoTZlPvrooWg" entityName="MoteActivation1" params="_JjBtwRHxEeqoTZlPvrooWg">
     <randomVariables id="_Td40YBHxEeqoTZlPvrooWg" entityName="MA1" valueSpace="CATEGORY"/>
-    <instantiated href="DistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
   </distributions>
-  <distributions xsi:type="distributionfunction:ProbabilityDistribution" id="_X3ZLQBHxEeqoTZlPvrooWg" entityName="MoteActivation2">
+  <distributions xsi:type="distributionfunction:ProbabilityDistribution" id="_X3ZLQBHxEeqoTZlPvrooWg" entityName="MoteActivation2" params="_bO7u0RHxEeqoTZlPvrooWg">
     <randomVariables id="_aD6tMBHxEeqoTZlPvrooWg" entityName="MA2" valueSpace="CATEGORY"/>
-    <instantiated href="DistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
+  </distributions>
+  <distributions xsi:type="distributionfunction:ProbabilityDistribution" id="_QMq_YBKuEeqXWPQDIrbTtg" entityName="SignalToNoiseRatio5to9" params="_Yi31URKuEeqXWPQDIrbTtg">
+    <randomVariables id="_2ub1ABKuEeqXWPQDIrbTtg" entityName="SNR_5to9" valueSpace="CATEGORY"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>
   </distributions>
   <params id="_5q_7kBHkEeql1bYozZsqEg" entityName="WirelessInterference1_SampleSpace">
-    <instantiated href="DistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
     <representation xsi:type="distributionfunction:SimpleParameter" type="SAMPLESPACE" value="{I-5,0.0909};{-4,0.0909};{-3,0.0909};{-2,0.0909};{-1,0.0909};{0,0.0909};{1,0.0909};{2,0.0909};{3,0.0909};{4,0.0909};{5,0.0909}"/>
   </params>
   <params id="_5rBwwBHkEeql1bYozZsqEg" entityName="WirelessInterference2_SampleSpace">
-    <instantiated href="DistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
     <representation xsi:type="distributionfunction:SimpleParameter" type="SAMPLESPACE" value="{-2,0.0909};{-1,0.0909};{0,0.0909};{1,0.0909};{2,0.0909}"/>
   </params>
   <params id="_rXkf8RHpEeqoTZlPvrooWg" entityName="SNR_4to1">
-    <instantiated href="DistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-2</conditonals>
-        <entry value="-10.7"/>
+        <entry type="SAMPLESPACE" value="{-10.7,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-1</conditonals>
-        <entry value="-9.7"/>
+        <entry type="SAMPLESPACE" value="{-9.7,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>0</conditonals>
-        <entry value="-8.7"/>
+        <entry type="SAMPLESPACE" value="{-8.7,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>1</conditonals>
-        <entry value="-7.7"/>
+        <entry type="SAMPLESPACE" value="{-7.7,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>2</conditonals>
-        <entry value="-6.7"/>
+        <entry type="SAMPLESPACE" value="{-6.7,1.0}"/>
       </cpdEntries>
     </representation>
   </params>
   <params id="_4JFOIRHqEeqoTZlPvrooWg" entityName="SNR_3to1">
-    <instantiated href="DistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-2</conditonals>
-        <entry value="-2.2"/>
+        <entry type="SAMPLESPACE" value="{-2.2,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-1</conditonals>
-        <entry value="-1.2"/>
+        <entry type="SAMPLESPACE" value="{-1.2,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>0</conditonals>
-        <entry value="0.2"/>
+        <entry type="SAMPLESPACE" value="{0.2,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>1</conditonals>
-        <entry value="1.2"/>
+        <entry type="SAMPLESPACE" value="{1.2,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>2</conditonals>
-        <entry value="2.2"/>
+        <entry type="SAMPLESPACE" value="{2.2,1.0}"/>
       </cpdEntries>
     </representation>
   </params>
   <params id="_6u1vcRHqEeqoTZlPvrooWg" entityName="SNR_8to1">
-    <instantiated href="DistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-5</conditonals>
-        <entry value="-5.8"/>
+        <entry type="SAMPLESPACE" value="{-5.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-4</conditonals>
-        <entry value="-4.8"/>
+        <entry type="SAMPLESPACE" value="{-4.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-3</conditonals>
-        <entry value="-3.8"/>
+        <entry type="SAMPLESPACE" value="{-3.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-2</conditonals>
-        <entry value="-2.8"/>
+        <entry type="SAMPLESPACE" value="{-2.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-1</conditonals>
-        <entry value="-1.8"/>
+        <entry type="SAMPLESPACE" value="{-1.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>0</conditonals>
-        <entry value="-0.8"/>
+        <entry type="SAMPLESPACE" value="{-0.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>1</conditonals>
-        <entry value="1.8"/>
+        <entry type="SAMPLESPACE" value="{1.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>2</conditonals>
-        <entry value="2.8"/>
+        <entry type="SAMPLESPACE" value="{2.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>3</conditonals>
-        <entry value="3.8"/>
+        <entry type="SAMPLESPACE" value="{3.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>4</conditonals>
-        <entry value="4.8"/>
+        <entry type="SAMPLESPACE" value="{4.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>5</conditonals>
-        <entry value="5.8"/>
+        <entry type="SAMPLESPACE" value="{5.8,1.0}"/>
       </cpdEntries>
     </representation>
   </params>
   <params id="_9AaJcRHqEeqoTZlPvrooWg" entityName="SNR_9to1">
-    <instantiated href="DistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-2</conditonals>
-        <entry value="-10.0"/>
+        <entry type="SAMPLESPACE" value="{-10.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-1</conditonals>
-        <entry value="-9.0"/>
+        <entry type="SAMPLESPACE" value="{-9.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>0</conditonals>
-        <entry value="-8.0"/>
+        <entry type="SAMPLESPACE" value="{-8.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>1</conditonals>
-        <entry value="7.0"/>
+        <entry type="SAMPLESPACE" value="{-7.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>2</conditonals>
-        <entry value="6.0"/>
+        <entry type="SAMPLESPACE" value="{-6.0,1.0}"/>
       </cpdEntries>
     </representation>
   </params>
   <params id="_JjBtwRHxEeqoTZlPvrooWg" entityName="MA1">
-    <instantiated href="DistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
     <representation xsi:type="distributionfunction:SimpleParameter" type="SAMPLESPACE" value="{1,1};{0,0}"/>
   </params>
   <params id="_bO7u0RHxEeqoTZlPvrooWg" entityName="MA2">
-    <instantiated href="DistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
     <representation xsi:type="distributionfunction:SimpleParameter" type="SAMPLESPACE" value="{0.85,0.85};{0.15,0.15}"/>
+  </params>
+  <params id="_Yi31URKuEeqXWPQDIrbTtg" entityName="SNR_5to9">
+    <instantiated href="DeltaIoTDistributionTypes.distributiontype#_14SnUc_rEemBRfgTMg4KMw"/>
+    <representation xsi:type="distributionfunction:TabularCPD">
+      <cpdEntries>
+        <conditonals>-2</conditonals>
+        <entry type="SAMPLESPACE" value="{-8.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>-1</conditonals>
+        <entry type="SAMPLESPACE" value="{-7.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>0</conditonals>
+        <entry type="SAMPLESPACE" value="{-6.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>1</conditonals>
+        <entry type="SAMPLESPACE" value="{-5.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>2</conditonals>
+        <entry type="SAMPLESPACE" value="{-4.0,1.0}"/>
+      </cpdEntries>
+    </representation>
   </params>
 </distributionfunction:ProbabilityDistributionFunctionRepository>
