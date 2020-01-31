@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<distributionfactor:DistributionFactorRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:distributionfactor="http://palladiosimulator.org/distributionfactor/1.0" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" entityName="DeltaIoTDFRepo">
+  <distributionFactors entityName="Mote10">
+    <factorValues value="0.4">
+      <appliedBranch href="DeltaIoTRepository.repository#_b9JK4MTdEem6vJHOl6M9XA"/>
+    </factorValues>
+    <factorValues value="0.6">
+      <appliedBranch href="DeltaIoTRepository.repository#_exC14MTdEem6vJHOl6M9XA"/>
+    </factorValues>
+    <appliedComponent xsi:type="repository:BasicComponent" href="DeltaIoTRepository.repository#_sFgc8MTaEem6vJHOl6M9XA"/>
+  </distributionFactors>
+  <distributionFactors entityName="Mote12">
+    <factorValues value="0.4">
+      <appliedBranch href="DeltaIoTRepository.repository#_1MCNgMTjEem6vJHOl6M9XA"/>
+    </factorValues>
+    <factorValues value="0.6">
+      <appliedBranch href="DeltaIoTRepository.repository#_3LSIcMTjEem6vJHOl6M9XA"/>
+    </factorValues>
+    <appliedComponent xsi:type="repository:BasicComponent" href="DeltaIoTRepository.repository#_KS5BkMTbEem6vJHOl6M9XA"/>
+  </distributionFactors>
+  <distributionFactors entityName="Mote7">
+    <factorValues value="0.4">
+      <appliedBranch href="DeltaIoTRepository.repository#_LRnwsMorEem4ZN5Unn2ciQ"/>
+    </factorValues>
+    <factorValues value="0.6">
+      <appliedBranch href="DeltaIoTRepository.repository#_ZfeWgMorEem4ZN5Unn2ciQ"/>
+    </factorValues>
+    <appliedComponent xsi:type="repository:BasicComponent" href="DeltaIoTRepository.repository#_gw6rMMooEem4ZN5Unn2ciQ"/>
+  </distributionFactors>
+</distributionfactor:DistributionFactorRepository>
