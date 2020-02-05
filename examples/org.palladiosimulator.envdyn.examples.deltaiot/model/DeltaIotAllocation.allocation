@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" id="_QYEj8MWHEem8XvI7PKw-OA" entityName="defaultAllocation">
-  <targetResourceEnvironment_Allocation href="DeltaIoTResources.resourceenvironment#/"/>
+  <targetResourceEnvironment_Allocation href="DeltaIoTResources.resourceenvironment#/0"/>
   <system_Allocation href="DeltaIoTSystem.system#_pgtnIMTpEem6vJHOl6M9XA"/>
   <allocationContexts_Allocation id="_aGw20MWHEem8XvI7PKw-OA" entityName="Allocation_Gateway1Instance &lt;Gateway>">
     <resourceContainer_AllocationContext href="DeltaIoTResources.resourceenvironment#_19nq8MVxEem8XvI7PKw-OA"/>

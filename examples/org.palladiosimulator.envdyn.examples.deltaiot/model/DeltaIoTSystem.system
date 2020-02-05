@@ -255,6 +255,7 @@
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_TzjAkMVsEem8XvI7PKw-OA" taggedValue="RS5Mote">
       <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_e9Dxwcr1EemPmcCIsj28kQ"/>
+      <template href="DeltaIoTTemplateVariables.templatevariable#_GZdDoMr2EemPmcCIsj28kQ"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_uUhk4MVsEem8XvI7PKw-OA" taggedValue="TS6Mote">
       <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>

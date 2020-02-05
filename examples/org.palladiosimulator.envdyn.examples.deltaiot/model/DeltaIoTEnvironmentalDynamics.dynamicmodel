@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dynamicmodel:DynamicBehaviourExtension xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dynamicmodel="http://palladiosimulator.org/Environment/DynamicModel/1.0" xmlns:templatevariable="http://palladiosimulator.org/Environment/TemplateVariable/1.0" id="_8l4KYEdwEeq4nph5UDtc-g">
+  <model href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lfv4UdwEeq4nph5UDtc-g"/>
+  <behaviour xsi:type="dynamicmodel:InductiveDynamicBehaviour">
+    <localModels id="_8l-4EEdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8l-4EUdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8l_fIEdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8l_fIUdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8l_fIkdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8l_fI0dwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8l_fJEdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8l_fJUdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8l_fJkdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8l_fJ0dwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8l_fKEdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAGMEdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAGMUdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAGMkdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAGM0dwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAGNEdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAGNUdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAGNkdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAGN0dwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAGOEdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAtQEdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAtQUdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAtQkdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAtQ0dwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAtREdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAtRUdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAtRkdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mAtR0dwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mBUUEdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mBUUUdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mBUUkdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mBUU0dwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mBUVEdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mBUVUdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mBUVkdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mBUV0dwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mB7YEdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mB7YUdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mB7YkdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mB7Y0dwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mB7ZEdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mB7ZUdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mB7ZkdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mB7Z0dwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mB7aEdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mCicEdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mCicUdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_Moy4cRqPEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mCickdwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <localModels id="_8mCic0dwEeq4nph5UDtc-g">
+      <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#_4A_uARqOEeqUnKwnXyGFlw"/>
+    </localModels>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8l-4EEdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lRGYEdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8l-4EUdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lQfUEdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8l_fIEdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lVX0UdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8l_fIUdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lVX0kdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8l_fIkdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lV-4UdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8l_fI0dwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lV-40dwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8l_fJEdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lV-5UdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8l_fJUdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lWl8UdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8l_fJkdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lWl8EdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8l_fJ0dwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lXNAEdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8l_fKEdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lWl9EdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAGMEdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lXNBEdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAGMUdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lXNA0dwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAGMkdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lX0EUdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAGM0dwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lX0E0dwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAGNEdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lX0FEdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAGNUdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lX0F0dwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAGNkdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lYbIEdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAGN0dwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lYbI0dwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAGOEdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lYbJUdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAtQEdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lYbJkdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAtQUdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lZCMkdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAtQkdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lZCM0dwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAtQ0dwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lZpQEdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAtREdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lZpQ0dwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAtRUdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lZpQkdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAtRkdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lZpRkdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mAtR0dwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8laQUEdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mBUUEdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8laQU0dwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mBUUUdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8la3YEdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mBUUkdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8la3YkdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mBUU0dwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8la3ZUdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mBUVEdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8la3ZEdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mBUVUdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lbeckdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mBUVkdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lbec0dwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mBUV0dwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lcFgUdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mB7YEdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lcFgkdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mB7YUdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lcFhUdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mB7YkdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8ldTokdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mB7Y0dwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8ldToUdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mB7ZEdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8ldTpUdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mB7ZUdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8ld6sEdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mB7ZkdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8ld6s0dwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mB7Z0dwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8ld6tUdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mB7aEdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lehwUdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mCicEdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lehw0dwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.2"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mCicUdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lfI0EdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:TimeSliceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.3"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mCickdwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lfI00dwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+    </timeSliceInductions>
+    <timeSliceInductions xsi:type="dynamicmodel:InterTimeSliceInduction" descriptiveModel="_8mCic0dwEeq4nph5UDtc-g">
+      <appliedGroundVariable href="/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel#_8lfI1UdwEeq4nph5UDtc-g"/>
+      <temporalStructure xsi:type="templatevariable:PersistenceRelation" href="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTTemplateVariables.templatevariable#//@relation.1"/>
+    </timeSliceInductions>
+  </behaviour>
+</dynamicmodel:DynamicBehaviourExtension>
