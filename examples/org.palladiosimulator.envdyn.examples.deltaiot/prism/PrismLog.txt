@@ -1,0 +1,2617 @@
+PRISM
+=====
+
+Version: 4.5
+Date: Wed Feb 12 16:38:34 CET 2020
+Hostname: se-dracaena
+Memory limits: cudd=1g, java(heap)=5.0g
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 6 of module "Topology" doesn't do anything ("(turn'=16)", line 95, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 3 of module "Network" doesn't do anything ("(status'=2)", line 153, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000167, setup 0.00)
+
+Time for model construction: 0.426 seconds.
+
+Type:        DTMC
+States:      96 (1 initial)
+Transitions: 130
+
+Transition matrix: 1053 nodes (30 terminal), 130 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.00 seconds (average 0.000222, setup 0.00)
+
+Prob1: 12 iterations in 0.00 seconds (average 0.000167, setup 0.00)
+
+yes = 13, no = 17, maybe = 66
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1025] [48.0 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.8 KB]
+TOTAL: [50.7 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.4507191405204461
+
+Time for model checking: 0.01 seconds.
+
+Result: 0.4507191405204461 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 3 of module "Network" doesn't do anything ("(status'=2)", line 153, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000167, setup 0.00)
+
+Time for model construction: 0.011 seconds.
+
+Type:        DTMC
+States:      91 (1 initial)
+Transitions: 123
+
+Transition matrix: 1031 nodes (30 terminal), 123 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.00 seconds (average 0.000111, setup 0.00)
+
+Prob1: 12 iterations in 0.00 seconds (average 0.000167, setup 0.00)
+
+yes = 12, no = 17, maybe = 62
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=993] [46.5 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [49.0 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.45576975209125486
+
+Time for model checking: 0.004 seconds.
+
+Result: 0.45576975209125486 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 7 of module "Network" doesn't do anything ("(status'=2)", line 157, column 62)
+
+Warning: Update 1 of command 9 of module "Network" doesn't do anything ("(status'=2)", line 159, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Warning: Update 1 of command 16 of module "Network" doesn't do anything ("(status'=2)", line 166, column 64)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000167, setup 0.00)
+
+Time for model construction: 0.013 seconds.
+
+Type:        DTMC
+States:      89 (1 initial)
+Transitions: 119
+
+Transition matrix: 1008 nodes (27 terminal), 119 minterms, vars: 15r/15c
+
+Prob0: 11 iterations in 0.00 seconds (average 0.000182, setup 0.00)
+
+Prob1: 16 iterations in 0.00 seconds (average 0.000125, setup 0.00)
+
+yes = 10, no = 11, maybe = 68
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1041] [48.8 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [51.2 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.4596095465134099
+
+Time for model checking: 0.005 seconds.
+
+Result: 0.4596095465134099 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 3 of module "Network" doesn't do anything ("(status'=2)", line 153, column 62)
+
+Warning: Update 1 of command 7 of module "Network" doesn't do anything ("(status'=2)", line 157, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000167, setup 0.00)
+
+Time for model construction: 0.012 seconds.
+
+Type:        DTMC
+States:      91 (1 initial)
+Transitions: 123
+
+Transition matrix: 1028 nodes (29 terminal), 123 minterms, vars: 15r/15c
+
+Prob0: 11 iterations in 0.00 seconds (average 0.000182, setup 0.00)
+
+Prob1: 12 iterations in 0.00 seconds (average 0.000083, setup 0.00)
+
+yes = 12, no = 17, maybe = 62
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=994] [46.6 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [49.1 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.43984239463601527
+
+Time for model checking: 0.005 seconds.
+
+Result: 0.43984239463601527 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 6 of module "Topology" doesn't do anything ("(turn'=16)", line 95, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 3 of module "Network" doesn't do anything ("(status'=2)", line 153, column 62)
+
+Warning: Update 1 of command 7 of module "Network" doesn't do anything ("(status'=2)", line 157, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.261 seconds.
+
+Type:        DTMC
+States:      91 (1 initial)
+Transitions: 123
+
+Transition matrix: 1022 nodes (28 terminal), 123 minterms, vars: 15r/15c
+
+Prob0: 11 iterations in 0.00 seconds (average 0.000091, setup 0.00)
+
+Prob1: 12 iterations in 0.00 seconds (average 0.000083, setup 0.00)
+
+yes = 12, no = 17, maybe = 62
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=985] [46.2 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [48.6 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.46002361623616245
+
+Time for model checking: 0.003 seconds.
+
+Result: 0.46002361623616245 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 3 of module "Network" doesn't do anything ("(status'=2)", line 153, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Warning: Update 1 of command 16 of module "Network" doesn't do anything ("(status'=2)", line 166, column 64)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000167, setup 0.00)
+
+Time for model construction: 0.153 seconds.
+
+Type:        DTMC
+States:      95 (1 initial)
+Transitions: 128
+
+Transition matrix: 1042 nodes (26 terminal), 128 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.00 seconds (average 0.000111, setup 0.00)
+
+Prob1: 12 iterations in 0.00 seconds (average 0.000083, setup 0.00)
+
+yes = 12, no = 17, maybe = 66
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1030] [48.3 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [50.8 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.4873006992366413
+
+Time for model checking: 0.003 seconds.
+
+Result: 0.4873006992366413 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 3 of module "Network" doesn't do anything ("(status'=2)", line 153, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Warning: Update 1 of command 16 of module "Network" doesn't do anything ("(status'=2)", line 166, column 64)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000167, setup 0.00)
+
+Time for model construction: 0.01 seconds.
+
+Type:        DTMC
+States:      95 (1 initial)
+Transitions: 128
+
+Transition matrix: 1045 nodes (26 terminal), 128 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.00 seconds (average 0.000111, setup 0.00)
+
+Prob1: 12 iterations in 0.00 seconds (average 0.000167, setup 0.00)
+
+yes = 12, no = 17, maybe = 66
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1032] [48.4 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [50.9 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.5155901019011406
+
+Time for model checking: 0.004 seconds.
+
+Result: 0.5155901019011406 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 9 of module "Network" doesn't do anything ("(status'=2)", line 159, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.009 seconds.
+
+Type:        DTMC
+States:      97 (1 initial)
+Transitions: 132
+
+Transition matrix: 1057 nodes (32 terminal), 132 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.00 seconds (average 0.000111, setup 0.00)
+
+Prob1: 16 iterations in 0.00 seconds (average 0.000125, setup 0.00)
+
+yes = 14, no = 11, maybe = 72
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1084] [50.8 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.8 KB]
+TOTAL: [53.5 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.43693264712121216
+
+Time for model checking: 0.005 seconds.
+
+Result: 0.43693264712121216 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 9 of module "Network" doesn't do anything ("(status'=2)", line 159, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Warning: Update 1 of command 16 of module "Network" doesn't do anything ("(status'=2)", line 166, column 64)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.109 seconds.
+
+Type:        DTMC
+States:      96 (1 initial)
+Transitions: 130
+
+Transition matrix: 1038 nodes (27 terminal), 130 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Prob1: 16 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+yes = 13, no = 11, maybe = 72
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1079] [50.6 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.8 KB]
+TOTAL: [53.2 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.4696336115769231
+
+Time for model checking: 0.0 seconds.
+
+Result: 0.4696336115769231 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 6 of module "Topology" doesn't do anything ("(turn'=16)", line 95, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 7 of module "Network" doesn't do anything ("(status'=2)", line 157, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.141 seconds.
+
+Type:        DTMC
+States:      91 (1 initial)
+Transitions: 123
+
+Transition matrix: 1016 nodes (27 terminal), 123 minterms, vars: 15r/15c
+
+Prob0: 11 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Prob1: 16 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+yes = 12, no = 8, maybe = 71
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1064] [49.9 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [52.4 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.4540563129323308
+
+Time for model checking: 0.0 seconds.
+
+Result: 0.4540563129323308 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 9 of module "Network" doesn't do anything ("(status'=2)", line 159, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.016 seconds.
+
+Type:        DTMC
+States:      97 (1 initial)
+Transitions: 132
+
+Transition matrix: 1066 nodes (32 terminal), 132 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Prob1: 16 iterations in 0.02 seconds (average 0.001000, setup 0.00)
+
+yes = 14, no = 11, maybe = 72
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1097] [51.4 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.8 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.8 KB]
+TOTAL: [54.1 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.4794589362406015
+
+Time for model checking: 0.015 seconds.
+
+Result: 0.4794589362406015 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 6 of module "Topology" doesn't do anything ("(turn'=16)", line 95, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 9 of module "Network" doesn't do anything ("(status'=2)", line 159, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.016 seconds.
+
+Type:        DTMC
+States:      92 (1 initial)
+Transitions: 125
+
+Transition matrix: 1036 nodes (31 terminal), 125 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Prob1: 16 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+yes = 13, no = 11, maybe = 68
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1051] [49.3 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [51.8 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.485809943003663
+
+Time for model checking: 0.0 seconds.
+
+Result: 0.485809943003663 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 7 of module "Network" doesn't do anything ("(status'=2)", line 157, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000167, setup 0.00)
+
+Time for model construction: 0.127 seconds.
+
+Type:        DTMC
+States:      91 (1 initial)
+Transitions: 123
+
+Transition matrix: 1022 nodes (28 terminal), 123 minterms, vars: 15r/15c
+
+Prob0: 11 iterations in 0.00 seconds (average 0.000091, setup 0.00)
+
+Prob1: 16 iterations in 0.00 seconds (average 0.000063, setup 0.00)
+
+yes = 12, no = 8, maybe = 71
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1066] [50.0 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [52.5 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.4180195616296296
+
+Time for model checking: 0.004 seconds.
+
+Result: 0.4180195616296296 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 9 of module "Network" doesn't do anything ("(status'=2)", line 159, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Warning: Update 1 of command 16 of module "Network" doesn't do anything ("(status'=2)", line 166, column 64)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.01 seconds (average 0.001000, setup 0.00)
+
+Time for model construction: 0.019 seconds.
+
+Type:        DTMC
+States:      91 (1 initial)
+Transitions: 123
+
+Transition matrix: 1029 nodes (30 terminal), 123 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.00 seconds (average 0.000333, setup 0.00)
+
+Prob1: 16 iterations in 0.00 seconds (average 0.000125, setup 0.00)
+
+yes = 12, no = 11, maybe = 68
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1056] [49.5 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [52.0 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.491960512330827
+
+Time for model checking: 0.007 seconds.
+
+Result: 0.491960512330827 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 3 of module "Network" doesn't do anything ("(status'=2)", line 153, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.0 seconds.
+
+Type:        DTMC
+States:      91 (1 initial)
+Transitions: 123
+
+Transition matrix: 1018 nodes (28 terminal), 123 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Prob1: 12 iterations in 0.02 seconds (average 0.001333, setup 0.00)
+
+yes = 12, no = 17, maybe = 62
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=986] [46.2 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [48.7 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.4648164053435115
+
+Time for model checking: 0.015 seconds.
+
+Result: 0.4648164053435115 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 7 of module "Network" doesn't do anything ("(status'=2)", line 157, column 62)
+
+Warning: Update 1 of command 9 of module "Network" doesn't do anything ("(status'=2)", line 159, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.0 seconds.
+
+Type:        DTMC
+States:      95 (1 initial)
+Transitions: 128
+
+Transition matrix: 1040 nodes (26 terminal), 128 minterms, vars: 15r/15c
+
+Prob0: 11 iterations in 0.01 seconds (average 0.001364, setup 0.00)
+
+Prob1: 16 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+yes = 12, no = 11, maybe = 72
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1072] [50.3 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [52.8 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.49293828601503753
+
+Time for model checking: 0.016 seconds.
+
+Result: 0.49293828601503753 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 7 of module "Network" doesn't do anything ("(status'=2)", line 157, column 62)
+
+Warning: Update 1 of command 9 of module "Network" doesn't do anything ("(status'=2)", line 159, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.016 seconds.
+
+Type:        DTMC
+States:      90 (1 initial)
+Transitions: 121
+
+Transition matrix: 1017 nodes (26 terminal), 121 minterms, vars: 15r/15c
+
+Prob0: 11 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Prob1: 16 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+yes = 11, no = 11, maybe = 68
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1038] [48.7 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [51.1 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.4954771868164795
+
+Time for model checking: 0.0 seconds.
+
+Result: 0.4954771868164795 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 3 of module "Network" doesn't do anything ("(status'=2)", line 153, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.0 seconds.
+
+Type:        DTMC
+States:      92 (1 initial)
+Transitions: 125
+
+Transition matrix: 1031 nodes (30 terminal), 125 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Prob1: 12 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+yes = 13, no = 17, maybe = 62
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=995] [46.6 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [49.2 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.44933988326996205
+
+Time for model checking: 0.0 seconds.
+
+Result: 0.44933988326996205 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 9 of module "Network" doesn't do anything ("(status'=2)", line 159, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.0 seconds.
+
+Type:        DTMC
+States:      91 (1 initial)
+Transitions: 123
+
+Transition matrix: 1023 nodes (28 terminal), 123 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Prob1: 16 iterations in 0.01 seconds (average 0.000937, setup 0.00)
+
+yes = 12, no = 11, maybe = 68
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1046] [49.0 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [51.5 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.4284047467669172
+
+Time for model checking: 0.016 seconds.
+
+Result: 0.4284047467669172 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 3 of module "Network" doesn't do anything ("(status'=2)", line 153, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 9 of module "Network" doesn't do anything ("(status'=2)", line 159, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Warning: Update 1 of command 16 of module "Network" doesn't do anything ("(status'=2)", line 166, column 64)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.0 seconds.
+
+Type:        DTMC
+States:      89 (1 initial)
+Transitions: 119
+
+Transition matrix: 1009 nodes (25 terminal), 119 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Prob1: 12 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+yes = 10, no = 20, maybe = 59
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=956] [44.8 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.6 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [47.2 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.42049561132075475
+
+Time for model checking: 0.0 seconds.
+
+Result: 0.42049561132075475 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 9 of module "Network" doesn't do anything ("(status'=2)", line 159, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.015 seconds.
+
+Type:        DTMC
+States:      96 (1 initial)
+Transitions: 130
+
+Transition matrix: 1059 nodes (32 terminal), 130 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Prob1: 16 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+yes = 13, no = 11, maybe = 72
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1092] [51.2 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.8 KB]
+TOTAL: [53.8 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.4797747466159696
+
+Time for model checking: 0.0 seconds.
+
+Result: 0.4797747466159696 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 9 of module "Network" doesn't do anything ("(status'=2)", line 159, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.0 seconds.
+
+Type:        DTMC
+States:      91 (1 initial)
+Transitions: 123
+
+Transition matrix: 1024 nodes (30 terminal), 123 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Prob1: 16 iterations in 0.02 seconds (average 0.001000, setup 0.00)
+
+yes = 12, no = 11, maybe = 68
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=1048] [49.1 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [51.6 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.48212580436090224
+
+Time for model checking: 0.016 seconds.
+
+Result: 0.48212580436090224 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 3 of module "Network" doesn't do anything ("(status'=2)", line 153, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 9 of module "Network" doesn't do anything ("(status'=2)", line 159, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.0 seconds.
+
+Type:        DTMC
+States:      90 (1 initial)
+Transitions: 121
+
+Transition matrix: 1011 nodes (26 terminal), 121 minterms, vars: 15r/15c
+
+Prob0: 9 iterations in 0.02 seconds (average 0.001778, setup 0.00)
+
+Prob1: 12 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+yes = 11, no = 20, maybe = 59
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=947] [44.4 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.6 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [46.8 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.439273291119691
+
+Time for model checking: 0.016 seconds.
+
+Result: 0.439273291119691 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 3 of module "Network" doesn't do anything ("(status'=2)", line 153, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 7 of module "Network" doesn't do anything ("(status'=2)", line 157, column 62)
+
+Warning: Update 1 of command 9 of module "Network" doesn't do anything ("(status'=2)", line 159, column 62)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.093 seconds.
+
+Type:        DTMC
+States:      89 (1 initial)
+Transitions: 119
+
+Transition matrix: 1012 nodes (25 terminal), 119 minterms, vars: 15r/15c
+
+Prob0: 11 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Prob1: 12 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+yes = 10, no = 20, maybe = 59
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=955] [44.8 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.6 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [47.1 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.4542643088803087
+
+Time for model checking: 0.0 seconds.
+
+Result: 0.4542643088803087 (value in the initial state)
+
+Type:        DTMC
+Modules:     Topology Network 
+Variables:   serviceInvoked sendID recvID turn status 
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F "Packetloss" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Topology" doesn't do anything ("(turn'=16)", line 90, column 51)
+
+Warning: Update 2 of command 2 of module "Topology" doesn't do anything ("(turn'=16)", line 91, column 51)
+
+Warning: Update 2 of command 3 of module "Topology" doesn't do anything ("(turn'=16)", line 92, column 51)
+
+Warning: Update 2 of command 5 of module "Topology" doesn't do anything ("(turn'=16)", line 94, column 51)
+
+Warning: Update 2 of command 7 of module "Topology" doesn't do anything ("(turn'=16)", line 96, column 51)
+
+Warning: Update 2 of command 8 of module "Topology" doesn't do anything ("(turn'=16)", line 97, column 51)
+
+Warning: Update 2 of command 9 of module "Topology" doesn't do anything ("(turn'=16)", line 98, column 54)
+
+Warning: Update 2 of command 12 of module "Topology" doesn't do anything ("(turn'=16)", line 101, column 54)
+
+Warning: Update 2 of command 13 of module "Topology" doesn't do anything ("(turn'=16)", line 102, column 54)
+
+Warning: Update 2 of command 14 of module "Topology" doesn't do anything ("(turn'=16)", line 103, column 54)
+
+Warning: Update 2 of command 23 of module "Topology" doesn't do anything (line 115, column 22)
+
+Warning: Guard for command 2 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 3 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 4 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 5 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 6 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 7 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 8 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 9 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 10 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 11 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 12 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 13 of module "Topology" overlaps with previous commands.
+
+Warning: Guard for command 14 of module "Topology" overlaps with previous commands.
+
+Warning: Update 1 of command 2 of module "Network" doesn't do anything ("(status'=2)", line 152, column 62)
+
+Warning: Update 1 of command 3 of module "Network" doesn't do anything ("(status'=2)", line 153, column 62)
+
+Warning: Update 1 of command 6 of module "Network" doesn't do anything ("(status'=2)", line 156, column 62)
+
+Warning: Update 1 of command 7 of module "Network" doesn't do anything ("(status'=2)", line 157, column 62)
+
+Warning: Update 1 of command 12 of module "Network" doesn't do anything ("(status'=2)", line 162, column 63)
+
+Warning: Update 1 of command 15 of module "Network" doesn't do anything ("(status'=2)", line 165, column 63)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Time for model construction: 0.0 seconds.
+
+Type:        DTMC
+States:      90 (1 initial)
+Transitions: 121
+
+Transition matrix: 1020 nodes (30 terminal), 121 minterms, vars: 15r/15c
+
+Prob0: 11 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Prob1: 12 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+yes = 11, no = 17, maybe = 62
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=995] [46.6 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.7 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.7 KB]
+TOTAL: [49.1 KB]
+
+Starting iterations...
+
+Jacobi: 21 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.4660561390977443
+
+Time for model checking: 0.0 seconds.
+
+Result: 0.4660561390977443 (value in the initial state)

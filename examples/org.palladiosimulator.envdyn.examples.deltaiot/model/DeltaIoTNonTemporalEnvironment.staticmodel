@@ -2,7 +2,7 @@
 <staticmodel:GroundProbabilisticNetwork xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:staticmodel="http://palladiosimulator.org/Environment/StaticModel/1.0" xmlns:templatevariable="http://palladiosimulator.org/Environment/TemplateVariable/1.0" id="_8lfv4UdwEeq4nph5UDtc-g">
   <localModels id="_8lUwwEdwEeq4nph5UDtc-g" entityName="6to4Link_WirelessInterferenceInstantiation_WIFactor_Instantiation">
     <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_1K4W4MWnEemx1KrwIzdqtQ"/>
-    <distribution href="DeltaIoTDistributionFunctions.distributionfunction#_5q7qIBHkEeql1bYozZsqEg"/>
+    <distribution href="DeltaIoTDistributionFunctions.distributionfunction#_5q-tcBHkEeql1bYozZsqEg"/>
   </localModels>
   <localModels id="_8lVX0EdwEeq4nph5UDtc-g" entityName="6to4Link_SignalToNoiseRatioInstantiation_WI_SNR_Factor_Instantiation">
     <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_CV7b4cWoEemx1KrwIzdqtQ"/>

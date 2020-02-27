@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" id="_nh3VoMS5Eem6vJHOl6M9XA" entityName="DeltaIoTRepository">
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" id="_nh3VoMS5Eem6vJHOl6M9XA" entityName="DeltaIoTRepository">
   <components__Repository xsi:type="repository:BasicComponent" id="_GlEvAMS6Eem6vJHOl6M9XA" entityName="SensorNode">
     <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_oecxUMTHEem6vJHOl6M9XA" entityName="sensorComProvider" providedInterface__OperationProvidedRole="_tPpiYMS6Eem6vJHOl6M9XA"/>
     <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_depJ8MTJEem6vJHOl6M9XA" entityName="sensorReadProvider" providedInterface__OperationProvidedRole="_YDJAAMTIEem6vJHOl6M9XA"/>
     <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_wdQOYMTcEem6vJHOl6M9XA" entityName="transmitConsumer" requiredInterface__OperationRequiredRole="_tGPEsMTbEem6vJHOl6M9XA"/>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="VALUE">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:NamespaceReference" referenceName="TransmissionPower"/>
+    </componentParameterUsage_ImplementationComponentType>
     <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_de2lUMTJEem6vJHOl6M9XA" describedService__SEFF="_7w9HUMTIEem6vJHOl6M9XA">
       <steps_Behaviour xsi:type="seff:StartAction" id="_de2lUcTJEem6vJHOl6M9XA" successor_AbstractAction="_WBnG8MTlEem6vJHOl6M9XA"/>
       <steps_Behaviour xsi:type="seff:StopAction" id="_de3MYMTJEem6vJHOl6M9XA" predecessor_AbstractAction="_WBnG8MTlEem6vJHOl6M9XA"/>

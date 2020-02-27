@@ -25,7 +25,7 @@ modeltype PCM_PARAM uses 'http://palladiosimulator.org/PalladioComponentModel/Pa
 modeltype PCM_STOEX uses 'http://sdq.ipd.uka.de/StochasticExpressions/2.2';
 modeltype PCM_DIS_FACTOR uses 'http://palladiosimulator.org/distributionfactor/1.0';
 
-transformation adaptDistributionFactorOfMote12(inout pcmRepository : PCM_REP, in distFactorRepo : PCM_DIS_FACTOR) {
+transformation adaptDistributionFactorOfMote7(inout pcmRepository : PCM_REP, in distFactorRepo : PCM_DIS_FACTOR) {
 
 	/**
 	 * The main transformation.
@@ -33,22 +33,22 @@ transformation adaptDistributionFactorOfMote12(inout pcmRepository : PCM_REP, in
 	 */
 	main() {
 	
-		log('Start to adapt distribution factor of mote 10.');
-
+		log('Start to adapt distribution factor of mote 7.');
+		
 		var transmitter : BasicComponent := pcmRepository.rootObjects()[Repository]
-														 .allSubobjects()[BasicComponent]->any(entityName= "DualTransmitter1");
+														 .allSubobjects()[BasicComponent]->any(entityName= "DualTransmitter3");
 		var distFactor : DistributionFactor := distFactorRepo.rootObjects()[DistributionFactorRepository]
 															 .allSubobjects()[DistributionFactor]->any(appliedComponent.entityName = transmitter.entityName);
 		
-		var branch10To6 : ProbabilisticBranchTransition := transmitter.serviceEffectSpecifications__BasicComponent
-									 								  .allSubobjects()[ProbabilisticBranchTransition]->any(entityName="TransmitToMote6");
-		var factorValue10To6 : DistributionFactorValue := distFactor.factorValues->any(appliedBranch.entityName = branch10To6.entityName);
-		branch10To6.branchProbability := factorValue10To6.value;
+		var branch7To3 : ProbabilisticBranchTransition := transmitter.serviceEffectSpecifications__BasicComponent
+									 								 .allSubobjects()[ProbabilisticBranchTransition]->any(entityName="TransmitFrom7ToMote3");
+		var factorValue7To3 : DistributionFactorValue := distFactor.factorValues->any(appliedBranch.entityName = branch7To3.entityName);
+		branch7To3.branchProbability := factorValue7To3.value;
 		
-		var branch10To5 : ProbabilisticBranchTransition := transmitter.serviceEffectSpecifications__BasicComponent
-									 								  .allSubobjects()[ProbabilisticBranchTransition]->any(entityName="TransmitToMote5");
-		var factorValue10To5 : DistributionFactorValue := distFactor.factorValues->any(appliedBranch.entityName = branch10To5.entityName);
-		branch10To5.branchProbability := factorValue10To5.value;							 								  
+		var branch7To2 : ProbabilisticBranchTransition := transmitter.serviceEffectSpecifications__BasicComponent
+									 								  .allSubobjects()[ProbabilisticBranchTransition]->any(entityName="TransmitToMote2");
+		var factorValue7To2 : DistributionFactorValue := distFactor.factorValues->any(appliedBranch.entityName = branch7To2.entityName);
+		branch7To2.branchProbability := factorValue7To2.value;						 								  
 	}
 	
 }
