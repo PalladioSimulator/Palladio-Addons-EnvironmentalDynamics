@@ -3,7 +3,6 @@ package org.palladiosimulator.envdyn.api.generator;
 import static java.util.stream.Collectors.toSet;
 import static org.palladiosimulator.envdyn.api.entity.bn.BayesianNetwork.getTemplates;
 import static org.palladiosimulator.envdyn.api.util.InductiveDynamicBehaviourQuerying.deriveScopeFrom;
-import static org.palladiosimulator.envdyn.api.util.TemplateDefinitionsQuerying.areEqual;
 
 import java.util.Optional;
 import java.util.Set;
@@ -37,7 +36,7 @@ import tools.mdsd.probdist.model.probdist.distributiontype.ProbabilityDistributi
 import tools.mdsd.probdist.model.probdist.distributiontype.ProbabilityDistributionType;
 
 /*
- * This generator is rather a partial model generator, since the model can only derived and generated partially. 
+ * This generator is rather a partial model generator, since the model can only derived and generated w.r.t. a given bayesian network. 
  * This generator is supposed to be seen as a convenience class, since the dynamic behavious extension should be rather 
  * modeled by the developer. 
  */
@@ -97,13 +96,18 @@ public class DynamicBayesianNetworkGenerator extends ProbabilisticNetworkGenerat
 
 	private Optional<InterTimeSliceInduction> createInterTimeSliceInductions(GroundRandomVariable variable,
 			TemplateDefinitionsQuerying defQuery) {
-		for (TemplateVariable each : defQuery.filterInterfaceVariables()) {
-			if (areEqual(each, variable.getInstantiatedTemplate())) {
-				Set<TemporalRelation> temporalStructure = defQuery.filterTemporalRelationsWithTarget(each);
-				return Optional.of(createInterTimeSliceInduction(variable, temporalStructure));
-			}
+//		for (TemplateVariable each : defQuery.filterInterfaceVariables()) {
+//			if (areEqual(each, variable.getInstantiatedTemplate())) {
+//				Set<TemporalRelation> temporalStructure = defQuery.filterTemporalRelationsWithTarget(each);
+//				return Optional.of(createInterTimeSliceInduction(variable, temporalStructure));
+//			}
+//		}
+		Set<TemporalRelation> temporalStructure = defQuery
+				.filterTemporalRelationsWithTarget(variable.getInstantiatedTemplate());
+		if (temporalStructure.isEmpty()) {
+			return Optional.empty();
 		}
-		return Optional.empty();
+		return Optional.of(createInterTimeSliceInduction(variable, temporalStructure));
 	}
 
 	private InterTimeSliceInduction createInterTimeSliceInduction(GroundRandomVariable appliedVariable,
@@ -119,11 +123,12 @@ public class DynamicBayesianNetworkGenerator extends ProbabilisticNetworkGenerat
 		TemplateFactor temporalFactor = createDefinitionQuerying(localNetwork)
 				.findTemporalTemplateFactorWith(deriveScopeFrom(induction))
 				.orElseThrow(() -> new EnvironmentalDynamicsException("There is no scope defined."));
-		return createLocalDynamicModel(temporalFactor);
+		return createLocalDynamicModel(temporalFactor, induction.getAppliedGroundVariable());
 	}
 
-	private TemporalDynamic createLocalDynamicModel(TemplateFactor temporalFactor) {
+	private TemporalDynamic createLocalDynamicModel(TemplateFactor temporalFactor, GroundRandomVariable variable) {
 		TemporalDynamic dynamic = FACTORY.createTemporalDynamic();
+		dynamic.setEntityName(String.format("%s_Temporal", variable.getEntityName()));
 		dynamic.setInstantiatedFactor(temporalFactor);
 		return dynamic;
 	}

@@ -58,7 +58,7 @@ public class TemplateVariableTopology {
 		orderTopologically();
 	}
 
-	public TopologyIterator getTopologicallyOrderedTemplates() {
+	public TopologyIterator topologicallyOrderedTemplates() {
 		return new TopologyIterator();
 	}
 

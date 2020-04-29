@@ -40,7 +40,7 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 
 	public static class InputValue {
 
-		public final Value<?> value;
+		public Value<?> value;
 		public final GroundRandomVariable variable;
 
 		private InputValue(Value<?> value, GroundRandomVariable variable) {
@@ -268,7 +268,7 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 	private TopologyIterator getTopologyIterator(LocalProbabilisticNetwork localNetwork) {
 		TemplateDefinitionsQuerying templateQuery = TemplateDefinitionsQuerying
 				.withTemplateScope(getTemplates(localNetwork));
-		return new TemplateVariableTopology(templateQuery).getTopologicallyOrderedTemplates();
+		return new TemplateVariableTopology(templateQuery).topologicallyOrderedTemplates();
 	}
 
 	protected ProbabilityDistributionFunction<?> getPDF(GroundRandomVariable variable, List<InputValue> history) {

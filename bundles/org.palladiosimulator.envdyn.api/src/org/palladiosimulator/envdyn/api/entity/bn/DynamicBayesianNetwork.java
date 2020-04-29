@@ -122,6 +122,29 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
 			return samplePath.size() >= trajLength;
 		}
 
+		@Override
+		public String toString() {
+			StringBuilder builder = new StringBuilder();
+			for (int each : samplePath.keySet()) {
+				String timeSlice = stringifyTimeSlice(each, samplePath.get(each));
+				builder.append(timeSlice);
+				builder.append("\n");
+			}
+			return builder.toString();
+		}
+
+		private String stringifyTimeSlice(int timeSlice, List<InputValue> values) {
+			StringBuilder builder = new StringBuilder();
+			for (InputValue each : values) {
+				builder.append(String.format("(Variable: %1s, Value: %2s),", each.variable.getEntityName(),
+						each.value.toString()));
+			}
+
+			String stringValues = builder.toString();
+			return String.format("Time slice: %d, samples: [%s])", timeSlice,
+					stringValues.substring(0, stringValues.length() - 1));
+		}
+
 	}
 
 	private class TemporalProbabilityHandler extends ProbabilityDistributionHandler {
@@ -151,6 +174,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
 	}
 
 	private final InductiveDynamicBehaviourQuerying dynBehaviourQuery;
+	private final DynamicBehaviourExtension dynamics;
 	private final BayesianNetwork initialDistribution;
 	private final TemporalProbabilityHandler probHandler;
 	private final List<ConditionalInputValue> conditionals;
@@ -159,6 +183,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
 			DynamicBehaviourExtension dynamics) {
 		super(distSkeleton);
 
+		this.dynamics = dynamics;
 		this.dynBehaviourQuery = InductiveDynamicBehaviourQuerying.create(dynamics);
 		this.initialDistribution = initialDistribution;
 		this.probHandler = new TemporalProbabilityHandler();
@@ -192,6 +217,14 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
 		setConditionals(asConditionalInputValues(conditionals));
 
 		return this;
+	}
+
+	public BayesianNetwork getBayesianNetwork() {
+		return initialDistribution;
+	}
+	
+	public DynamicBehaviourExtension getDynamics() {
+		return dynamics;
 	}
 
 	private void setConditionals(List<ConditionalInputValue> conditionals) {
@@ -307,33 +340,37 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
 	}
 
 	private void checkValidity(List<Conditional> conditionals) {
+		if (conditionals.isEmpty()) {
+			return;
+		}
+
 		if (conditionals.stream().allMatch(ConditionalInputValue.class::isInstance) == false) {
 			throw new IllegalArgumentException(
 					"The conditionals cannot applied in the dynamic bayesian network context.");
 		}
 	}
 
-	private List<ConditionalInputValue> asConditionalInputValues(List<Conditional> conditionals) {
+	public static List<ConditionalInputValue> asConditionalInputValues(List<Conditional> conditionals) {
 		return conditionals.stream().map(ConditionalInputValue.class::cast).collect(toList());
 	}
 
-	private List<Conditional> asConditionals(List<ConditionalInputValue> conditionals) {
+	public static List<Conditional> asConditionals(List<ConditionalInputValue> conditionals) {
 		return conditionals.stream().map(Conditional.class::cast).collect(toList());
 	}
 
-	private List<ConditionalInputValue> toConditionalInputs(List<InputValue> inputs) {
-		return inputs.stream().map(this::toConditionalInput).collect(toList());
+	public static List<ConditionalInputValue> toConditionalInputs(List<InputValue> inputs) {
+		return inputs.stream().map(DynamicBayesianNetwork::toConditionalInput).collect(toList());
 	}
 
-	private ConditionalInputValue toConditionalInput(InputValue input) {
+	public static ConditionalInputValue toConditionalInput(InputValue input) {
 		return ConditionalInputValue.create(new Conditional(input.value.getDomain(), input.value), input.variable);
 	}
 
-	private List<InputValue> toInputValues(List<ConditionalInputValue> conditionals) {
-		return conditionals.stream().map(this::toInputValue).collect(toList());
+	public static List<InputValue> toInputValues(List<ConditionalInputValue> conditionals) {
+		return conditionals.stream().map(DynamicBayesianNetwork::toInputValue).collect(toList());
 	}
 
-	private InputValue toInputValue(ConditionalInputValue conditional) {
+	public static InputValue toInputValue(ConditionalInputValue conditional) {
 		return InputValue.create(conditional.getValue(), conditional.getGroundVariable());
 	}
 

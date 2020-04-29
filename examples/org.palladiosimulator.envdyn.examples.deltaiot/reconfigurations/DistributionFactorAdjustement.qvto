@@ -25,7 +25,7 @@ modeltype PCM_ENTITY uses 'http://palladiosimulator.org/PalladioComponentModel/C
 //modeltype PCM_STOEX uses 'http://sdq.ipd.uka.de/StochasticExpressions/2.2';
 modeltype PCM_DIS_FACTOR uses 'http://palladiosimulator.org/reconfigurationparams/1.0';
 
-transformation adaptDistributionFactorOfMote10(inout pcmRepository : PCM_REP, in distFactorRepo : PCM_DIS_FACTOR) {
+transformation adaptDistributionFactor(inout pcmRepository : PCM_REP, in reconfParamRepo : PCM_DIS_FACTOR) {
 
 	/**
 	 * The main transformation.
@@ -44,7 +44,7 @@ transformation adaptDistributionFactorOfMote10(inout pcmRepository : PCM_REP, in
 	
 		log('Start to adjust distribution factors');
 		
-		distFactorRepo.rootObjects()[DeltaIoTReconfigurationParamRepository].allSubobjects()[DistributionFactor]->forEach(factor) {
+		reconfParamRepo.rootObjects()[DeltaIoTReconfigurationParamRepository].allSubobjects()[DistributionFactor]->forEach(factor) {
 			pcmRepository.rootObjects()[Repository].allSubobjects()[BasicComponent]->forEach(component) {
 				if factor.appliedComponent.id = component.id then {
 					log('Found target component ' + component.entityName + ' for distribution factor adjustement.');
@@ -53,9 +53,9 @@ transformation adaptDistributionFactorOfMote10(inout pcmRepository : PCM_REP, in
 						var branchToAdjust : ProbabilisticBranchTransition := component.serviceEffectSpecifications__BasicComponent
 							.allSubobjects()[ProbabilisticBranchTransition]->any(entityName = value.appliedBranch.entityName);
 						
-						assert fatal(branchToAdjust = null) with log('The found component ' + component.entityName + ' does not include the branch to adjust; as specified in the reconfiguration params.');
+						assert fatal(branchToAdjust != null) with log('The found component ' + component.entityName + ' does not include the branch to adjust; as specified in the reconfiguration params.');
 						
-						branchToAdjust.branchProbability := value.value;
+						branchToAdjust.branchProbability := branchToAdjust.branchProbability + value.value;
 					};
 				} 
 				endif

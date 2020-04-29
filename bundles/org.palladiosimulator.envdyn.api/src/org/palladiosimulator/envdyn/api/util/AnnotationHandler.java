@@ -1,6 +1,5 @@
 package org.palladiosimulator.envdyn.api.util;
 
-import static java.util.stream.Collectors.toList;
 import static org.palladiosimulator.envdyn.api.generator.annotation.AnnotationConstants.STEREOTYPE_INSTANTATION_NAME;
 import static org.palladiosimulator.envdyn.api.generator.annotation.AnnotationConstants.TAGGED_ARGUMENT_NAME;
 import static org.palladiosimulator.envdyn.api.generator.annotation.AnnotationConstants.TAGGED_TEMPLATE_GROUP_NAME;
@@ -9,10 +8,8 @@ import static org.palladiosimulator.envdyn.api.generator.annotation.AnnotationCo
 
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
-import java.util.stream.Stream;
+import java.util.function.Predicate;
 
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -27,9 +24,9 @@ import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI;
 import com.google.common.collect.Lists;
 
 public class AnnotationHandler {
-	
+
 	private final TemplateVariableDefinitions definitions;
-	
+
 	public AnnotationHandler(TemplateVariableDefinitions definitions) {
 		this.definitions = definitions;
 	}
@@ -37,47 +34,69 @@ public class AnnotationHandler {
 	public static String getTaggedId(EObject appliedElement, Stereotype tag) {
 		return StereotypeAPI.getTaggedValue(appliedElement, TAGGED_UNIQUE_NAME, tag.getName());
 	}
-	
+
 	public static Stereotype getInstantiationTag(EObject obj) {
 		return StereotypeAPI.getAppliedStereotypes(obj).stream()
 				.filter(s -> s.getName().equals(STEREOTYPE_INSTANTATION_NAME)).findFirst().get();
 	}
-	
+
 	public static List<EObject> filterAnnotated(ResourceSet appliedModels) {
-		Stream<Resource> resources = appliedModels.getResources().stream();
-		return resources.flatMap(fitlerAnnotatedElements()).collect(toList());
+		List<EObject> annotated = Lists.newArrayList();
+		for (int i = 0; i < appliedModels.getResources().size(); i++) {
+			Resource appliedModel = appliedModels.getResources().get(i);
+			annotated.addAll(filterAnnotatedElements(appliedModel));
+		}
+		return annotated;
+		// TODO check following:
+		// Throws an java.util.ConcurrentModificationException whenever the resources
+		// are iterated non-index based...
+		// Stream<Resource> resources = appliedModels.getResources().stream();
+		// return resources.flatMap(fitlerAnnotatedElements2()).collect(toList());
 	}
 
-	private static Function<Resource, Stream<EObject>> fitlerAnnotatedElements() {
-		return appliedModel -> {
-			List<EObject> annotatedElements = Lists.newArrayList();
-			for (TreeIterator<EObject> iterator = appliedModel.getAllContents(); iterator.hasNext();) {
-				EObject next = iterator.next();
-				if (StereotypeAPI.isStereotypeApplied(next, STEREOTYPE_INSTANTATION_NAME)) {
-					annotatedElements.add(next);
-				}
-			}
-			return annotatedElements.stream();
-		};
+	private static List<EObject> filterAnnotatedElements(Resource appliedModel) {
+		List<EObject> annotatedElements = Lists.newArrayList();
+		appliedModel.getAllContents().forEachRemaining(annotatedElements::add);
+
+		annotatedElements.removeIf(noStereotypeIsApplied());
+
+		return annotatedElements;
+
 	}
-	
+
+	private static Predicate<EObject> noStereotypeIsApplied() {
+		return obj -> StereotypeAPI.isStereotypeApplied(obj, STEREOTYPE_INSTANTATION_NAME) == false;
+	}
+
+//	private static Function<Resource, Stream<EObject>> fitlerAnnotatedElements() {
+//		return appliedModel -> {
+//			List<EObject> annotatedElements = Lists.newArrayList();
+//			for (TreeIterator<EObject> iterator = appliedModel.getAllContents(); iterator.hasNext();) {
+//				EObject next = iterator.next();
+//				if (StereotypeAPI.isStereotypeApplied(next, STEREOTYPE_INSTANTATION_NAME)) {
+//					annotatedElements.add(next);
+//				}
+//			}
+//			return annotatedElements.stream();
+//		};
+//	}
+
 	public Optional<TemplateVariableGroup> getTemplateGroup(Stereotype tag, EObject appliedElement) {
 		return Optional.ofNullable(
 				(TemplateVariableGroup) getAppliedParameter(tag, appliedElement, TAGGED_TEMPLATE_GROUP_NAME));
 	}
 
 	public Optional<TemplateVariable> getTemplate(Stereotype tag, EObject appliedElement) {
-		return Optional
-				.ofNullable((TemplateVariable) getAppliedParameter(tag, appliedElement, TAGGED_TEMPLATE_NAME));
+		return Optional.ofNullable((TemplateVariable) getAppliedParameter(tag, appliedElement, TAGGED_TEMPLATE_NAME));
 	}
-	
+
 	public Optional<Argument> getArgument(EObject appliedElement, Stereotype tag) {
 		return Optional.ofNullable((Argument) getAppliedParameter(tag, appliedElement, TAGGED_ARGUMENT_NAME));
 	}
 
 	private Object getAppliedParameter(Stereotype tag, EObject appliedElement, String refName) {
 		StereotypeApplication application = StereotypeAPI.getStereotypeApplication(appliedElement, tag);
-		//TODO this is a quick fix; a better solution should be implemented
+		// TODO this is a quick fix; a better solution should be implemented
 		application.eResource().getResourceSet().getResources().add(definitions.eResource());
 		return application.eGet(StereotypeAPI.getParameter(tag, refName));
 	}

@@ -16,5 +16,6 @@ Automatic-Module-Name: org.palladiosimulator.envdyn.api
 Bundle-ActivationPolicy: lazy
 Export-Package: org.palladiosimulator.envdyn.api.entity,
  org.palladiosimulator.envdyn.api.entity.bn,
- org.palladiosimulator.envdyn.api.generator
+ org.palladiosimulator.envdyn.api.generator,
+ org.palladiosimulator.envdyn.api.util
 Import-Package: org.palladiosimulator.commons.emfutils

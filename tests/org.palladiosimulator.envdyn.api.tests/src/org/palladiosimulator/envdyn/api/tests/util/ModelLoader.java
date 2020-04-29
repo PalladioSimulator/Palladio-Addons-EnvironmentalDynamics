@@ -62,7 +62,6 @@ public class ModelLoader {
 		this.resourceSet.getPackageRegistry().put(TemplatevariablePackage.eNS_URI, TemplatevariablePackage.eINSTANCE);
 		this.resourceSet.getPackageRegistry().put(RepositoryPackage.eNS_URI, RepositoryPackage.eINSTANCE);
 		this.resourceSet.getPackageRegistry().put(SystemPackage.eNS_URI, SystemPackage.eINSTANCE);
-		this.resourceSet.getPackageRegistry().put(TemplatevariablePackage.eNS_URI, TemplatevariablePackage.eINSTANCE);
 		this.resourceSet.getPackageRegistry().put(EMFProfilePackage.eNS_URI, EMFProfilePackage.eINSTANCE);
 		this.resourceSet.getPackageRegistry().put(EMFProfileApplicationPackage.eNS_URI,
 				EMFProfileApplicationPackage.eINSTANCE);

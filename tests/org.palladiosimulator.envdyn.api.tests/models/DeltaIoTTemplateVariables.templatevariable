@@ -33,9 +33,8 @@
   <arguments id="_BPv0UMr1EemPmcCIsj28kQ" entityName="WirelessLink"/>
   <arguments id="_e9Dxwcr1EemPmcCIsj28kQ" entityName="IoTMote"/>
   <relation xsi:type="templatevariable:DependenceRelation" target="_QCuf4MWkEemeD8HH3Gbl-Q" source="_1rlpgMWiEemeD8HH3Gbl-Q"/>
-  <relation xsi:type="templatevariable:PersistenceRelation" interfaceVariable="_GZdDoMr2EemPmcCIsj28kQ"/>
-  <relation xsi:type="templatevariable:PersistenceRelation" interfaceVariable="_QCuf4MWkEemeD8HH3Gbl-Q"/>
-  <relation xsi:type="templatevariable:PersistenceRelation" interfaceVariable="_1rlpgMWiEemeD8HH3Gbl-Q"/>
-  <relation xsi:type="templatevariable:TimeSliceRelation" source="_1rlpgMWiEemeD8HH3Gbl-Q" target="_QCuf4MWkEemeD8HH3Gbl-Q"/>
+  <relation xsi:type="templatevariable:PersistenceRelation" entityName="MA_Presistence" interfaceVariable="_GZdDoMr2EemPmcCIsj28kQ"/>
+  <relation xsi:type="templatevariable:PersistenceRelation" entityName="WI_Persistence" interfaceVariable="_1rlpgMWiEemeD8HH3Gbl-Q"/>
+  <relation xsi:type="templatevariable:TimeSliceRelation" entityName="WItoSNR" source="_1rlpgMWiEemeD8HH3Gbl-Q" target="_QCuf4MWkEemeD8HH3Gbl-Q"/>
   <templateGroups entityName="WirelessLinkGroup" groupedTemplates="_1rlpgMWiEemeD8HH3Gbl-Q _QCuf4MWkEemeD8HH3Gbl-Q"/>
 </templatevariable:TemplateVariableDefinitions>
