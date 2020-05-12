@@ -12,6 +12,10 @@
 	
 	<modules>
 		<module>org.palladiosimulator.envdyn.model</module>
+		<module>org.palladiosimulator.envdyn.model.edit</module>
+		<module>org.palladiosimulator.envdyn.model.editor</module>
+		<module>org.palladiosimulator.envdyn.api</module>
+		<module>org.palladiosimulator.envdyn.profile</module>
 	</modules>
 	
 </project>

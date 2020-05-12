@@ -84,7 +84,6 @@ public class DynamicBayesianNetworkTest extends BayesianModelTest {
 	
 	private void whenStartSamplingATrajectory() {
 		sampledTraj = dynBayNetwork.unrollForSampling(SAMPLED_TIME_SLICES);
-		System.out.println(sampledTraj.toString());
 	}
 
 	private void thenTheTrajectoryIsValid() {

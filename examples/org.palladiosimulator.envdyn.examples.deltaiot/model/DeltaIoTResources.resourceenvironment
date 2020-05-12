@@ -228,90 +228,90 @@
   </resourceenvironment:ResourceEnvironment>
   <emfprofileapplication:ProfileApplication>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_kPLa0MWTEem8XvI7PKw-OA" taggedValue="9to1Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_9BF1QMWTEem8XvI7PKw-OA" taggedValue="5to9Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_RkgrcMWTEem8XvI7PKw-OA" taggedValue="3to1Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_Yi0hYMWTEem8XvI7PKw-OA" taggedValue="8to1Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_e2HEYMWTEem8XvI7PKw-OA" taggedValue="4to1Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_-wdssMWJEem8XvI7PKw-OA" taggedValue="13to11Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_55XWsMWQEem8XvI7PKw-OA" taggedValue="14to12Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_IXND0MWSEem8XvI7PKw-OA" taggedValue="15to12Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_O51DUMWSEem8XvI7PKw-OA" taggedValue="11to7Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_t4JVoMWSEem8XvI7PKw-OA" taggedValue="12to7Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_2xD3EMWSEem8XvI7PKw-OA" taggedValue="12to3Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_96v2kMWSEem8XvI7PKw-OA" taggedValue="7to3Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_FQkNkMWTEem8XvI7PKw-OA" taggedValue="7to2Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_MqV3gMWTEem8XvI7PKw-OA" taggedValue="2to4Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_oDy78MWTEem8XvI7PKw-OA" taggedValue="6to4Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_sWqfUMWTEem8XvI7PKw-OA" taggedValue="10to6Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="myprofile:InstantiationTag" appliedTo="_0QjzwMWTEem8XvI7PKw-OA" taggedValue="10to5Link">
-      <extension href="../../../plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
+      <extension href="../../../plugin/InstantiationTag/profile.emfprofile_diagram#_Nvp_wPYlEemiy9BKBSkU2g"/>
       <argument href="DeltaIoTTemplateVariables.templatevariable#_BPv0UMr1EemPmcCIsj28kQ"/>
       <templateGroup href="DeltaIoTTemplateVariables.templatevariable#//@templateGroups.0"/>
     </stereotypeApplications>
-    <importedProfiles nsURI="InstantiationTag" location="platform:/plugin/InstantiationTag.InstantiationTag/profile.emfprofile_diagram"/>
+    <importedProfiles nsURI="InstantiationTag" location="platform:/plugin/InstantiationTag/profile.emfprofile_diagram"/>
   </emfprofileapplication:ProfileApplication>
 </xmi:XMI>
