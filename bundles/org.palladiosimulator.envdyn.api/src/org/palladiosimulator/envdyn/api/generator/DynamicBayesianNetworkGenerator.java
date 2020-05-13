@@ -31,9 +31,9 @@ import org.palladiosimulator.envdyn.environment.templatevariable.TemporalRelatio
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import tools.mdsd.probdist.model.probdist.distributiontype.DistributiontypeFactory;
-import tools.mdsd.probdist.model.probdist.distributiontype.ProbabilityDistributionSkeleton;
-import tools.mdsd.probdist.model.probdist.distributiontype.ProbabilityDistributionType;
+import tools.mdsd.probdist.distributiontype.DistributiontypeFactory;
+import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
+import tools.mdsd.probdist.distributiontype.ProbabilityDistributionType;
 
 /*
  * This generator is rather a partial model generator, since the model can only derived and generated w.r.t. a given bayesian network. 

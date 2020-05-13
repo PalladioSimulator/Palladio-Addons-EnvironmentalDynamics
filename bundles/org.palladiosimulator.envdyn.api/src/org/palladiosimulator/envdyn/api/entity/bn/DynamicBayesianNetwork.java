@@ -31,9 +31,9 @@ import tools.mdsd.probdist.api.entity.Conditionable;
 import tools.mdsd.probdist.api.entity.ConditionalProbabilityDistribution;
 import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
 import tools.mdsd.probdist.api.entity.Value;
-import tools.mdsd.probdist.model.probdist.distributionfunction.Domain;
-import tools.mdsd.probdist.model.probdist.distributionfunction.ProbabilityDistribution;
-import tools.mdsd.probdist.model.probdist.distributiontype.ProbabilityDistributionSkeleton;
+import tools.mdsd.probdist.distributionfunction.Domain;
+import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
+import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
 
 public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Trajectory>
 		implements ProbabilisticModel<Trajectory>, Conditionable<DynamicBayesianNetwork> {

@@ -30,10 +30,10 @@ import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
 import tools.mdsd.probdist.api.entity.UnivariateProbabilitiyMassFunction;
 import tools.mdsd.probdist.api.entity.UnivariateProbabilityDensityFunction;
 import tools.mdsd.probdist.api.entity.Value;
-import tools.mdsd.probdist.model.probdist.distributionfunction.Domain;
-import tools.mdsd.probdist.model.probdist.distributionfunction.ProbabilityDistribution;
-import tools.mdsd.probdist.model.probdist.distributiontype.ProbabilityDistributionSkeleton;
-import tools.mdsd.probdist.model.probdist.distributiontype.ProbabilityDistributionType;
+import tools.mdsd.probdist.distributionfunction.Domain;
+import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
+import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
+import tools.mdsd.probdist.distributiontype.ProbabilityDistributionType;
 
 public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputValue>>
 		implements ProbabilisticModel<InputValue> {

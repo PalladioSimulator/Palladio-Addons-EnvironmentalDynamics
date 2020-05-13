@@ -8,7 +8,6 @@ Bundle-ClassPath: .
 Bundle-Activator: org.palladiosimulator.envdyn.environment.templatevariable.presentation.EnvironmentaldynamicsEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.palladiosimulator.envdyn.environment.dynamicmodel.presentation,
  org.palladiosimulator.envdyn.environment.staticmodel.presentation,
  org.palladiosimulator.envdyn.environment.templatevariable.presentation

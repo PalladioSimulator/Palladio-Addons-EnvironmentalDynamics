@@ -4,9 +4,9 @@ import org.palladiosimulator.envdyn.api.entity.bn.BayesianNetwork;
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariableDefinitions;
 
-import tools.mdsd.probdist.model.probdist.distributiontype.DistributiontypeFactory;
-import tools.mdsd.probdist.model.probdist.distributiontype.ProbabilityDistributionSkeleton;
-import tools.mdsd.probdist.model.probdist.distributiontype.ProbabilityDistributionType;
+import tools.mdsd.probdist.distributiontype.DistributiontypeFactory;
+import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
+import tools.mdsd.probdist.distributiontype.ProbabilityDistributionType;
 
 public class BayesianNetworkGenerator extends ProbabilisticNetworkGenerator<BayesianNetwork> {
 

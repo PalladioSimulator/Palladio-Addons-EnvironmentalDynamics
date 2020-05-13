@@ -10,7 +10,7 @@ import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticN
 import tools.mdsd.probdist.api.apache.supplier.MultinomialDistributionSupplier;
 import tools.mdsd.probdist.api.apache.util.DistributionTypeModelUtil;
 import tools.mdsd.probdist.api.factory.ProbabilityDistributionFactory;
-import tools.mdsd.probdist.model.probdist.distributiontype.ProbabilityDistributionRepository;
+import tools.mdsd.probdist.distributiontype.ProbabilityDistributionRepository;
 
 public class BayesianModelTest {
 	

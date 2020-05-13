@@ -20,7 +20,8 @@ Require-Bundle: org.eclipse.core.runtime,
  tools.mdsd.probdist.api.apache;bundle-version="1.0.0",
  com.google.guava;bundle-version="21.0.0",
  org.palladiosimulator.mdsdprofiles;bundle-version="1.0.1",
- org.palladiosimulator.mdsdprofiles.api;bundle-version="1.0.1"
+ org.palladiosimulator.mdsdprofiles.api;bundle-version="1.0.1",
+ org.apache.commons.math3;bundle-version="3.5.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: org.palladiosimulator.envdyn.api.tests
 Bundle-ActivationPolicy: lazy

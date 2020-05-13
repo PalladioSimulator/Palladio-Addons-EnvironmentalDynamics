@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<distributionfunction:ProbabilityDistributionFunctionRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:distributionfunction="http://www.mdsd.tools/probabilitydistributions/distributionfunction" id="_5q3YsBHkEeql1bYozZsqEg" entityName="DeltaIoTDistributionRepo">
+<distributionfunction:ProbabilityDistributionFunctionRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:distributionfunction="http://www.mdsd.tools/probdist/distributionfunction/1.0" id="_5q3YsBHkEeql1bYozZsqEg" entityName="DeltaIoTDistributionRepo">
   <distributions xsi:type="distributionfunction:ProbabilityDistribution" id="_5q7qIBHkEeql1bYozZsqEg" entityName="WirelessInterference1" params="_5q_7kBHkEeql1bYozZsqEg">
     <randomVariables id="_5q9fUBHkEeql1bYozZsqEg" entityName="WI1" valueSpace="CATEGORY"/>
     <instantiated href="DeltaIoTDistributionTypes.distributiontype#_6Ox74M_qEemGSMt6VgDXiw"/>

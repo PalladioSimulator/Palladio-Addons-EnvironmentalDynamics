@@ -4,7 +4,7 @@
     nsPrefix="environment">
   <eSubpackages name="templatevariable" nsURI="http://palladiosimulator.org/Environment/TemplateVariable/1.0"
       nsPrefix="templatevariable">
-    <eClassifiers xsi:type="ecore:EClass" name="TemplateVariableDefinitions" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="TemplateVariableDefinitions" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
           eType="#//templatevariable/TemplateVariable" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="factors" upperBound="-1"
@@ -16,20 +16,20 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="templateGroups" upperBound="-1"
           eType="#//templatevariable/TemplateVariableGroup" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TemplateVariable" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="TemplateVariable" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="shared" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="signature" lowerBound="1"
           upperBound="-1" eType="#//templatevariable/LogicalVariable" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="refines" eType="#//templatevariable/TemplateVariable"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TemplateFactor" abstract="true" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="TemplateFactor" abstract="true" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="scope" lowerBound="1"
           upperBound="-1" eType="#//templatevariable/TemplateVariable"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="temporal" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
           defaultValueLiteral="false"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Argument" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Argument" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity"/>
     <eClassifiers xsi:type="ecore:EClass" name="Relation" abstract="true"/>
     <eClassifiers xsi:type="ecore:EEnum" name="DependenceType">
       <eLiterals name="DIRECTED"/>
@@ -50,7 +50,7 @@
           eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TemporalRelation" abstract="true"
-        eSuperTypes="#//templatevariable/Relation platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement"/>
+        eSuperTypes="#//templatevariable/Relation ../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="PersistenceRelation" eSuperTypes="#//templatevariable/TemporalRelation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceVariable" lowerBound="1"
           eType="#//templatevariable/TemplateVariable"/>
@@ -61,7 +61,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
           eType="#//templatevariable/TemplateVariable"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TemplateVariableGroup" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement">
+    <eClassifiers xsi:type="ecore:EClass" name="TemplateVariableGroup" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="groupedTemplates" lowerBound="1"
           upperBound="-1" eType="#//templatevariable/TemplateVariable"/>
     </eClassifiers>
@@ -72,7 +72,7 @@
   </eSubpackages>
   <eSubpackages name="staticmodel" nsURI="http://palladiosimulator.org/Environment/StaticModel/1.0"
       nsPrefix="staticmodel">
-    <eClassifiers xsi:type="ecore:EClass" name="GroundRandomVariable" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="GroundRandomVariable" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedTemplate"
           lowerBound="1" eType="#//templatevariable/TemplateVariable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dependenceStructure"
@@ -82,17 +82,17 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="appliedObjects" lowerBound="1"
           upperBound="-1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="GroundProbabilisticModel" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="GroundProbabilisticModel" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedFactor" lowerBound="1"
           eType="#//templatevariable/TemplateFactor"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="distribution" lowerBound="1"
           eType="ecore:EClass ../../tools.mdsd.probdist.model/model/probdist.ecore#//distributionfunction/ProbabilityDistribution"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticModelRepository" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticModelRepository" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
           eType="#//staticmodel/GroundProbabilisticNetwork" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="GroundProbabilisticNetwork" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="GroundProbabilisticNetwork" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="localModels" lowerBound="1"
           upperBound="-1" eType="#//staticmodel/GroundProbabilisticModel" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="localProbabilisticModels"
@@ -107,11 +107,11 @@
   </eSubpackages>
   <eSubpackages name="dynamicmodel" nsURI="http://palladiosimulator.org/Environment/DynamicModel/1.0"
       nsPrefix="dynamicmodel">
-    <eClassifiers xsi:type="ecore:EClass" name="DynamicBehaviourRepository" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="DynamicBehaviourRepository" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="extensions" upperBound="-1"
           eType="#//dynamicmodel/DynamicBehaviourExtension" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DynamicBehaviourExtension" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="DynamicBehaviourExtension" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1"
           eType="#//staticmodel/GroundProbabilisticNetwork"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="behaviour" lowerBound="1"
@@ -134,7 +134,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="dependenceStructure"
           lowerBound="1" upperBound="-1" eType="#//templatevariable/DependenceRelation"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TemporalDynamic" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="TemporalDynamic" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedFactor" lowerBound="1"
           eType="#//templatevariable/TemplateFactor"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="distributionFunction"

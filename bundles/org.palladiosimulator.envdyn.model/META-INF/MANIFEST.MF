@@ -19,6 +19,6 @@ Export-Package: org.palladiosimulator.envdyn.environment.dynamicmodel,
  org.palladiosimulator.envdyn.environment.templatevariable.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  tools.mdsd.modelingfoundations.identifier;visibility:=reexport,
- org.eclipse.core.runtime,
- tools.mdsd.probdist.model;bundle-version="0.1.0";visibility:=reexport
+ tools.mdsd.probdist.model;bundle-version="0.1.0";visibility:=reexport,
+ org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
