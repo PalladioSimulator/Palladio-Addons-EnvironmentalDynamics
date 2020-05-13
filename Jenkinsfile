@@ -1,4 +1,3 @@
-mdsdToolsEclipsePipeline {  
-	webserverDir = 'metamodel-modeling-probabilitydistribution'
-	updateSiteLocation = 'releng/tools.mdsd.probdist.updatesite/target/repository'
+PalladioPipeline {
+    deployUpdatesite 'releng/org.palladiosimulator.envdyn.updatesite/target/repository'
 }
