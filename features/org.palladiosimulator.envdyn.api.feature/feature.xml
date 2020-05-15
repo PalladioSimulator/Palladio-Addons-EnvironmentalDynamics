@@ -16,12 +16,19 @@
       [Enter License Description here.]
    </license>
 
-	<requires>
+   <requires>
       <import feature="org.palladiosimulator.envdyn.model.feature" version="1.0.0.qualifier"/>
    </requires>
 
    <plugin
          id="org.palladiosimulator.envdyn.api"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.palladiosimulator.envdyn.profile"
          download-size="0"
          install-size="0"
          version="0.0.0"
