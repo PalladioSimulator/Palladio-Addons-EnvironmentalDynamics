@@ -10,25 +10,25 @@
     <signature argument="_e9Dxwcr1EemPmcCIsj28kQ"/>
   </variables>
   <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_1K4W4MWnEemx1KrwIzdqtQ" entityName="WIFactor" scope="_1rlpgMWiEemeD8HH3Gbl-Q">
-    <distributionFamily href="platform:/plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
+    <distributionFamily href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
   </factors>
   <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_CV7b4cWoEemx1KrwIzdqtQ" entityName="WI_SNR_Factor" scope="_1rlpgMWiEemeD8HH3Gbl-Q _QCuf4MWkEemeD8HH3Gbl-Q">
-    <distributionFamily href="platform:/plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
+    <distributionFamily href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
   </factors>
   <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_PCasccsVEem-osfd2_mNhw" entityName="MAFactor" scope="_GZdDoMr2EemPmcCIsj28kQ">
-    <distributionFamily href="platform:/plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
+    <distributionFamily href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
   </factors>
   <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_4A_uARqOEeqUnKwnXyGFlw" entityName="DynamicalMAFactor" scope="_GZdDoMr2EemPmcCIsj28kQ" temporal="true">
-    <distributionFamily href="platform:/plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
+    <distributionFamily href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
   </factors>
   <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_-c_hERqOEeqUnKwnXyGFlw" entityName="DynamicalWIFactor" scope="_1rlpgMWiEemeD8HH3Gbl-Q" temporal="true">
-    <distributionFamily href="platform:/plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
+    <distributionFamily href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
   </factors>
   <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_FdUJMRqPEeqUnKwnXyGFlw" entityName="DynamicalSNRFactor" scope="_QCuf4MWkEemeD8HH3Gbl-Q" temporal="true">
-    <distributionFamily href="platform:/plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
+    <distributionFamily href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
   </factors>
   <factors xsi:type="templatevariable:ProbabilisticTemplateFactor" id="_Moy4cRqPEeqUnKwnXyGFlw" entityName="DynamicalWItoSNRFactor" scope="_QCuf4MWkEemeD8HH3Gbl-Q _1rlpgMWiEemeD8HH3Gbl-Q" temporal="true">
-    <distributionFamily href="platform:/plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
+    <distributionFamily href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
   </factors>
   <arguments id="_BPv0UMr1EemPmcCIsj28kQ" entityName="WirelessLink"/>
   <arguments id="_e9Dxwcr1EemPmcCIsj28kQ" entityName="IoTMote"/>
