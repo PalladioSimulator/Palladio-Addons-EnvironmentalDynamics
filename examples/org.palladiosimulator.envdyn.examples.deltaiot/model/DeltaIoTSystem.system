@@ -11,7 +11,7 @@
       <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="DeltaIoTRepository.repository#_GlEvAMS6Eem6vJHOl6M9XA"/>
       <configParameterUsages__AssemblyContext>
         <variableCharacterisation_VariableUsage type="VALUE">
-          <specification_VariableCharacterisation specification="1"/>
+          <specification_VariableCharacterisation specification="15"/>
         </variableCharacterisation_VariableUsage>
         <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="TransmissionPower3to1"/>
       </configParameterUsages__AssemblyContext>
@@ -35,7 +35,7 @@
       <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="DeltaIoTRepository.repository#_GlEvAMS6Eem6vJHOl6M9XA"/>
       <configParameterUsages__AssemblyContext>
         <variableCharacterisation_VariableUsage type="VALUE">
-          <specification_VariableCharacterisation specification="1"/>
+          <specification_VariableCharacterisation specification="15"/>
         </variableCharacterisation_VariableUsage>
         <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="TransmissionPower9to1"/>
       </configParameterUsages__AssemblyContext>
@@ -98,7 +98,7 @@
       <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="DeltaIoTRepository.repository#_GlEvAMS6Eem6vJHOl6M9XA"/>
       <configParameterUsages__AssemblyContext>
         <variableCharacterisation_VariableUsage type="VALUE">
-          <specification_VariableCharacterisation specification="1"/>
+          <specification_VariableCharacterisation specification="15"/>
         </variableCharacterisation_VariableUsage>
         <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="TransmissionPower7to3"/>
       </configParameterUsages__AssemblyContext>
@@ -146,7 +146,7 @@
       <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="DeltaIoTRepository.repository#_GlEvAMS6Eem6vJHOl6M9XA"/>
       <configParameterUsages__AssemblyContext>
         <variableCharacterisation_VariableUsage type="VALUE">
-          <specification_VariableCharacterisation specification="1"/>
+          <specification_VariableCharacterisation specification="15"/>
         </variableCharacterisation_VariableUsage>
         <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="TransmissionPower12to7"/>
       </configParameterUsages__AssemblyContext>
@@ -161,7 +161,7 @@
       <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="DeltaIoTRepository.repository#_GlEvAMS6Eem6vJHOl6M9XA"/>
       <configParameterUsages__AssemblyContext>
         <variableCharacterisation_VariableUsage type="VALUE">
-          <specification_VariableCharacterisation specification="1"/>
+          <specification_VariableCharacterisation specification="15"/>
         </variableCharacterisation_VariableUsage>
         <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="TransmissionPower14to12"/>
       </configParameterUsages__AssemblyContext>
@@ -170,7 +170,7 @@
       <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="DeltaIoTRepository.repository#_GlEvAMS6Eem6vJHOl6M9XA"/>
       <configParameterUsages__AssemblyContext>
         <variableCharacterisation_VariableUsage type="VALUE">
-          <specification_VariableCharacterisation specification="1"/>
+          <specification_VariableCharacterisation specification="15"/>
         </variableCharacterisation_VariableUsage>
         <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="TransmissionPower15to12"/>
       </configParameterUsages__AssemblyContext>

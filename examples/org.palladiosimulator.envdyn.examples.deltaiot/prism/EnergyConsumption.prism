@@ -103,9 +103,11 @@ const double PCR13 = 36.5;
 const double PCR14 = 38.0;
 const double PCR15 = 38.9;
 
-const double SFTime = 0.258;
+//const double SFTime = 0.258;
+const double SFTime = 1.158;
 const double CoulombUnit = 1000.0;
-const int receptionTime = 2;
+//const int receptionTime = 4
+const int receptionTime = 4;
 const double receptionCost = 14.2;
 global power:[0..15];
 //global reciever : [0..15];

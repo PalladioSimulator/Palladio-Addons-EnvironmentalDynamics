@@ -1,0 +1,148 @@
+PRISM
+=====
+
+Version: 4.5
+Date: Tue Feb 23 13:52:34 CET 2021
+Hostname: se-dracaena
+Memory limits: cudd=1g, java(heap)=5.0g
+
+Type:        MDP
+Modules:     Gateway Mote2 Mote3 Mote4 Mote5 Mote6 Mote7 Mote8 Mote9 Mote10 Mote11 Mote12 Mote13 Mote14 Mote15 Topology 
+Variables:   power packets periodDone statusg status2 queue2 status3 queue3 status4 queue4 status5 queue5 status6 queue6 status7 queue7 totalPackets7 status8 status9 queue9 status10 totalPackets10 status11 queue11 status12 queue12 totalPackets12 status13 status14 status15 turn serviceInvoked 
+
+---------------------------------------------------------------------
+
+Model checking: Rmax=? [ F "EnergyConsumption" ]
+
+Building model...
+
+Warning: Update 2 of command 1 of module "Mote2" doesn't do anything ("(status2'=2)", line 137, column 83)
+
+Warning: Update 2 of command 1 of module "Mote3" doesn't do anything ("(status3'=2)", line 158, column 83)
+
+Warning: Update 2 of command 1 of module "Mote4" doesn't do anything ("(status4'=2)", line 184, column 83)
+
+Warning: Update 2 of command 1 of module "Mote6" doesn't do anything ("(status6'=2)", line 233, column 83)
+
+Warning: Update 2 of command 1 of module "Mote8" doesn't do anything ("(status8'=2)", line 280, column 83)
+
+Warning: Update 2 of command 1 of module "Mote9" doesn't do anything ("(status9'=2)", line 296, column 83)
+
+Warning: Update 2 of command 1 of module "Mote10" doesn't do anything ("(status10'=2)", line 319, column 88)
+
+Warning: Update 2 of command 1 of module "Mote13" doesn't do anything ("(status13'=2)", line 385, column 88)
+
+Warning: Update 2 of command 1 of module "Mote14" doesn't do anything ("(status14'=2)", line 399, column 88)
+
+Warning: Update 2 of command 1 of module "Mote15" doesn't do anything ("(status15'=2)", line 413, column 88)
+
+Computing reachable states...
+
+Reachability (BFS): 215 iterations in 10.94 seconds (average 0.050874, setup 0.00)
+
+Time for model construction: 20.529 seconds.
+
+Type:        MDP
+States:      2662 (1 initial)
+Transitions: 2854
+Choices:     2662
+
+Transition matrix: 56801 nodes (6 terminal), 2854 minterms, vars: 130r/130c/61nd
+
+Prob0E: 79 iterations in 0.54 seconds (average 0.006785, setup 0.00)
+
+Prob1A: 1 iterations in 0.01 seconds (average 0.011000, setup 0.00)
+
+goal = 15, inf = 0, maybe = 2647
+
+Computing remaining rewards...
+Switching engine since hybrid engine does yet support this computation...
+Engine: Sparse
+
+Building sparse matrix (transitions)... [n=2662, nc=2647, nnz=2839, k=1] [54.0 KB]
+Building sparse matrix (transition rewards)... [n=2662, nc=2647, nnz=468, k=1] [26.2 KB]
+Creating vector for state rewards... [20.8 KB]
+Creating vector for inf... [20.8 KB]
+Allocating iteration vectors... [2 x 20.8 KB]
+TOTAL: [163.4 KB]
+
+Starting iterations...
+
+Iterative method: 79 iterations in 0.11 seconds (average 0.000025, setup 0.11)
+
+Value in the initial state: 13.979448200000002
+
+Time for model checking: 0.669 seconds.
+
+Result: 13.979448200000002 (value in the initial state)
+002
+
+Time for model checking: 0.573 seconds.
+
+Result: 14.019593000000002 (value in the initial state)
+
+nd 7 of module "Network" doesn't do anything ("(status'=2)", line 157, column 62)
+
+Warning: Update 1 of command 8 of module "Network" doesn't do anything ("(status'=2)", line 158, column 62)
+
+Warning: Update 1 of command 10 of module "Network" doesn't do anything ("(status'=2)", line 160, column 62)
+
+Warning: Update 1 of command 11 of module "Network" doesn't do anything ("(status'=2)", line 161, column 63)
+
+Warning: Update 1 of command 12 of module "Network" doesn't do anything ("(status'=2)", line 162, column 63)
+
+Warning: Update 1 of command 13 of module "Network" doesn't do anything ("(status'=2)", line 163, column 63)
+
+Warning: Update 1 of command 14 of module "Network" doesn't do anything ("(status'=2)", line 164, column 63)
+
+Warning: Update 1 of command 18 of module "Network" doesn't do anything ("(status'=2)", line 168, column 64)
+
+Computing reachable states...
+
+Reachability (BFS): 6 iterations in 0.00 seconds (average 0.000500, setup 0.00)
+
+Time for model construction: 0.017 seconds.k"SType:        DTMC
+States:      81 (1 initial)
+Transitions: 102
+
+Transition matrix: 899 nodes (19 terminal), 102 minterms, vars: 15r/15c
+
+Prob0: 8 iterations in 0.00 seconds (average 0.000250, setup 0.00)
+
+Prob1: 8 iterations in 0.00 seconds (average 0.000250, setup 0.00)
+
+yes = 6, no = 44, maybe = 31
+
+Computing remaining probabilities...
+Engine: Hybrid
+
+Building hybrid MTBDD matrix... [levels=15, nodes=534] [25.0 KB]
+Adding explicit sparse matrices... [levels=15, num=1, compact] [0.4 KB]
+Creating vector for diagonals... [dist=2, compact] [0.2 KB]
+Creating vector for RHS... [dist=2, compact] [0.2 KB]
+Allocating iteration vectors... [2 x 0.6 KB]
+TOTAL: [27.1 KB]
+
+Starting iterations...
+
+Jacobi: 9 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.09752598775333038
+
+Time for model checking: 0.007 seconds.
+
+Result: 0.09752598775333038 (value in the initial state)
+)
+685
+
+Time for model checking: 0.005 seconds.
+
+Result: 0.052139503032693685 (value in the initial state)
+)
+i: 13 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Value in the initial state: 0.08012445005708724
+
+Time for model checking: 0.005 seconds.
+
+Result: 0.08012445005708724 (value in the initial state)
