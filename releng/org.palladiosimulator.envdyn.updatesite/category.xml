@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.palladiosimulator.envdyn.model.feature_1.0.0.qualifier.jar" id="org.palladiosimulator.envdyn.model.feature" version="1.0.0.qualifier">
+   <feature url="features/org.palladiosimulator.envdyn.model.feature_5.0.0.qualifier.jar" id="org.palladiosimulator.envdyn.model.feature" version="5.0.0.qualifier">
       <category name="org.palladiosimulator.addons.category"/>
    </feature>
-   <feature url="features/org.palladiosimulator.envdyn.api.feature_1.0.0.qualifier.jar" id="org.palladiosimulator.envdyn.api.feature" version="1.0.0.qualifier">
+   <feature url="features/org.palladiosimulator.envdyn.api.feature_5.0.0.qualifier.jar" id="org.palladiosimulator.envdyn.api.feature" version="5.0.0.qualifier">
       <category name="org.palladiosimulator.addons.category"/>
    </feature>
    <category-def name="org.palladiosimulator.addons.category" label="Palladio Bench Addons">

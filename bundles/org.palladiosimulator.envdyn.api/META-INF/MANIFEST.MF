@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Api
 Bundle-SymbolicName: org.palladiosimulator.envdyn.api
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 5.0.0.qualifier
 Bundle-Activator: org.palladiosimulator.envdyn.api.Activator
 Require-Bundle: org.eclipse.core.runtime,
  tools.mdsd.probdist.api;bundle-version="1.0.0",
