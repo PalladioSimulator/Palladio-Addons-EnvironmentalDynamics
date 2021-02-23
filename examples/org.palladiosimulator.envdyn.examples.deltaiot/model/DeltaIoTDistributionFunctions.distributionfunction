@@ -474,7 +474,7 @@
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-5</conditonals>
-        <entry type="SAMPLESPACE" value="1.0,1.0}"/>
+        <entry type="SAMPLESPACE" value="{1.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-4</conditonals>

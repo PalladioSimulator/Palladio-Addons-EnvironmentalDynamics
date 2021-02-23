@@ -137,7 +137,7 @@
       <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="DeltaIoTRepository.repository#_GlEvAMS6Eem6vJHOl6M9XA"/>
       <configParameterUsages__AssemblyContext>
         <variableCharacterisation_VariableUsage type="VALUE">
-          <specification_VariableCharacterisation specification="1"/>
+          <specification_VariableCharacterisation specification="15"/>
         </variableCharacterisation_VariableUsage>
         <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="TransmissionPower13to11"/>
       </configParameterUsages__AssemblyContext>
