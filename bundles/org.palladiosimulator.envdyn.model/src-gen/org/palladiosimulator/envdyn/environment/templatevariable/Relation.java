@@ -14,6 +14,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface Relation extends EObject
-{
+public interface Relation extends EObject {
 } // Relation

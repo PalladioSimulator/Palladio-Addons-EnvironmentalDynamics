@@ -17,8 +17,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * @model
  * @generated
  */
-public enum DependenceType implements Enumerator
-{
+public enum DependenceType implements Enumerator {
 	/**
 	 * The '<em><b>DIRECTED</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -89,8 +88,7 @@ public enum DependenceType implements Enumerator
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static DependenceType get(String literal)
-	{
+	public static DependenceType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			DependenceType result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
@@ -108,8 +106,7 @@ public enum DependenceType implements Enumerator
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static DependenceType getByName(String name)
-	{
+	public static DependenceType getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			DependenceType result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
@@ -127,8 +124,7 @@ public enum DependenceType implements Enumerator
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static DependenceType get(int value)
-	{
+	public static DependenceType get(int value) {
 		switch (value) {
 			case DIRECTED_VALUE: return DIRECTED;
 			case UNDIRECTED_VALUE: return UNDIRECTED;
@@ -163,8 +159,7 @@ public enum DependenceType implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private DependenceType(int value, String name, String literal)
-	{
+	private DependenceType(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -176,8 +171,7 @@ public enum DependenceType implements Enumerator
 	 * @generated
 	 */
 	@Override
-	public int getValue()
-	{
+	public int getValue() {
 	  return value;
 	}
 
@@ -187,8 +181,7 @@ public enum DependenceType implements Enumerator
 	 * @generated
 	 */
 	@Override
-	public String getName()
-	{
+	public String getName() {
 	  return name;
 	}
 
@@ -198,8 +191,7 @@ public enum DependenceType implements Enumerator
 	 * @generated
 	 */
 	@Override
-	public String getLiteral()
-	{
+	public String getLiteral() {
 	  return literal;
 	}
 
@@ -210,8 +202,7 @@ public enum DependenceType implements Enumerator
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return literal;
 	}
 	

@@ -24,8 +24,7 @@ import tools.mdsd.modelingfoundations.identifier.IdentifierPackage;
  * @model kind="package"
  * @generated
  */
-public interface StaticmodelPackage extends EPackage
-{
+public interface StaticmodelPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -105,13 +104,13 @@ public interface StaticmodelPackage extends EPackage
 	int GROUND_RANDOM_VARIABLE__DEPENDENCE_STRUCTURE = IdentifierPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Descriptive Model</b></em>' reference.
+	 * The feature id for the '<em><b>Local Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUND_RANDOM_VARIABLE__DESCRIPTIVE_MODEL = IdentifierPackage.ENTITY_FEATURE_COUNT + 2;
+	int GROUND_RANDOM_VARIABLE__LOCAL_MODEL = IdentifierPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Applied Objects</b></em>' reference list.
@@ -141,14 +140,14 @@ public interface StaticmodelPackage extends EPackage
 	int GROUND_RANDOM_VARIABLE_OPERATION_COUNT = IdentifierPackage.ENTITY_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.GroundProbabilisticModelImpl <em>Ground Probabilistic Model</em>}' class.
+	 * The meta object id for the '{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.LocalProbabilisticModelImpl <em>Local Probabilistic Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.envdyn.environment.staticmodel.impl.GroundProbabilisticModelImpl
-	 * @see org.palladiosimulator.envdyn.environment.staticmodel.impl.StaticmodelPackageImpl#getGroundProbabilisticModel()
+	 * @see org.palladiosimulator.envdyn.environment.staticmodel.impl.LocalProbabilisticModelImpl
+	 * @see org.palladiosimulator.envdyn.environment.staticmodel.impl.StaticmodelPackageImpl#getLocalProbabilisticModel()
 	 * @generated
 	 */
-	int GROUND_PROBABILISTIC_MODEL = 1;
+	int LOCAL_PROBABILISTIC_MODEL = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -157,7 +156,7 @@ public interface StaticmodelPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int GROUND_PROBABILISTIC_MODEL__ID = IdentifierPackage.ENTITY__ID;
+	int LOCAL_PROBABILISTIC_MODEL__ID = IdentifierPackage.ENTITY__ID;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -166,7 +165,7 @@ public interface StaticmodelPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int GROUND_PROBABILISTIC_MODEL__ENTITY_NAME = IdentifierPackage.ENTITY__ENTITY_NAME;
+	int LOCAL_PROBABILISTIC_MODEL__ENTITY_NAME = IdentifierPackage.ENTITY__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Instantiated Factor</b></em>' reference.
@@ -175,7 +174,7 @@ public interface StaticmodelPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int GROUND_PROBABILISTIC_MODEL__INSTANTIATED_FACTOR = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
+	int LOCAL_PROBABILISTIC_MODEL__INSTANTIATED_FACTOR = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
@@ -184,25 +183,25 @@ public interface StaticmodelPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int GROUND_PROBABILISTIC_MODEL__DISTRIBUTION = IdentifierPackage.ENTITY_FEATURE_COUNT + 1;
+	int LOCAL_PROBABILISTIC_MODEL__DISTRIBUTION = IdentifierPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Ground Probabilistic Model</em>' class.
+	 * The number of structural features of the '<em>Local Probabilistic Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUND_PROBABILISTIC_MODEL_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 2;
+	int LOCAL_PROBABILISTIC_MODEL_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Ground Probabilistic Model</em>' class.
+	 * The number of operations of the '<em>Local Probabilistic Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUND_PROBABILISTIC_MODEL_OPERATION_COUNT = IdentifierPackage.ENTITY_OPERATION_COUNT + 0;
+	int LOCAL_PROBABILISTIC_MODEL_OPERATION_COUNT = IdentifierPackage.ENTITY_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.ProbabilisticModelRepositoryImpl <em>Probabilistic Model Repository</em>}' class.
@@ -297,13 +296,13 @@ public interface StaticmodelPackage extends EPackage
 	int GROUND_PROBABILISTIC_NETWORK__LOCAL_MODELS = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Local Probabilistic Models</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Local Networks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUND_PROBABILISTIC_NETWORK__LOCAL_PROBABILISTIC_MODELS = IdentifierPackage.ENTITY_FEATURE_COUNT + 1;
+	int GROUND_PROBABILISTIC_NETWORK__LOCAL_NETWORKS = IdentifierPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Ground Probabilistic Network</em>' class.
@@ -394,15 +393,15 @@ public interface StaticmodelPackage extends EPackage
 	EReference getGroundRandomVariable_DependenceStructure();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable#getDescriptiveModel <em>Descriptive Model</em>}'.
+	 * Returns the meta object for the reference '{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable#getLocalModel <em>Local Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Descriptive Model</em>'.
-	 * @see org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable#getDescriptiveModel()
+	 * @return the meta object for the reference '<em>Local Model</em>'.
+	 * @see org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable#getLocalModel()
 	 * @see #getGroundRandomVariable()
 	 * @generated
 	 */
-	EReference getGroundRandomVariable_DescriptiveModel();
+	EReference getGroundRandomVariable_LocalModel();
 
 	/**
 	 * Returns the meta object for the reference list '{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable#getAppliedObjects <em>Applied Objects</em>}'.
@@ -416,36 +415,36 @@ public interface StaticmodelPackage extends EPackage
 	EReference getGroundRandomVariable_AppliedObjects();
 
 	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel <em>Ground Probabilistic Model</em>}'.
+	 * Returns the meta object for class '{@link org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel <em>Local Probabilistic Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ground Probabilistic Model</em>'.
-	 * @see org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel
+	 * @return the meta object for class '<em>Local Probabilistic Model</em>'.
+	 * @see org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel
 	 * @generated
 	 */
-	EClass getGroundProbabilisticModel();
+	EClass getLocalProbabilisticModel();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel#getInstantiatedFactor <em>Instantiated Factor</em>}'.
+	 * Returns the meta object for the reference '{@link org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel#getInstantiatedFactor <em>Instantiated Factor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Instantiated Factor</em>'.
-	 * @see org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel#getInstantiatedFactor()
-	 * @see #getGroundProbabilisticModel()
+	 * @see org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel#getInstantiatedFactor()
+	 * @see #getLocalProbabilisticModel()
 	 * @generated
 	 */
-	EReference getGroundProbabilisticModel_InstantiatedFactor();
+	EReference getLocalProbabilisticModel_InstantiatedFactor();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel#getDistribution <em>Distribution</em>}'.
+	 * Returns the meta object for the reference '{@link org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel#getDistribution <em>Distribution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Distribution</em>'.
-	 * @see org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel#getDistribution()
-	 * @see #getGroundProbabilisticModel()
+	 * @see org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel#getDistribution()
+	 * @see #getLocalProbabilisticModel()
 	 * @generated
 	 */
-	EReference getGroundProbabilisticModel_Distribution();
+	EReference getLocalProbabilisticModel_Distribution();
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.envdyn.environment.staticmodel.ProbabilisticModelRepository <em>Probabilistic Model Repository</em>}'.
@@ -490,15 +489,15 @@ public interface StaticmodelPackage extends EPackage
 	EReference getGroundProbabilisticNetwork_LocalModels();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork#getLocalProbabilisticModels <em>Local Probabilistic Models</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork#getLocalNetworks <em>Local Networks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Local Probabilistic Models</em>'.
-	 * @see org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork#getLocalProbabilisticModels()
+	 * @return the meta object for the containment reference list '<em>Local Networks</em>'.
+	 * @see org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork#getLocalNetworks()
 	 * @see #getGroundProbabilisticNetwork()
 	 * @generated
 	 */
-	EReference getGroundProbabilisticNetwork_LocalProbabilisticModels();
+	EReference getGroundProbabilisticNetwork_LocalNetworks();
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticNetwork <em>Local Probabilistic Network</em>}'.
@@ -543,8 +542,7 @@ public interface StaticmodelPackage extends EPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals
-	{
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.GroundRandomVariableImpl <em>Ground Random Variable</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -572,12 +570,12 @@ public interface StaticmodelPackage extends EPackage
 		EReference GROUND_RANDOM_VARIABLE__DEPENDENCE_STRUCTURE = eINSTANCE.getGroundRandomVariable_DependenceStructure();
 
 		/**
-		 * The meta object literal for the '<em><b>Descriptive Model</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Local Model</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GROUND_RANDOM_VARIABLE__DESCRIPTIVE_MODEL = eINSTANCE.getGroundRandomVariable_DescriptiveModel();
+		EReference GROUND_RANDOM_VARIABLE__LOCAL_MODEL = eINSTANCE.getGroundRandomVariable_LocalModel();
 
 		/**
 		 * The meta object literal for the '<em><b>Applied Objects</b></em>' reference list feature.
@@ -588,14 +586,14 @@ public interface StaticmodelPackage extends EPackage
 		EReference GROUND_RANDOM_VARIABLE__APPLIED_OBJECTS = eINSTANCE.getGroundRandomVariable_AppliedObjects();
 
 		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.GroundProbabilisticModelImpl <em>Ground Probabilistic Model</em>}' class.
+		 * The meta object literal for the '{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.LocalProbabilisticModelImpl <em>Local Probabilistic Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.envdyn.environment.staticmodel.impl.GroundProbabilisticModelImpl
-		 * @see org.palladiosimulator.envdyn.environment.staticmodel.impl.StaticmodelPackageImpl#getGroundProbabilisticModel()
+		 * @see org.palladiosimulator.envdyn.environment.staticmodel.impl.LocalProbabilisticModelImpl
+		 * @see org.palladiosimulator.envdyn.environment.staticmodel.impl.StaticmodelPackageImpl#getLocalProbabilisticModel()
 		 * @generated
 		 */
-		EClass GROUND_PROBABILISTIC_MODEL = eINSTANCE.getGroundProbabilisticModel();
+		EClass LOCAL_PROBABILISTIC_MODEL = eINSTANCE.getLocalProbabilisticModel();
 
 		/**
 		 * The meta object literal for the '<em><b>Instantiated Factor</b></em>' reference feature.
@@ -603,7 +601,7 @@ public interface StaticmodelPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GROUND_PROBABILISTIC_MODEL__INSTANTIATED_FACTOR = eINSTANCE.getGroundProbabilisticModel_InstantiatedFactor();
+		EReference LOCAL_PROBABILISTIC_MODEL__INSTANTIATED_FACTOR = eINSTANCE.getLocalProbabilisticModel_InstantiatedFactor();
 
 		/**
 		 * The meta object literal for the '<em><b>Distribution</b></em>' reference feature.
@@ -611,7 +609,7 @@ public interface StaticmodelPackage extends EPackage
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GROUND_PROBABILISTIC_MODEL__DISTRIBUTION = eINSTANCE.getGroundProbabilisticModel_Distribution();
+		EReference LOCAL_PROBABILISTIC_MODEL__DISTRIBUTION = eINSTANCE.getLocalProbabilisticModel_Distribution();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.ProbabilisticModelRepositoryImpl <em>Probabilistic Model Repository</em>}' class.
@@ -650,12 +648,12 @@ public interface StaticmodelPackage extends EPackage
 		EReference GROUND_PROBABILISTIC_NETWORK__LOCAL_MODELS = eINSTANCE.getGroundProbabilisticNetwork_LocalModels();
 
 		/**
-		 * The meta object literal for the '<em><b>Local Probabilistic Models</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Local Networks</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GROUND_PROBABILISTIC_NETWORK__LOCAL_PROBABILISTIC_MODELS = eINSTANCE.getGroundProbabilisticNetwork_LocalProbabilisticModels();
+		EReference GROUND_PROBABILISTIC_NETWORK__LOCAL_NETWORKS = eINSTANCE.getGroundProbabilisticNetwork_LocalNetworks();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.LocalProbabilisticNetworkImpl <em>Local Probabilistic Network</em>}' class.

@@ -23,16 +23,14 @@ import tools.mdsd.modelingfoundations.identifier.provider.EntityItemProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ArgumentItemProvider extends EntityItemProvider
-{
+public class ArgumentItemProvider extends EntityItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ArgumentItemProvider(AdapterFactory adapterFactory)
-	{
+	public ArgumentItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -43,10 +41,8 @@ public class ArgumentItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -60,8 +56,7 @@ public class ArgumentItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/Argument"));
 	}
 
@@ -72,9 +67,8 @@ public class ArgumentItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		String label = ((Argument)object).getId();
+	public String getText(Object object) {
+		String label = ((Argument)object).getEntityName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Argument_type") :
 			getString("_UI_Argument_type") + " " + label;
@@ -89,9 +83,9 @@ public class ArgumentItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**
@@ -102,8 +96,7 @@ public class ArgumentItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -114,8 +107,7 @@ public class ArgumentItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return EnvironmentaldynamicsEditPlugin.INSTANCE;
 	}
 

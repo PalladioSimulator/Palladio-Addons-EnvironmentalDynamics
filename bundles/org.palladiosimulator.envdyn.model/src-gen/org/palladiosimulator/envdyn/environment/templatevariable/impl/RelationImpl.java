@@ -16,15 +16,13 @@ import org.palladiosimulator.envdyn.environment.templatevariable.Templatevariabl
  *
  * @generated
  */
-public abstract class RelationImpl extends MinimalEObjectImpl.Container implements Relation
-{
+public abstract class RelationImpl extends MinimalEObjectImpl.Container implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RelationImpl()
-	{
+	protected RelationImpl() {
 		super();
 	}
 
@@ -34,8 +32,7 @@ public abstract class RelationImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return TemplatevariablePackage.Literals.RELATION;
 	}
 

@@ -27,16 +27,14 @@ import tools.mdsd.modelingfoundations.identifier.provider.EntityItemProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TemplateFactorItemProvider extends EntityItemProvider
-{
+public class TemplateFactorItemProvider extends EntityItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemplateFactorItemProvider(AdapterFactory adapterFactory)
-	{
+	public TemplateFactorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -47,10 +45,8 @@ public class TemplateFactorItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addScopePropertyDescriptor(object);
@@ -65,8 +61,7 @@ public class TemplateFactorItemProvider extends EntityItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addScopePropertyDescriptor(Object object)
-	{
+	protected void addScopePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -88,8 +83,7 @@ public class TemplateFactorItemProvider extends EntityItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTemporalPropertyDescriptor(Object object)
-	{
+	protected void addTemporalPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -112,9 +106,8 @@ public class TemplateFactorItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		String label = ((TemplateFactor)object).getId();
+	public String getText(Object object) {
+		String label = ((TemplateFactor)object).getEntityName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TemplateFactor_type") :
 			getString("_UI_TemplateFactor_type") + " " + label;
@@ -129,12 +122,10 @@ public class TemplateFactorItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TemplateFactor.class))
-		{
+		switch (notification.getFeatureID(TemplateFactor.class)) {
 			case TemplatevariablePackage.TEMPLATE_FACTOR__TEMPORAL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -150,8 +141,7 @@ public class TemplateFactorItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -162,8 +152,7 @@ public class TemplateFactorItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return EnvironmentaldynamicsEditPlugin.INSTANCE;
 	}
 

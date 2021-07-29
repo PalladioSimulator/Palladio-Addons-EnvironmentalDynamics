@@ -38,8 +38,7 @@ import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
  *
  * @generated
  */
-public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
-{
+public class TemplateVariableImpl extends EntityImpl implements TemplateVariable {
 	/**
 	 * The default value of the '{@link #isShared() <em>Shared</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -85,8 +84,7 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TemplateVariableImpl()
-	{
+	protected TemplateVariableImpl() {
 		super();
 	}
 
@@ -96,8 +94,7 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return TemplatevariablePackage.Literals.TEMPLATE_VARIABLE;
 	}
 
@@ -107,8 +104,7 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	 * @generated
 	 */
 	@Override
-	public boolean isShared()
-	{
+	public boolean isShared() {
 		return shared;
 	}
 
@@ -118,8 +114,7 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	 * @generated
 	 */
 	@Override
-	public void setShared(boolean newShared)
-	{
+	public void setShared(boolean newShared) {
 		boolean oldShared = shared;
 		shared = newShared;
 		if (eNotificationRequired())
@@ -132,8 +127,7 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	 * @generated
 	 */
 	@Override
-	public EList<LogicalVariable> getSignature()
-	{
+	public EList<LogicalVariable> getSignature() {
 		if (signature == null) {
 			signature = new EObjectContainmentEList<LogicalVariable>(LogicalVariable.class, this, TemplatevariablePackage.TEMPLATE_VARIABLE__SIGNATURE);
 		}
@@ -146,8 +140,7 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	 * @generated
 	 */
 	@Override
-	public TemplateVariable getRefines()
-	{
+	public TemplateVariable getRefines() {
 		if (refines != null && refines.eIsProxy()) {
 			InternalEObject oldRefines = (InternalEObject)refines;
 			refines = (TemplateVariable)eResolveProxy(oldRefines);
@@ -164,8 +157,7 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemplateVariable basicGetRefines()
-	{
+	public TemplateVariable basicGetRefines() {
 		return refines;
 	}
 
@@ -175,8 +167,7 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	 * @generated
 	 */
 	@Override
-	public void setRefines(TemplateVariable newRefines)
-	{
+	public void setRefines(TemplateVariable newRefines) {
 		TemplateVariable oldRefines = refines;
 		refines = newRefines;
 		if (eNotificationRequired())
@@ -189,8 +180,7 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE__SIGNATURE:
 				return ((InternalEList<?>)getSignature()).basicRemove(otherEnd, msgs);
@@ -204,8 +194,7 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE__SHARED:
 				return isShared();
@@ -225,8 +214,7 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE__SHARED:
 				setShared((Boolean)newValue);
@@ -248,8 +236,7 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE__SHARED:
 				setShared(SHARED_EDEFAULT);
@@ -270,8 +257,7 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE__SHARED:
 				return shared != SHARED_EDEFAULT;
@@ -289,8 +275,7 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());

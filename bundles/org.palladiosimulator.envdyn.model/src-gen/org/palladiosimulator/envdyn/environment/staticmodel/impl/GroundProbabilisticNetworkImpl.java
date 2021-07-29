@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel;
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork;
+import org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel;
 import org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticNetwork;
 import org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage;
 
@@ -30,13 +30,12 @@ import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
  * </p>
  * <ul>
  *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.GroundProbabilisticNetworkImpl#getLocalModels <em>Local Models</em>}</li>
- *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.GroundProbabilisticNetworkImpl#getLocalProbabilisticModels <em>Local Probabilistic Models</em>}</li>
+ *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.GroundProbabilisticNetworkImpl#getLocalNetworks <em>Local Networks</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GroundProbabilisticNetworkImpl extends EntityImpl implements GroundProbabilisticNetwork
-{
+public class GroundProbabilisticNetworkImpl extends EntityImpl implements GroundProbabilisticNetwork {
 	/**
 	 * The cached value of the '{@link #getLocalModels() <em>Local Models</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -45,25 +44,24 @@ public class GroundProbabilisticNetworkImpl extends EntityImpl implements Ground
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<GroundProbabilisticModel> localModels;
+	protected EList<LocalProbabilisticModel> localModels;
 
 	/**
-	 * The cached value of the '{@link #getLocalProbabilisticModels() <em>Local Probabilistic Models</em>}' containment reference list.
+	 * The cached value of the '{@link #getLocalNetworks() <em>Local Networks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLocalProbabilisticModels()
+	 * @see #getLocalNetworks()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<LocalProbabilisticNetwork> localProbabilisticModels;
+	protected EList<LocalProbabilisticNetwork> localNetworks;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GroundProbabilisticNetworkImpl()
-	{
+	protected GroundProbabilisticNetworkImpl() {
 		super();
 	}
 
@@ -73,8 +71,7 @@ public class GroundProbabilisticNetworkImpl extends EntityImpl implements Ground
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return StaticmodelPackage.Literals.GROUND_PROBABILISTIC_NETWORK;
 	}
 
@@ -84,10 +81,9 @@ public class GroundProbabilisticNetworkImpl extends EntityImpl implements Ground
 	 * @generated
 	 */
 	@Override
-	public EList<GroundProbabilisticModel> getLocalModels()
-	{
+	public EList<LocalProbabilisticModel> getLocalModels() {
 		if (localModels == null) {
-			localModels = new EObjectContainmentEList<GroundProbabilisticModel>(GroundProbabilisticModel.class, this, StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_MODELS);
+			localModels = new EObjectContainmentEList<LocalProbabilisticModel>(LocalProbabilisticModel.class, this, StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_MODELS);
 		}
 		return localModels;
 	}
@@ -98,12 +94,11 @@ public class GroundProbabilisticNetworkImpl extends EntityImpl implements Ground
 	 * @generated
 	 */
 	@Override
-	public EList<LocalProbabilisticNetwork> getLocalProbabilisticModels()
-	{
-		if (localProbabilisticModels == null) {
-			localProbabilisticModels = new EObjectContainmentEList<LocalProbabilisticNetwork>(LocalProbabilisticNetwork.class, this, StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_PROBABILISTIC_MODELS);
+	public EList<LocalProbabilisticNetwork> getLocalNetworks() {
+		if (localNetworks == null) {
+			localNetworks = new EObjectContainmentEList<LocalProbabilisticNetwork>(LocalProbabilisticNetwork.class, this, StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_NETWORKS);
 		}
-		return localProbabilisticModels;
+		return localNetworks;
 	}
 
 	/**
@@ -112,13 +107,12 @@ public class GroundProbabilisticNetworkImpl extends EntityImpl implements Ground
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_MODELS:
 				return ((InternalEList<?>)getLocalModels()).basicRemove(otherEnd, msgs);
-			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_PROBABILISTIC_MODELS:
-				return ((InternalEList<?>)getLocalProbabilisticModels()).basicRemove(otherEnd, msgs);
+			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_NETWORKS:
+				return ((InternalEList<?>)getLocalNetworks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -129,13 +123,12 @@ public class GroundProbabilisticNetworkImpl extends EntityImpl implements Ground
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_MODELS:
 				return getLocalModels();
-			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_PROBABILISTIC_MODELS:
-				return getLocalProbabilisticModels();
+			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_NETWORKS:
+				return getLocalNetworks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -147,16 +140,15 @@ public class GroundProbabilisticNetworkImpl extends EntityImpl implements Ground
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_MODELS:
 				getLocalModels().clear();
-				getLocalModels().addAll((Collection<? extends GroundProbabilisticModel>)newValue);
+				getLocalModels().addAll((Collection<? extends LocalProbabilisticModel>)newValue);
 				return;
-			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_PROBABILISTIC_MODELS:
-				getLocalProbabilisticModels().clear();
-				getLocalProbabilisticModels().addAll((Collection<? extends LocalProbabilisticNetwork>)newValue);
+			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_NETWORKS:
+				getLocalNetworks().clear();
+				getLocalNetworks().addAll((Collection<? extends LocalProbabilisticNetwork>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -168,14 +160,13 @@ public class GroundProbabilisticNetworkImpl extends EntityImpl implements Ground
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_MODELS:
 				getLocalModels().clear();
 				return;
-			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_PROBABILISTIC_MODELS:
-				getLocalProbabilisticModels().clear();
+			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_NETWORKS:
+				getLocalNetworks().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -187,13 +178,12 @@ public class GroundProbabilisticNetworkImpl extends EntityImpl implements Ground
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_MODELS:
 				return localModels != null && !localModels.isEmpty();
-			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_PROBABILISTIC_MODELS:
-				return localProbabilisticModels != null && !localProbabilisticModels.isEmpty();
+			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_NETWORKS:
+				return localNetworks != null && !localNetworks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

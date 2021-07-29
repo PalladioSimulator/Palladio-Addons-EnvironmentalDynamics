@@ -28,8 +28,7 @@ import org.palladiosimulator.envdyn.environment.templatevariable.DependenceRelat
  *
  * @generated
  */
-public class IntraTimeSliceInductionImpl extends TimeSliceInductionImpl implements IntraTimeSliceInduction
-{
+public class IntraTimeSliceInductionImpl extends TimeSliceInductionImpl implements IntraTimeSliceInduction {
 	/**
 	 * The cached value of the '{@link #getDependenceStructure() <em>Dependence Structure</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -45,8 +44,7 @@ public class IntraTimeSliceInductionImpl extends TimeSliceInductionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IntraTimeSliceInductionImpl()
-	{
+	protected IntraTimeSliceInductionImpl() {
 		super();
 	}
 
@@ -56,8 +54,7 @@ public class IntraTimeSliceInductionImpl extends TimeSliceInductionImpl implemen
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return DynamicmodelPackage.Literals.INTRA_TIME_SLICE_INDUCTION;
 	}
 
@@ -67,8 +64,7 @@ public class IntraTimeSliceInductionImpl extends TimeSliceInductionImpl implemen
 	 * @generated
 	 */
 	@Override
-	public EList<DependenceRelation> getDependenceStructure()
-	{
+	public EList<DependenceRelation> getDependenceStructure() {
 		if (dependenceStructure == null) {
 			dependenceStructure = new EObjectResolvingEList<DependenceRelation>(DependenceRelation.class, this, DynamicmodelPackage.INTRA_TIME_SLICE_INDUCTION__DEPENDENCE_STRUCTURE);
 		}
@@ -81,8 +77,7 @@ public class IntraTimeSliceInductionImpl extends TimeSliceInductionImpl implemen
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DynamicmodelPackage.INTRA_TIME_SLICE_INDUCTION__DEPENDENCE_STRUCTURE:
 				return getDependenceStructure();
@@ -97,8 +92,7 @@ public class IntraTimeSliceInductionImpl extends TimeSliceInductionImpl implemen
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DynamicmodelPackage.INTRA_TIME_SLICE_INDUCTION__DEPENDENCE_STRUCTURE:
 				getDependenceStructure().clear();
@@ -114,8 +108,7 @@ public class IntraTimeSliceInductionImpl extends TimeSliceInductionImpl implemen
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DynamicmodelPackage.INTRA_TIME_SLICE_INDUCTION__DEPENDENCE_STRUCTURE:
 				getDependenceStructure().clear();
@@ -130,8 +123,7 @@ public class IntraTimeSliceInductionImpl extends TimeSliceInductionImpl implemen
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DynamicmodelPackage.INTRA_TIME_SLICE_INDUCTION__DEPENDENCE_STRUCTURE:
 				return dependenceStructure != null && !dependenceStructure.isEmpty();

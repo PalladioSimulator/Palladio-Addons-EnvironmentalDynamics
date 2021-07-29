@@ -22,8 +22,7 @@ import org.palladiosimulator.envdyn.environment.templatevariable.DependenceRelat
  * @model
  * @generated
  */
-public interface IntraTimeSliceInduction extends TimeSliceInduction
-{
+public interface IntraTimeSliceInduction extends TimeSliceInduction {
 	/**
 	 * Returns the value of the '<em><b>Dependence Structure</b></em>' reference list.
 	 * The list contents are of type {@link org.palladiosimulator.envdyn.environment.templatevariable.DependenceRelation}.

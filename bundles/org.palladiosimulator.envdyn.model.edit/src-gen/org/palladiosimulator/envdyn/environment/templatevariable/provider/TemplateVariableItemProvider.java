@@ -30,16 +30,14 @@ import tools.mdsd.modelingfoundations.identifier.provider.EntityItemProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TemplateVariableItemProvider extends EntityItemProvider
-{
+public class TemplateVariableItemProvider extends EntityItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemplateVariableItemProvider(AdapterFactory adapterFactory)
-	{
+	public TemplateVariableItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -50,10 +48,8 @@ public class TemplateVariableItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addSharedPropertyDescriptor(object);
@@ -68,8 +64,7 @@ public class TemplateVariableItemProvider extends EntityItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSharedPropertyDescriptor(Object object)
-	{
+	protected void addSharedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -91,8 +86,7 @@ public class TemplateVariableItemProvider extends EntityItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRefinesPropertyDescriptor(Object object)
-	{
+	protected void addRefinesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -117,10 +111,8 @@ public class TemplateVariableItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
-	{
-		if (childrenFeatures == null)
-		{
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TemplatevariablePackage.Literals.TEMPLATE_VARIABLE__SIGNATURE);
 		}
@@ -133,8 +125,7 @@ public class TemplateVariableItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child)
-	{
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
 		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
 
@@ -148,8 +139,7 @@ public class TemplateVariableItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/TemplateVariable"));
 	}
 
@@ -160,9 +150,8 @@ public class TemplateVariableItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		String label = ((TemplateVariable)object).getId();
+	public String getText(Object object) {
+		String label = ((TemplateVariable)object).getEntityName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TemplateVariable_type") :
 			getString("_UI_TemplateVariable_type") + " " + label;
@@ -177,12 +166,10 @@ public class TemplateVariableItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TemplateVariable.class))
-		{
+		switch (notification.getFeatureID(TemplateVariable.class)) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE__SHARED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -201,8 +188,7 @@ public class TemplateVariableItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add
@@ -218,8 +204,7 @@ public class TemplateVariableItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return EnvironmentaldynamicsEditPlugin.INSTANCE;
 	}
 

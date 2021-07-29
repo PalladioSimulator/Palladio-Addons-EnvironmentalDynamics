@@ -82,14 +82,14 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 		}
 		
 		private void createAndCachePD(GroundRandomVariable variable) {
-			ProbabilityDistribution distribution = variable.getDescriptiveModel().getDistribution();
+			ProbabilityDistribution distribution = variable.getLocalModel().getDistribution();
 			ProbabilityDistributionFunction<?> pdf = ProbabilityDistributionBuilder.create().withStructure(distribution)
 					.build();
 			cache(variable, pdf);
 		}
 
 		private void createAndCacheCPD(GroundRandomVariable variable) {
-			ProbabilityDistribution distribution = variable.getDescriptiveModel().getDistribution();
+			ProbabilityDistribution distribution = variable.getLocalModel().getDistribution();
 			ProbabilityDistributionFunction<?> pdf = ProbabilityDistributionBuilder.create().withStructure(distribution)
 					.asConditionalProbabilityDistribution().build();
 			cache(variable, pdf);
@@ -110,7 +110,7 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 	}
 
 	private void checkConsistency() {
-		groundNetwork.getLocalProbabilisticModels().forEach(this::allParentsInstantiated);
+		groundNetwork.getLocalNetworks().forEach(this::allParentsInstantiated);
 	}
 
 	private void allParentsInstantiated(LocalProbabilisticNetwork localNetwork) {
@@ -189,11 +189,11 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 	}
 	
 	public List<LocalProbabilisticNetwork> getLocalProbabilisticNetworks() {
-		return groundNetwork.getLocalProbabilisticModels();
+		return groundNetwork.getLocalNetworks();
 	}
 	
 	public List<GroundRandomVariable> getGroundVariables() {
-		return groundNetwork.getLocalProbabilisticModels().stream().flatMap(v -> v.getGroundRandomVariables().stream())
+		return groundNetwork.getLocalNetworks().stream().flatMap(v -> v.getGroundRandomVariables().stream())
 				.collect(toList());
 	}
 
@@ -214,7 +214,7 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 
 	private double calculateProability(List<InputValue> inputs) {
 		double probability = 1;
-		for (LocalProbabilisticNetwork eachLocal : groundNetwork.getLocalProbabilisticModels()) {
+		for (LocalProbabilisticNetwork eachLocal : groundNetwork.getLocalNetworks()) {
 			for (GroundRandomVariable eachVariable : orderGroundVariablesTopologically(eachLocal)) {
 				InputValue input = getInputValue(eachVariable, inputs);
 				probability *= calculateLocalProbability(getPDF(eachVariable, inputs), input);
@@ -245,7 +245,7 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 
 	private List<InputValue> sampleNext() {
 		List<InputValue> samples = Lists.newArrayList();
-		for (LocalProbabilisticNetwork eachLocal : groundNetwork.getLocalProbabilisticModels()) {
+		for (LocalProbabilisticNetwork eachLocal : groundNetwork.getLocalNetworks()) {
 			for (GroundRandomVariable eachVariable : orderGroundVariablesTopologically(eachLocal)) {
 				Value<?> value = (Value<?>) getPDF(eachVariable, samples).sample();
 				samples.add(InputValue.create(value, eachVariable));

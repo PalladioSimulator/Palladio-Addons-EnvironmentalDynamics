@@ -30,8 +30,7 @@ import org.palladiosimulator.envdyn.environment.templatevariable.Templatevariabl
  *
  * @generated
  */
-public class DependenceRelationImpl extends RelationImpl implements DependenceRelation
-{
+public class DependenceRelationImpl extends RelationImpl implements DependenceRelation {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -97,8 +96,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DependenceRelationImpl()
-	{
+	protected DependenceRelationImpl() {
 		super();
 	}
 
@@ -108,8 +106,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return TemplatevariablePackage.Literals.DEPENDENCE_RELATION;
 	}
 
@@ -119,8 +116,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * @generated
 	 */
 	@Override
-	public DependenceType getType()
-	{
+	public DependenceType getType() {
 		return type;
 	}
 
@@ -130,8 +126,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * @generated
 	 */
 	@Override
-	public void setType(DependenceType newType)
-	{
+	public void setType(DependenceType newType) {
 		DependenceType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
@@ -144,8 +139,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * @generated
 	 */
 	@Override
-	public TemplateVariable getTarget()
-	{
+	public TemplateVariable getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
 			target = (TemplateVariable)eResolveProxy(oldTarget);
@@ -162,8 +156,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemplateVariable basicGetTarget()
-	{
+	public TemplateVariable basicGetTarget() {
 		return target;
 	}
 
@@ -173,8 +166,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * @generated
 	 */
 	@Override
-	public void setTarget(TemplateVariable newTarget)
-	{
+	public void setTarget(TemplateVariable newTarget) {
 		TemplateVariable oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired())
@@ -187,8 +179,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * @generated
 	 */
 	@Override
-	public TemplateVariable getSource()
-	{
+	public TemplateVariable getSource() {
 		if (source != null && source.eIsProxy()) {
 			InternalEObject oldSource = (InternalEObject)source;
 			source = (TemplateVariable)eResolveProxy(oldSource);
@@ -205,8 +196,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemplateVariable basicGetSource()
-	{
+	public TemplateVariable basicGetSource() {
 		return source;
 	}
 
@@ -216,8 +206,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * @generated
 	 */
 	@Override
-	public void setSource(TemplateVariable newSource)
-	{
+	public void setSource(TemplateVariable newSource) {
 		TemplateVariable oldSource = source;
 		source = newSource;
 		if (eNotificationRequired())
@@ -230,8 +219,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * @generated
 	 */
 	@Override
-	public boolean isContingent()
-	{
+	public boolean isContingent() {
 		return contingent;
 	}
 
@@ -241,8 +229,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * @generated
 	 */
 	@Override
-	public void setContingent(boolean newContingent)
-	{
+	public void setContingent(boolean newContingent) {
 		boolean oldContingent = contingent;
 		contingent = newContingent;
 		if (eNotificationRequired())
@@ -255,8 +242,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TemplatevariablePackage.DEPENDENCE_RELATION__TYPE:
 				return getType();
@@ -278,8 +264,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TemplatevariablePackage.DEPENDENCE_RELATION__TYPE:
 				setType((DependenceType)newValue);
@@ -303,8 +288,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.DEPENDENCE_RELATION__TYPE:
 				setType(TYPE_EDEFAULT);
@@ -328,8 +312,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.DEPENDENCE_RELATION__TYPE:
 				return type != TYPE_EDEFAULT;
@@ -349,8 +332,7 @@ public class DependenceRelationImpl extends RelationImpl implements DependenceRe
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());

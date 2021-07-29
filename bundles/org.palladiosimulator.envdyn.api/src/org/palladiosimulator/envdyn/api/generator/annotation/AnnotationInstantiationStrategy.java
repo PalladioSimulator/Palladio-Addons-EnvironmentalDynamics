@@ -13,9 +13,9 @@ import org.palladiosimulator.envdyn.api.generator.NetworkInstantiationStrategy;
 import org.palladiosimulator.envdyn.api.generator.annotation.InstantiationContextProvider.ResolvedInstantiationContext;
 import org.palladiosimulator.envdyn.api.util.AnnotationHandler;
 import org.palladiosimulator.envdyn.api.util.TemplateDefinitionsQuerying;
-import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel;
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork;
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable;
+import org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel;
 import org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticNetwork;
 import org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelFactory;
 import org.palladiosimulator.envdyn.environment.templatevariable.DependenceRelation;
@@ -44,7 +44,7 @@ public class AnnotationInstantiationStrategy implements NetworkInstantiationStra
 
 	private GroundProbabilisticNetwork instantiateNetwork() {
 		List<LocalProbabilisticNetwork> localNetworks = Lists.newArrayList();
-		List<GroundProbabilisticModel> groundModels = Lists.newArrayList();
+		List<LocalProbabilisticModel> groundModels = Lists.newArrayList();
 		for (String eachTag : contextProvider.getInstantiationTags()) {
 			ResolvedInstantiationContext resolved = contextProvider.getInstantiationContextsOf(eachTag);
 			List<GroundRandomVariable> groundVariables = instantiateGroundVariables(resolved);
@@ -112,19 +112,19 @@ public class AnnotationInstantiationStrategy implements NetworkInstantiationStra
 		return variable;
 	}
 
-	private GroundProbabilisticModel instantiateAndSetLocalModel(GroundRandomVariable variable,
+	private LocalProbabilisticModel instantiateAndSetLocalModel(GroundRandomVariable variable,
 			ResolvedInstantiationContext resolved) {
 		return createAndSetLocalModel(variable, resolveTemplateFactor(variable, resolved));
 	}
 
-	private GroundProbabilisticModel createAndSetLocalModel(GroundRandomVariable variable, TemplateFactor factor) {
-		GroundProbabilisticModel model = createLocalModel(variable, factor);
-		variable.setDescriptiveModel(model);
+	private LocalProbabilisticModel createAndSetLocalModel(GroundRandomVariable variable, TemplateFactor factor) {
+		LocalProbabilisticModel model = createLocalModel(variable, factor);
+		variable.setLocalModel(model);
 		return model;
 	}
 
-	private GroundProbabilisticModel createLocalModel(GroundRandomVariable variable, TemplateFactor factor) {
-		GroundProbabilisticModel localModel = MODEL_FACTORY.createGroundProbabilisticModel();
+	private LocalProbabilisticModel createLocalModel(GroundRandomVariable variable, TemplateFactor factor) {
+		LocalProbabilisticModel localModel = MODEL_FACTORY.createLocalProbabilisticModel();
 		localModel.setEntityName(constructNameOf(variable, factor));
 		localModel.setInstantiatedFactor(factor);
 		return localModel;
@@ -144,11 +144,11 @@ public class AnnotationInstantiationStrategy implements NetworkInstantiationStra
 								variable.getInstantiatedTemplate().getEntityName())));
 	}
 
-	private GroundProbabilisticNetwork instantiateGroundNetwork(List<GroundProbabilisticModel> goundModels,
+	private GroundProbabilisticNetwork instantiateGroundNetwork(List<LocalProbabilisticModel> goundModels,
 			List<LocalProbabilisticNetwork> localNetworks) {
 		GroundProbabilisticNetwork network = MODEL_FACTORY.createGroundProbabilisticNetwork();
 		network.getLocalModels().addAll(goundModels);
-		network.getLocalProbabilisticModels().addAll(localNetworks);
+		network.getLocalNetworks().addAll(localNetworks);
 		return network;
 	}
 

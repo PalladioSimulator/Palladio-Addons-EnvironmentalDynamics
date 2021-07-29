@@ -27,8 +27,7 @@ import org.palladiosimulator.envdyn.environment.templatevariable.TimeSliceRelati
  *
  * @generated
  */
-public class TimeSliceRelationImpl extends TemporalRelationImpl implements TimeSliceRelation
-{
+public class TimeSliceRelationImpl extends TemporalRelationImpl implements TimeSliceRelation {
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -54,8 +53,7 @@ public class TimeSliceRelationImpl extends TemporalRelationImpl implements TimeS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TimeSliceRelationImpl()
-	{
+	protected TimeSliceRelationImpl() {
 		super();
 	}
 
@@ -65,8 +63,7 @@ public class TimeSliceRelationImpl extends TemporalRelationImpl implements TimeS
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return TemplatevariablePackage.Literals.TIME_SLICE_RELATION;
 	}
 
@@ -76,8 +73,7 @@ public class TimeSliceRelationImpl extends TemporalRelationImpl implements TimeS
 	 * @generated
 	 */
 	@Override
-	public TemplateVariable getSource()
-	{
+	public TemplateVariable getSource() {
 		if (source != null && source.eIsProxy()) {
 			InternalEObject oldSource = (InternalEObject)source;
 			source = (TemplateVariable)eResolveProxy(oldSource);
@@ -94,8 +90,7 @@ public class TimeSliceRelationImpl extends TemporalRelationImpl implements TimeS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemplateVariable basicGetSource()
-	{
+	public TemplateVariable basicGetSource() {
 		return source;
 	}
 
@@ -105,8 +100,7 @@ public class TimeSliceRelationImpl extends TemporalRelationImpl implements TimeS
 	 * @generated
 	 */
 	@Override
-	public void setSource(TemplateVariable newSource)
-	{
+	public void setSource(TemplateVariable newSource) {
 		TemplateVariable oldSource = source;
 		source = newSource;
 		if (eNotificationRequired())
@@ -119,8 +113,7 @@ public class TimeSliceRelationImpl extends TemporalRelationImpl implements TimeS
 	 * @generated
 	 */
 	@Override
-	public TemplateVariable getTarget()
-	{
+	public TemplateVariable getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
 			target = (TemplateVariable)eResolveProxy(oldTarget);
@@ -137,8 +130,7 @@ public class TimeSliceRelationImpl extends TemporalRelationImpl implements TimeS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemplateVariable basicGetTarget()
-	{
+	public TemplateVariable basicGetTarget() {
 		return target;
 	}
 
@@ -148,8 +140,7 @@ public class TimeSliceRelationImpl extends TemporalRelationImpl implements TimeS
 	 * @generated
 	 */
 	@Override
-	public void setTarget(TemplateVariable newTarget)
-	{
+	public void setTarget(TemplateVariable newTarget) {
 		TemplateVariable oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired())
@@ -162,8 +153,7 @@ public class TimeSliceRelationImpl extends TemporalRelationImpl implements TimeS
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TemplatevariablePackage.TIME_SLICE_RELATION__SOURCE:
 				if (resolve) return getSource();
@@ -181,8 +171,7 @@ public class TimeSliceRelationImpl extends TemporalRelationImpl implements TimeS
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TemplatevariablePackage.TIME_SLICE_RELATION__SOURCE:
 				setSource((TemplateVariable)newValue);
@@ -200,8 +189,7 @@ public class TimeSliceRelationImpl extends TemporalRelationImpl implements TimeS
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.TIME_SLICE_RELATION__SOURCE:
 				setSource((TemplateVariable)null);
@@ -219,8 +207,7 @@ public class TimeSliceRelationImpl extends TemporalRelationImpl implements TimeS
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.TIME_SLICE_RELATION__SOURCE:
 				return source != null;

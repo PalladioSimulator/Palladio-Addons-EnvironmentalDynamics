@@ -16,15 +16,13 @@ import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
  *
  * @generated
  */
-public class ArgumentImpl extends EntityImpl implements Argument
-{
+public class ArgumentImpl extends EntityImpl implements Argument {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ArgumentImpl()
-	{
+	protected ArgumentImpl() {
 		super();
 	}
 
@@ -34,8 +32,7 @@ public class ArgumentImpl extends EntityImpl implements Argument
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return TemplatevariablePackage.Literals.ARGUMENT;
 	}
 

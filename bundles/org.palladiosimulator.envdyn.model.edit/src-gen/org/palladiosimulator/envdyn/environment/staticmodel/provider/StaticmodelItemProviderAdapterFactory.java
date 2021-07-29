@@ -32,8 +32,7 @@ import org.palladiosimulator.envdyn.environment.staticmodel.util.StaticmodelAdap
  * <!-- end-user-doc -->
  * @generated
  */
-public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable
-{
+public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -64,8 +63,7 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StaticmodelItemProviderAdapterFactory()
-	{
+	public StaticmodelItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
@@ -88,10 +86,8 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Adapter createGroundRandomVariableAdapter()
-	{
-		if (groundRandomVariableItemProvider == null)
-		{
+	public Adapter createGroundRandomVariableAdapter() {
+		if (groundRandomVariableItemProvider == null) {
 			groundRandomVariableItemProvider = new GroundRandomVariableItemProvider(this);
 		}
 
@@ -99,28 +95,26 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel} instances.
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GroundProbabilisticModelItemProvider groundProbabilisticModelItemProvider;
+	protected LocalProbabilisticModelItemProvider localProbabilisticModelItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel}.
+	 * This creates an adapter for a {@link org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGroundProbabilisticModelAdapter()
-	{
-		if (groundProbabilisticModelItemProvider == null)
-		{
-			groundProbabilisticModelItemProvider = new GroundProbabilisticModelItemProvider(this);
+	public Adapter createLocalProbabilisticModelAdapter() {
+		if (localProbabilisticModelItemProvider == null) {
+			localProbabilisticModelItemProvider = new LocalProbabilisticModelItemProvider(this);
 		}
 
-		return groundProbabilisticModelItemProvider;
+		return localProbabilisticModelItemProvider;
 	}
 
 	/**
@@ -138,10 +132,8 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Adapter createProbabilisticModelRepositoryAdapter()
-	{
-		if (probabilisticModelRepositoryItemProvider == null)
-		{
+	public Adapter createProbabilisticModelRepositoryAdapter() {
+		if (probabilisticModelRepositoryItemProvider == null) {
 			probabilisticModelRepositoryItemProvider = new ProbabilisticModelRepositoryItemProvider(this);
 		}
 
@@ -163,10 +155,8 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Adapter createGroundProbabilisticNetworkAdapter()
-	{
-		if (groundProbabilisticNetworkItemProvider == null)
-		{
+	public Adapter createGroundProbabilisticNetworkAdapter() {
+		if (groundProbabilisticNetworkItemProvider == null) {
 			groundProbabilisticNetworkItemProvider = new GroundProbabilisticNetworkItemProvider(this);
 		}
 
@@ -188,10 +178,8 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Adapter createLocalProbabilisticNetworkAdapter()
-	{
-		if (localProbabilisticNetworkItemProvider == null)
-		{
+	public Adapter createLocalProbabilisticNetworkAdapter() {
+		if (localProbabilisticNetworkItemProvider == null) {
 			localProbabilisticNetworkItemProvider = new LocalProbabilisticNetworkItemProvider(this);
 		}
 
@@ -205,8 +193,7 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	 * @generated
 	 */
 	@Override
-	public ComposeableAdapterFactory getRootAdapterFactory()
-	{
+	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
 
@@ -217,8 +204,7 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	 * @generated
 	 */
 	@Override
-	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory)
-	{
+	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
 
@@ -228,8 +214,7 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	 * @generated
 	 */
 	@Override
-	public boolean isFactoryForType(Object type)
-	{
+	public boolean isFactoryForType(Object type) {
 		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
 
@@ -240,8 +225,7 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Adapter adapt(Notifier notifier, Object type)
-	{
+	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
 
@@ -251,13 +235,10 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Object adapt(Object object, Object type)
-	{
-		if (isFactoryForType(type))
-		{
+	public Object adapt(Object object, Object type) {
+		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter)))
-			{
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -272,8 +253,7 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	 * @generated
 	 */
 	@Override
-	public void addListener(INotifyChangedListener notifyChangedListener)
-	{
+	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
 
@@ -284,8 +264,7 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	 * @generated
 	 */
 	@Override
-	public void removeListener(INotifyChangedListener notifyChangedListener)
-	{
+	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
 
@@ -296,12 +275,10 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	 * @generated
 	 */
 	@Override
-	public void fireNotifyChanged(Notification notification)
-	{
+	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
-		if (parentAdapterFactory != null)
-		{
+		if (parentAdapterFactory != null) {
 			parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}
@@ -313,10 +290,9 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	 * @generated
 	 */
 	@Override
-	public void dispose()
-	{
+	public void dispose() {
 		if (groundRandomVariableItemProvider != null) groundRandomVariableItemProvider.dispose();
-		if (groundProbabilisticModelItemProvider != null) groundProbabilisticModelItemProvider.dispose();
+		if (localProbabilisticModelItemProvider != null) localProbabilisticModelItemProvider.dispose();
 		if (probabilisticModelRepositoryItemProvider != null) probabilisticModelRepositoryItemProvider.dispose();
 		if (groundProbabilisticNetworkItemProvider != null) groundProbabilisticNetworkItemProvider.dispose();
 		if (localProbabilisticNetworkItemProvider != null) localProbabilisticNetworkItemProvider.dispose();

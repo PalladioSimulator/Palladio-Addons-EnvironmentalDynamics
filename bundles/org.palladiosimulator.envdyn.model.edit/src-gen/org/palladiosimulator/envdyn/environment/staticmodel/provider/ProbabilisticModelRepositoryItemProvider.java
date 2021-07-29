@@ -30,16 +30,14 @@ import tools.mdsd.modelingfoundations.identifier.provider.EntityItemProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProbabilisticModelRepositoryItemProvider extends EntityItemProvider
-{
+public class ProbabilisticModelRepositoryItemProvider extends EntityItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProbabilisticModelRepositoryItemProvider(AdapterFactory adapterFactory)
-	{
+	public ProbabilisticModelRepositoryItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -50,10 +48,8 @@ public class ProbabilisticModelRepositoryItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -69,10 +65,8 @@ public class ProbabilisticModelRepositoryItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
-	{
-		if (childrenFeatures == null)
-		{
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(StaticmodelPackage.Literals.PROBABILISTIC_MODEL_REPOSITORY__MODELS);
 		}
@@ -85,8 +79,7 @@ public class ProbabilisticModelRepositoryItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child)
-	{
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
 		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
 
@@ -100,8 +93,7 @@ public class ProbabilisticModelRepositoryItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProbabilisticModelRepository"));
 	}
 
@@ -112,9 +104,8 @@ public class ProbabilisticModelRepositoryItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		String label = ((ProbabilisticModelRepository)object).getId();
+	public String getText(Object object) {
+		String label = ((ProbabilisticModelRepository)object).getEntityName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ProbabilisticModelRepository_type") :
 			getString("_UI_ProbabilisticModelRepository_type") + " " + label;
@@ -129,12 +120,10 @@ public class ProbabilisticModelRepositoryItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ProbabilisticModelRepository.class))
-		{
+		switch (notification.getFeatureID(ProbabilisticModelRepository.class)) {
 			case StaticmodelPackage.PROBABILISTIC_MODEL_REPOSITORY__MODELS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -150,8 +139,7 @@ public class ProbabilisticModelRepositoryItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add
@@ -167,8 +155,7 @@ public class ProbabilisticModelRepositoryItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return EnvironmentaldynamicsEditPlugin.INSTANCE;
 	}
 

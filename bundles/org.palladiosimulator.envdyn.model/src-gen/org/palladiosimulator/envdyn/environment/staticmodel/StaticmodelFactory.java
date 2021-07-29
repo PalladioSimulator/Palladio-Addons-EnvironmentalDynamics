@@ -31,13 +31,13 @@ public interface StaticmodelFactory extends EFactory {
 	GroundRandomVariable createGroundRandomVariable();
 
 	/**
-	 * Returns a new object of class '<em>Ground Probabilistic Model</em>'.
+	 * Returns a new object of class '<em>Local Probabilistic Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ground Probabilistic Model</em>'.
+	 * @return a new object of class '<em>Local Probabilistic Model</em>'.
 	 * @generated
 	 */
-	GroundProbabilisticModel createGroundProbabilisticModel();
+	LocalProbabilisticModel createLocalProbabilisticModel();
 
 	/**
 	 * Returns a new object of class '<em>Probabilistic Model Repository</em>'.

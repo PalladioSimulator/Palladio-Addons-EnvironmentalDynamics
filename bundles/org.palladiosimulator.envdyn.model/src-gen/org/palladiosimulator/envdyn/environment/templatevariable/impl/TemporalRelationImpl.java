@@ -27,8 +27,7 @@ import tools.mdsd.modelingfoundations.identifier.NamedElement;
  *
  * @generated
  */
-public abstract class TemporalRelationImpl extends RelationImpl implements TemporalRelation
-{
+public abstract class TemporalRelationImpl extends RelationImpl implements TemporalRelation {
 	/**
 	 * The default value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -54,8 +53,7 @@ public abstract class TemporalRelationImpl extends RelationImpl implements Tempo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TemporalRelationImpl()
-	{
+	protected TemporalRelationImpl() {
 		super();
 	}
 
@@ -65,8 +63,7 @@ public abstract class TemporalRelationImpl extends RelationImpl implements Tempo
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return TemplatevariablePackage.Literals.TEMPORAL_RELATION;
 	}
 
@@ -76,8 +73,7 @@ public abstract class TemporalRelationImpl extends RelationImpl implements Tempo
 	 * @generated
 	 */
 	@Override
-	public String getEntityName()
-	{
+	public String getEntityName() {
 		return entityName;
 	}
 
@@ -87,8 +83,7 @@ public abstract class TemporalRelationImpl extends RelationImpl implements Tempo
 	 * @generated
 	 */
 	@Override
-	public void setEntityName(String newEntityName)
-	{
+	public void setEntityName(String newEntityName) {
 		String oldEntityName = entityName;
 		entityName = newEntityName;
 		if (eNotificationRequired())
@@ -101,8 +96,7 @@ public abstract class TemporalRelationImpl extends RelationImpl implements Tempo
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPORAL_RELATION__ENTITY_NAME:
 				return getEntityName();
@@ -116,8 +110,7 @@ public abstract class TemporalRelationImpl extends RelationImpl implements Tempo
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPORAL_RELATION__ENTITY_NAME:
 				setEntityName((String)newValue);
@@ -132,8 +125,7 @@ public abstract class TemporalRelationImpl extends RelationImpl implements Tempo
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPORAL_RELATION__ENTITY_NAME:
 				setEntityName(ENTITY_NAME_EDEFAULT);
@@ -148,8 +140,7 @@ public abstract class TemporalRelationImpl extends RelationImpl implements Tempo
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPORAL_RELATION__ENTITY_NAME:
 				return ENTITY_NAME_EDEFAULT == null ? entityName != null : !ENTITY_NAME_EDEFAULT.equals(entityName);
@@ -163,8 +154,7 @@ public abstract class TemporalRelationImpl extends RelationImpl implements Tempo
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-	{
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == NamedElement.class) {
 			switch (derivedFeatureID) {
 				case TemplatevariablePackage.TEMPORAL_RELATION__ENTITY_NAME: return IdentifierPackage.NAMED_ELEMENT__ENTITY_NAME;
@@ -180,8 +170,7 @@ public abstract class TemporalRelationImpl extends RelationImpl implements Tempo
 	 * @generated
 	 */
 	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-	{
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == NamedElement.class) {
 			switch (baseFeatureID) {
 				case IdentifierPackage.NAMED_ELEMENT__ENTITY_NAME: return TemplatevariablePackage.TEMPORAL_RELATION__ENTITY_NAME;
@@ -197,8 +186,7 @@ public abstract class TemporalRelationImpl extends RelationImpl implements Tempo
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());

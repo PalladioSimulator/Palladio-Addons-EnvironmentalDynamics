@@ -33,8 +33,7 @@ import org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage;
  *
  * @generated
  */
-public class LocalProbabilisticNetworkImpl extends MinimalEObjectImpl.Container implements LocalProbabilisticNetwork
-{
+public class LocalProbabilisticNetworkImpl extends MinimalEObjectImpl.Container implements LocalProbabilisticNetwork {
 	/**
 	 * The cached value of the '{@link #getGroundRandomVariables() <em>Ground Random Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -50,8 +49,7 @@ public class LocalProbabilisticNetworkImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LocalProbabilisticNetworkImpl()
-	{
+	protected LocalProbabilisticNetworkImpl() {
 		super();
 	}
 
@@ -61,8 +59,7 @@ public class LocalProbabilisticNetworkImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return StaticmodelPackage.Literals.LOCAL_PROBABILISTIC_NETWORK;
 	}
 
@@ -72,8 +69,7 @@ public class LocalProbabilisticNetworkImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	@Override
-	public EList<GroundRandomVariable> getGroundRandomVariables()
-	{
+	public EList<GroundRandomVariable> getGroundRandomVariables() {
 		if (groundRandomVariables == null) {
 			groundRandomVariables = new EObjectContainmentEList<GroundRandomVariable>(GroundRandomVariable.class, this, StaticmodelPackage.LOCAL_PROBABILISTIC_NETWORK__GROUND_RANDOM_VARIABLES);
 		}
@@ -86,8 +82,7 @@ public class LocalProbabilisticNetworkImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case StaticmodelPackage.LOCAL_PROBABILISTIC_NETWORK__GROUND_RANDOM_VARIABLES:
 				return ((InternalEList<?>)getGroundRandomVariables()).basicRemove(otherEnd, msgs);
@@ -101,8 +96,7 @@ public class LocalProbabilisticNetworkImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StaticmodelPackage.LOCAL_PROBABILISTIC_NETWORK__GROUND_RANDOM_VARIABLES:
 				return getGroundRandomVariables();
@@ -117,8 +111,7 @@ public class LocalProbabilisticNetworkImpl extends MinimalEObjectImpl.Container 
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StaticmodelPackage.LOCAL_PROBABILISTIC_NETWORK__GROUND_RANDOM_VARIABLES:
 				getGroundRandomVariables().clear();
@@ -134,8 +127,7 @@ public class LocalProbabilisticNetworkImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case StaticmodelPackage.LOCAL_PROBABILISTIC_NETWORK__GROUND_RANDOM_VARIABLES:
 				getGroundRandomVariables().clear();
@@ -150,8 +142,7 @@ public class LocalProbabilisticNetworkImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StaticmodelPackage.LOCAL_PROBABILISTIC_NETWORK__GROUND_RANDOM_VARIABLES:
 				return groundRandomVariables != null && !groundRandomVariables.isEmpty();

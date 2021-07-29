@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
-import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel;
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable;
+import org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel;
 import org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage;
 
 import org.palladiosimulator.envdyn.environment.templatevariable.DependenceRelation;
@@ -35,14 +35,13 @@ import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
  * <ul>
  *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.GroundRandomVariableImpl#getInstantiatedTemplate <em>Instantiated Template</em>}</li>
  *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.GroundRandomVariableImpl#getDependenceStructure <em>Dependence Structure</em>}</li>
- *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.GroundRandomVariableImpl#getDescriptiveModel <em>Descriptive Model</em>}</li>
+ *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.GroundRandomVariableImpl#getLocalModel <em>Local Model</em>}</li>
  *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.impl.GroundRandomVariableImpl#getAppliedObjects <em>Applied Objects</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GroundRandomVariableImpl extends EntityImpl implements GroundRandomVariable
-{
+public class GroundRandomVariableImpl extends EntityImpl implements GroundRandomVariable {
 	/**
 	 * The cached value of the '{@link #getInstantiatedTemplate() <em>Instantiated Template</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -64,14 +63,14 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 	protected EList<DependenceRelation> dependenceStructure;
 
 	/**
-	 * The cached value of the '{@link #getDescriptiveModel() <em>Descriptive Model</em>}' reference.
+	 * The cached value of the '{@link #getLocalModel() <em>Local Model</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescriptiveModel()
+	 * @see #getLocalModel()
 	 * @generated
 	 * @ordered
 	 */
-	protected GroundProbabilisticModel descriptiveModel;
+	protected LocalProbabilisticModel localModel;
 
 	/**
 	 * The cached value of the '{@link #getAppliedObjects() <em>Applied Objects</em>}' reference list.
@@ -88,8 +87,7 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GroundRandomVariableImpl()
-	{
+	protected GroundRandomVariableImpl() {
 		super();
 	}
 
@@ -99,8 +97,7 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return StaticmodelPackage.Literals.GROUND_RANDOM_VARIABLE;
 	}
 
@@ -110,8 +107,7 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 	 * @generated
 	 */
 	@Override
-	public TemplateVariable getInstantiatedTemplate()
-	{
+	public TemplateVariable getInstantiatedTemplate() {
 		if (instantiatedTemplate != null && instantiatedTemplate.eIsProxy()) {
 			InternalEObject oldInstantiatedTemplate = (InternalEObject)instantiatedTemplate;
 			instantiatedTemplate = (TemplateVariable)eResolveProxy(oldInstantiatedTemplate);
@@ -128,8 +124,7 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemplateVariable basicGetInstantiatedTemplate()
-	{
+	public TemplateVariable basicGetInstantiatedTemplate() {
 		return instantiatedTemplate;
 	}
 
@@ -139,8 +134,7 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 	 * @generated
 	 */
 	@Override
-	public void setInstantiatedTemplate(TemplateVariable newInstantiatedTemplate)
-	{
+	public void setInstantiatedTemplate(TemplateVariable newInstantiatedTemplate) {
 		TemplateVariable oldInstantiatedTemplate = instantiatedTemplate;
 		instantiatedTemplate = newInstantiatedTemplate;
 		if (eNotificationRequired())
@@ -153,8 +147,7 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 	 * @generated
 	 */
 	@Override
-	public EList<DependenceRelation> getDependenceStructure()
-	{
+	public EList<DependenceRelation> getDependenceStructure() {
 		if (dependenceStructure == null) {
 			dependenceStructure = new EObjectResolvingEList<DependenceRelation>(DependenceRelation.class, this, StaticmodelPackage.GROUND_RANDOM_VARIABLE__DEPENDENCE_STRUCTURE);
 		}
@@ -167,17 +160,16 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 	 * @generated
 	 */
 	@Override
-	public GroundProbabilisticModel getDescriptiveModel()
-	{
-		if (descriptiveModel != null && descriptiveModel.eIsProxy()) {
-			InternalEObject oldDescriptiveModel = (InternalEObject)descriptiveModel;
-			descriptiveModel = (GroundProbabilisticModel)eResolveProxy(oldDescriptiveModel);
-			if (descriptiveModel != oldDescriptiveModel) {
+	public LocalProbabilisticModel getLocalModel() {
+		if (localModel != null && localModel.eIsProxy()) {
+			InternalEObject oldLocalModel = (InternalEObject)localModel;
+			localModel = (LocalProbabilisticModel)eResolveProxy(oldLocalModel);
+			if (localModel != oldLocalModel) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StaticmodelPackage.GROUND_RANDOM_VARIABLE__DESCRIPTIVE_MODEL, oldDescriptiveModel, descriptiveModel));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StaticmodelPackage.GROUND_RANDOM_VARIABLE__LOCAL_MODEL, oldLocalModel, localModel));
 			}
 		}
-		return descriptiveModel;
+		return localModel;
 	}
 
 	/**
@@ -185,9 +177,8 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GroundProbabilisticModel basicGetDescriptiveModel()
-	{
-		return descriptiveModel;
+	public LocalProbabilisticModel basicGetLocalModel() {
+		return localModel;
 	}
 
 	/**
@@ -196,12 +187,11 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 	 * @generated
 	 */
 	@Override
-	public void setDescriptiveModel(GroundProbabilisticModel newDescriptiveModel)
-	{
-		GroundProbabilisticModel oldDescriptiveModel = descriptiveModel;
-		descriptiveModel = newDescriptiveModel;
+	public void setLocalModel(LocalProbabilisticModel newLocalModel) {
+		LocalProbabilisticModel oldLocalModel = localModel;
+		localModel = newLocalModel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StaticmodelPackage.GROUND_RANDOM_VARIABLE__DESCRIPTIVE_MODEL, oldDescriptiveModel, descriptiveModel));
+			eNotify(new ENotificationImpl(this, Notification.SET, StaticmodelPackage.GROUND_RANDOM_VARIABLE__LOCAL_MODEL, oldLocalModel, localModel));
 	}
 
 	/**
@@ -210,8 +200,7 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 	 * @generated
 	 */
 	@Override
-	public EList<EObject> getAppliedObjects()
-	{
+	public EList<EObject> getAppliedObjects() {
 		if (appliedObjects == null) {
 			appliedObjects = new EObjectResolvingEList<EObject>(EObject.class, this, StaticmodelPackage.GROUND_RANDOM_VARIABLE__APPLIED_OBJECTS);
 		}
@@ -224,17 +213,16 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__INSTANTIATED_TEMPLATE:
 				if (resolve) return getInstantiatedTemplate();
 				return basicGetInstantiatedTemplate();
 			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__DEPENDENCE_STRUCTURE:
 				return getDependenceStructure();
-			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__DESCRIPTIVE_MODEL:
-				if (resolve) return getDescriptiveModel();
-				return basicGetDescriptiveModel();
+			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__LOCAL_MODEL:
+				if (resolve) return getLocalModel();
+				return basicGetLocalModel();
 			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__APPLIED_OBJECTS:
 				return getAppliedObjects();
 		}
@@ -248,8 +236,7 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__INSTANTIATED_TEMPLATE:
 				setInstantiatedTemplate((TemplateVariable)newValue);
@@ -258,8 +245,8 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 				getDependenceStructure().clear();
 				getDependenceStructure().addAll((Collection<? extends DependenceRelation>)newValue);
 				return;
-			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__DESCRIPTIVE_MODEL:
-				setDescriptiveModel((GroundProbabilisticModel)newValue);
+			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__LOCAL_MODEL:
+				setLocalModel((LocalProbabilisticModel)newValue);
 				return;
 			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__APPLIED_OBJECTS:
 				getAppliedObjects().clear();
@@ -275,8 +262,7 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__INSTANTIATED_TEMPLATE:
 				setInstantiatedTemplate((TemplateVariable)null);
@@ -284,8 +270,8 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__DEPENDENCE_STRUCTURE:
 				getDependenceStructure().clear();
 				return;
-			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__DESCRIPTIVE_MODEL:
-				setDescriptiveModel((GroundProbabilisticModel)null);
+			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__LOCAL_MODEL:
+				setLocalModel((LocalProbabilisticModel)null);
 				return;
 			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__APPLIED_OBJECTS:
 				getAppliedObjects().clear();
@@ -300,15 +286,14 @@ public class GroundRandomVariableImpl extends EntityImpl implements GroundRandom
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__INSTANTIATED_TEMPLATE:
 				return instantiatedTemplate != null;
 			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__DEPENDENCE_STRUCTURE:
 				return dependenceStructure != null && !dependenceStructure.isEmpty();
-			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__DESCRIPTIVE_MODEL:
-				return descriptiveModel != null;
+			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__LOCAL_MODEL:
+				return localModel != null;
 			case StaticmodelPackage.GROUND_RANDOM_VARIABLE__APPLIED_OBJECTS:
 				return appliedObjects != null && !appliedObjects.isEmpty();
 		}

@@ -13,9 +13,9 @@ import org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicmodelPackage
 
 import org.palladiosimulator.envdyn.environment.dynamicmodel.impl.DynamicmodelPackageImpl;
 
-import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel;
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork;
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable;
+import org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel;
 import org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticNetwork;
 import org.palladiosimulator.envdyn.environment.staticmodel.ProbabilisticModelRepository;
 import org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelFactory;
@@ -50,7 +50,7 @@ public class StaticmodelPackageImpl extends EPackageImpl implements StaticmodelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass groundProbabilisticModelEClass = null;
+	private EClass localProbabilisticModelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -186,7 +186,7 @@ public class StaticmodelPackageImpl extends EPackageImpl implements StaticmodelP
 	 * @generated
 	 */
 	@Override
-	public EReference getGroundRandomVariable_DescriptiveModel() {
+	public EReference getGroundRandomVariable_LocalModel() {
 		return (EReference)groundRandomVariableEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -206,8 +206,8 @@ public class StaticmodelPackageImpl extends EPackageImpl implements StaticmodelP
 	 * @generated
 	 */
 	@Override
-	public EClass getGroundProbabilisticModel() {
-		return groundProbabilisticModelEClass;
+	public EClass getLocalProbabilisticModel() {
+		return localProbabilisticModelEClass;
 	}
 
 	/**
@@ -216,8 +216,8 @@ public class StaticmodelPackageImpl extends EPackageImpl implements StaticmodelP
 	 * @generated
 	 */
 	@Override
-	public EReference getGroundProbabilisticModel_InstantiatedFactor() {
-		return (EReference)groundProbabilisticModelEClass.getEStructuralFeatures().get(0);
+	public EReference getLocalProbabilisticModel_InstantiatedFactor() {
+		return (EReference)localProbabilisticModelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -226,8 +226,8 @@ public class StaticmodelPackageImpl extends EPackageImpl implements StaticmodelP
 	 * @generated
 	 */
 	@Override
-	public EReference getGroundProbabilisticModel_Distribution() {
-		return (EReference)groundProbabilisticModelEClass.getEStructuralFeatures().get(1);
+	public EReference getLocalProbabilisticModel_Distribution() {
+		return (EReference)localProbabilisticModelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -276,7 +276,7 @@ public class StaticmodelPackageImpl extends EPackageImpl implements StaticmodelP
 	 * @generated
 	 */
 	@Override
-	public EReference getGroundProbabilisticNetwork_LocalProbabilisticModels() {
+	public EReference getGroundProbabilisticNetwork_LocalNetworks() {
 		return (EReference)groundProbabilisticNetworkEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -332,19 +332,19 @@ public class StaticmodelPackageImpl extends EPackageImpl implements StaticmodelP
 		groundRandomVariableEClass = createEClass(GROUND_RANDOM_VARIABLE);
 		createEReference(groundRandomVariableEClass, GROUND_RANDOM_VARIABLE__INSTANTIATED_TEMPLATE);
 		createEReference(groundRandomVariableEClass, GROUND_RANDOM_VARIABLE__DEPENDENCE_STRUCTURE);
-		createEReference(groundRandomVariableEClass, GROUND_RANDOM_VARIABLE__DESCRIPTIVE_MODEL);
+		createEReference(groundRandomVariableEClass, GROUND_RANDOM_VARIABLE__LOCAL_MODEL);
 		createEReference(groundRandomVariableEClass, GROUND_RANDOM_VARIABLE__APPLIED_OBJECTS);
 
-		groundProbabilisticModelEClass = createEClass(GROUND_PROBABILISTIC_MODEL);
-		createEReference(groundProbabilisticModelEClass, GROUND_PROBABILISTIC_MODEL__INSTANTIATED_FACTOR);
-		createEReference(groundProbabilisticModelEClass, GROUND_PROBABILISTIC_MODEL__DISTRIBUTION);
+		localProbabilisticModelEClass = createEClass(LOCAL_PROBABILISTIC_MODEL);
+		createEReference(localProbabilisticModelEClass, LOCAL_PROBABILISTIC_MODEL__INSTANTIATED_FACTOR);
+		createEReference(localProbabilisticModelEClass, LOCAL_PROBABILISTIC_MODEL__DISTRIBUTION);
 
 		probabilisticModelRepositoryEClass = createEClass(PROBABILISTIC_MODEL_REPOSITORY);
 		createEReference(probabilisticModelRepositoryEClass, PROBABILISTIC_MODEL_REPOSITORY__MODELS);
 
 		groundProbabilisticNetworkEClass = createEClass(GROUND_PROBABILISTIC_NETWORK);
 		createEReference(groundProbabilisticNetworkEClass, GROUND_PROBABILISTIC_NETWORK__LOCAL_MODELS);
-		createEReference(groundProbabilisticNetworkEClass, GROUND_PROBABILISTIC_NETWORK__LOCAL_PROBABILISTIC_MODELS);
+		createEReference(groundProbabilisticNetworkEClass, GROUND_PROBABILISTIC_NETWORK__LOCAL_NETWORKS);
 
 		localProbabilisticNetworkEClass = createEClass(LOCAL_PROBABILISTIC_NETWORK);
 		createEReference(localProbabilisticNetworkEClass, LOCAL_PROBABILISTIC_NETWORK__GROUND_RANDOM_VARIABLES);
@@ -385,27 +385,27 @@ public class StaticmodelPackageImpl extends EPackageImpl implements StaticmodelP
 
 		// Add supertypes to classes
 		groundRandomVariableEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
-		groundProbabilisticModelEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
+		localProbabilisticModelEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 		probabilisticModelRepositoryEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 		groundProbabilisticNetworkEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(groundRandomVariableEClass, GroundRandomVariable.class, "GroundRandomVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGroundRandomVariable_InstantiatedTemplate(), theTemplatevariablePackage.getTemplateVariable(), null, "instantiatedTemplate", null, 1, 1, GroundRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGroundRandomVariable_DependenceStructure(), theTemplatevariablePackage.getDependenceRelation(), null, "dependenceStructure", null, 1, -1, GroundRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGroundRandomVariable_DescriptiveModel(), this.getGroundProbabilisticModel(), null, "descriptiveModel", null, 1, 1, GroundRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGroundRandomVariable_DependenceStructure(), theTemplatevariablePackage.getDependenceRelation(), null, "dependenceStructure", null, 0, -1, GroundRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGroundRandomVariable_LocalModel(), this.getLocalProbabilisticModel(), null, "localModel", null, 1, 1, GroundRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGroundRandomVariable_AppliedObjects(), theEcorePackage.getEObject(), null, "appliedObjects", null, 1, -1, GroundRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(groundProbabilisticModelEClass, GroundProbabilisticModel.class, "GroundProbabilisticModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGroundProbabilisticModel_InstantiatedFactor(), theTemplatevariablePackage.getTemplateFactor(), null, "instantiatedFactor", null, 1, 1, GroundProbabilisticModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGroundProbabilisticModel_Distribution(), theDistributionfunctionPackage.getProbabilityDistribution(), null, "distribution", null, 1, 1, GroundProbabilisticModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(localProbabilisticModelEClass, LocalProbabilisticModel.class, "LocalProbabilisticModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLocalProbabilisticModel_InstantiatedFactor(), theTemplatevariablePackage.getTemplateFactor(), null, "instantiatedFactor", null, 1, 1, LocalProbabilisticModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLocalProbabilisticModel_Distribution(), theDistributionfunctionPackage.getProbabilityDistribution(), null, "distribution", null, 1, 1, LocalProbabilisticModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(probabilisticModelRepositoryEClass, ProbabilisticModelRepository.class, "ProbabilisticModelRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProbabilisticModelRepository_Models(), this.getGroundProbabilisticNetwork(), null, "models", null, 0, -1, ProbabilisticModelRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(groundProbabilisticNetworkEClass, GroundProbabilisticNetwork.class, "GroundProbabilisticNetwork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGroundProbabilisticNetwork_LocalModels(), this.getGroundProbabilisticModel(), null, "localModels", null, 1, -1, GroundProbabilisticNetwork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGroundProbabilisticNetwork_LocalProbabilisticModels(), this.getLocalProbabilisticNetwork(), null, "localProbabilisticModels", null, 1, -1, GroundProbabilisticNetwork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGroundProbabilisticNetwork_LocalModels(), this.getLocalProbabilisticModel(), null, "localModels", null, 1, -1, GroundProbabilisticNetwork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGroundProbabilisticNetwork_LocalNetworks(), this.getLocalProbabilisticNetwork(), null, "localNetworks", null, 1, -1, GroundProbabilisticNetwork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(localProbabilisticNetworkEClass, LocalProbabilisticNetwork.class, "LocalProbabilisticNetwork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLocalProbabilisticNetwork_GroundRandomVariables(), this.getGroundRandomVariable(), null, "groundRandomVariables", null, 1, -1, LocalProbabilisticNetwork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -24,8 +24,7 @@ import tools.mdsd.modelingfoundations.identifier.Entity;
  * @model
  * @generated
  */
-public interface TemplateVariable extends Entity
-{
+public interface TemplateVariable extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Shared</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -22,7 +22,7 @@ import tools.mdsd.modelingfoundations.identifier.Entity;
  * <ul>
  *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable#getInstantiatedTemplate <em>Instantiated Template</em>}</li>
  *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable#getDependenceStructure <em>Dependence Structure</em>}</li>
- *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable#getDescriptiveModel <em>Descriptive Model</em>}</li>
+ *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable#getLocalModel <em>Local Model</em>}</li>
  *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable#getAppliedObjects <em>Applied Objects</em>}</li>
  * </ul>
  *
@@ -30,8 +30,7 @@ import tools.mdsd.modelingfoundations.identifier.Entity;
  * @model
  * @generated
  */
-public interface GroundRandomVariable extends Entity
-{
+public interface GroundRandomVariable extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Instantiated Template</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -61,32 +60,32 @@ public interface GroundRandomVariable extends Entity
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dependence Structure</em>' reference list.
 	 * @see org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage#getGroundRandomVariable_DependenceStructure()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	EList<DependenceRelation> getDependenceStructure();
 
 	/**
-	 * Returns the value of the '<em><b>Descriptive Model</b></em>' reference.
+	 * Returns the value of the '<em><b>Local Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Descriptive Model</em>' reference.
-	 * @see #setDescriptiveModel(GroundProbabilisticModel)
-	 * @see org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage#getGroundRandomVariable_DescriptiveModel()
+	 * @return the value of the '<em>Local Model</em>' reference.
+	 * @see #setLocalModel(LocalProbabilisticModel)
+	 * @see org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage#getGroundRandomVariable_LocalModel()
 	 * @model required="true"
 	 * @generated
 	 */
-	GroundProbabilisticModel getDescriptiveModel();
+	LocalProbabilisticModel getLocalModel();
 
 	/**
-	 * Sets the value of the '{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable#getDescriptiveModel <em>Descriptive Model</em>}' reference.
+	 * Sets the value of the '{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable#getLocalModel <em>Local Model</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Descriptive Model</em>' reference.
-	 * @see #getDescriptiveModel()
+	 * @param value the new value of the '<em>Local Model</em>' reference.
+	 * @see #getLocalModel()
 	 * @generated
 	 */
-	void setDescriptiveModel(GroundProbabilisticModel value);
+	void setLocalModel(LocalProbabilisticModel value);
 
 	/**
 	 * Returns the value of the '<em><b>Applied Objects</b></em>' reference list.

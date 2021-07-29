@@ -19,8 +19,7 @@ package org.palladiosimulator.envdyn.environment.templatevariable;
  * @model
  * @generated
  */
-public interface PersistenceRelation extends TemporalRelation
-{
+public interface PersistenceRelation extends TemporalRelation {
 	/**
 	 * Returns the value of the '<em><b>Interface Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->

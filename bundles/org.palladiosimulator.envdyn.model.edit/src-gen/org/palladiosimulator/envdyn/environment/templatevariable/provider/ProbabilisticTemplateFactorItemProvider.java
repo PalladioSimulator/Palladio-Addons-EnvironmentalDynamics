@@ -21,16 +21,14 @@ import org.palladiosimulator.envdyn.environment.templatevariable.Templatevariabl
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProbabilisticTemplateFactorItemProvider extends TemplateFactorItemProvider
-{
+public class ProbabilisticTemplateFactorItemProvider extends TemplateFactorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProbabilisticTemplateFactorItemProvider(AdapterFactory adapterFactory)
-	{
+	public ProbabilisticTemplateFactorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -41,10 +39,8 @@ public class ProbabilisticTemplateFactorItemProvider extends TemplateFactorItemP
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addDistributionFamilyPropertyDescriptor(object);
@@ -58,8 +54,7 @@ public class ProbabilisticTemplateFactorItemProvider extends TemplateFactorItemP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDistributionFamilyPropertyDescriptor(Object object)
-	{
+	protected void addDistributionFamilyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -82,8 +77,7 @@ public class ProbabilisticTemplateFactorItemProvider extends TemplateFactorItemP
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProbabilisticTemplateFactor"));
 	}
 
@@ -94,9 +88,8 @@ public class ProbabilisticTemplateFactorItemProvider extends TemplateFactorItemP
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		String label = ((ProbabilisticTemplateFactor)object).getId();
+	public String getText(Object object) {
+		String label = ((ProbabilisticTemplateFactor)object).getEntityName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ProbabilisticTemplateFactor_type") :
 			getString("_UI_ProbabilisticTemplateFactor_type") + " " + label;
@@ -111,9 +104,9 @@ public class ProbabilisticTemplateFactorItemProvider extends TemplateFactorItemP
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**
@@ -124,8 +117,7 @@ public class ProbabilisticTemplateFactorItemProvider extends TemplateFactorItemP
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

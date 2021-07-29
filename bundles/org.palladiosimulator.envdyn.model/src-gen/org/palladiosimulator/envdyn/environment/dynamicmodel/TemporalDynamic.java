@@ -18,7 +18,7 @@ import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
  * </p>
  * <ul>
  *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TemporalDynamic#getInstantiatedFactor <em>Instantiated Factor</em>}</li>
- *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TemporalDynamic#getDistributionFunction <em>Distribution Function</em>}</li>
+ *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TemporalDynamic#getDistribution <em>Distribution</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicmodelPackage#getTemporalDynamic()
@@ -49,25 +49,25 @@ public interface TemporalDynamic extends Entity {
 	void setInstantiatedFactor(TemplateFactor value);
 
 	/**
-	 * Returns the value of the '<em><b>Distribution Function</b></em>' reference.
+	 * Returns the value of the '<em><b>Distribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Distribution Function</em>' reference.
-	 * @see #setDistributionFunction(ProbabilityDistribution)
-	 * @see org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicmodelPackage#getTemporalDynamic_DistributionFunction()
+	 * @return the value of the '<em>Distribution</em>' reference.
+	 * @see #setDistribution(ProbabilityDistribution)
+	 * @see org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicmodelPackage#getTemporalDynamic_Distribution()
 	 * @model required="true"
 	 * @generated
 	 */
-	ProbabilityDistribution getDistributionFunction();
+	ProbabilityDistribution getDistribution();
 
 	/**
-	 * Sets the value of the '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TemporalDynamic#getDistributionFunction <em>Distribution Function</em>}' reference.
+	 * Sets the value of the '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TemporalDynamic#getDistribution <em>Distribution</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Distribution Function</em>' reference.
-	 * @see #getDistributionFunction()
+	 * @param value the new value of the '<em>Distribution</em>' reference.
+	 * @see #getDistribution()
 	 * @generated
 	 */
-	void setDistributionFunction(ProbabilityDistribution value);
+	void setDistribution(ProbabilityDistribution value);
 
 } // TemporalDynamic

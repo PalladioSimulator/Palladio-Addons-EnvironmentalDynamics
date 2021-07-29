@@ -33,8 +33,7 @@ import org.palladiosimulator.envdyn.environment.dynamicmodel.TemporalDynamic;
  *
  * @generated
  */
-public abstract class DynamicBehaviourImpl extends MinimalEObjectImpl.Container implements DynamicBehaviour
-{
+public abstract class DynamicBehaviourImpl extends MinimalEObjectImpl.Container implements DynamicBehaviour {
 	/**
 	 * The cached value of the '{@link #getLocalModels() <em>Local Models</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -50,8 +49,7 @@ public abstract class DynamicBehaviourImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DynamicBehaviourImpl()
-	{
+	protected DynamicBehaviourImpl() {
 		super();
 	}
 
@@ -61,8 +59,7 @@ public abstract class DynamicBehaviourImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return DynamicmodelPackage.Literals.DYNAMIC_BEHAVIOUR;
 	}
 
@@ -72,8 +69,7 @@ public abstract class DynamicBehaviourImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	@Override
-	public EList<TemporalDynamic> getLocalModels()
-	{
+	public EList<TemporalDynamic> getLocalModels() {
 		if (localModels == null) {
 			localModels = new EObjectContainmentEList<TemporalDynamic>(TemporalDynamic.class, this, DynamicmodelPackage.DYNAMIC_BEHAVIOUR__LOCAL_MODELS);
 		}
@@ -86,8 +82,7 @@ public abstract class DynamicBehaviourImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR__LOCAL_MODELS:
 				return ((InternalEList<?>)getLocalModels()).basicRemove(otherEnd, msgs);
@@ -101,8 +96,7 @@ public abstract class DynamicBehaviourImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR__LOCAL_MODELS:
 				return getLocalModels();
@@ -117,8 +111,7 @@ public abstract class DynamicBehaviourImpl extends MinimalEObjectImpl.Container 
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR__LOCAL_MODELS:
 				getLocalModels().clear();
@@ -134,8 +127,7 @@ public abstract class DynamicBehaviourImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR__LOCAL_MODELS:
 				getLocalModels().clear();
@@ -150,8 +142,7 @@ public abstract class DynamicBehaviourImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR__LOCAL_MODELS:
 				return localModels != null && !localModels.isEmpty();

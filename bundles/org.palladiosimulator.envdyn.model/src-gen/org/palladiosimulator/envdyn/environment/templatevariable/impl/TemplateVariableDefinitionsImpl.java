@@ -41,8 +41,7 @@ import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
  *
  * @generated
  */
-public class TemplateVariableDefinitionsImpl extends EntityImpl implements TemplateVariableDefinitions
-{
+public class TemplateVariableDefinitionsImpl extends EntityImpl implements TemplateVariableDefinitions {
 	/**
 	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -98,8 +97,7 @@ public class TemplateVariableDefinitionsImpl extends EntityImpl implements Templ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TemplateVariableDefinitionsImpl()
-	{
+	protected TemplateVariableDefinitionsImpl() {
 		super();
 	}
 
@@ -109,8 +107,7 @@ public class TemplateVariableDefinitionsImpl extends EntityImpl implements Templ
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return TemplatevariablePackage.Literals.TEMPLATE_VARIABLE_DEFINITIONS;
 	}
 
@@ -120,8 +117,7 @@ public class TemplateVariableDefinitionsImpl extends EntityImpl implements Templ
 	 * @generated
 	 */
 	@Override
-	public EList<TemplateVariable> getVariables()
-	{
+	public EList<TemplateVariable> getVariables() {
 		if (variables == null) {
 			variables = new EObjectContainmentEList<TemplateVariable>(TemplateVariable.class, this, TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__VARIABLES);
 		}
@@ -134,8 +130,7 @@ public class TemplateVariableDefinitionsImpl extends EntityImpl implements Templ
 	 * @generated
 	 */
 	@Override
-	public EList<TemplateFactor> getFactors()
-	{
+	public EList<TemplateFactor> getFactors() {
 		if (factors == null) {
 			factors = new EObjectContainmentEList<TemplateFactor>(TemplateFactor.class, this, TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__FACTORS);
 		}
@@ -148,8 +143,7 @@ public class TemplateVariableDefinitionsImpl extends EntityImpl implements Templ
 	 * @generated
 	 */
 	@Override
-	public EList<Argument> getArguments()
-	{
+	public EList<Argument> getArguments() {
 		if (arguments == null) {
 			arguments = new EObjectContainmentEList<Argument>(Argument.class, this, TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__ARGUMENTS);
 		}
@@ -162,8 +156,7 @@ public class TemplateVariableDefinitionsImpl extends EntityImpl implements Templ
 	 * @generated
 	 */
 	@Override
-	public EList<Relation> getRelation()
-	{
+	public EList<Relation> getRelation() {
 		if (relation == null) {
 			relation = new EObjectContainmentEList<Relation>(Relation.class, this, TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__RELATION);
 		}
@@ -176,8 +169,7 @@ public class TemplateVariableDefinitionsImpl extends EntityImpl implements Templ
 	 * @generated
 	 */
 	@Override
-	public EList<TemplateVariableGroup> getTemplateGroups()
-	{
+	public EList<TemplateVariableGroup> getTemplateGroups() {
 		if (templateGroups == null) {
 			templateGroups = new EObjectContainmentEList<TemplateVariableGroup>(TemplateVariableGroup.class, this, TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__TEMPLATE_GROUPS);
 		}
@@ -190,8 +182,7 @@ public class TemplateVariableDefinitionsImpl extends EntityImpl implements Templ
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__VARIABLES:
 				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
@@ -213,8 +204,7 @@ public class TemplateVariableDefinitionsImpl extends EntityImpl implements Templ
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__VARIABLES:
 				return getVariables();
@@ -237,8 +227,7 @@ public class TemplateVariableDefinitionsImpl extends EntityImpl implements Templ
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__VARIABLES:
 				getVariables().clear();
@@ -270,8 +259,7 @@ public class TemplateVariableDefinitionsImpl extends EntityImpl implements Templ
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__VARIABLES:
 				getVariables().clear();
@@ -298,8 +286,7 @@ public class TemplateVariableDefinitionsImpl extends EntityImpl implements Templ
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__VARIABLES:
 				return variables != null && !variables.isEmpty();

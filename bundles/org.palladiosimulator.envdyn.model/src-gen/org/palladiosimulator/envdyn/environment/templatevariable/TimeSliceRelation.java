@@ -20,8 +20,7 @@ package org.palladiosimulator.envdyn.environment.templatevariable;
  * @model
  * @generated
  */
-public interface TimeSliceRelation extends TemporalRelation
-{
+public interface TimeSliceRelation extends TemporalRelation {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->

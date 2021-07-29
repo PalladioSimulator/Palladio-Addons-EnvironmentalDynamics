@@ -31,8 +31,7 @@ import org.palladiosimulator.envdyn.environment.dynamicmodel.TimeSliceInduction;
  *
  * @generated
  */
-public class InductiveDynamicBehaviourImpl extends DynamicBehaviourImpl implements InductiveDynamicBehaviour
-{
+public class InductiveDynamicBehaviourImpl extends DynamicBehaviourImpl implements InductiveDynamicBehaviour {
 	/**
 	 * The cached value of the '{@link #getTimeSliceInductions() <em>Time Slice Inductions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -48,8 +47,7 @@ public class InductiveDynamicBehaviourImpl extends DynamicBehaviourImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InductiveDynamicBehaviourImpl()
-	{
+	protected InductiveDynamicBehaviourImpl() {
 		super();
 	}
 
@@ -59,8 +57,7 @@ public class InductiveDynamicBehaviourImpl extends DynamicBehaviourImpl implemen
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return DynamicmodelPackage.Literals.INDUCTIVE_DYNAMIC_BEHAVIOUR;
 	}
 
@@ -70,8 +67,7 @@ public class InductiveDynamicBehaviourImpl extends DynamicBehaviourImpl implemen
 	 * @generated
 	 */
 	@Override
-	public EList<TimeSliceInduction> getTimeSliceInductions()
-	{
+	public EList<TimeSliceInduction> getTimeSliceInductions() {
 		if (timeSliceInductions == null) {
 			timeSliceInductions = new EObjectContainmentEList<TimeSliceInduction>(TimeSliceInduction.class, this, DynamicmodelPackage.INDUCTIVE_DYNAMIC_BEHAVIOUR__TIME_SLICE_INDUCTIONS);
 		}
@@ -84,8 +80,7 @@ public class InductiveDynamicBehaviourImpl extends DynamicBehaviourImpl implemen
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DynamicmodelPackage.INDUCTIVE_DYNAMIC_BEHAVIOUR__TIME_SLICE_INDUCTIONS:
 				return ((InternalEList<?>)getTimeSliceInductions()).basicRemove(otherEnd, msgs);
@@ -99,8 +94,7 @@ public class InductiveDynamicBehaviourImpl extends DynamicBehaviourImpl implemen
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DynamicmodelPackage.INDUCTIVE_DYNAMIC_BEHAVIOUR__TIME_SLICE_INDUCTIONS:
 				return getTimeSliceInductions();
@@ -115,8 +109,7 @@ public class InductiveDynamicBehaviourImpl extends DynamicBehaviourImpl implemen
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DynamicmodelPackage.INDUCTIVE_DYNAMIC_BEHAVIOUR__TIME_SLICE_INDUCTIONS:
 				getTimeSliceInductions().clear();
@@ -132,8 +125,7 @@ public class InductiveDynamicBehaviourImpl extends DynamicBehaviourImpl implemen
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DynamicmodelPackage.INDUCTIVE_DYNAMIC_BEHAVIOUR__TIME_SLICE_INDUCTIONS:
 				getTimeSliceInductions().clear();
@@ -148,8 +140,7 @@ public class InductiveDynamicBehaviourImpl extends DynamicBehaviourImpl implemen
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DynamicmodelPackage.INDUCTIVE_DYNAMIC_BEHAVIOUR__TIME_SLICE_INDUCTIONS:
 				return timeSliceInductions != null && !timeSliceInductions.isEmpty();

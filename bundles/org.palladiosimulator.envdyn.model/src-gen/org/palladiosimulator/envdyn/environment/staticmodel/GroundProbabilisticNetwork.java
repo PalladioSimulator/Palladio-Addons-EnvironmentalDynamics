@@ -16,18 +16,17 @@ import tools.mdsd.modelingfoundations.identifier.Entity;
  * </p>
  * <ul>
  *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork#getLocalModels <em>Local Models</em>}</li>
- *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork#getLocalProbabilisticModels <em>Local Probabilistic Models</em>}</li>
+ *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork#getLocalNetworks <em>Local Networks</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage#getGroundProbabilisticNetwork()
  * @model
  * @generated
  */
-public interface GroundProbabilisticNetwork extends Entity
-{
+public interface GroundProbabilisticNetwork extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Local Models</b></em>' containment reference list.
-	 * The list contents are of type {@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel}.
+	 * The list contents are of type {@link org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Local Models</em>' containment reference list.
@@ -35,18 +34,18 @@ public interface GroundProbabilisticNetwork extends Entity
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<GroundProbabilisticModel> getLocalModels();
+	EList<LocalProbabilisticModel> getLocalModels();
 
 	/**
-	 * Returns the value of the '<em><b>Local Probabilistic Models</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Local Networks</b></em>' containment reference list.
 	 * The list contents are of type {@link org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticNetwork}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Local Probabilistic Models</em>' containment reference list.
-	 * @see org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage#getGroundProbabilisticNetwork_LocalProbabilisticModels()
+	 * @return the value of the '<em>Local Networks</em>' containment reference list.
+	 * @see org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage#getGroundProbabilisticNetwork_LocalNetworks()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<LocalProbabilisticNetwork> getLocalProbabilisticModels();
+	EList<LocalProbabilisticNetwork> getLocalNetworks();
 
 } // GroundProbabilisticNetwork

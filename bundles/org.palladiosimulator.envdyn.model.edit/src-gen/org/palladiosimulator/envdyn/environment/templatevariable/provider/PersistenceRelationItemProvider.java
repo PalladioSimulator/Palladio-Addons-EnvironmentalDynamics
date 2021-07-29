@@ -21,16 +21,14 @@ import org.palladiosimulator.envdyn.environment.templatevariable.Templatevariabl
  * <!-- end-user-doc -->
  * @generated
  */
-public class PersistenceRelationItemProvider extends TemporalRelationItemProvider
-{
+public class PersistenceRelationItemProvider extends TemporalRelationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PersistenceRelationItemProvider(AdapterFactory adapterFactory)
-	{
+	public PersistenceRelationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -41,10 +39,8 @@ public class PersistenceRelationItemProvider extends TemporalRelationItemProvide
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addInterfaceVariablePropertyDescriptor(object);
@@ -58,8 +54,7 @@ public class PersistenceRelationItemProvider extends TemporalRelationItemProvide
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInterfaceVariablePropertyDescriptor(Object object)
-	{
+	protected void addInterfaceVariablePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -82,8 +77,7 @@ public class PersistenceRelationItemProvider extends TemporalRelationItemProvide
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/PersistenceRelation"));
 	}
 
@@ -94,8 +88,7 @@ public class PersistenceRelationItemProvider extends TemporalRelationItemProvide
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
+	public String getText(Object object) {
 		String label = ((PersistenceRelation)object).getEntityName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_PersistenceRelation_type") :
@@ -111,9 +104,9 @@ public class PersistenceRelationItemProvider extends TemporalRelationItemProvide
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**
@@ -124,8 +117,7 @@ public class PersistenceRelationItemProvider extends TemporalRelationItemProvide
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

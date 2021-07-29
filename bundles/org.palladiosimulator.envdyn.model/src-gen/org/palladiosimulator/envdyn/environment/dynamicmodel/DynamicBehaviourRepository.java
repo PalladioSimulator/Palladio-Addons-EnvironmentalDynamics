@@ -22,8 +22,7 @@ import tools.mdsd.modelingfoundations.identifier.Entity;
  * @model
  * @generated
  */
-public interface DynamicBehaviourRepository extends Entity
-{
+public interface DynamicBehaviourRepository extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Extensions</b></em>' containment reference list.
 	 * The list contents are of type {@link org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicBehaviourExtension}.

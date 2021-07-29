@@ -26,8 +26,7 @@ import org.palladiosimulator.envdyn.environment.templatevariable.Templatevariabl
  *
  * @generated
  */
-public class PersistenceRelationImpl extends TemporalRelationImpl implements PersistenceRelation
-{
+public class PersistenceRelationImpl extends TemporalRelationImpl implements PersistenceRelation {
 	/**
 	 * The cached value of the '{@link #getInterfaceVariable() <em>Interface Variable</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -43,8 +42,7 @@ public class PersistenceRelationImpl extends TemporalRelationImpl implements Per
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PersistenceRelationImpl()
-	{
+	protected PersistenceRelationImpl() {
 		super();
 	}
 
@@ -54,8 +52,7 @@ public class PersistenceRelationImpl extends TemporalRelationImpl implements Per
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return TemplatevariablePackage.Literals.PERSISTENCE_RELATION;
 	}
 
@@ -65,8 +62,7 @@ public class PersistenceRelationImpl extends TemporalRelationImpl implements Per
 	 * @generated
 	 */
 	@Override
-	public TemplateVariable getInterfaceVariable()
-	{
+	public TemplateVariable getInterfaceVariable() {
 		if (interfaceVariable != null && interfaceVariable.eIsProxy()) {
 			InternalEObject oldInterfaceVariable = (InternalEObject)interfaceVariable;
 			interfaceVariable = (TemplateVariable)eResolveProxy(oldInterfaceVariable);
@@ -83,8 +79,7 @@ public class PersistenceRelationImpl extends TemporalRelationImpl implements Per
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemplateVariable basicGetInterfaceVariable()
-	{
+	public TemplateVariable basicGetInterfaceVariable() {
 		return interfaceVariable;
 	}
 
@@ -94,8 +89,7 @@ public class PersistenceRelationImpl extends TemporalRelationImpl implements Per
 	 * @generated
 	 */
 	@Override
-	public void setInterfaceVariable(TemplateVariable newInterfaceVariable)
-	{
+	public void setInterfaceVariable(TemplateVariable newInterfaceVariable) {
 		TemplateVariable oldInterfaceVariable = interfaceVariable;
 		interfaceVariable = newInterfaceVariable;
 		if (eNotificationRequired())
@@ -108,8 +102,7 @@ public class PersistenceRelationImpl extends TemporalRelationImpl implements Per
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TemplatevariablePackage.PERSISTENCE_RELATION__INTERFACE_VARIABLE:
 				if (resolve) return getInterfaceVariable();
@@ -124,8 +117,7 @@ public class PersistenceRelationImpl extends TemporalRelationImpl implements Per
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TemplatevariablePackage.PERSISTENCE_RELATION__INTERFACE_VARIABLE:
 				setInterfaceVariable((TemplateVariable)newValue);
@@ -140,8 +132,7 @@ public class PersistenceRelationImpl extends TemporalRelationImpl implements Per
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.PERSISTENCE_RELATION__INTERFACE_VARIABLE:
 				setInterfaceVariable((TemplateVariable)null);
@@ -156,8 +147,7 @@ public class PersistenceRelationImpl extends TemporalRelationImpl implements Per
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.PERSISTENCE_RELATION__INTERFACE_VARIABLE:
 				return interfaceVariable != null;

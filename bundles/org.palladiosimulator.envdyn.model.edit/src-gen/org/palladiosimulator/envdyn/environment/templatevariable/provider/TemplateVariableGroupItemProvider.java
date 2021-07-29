@@ -25,16 +25,14 @@ import tools.mdsd.modelingfoundations.identifier.provider.NamedElementItemProvid
  * <!-- end-user-doc -->
  * @generated
  */
-public class TemplateVariableGroupItemProvider extends NamedElementItemProvider
-{
+public class TemplateVariableGroupItemProvider extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemplateVariableGroupItemProvider(AdapterFactory adapterFactory)
-	{
+	public TemplateVariableGroupItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,10 +43,8 @@ public class TemplateVariableGroupItemProvider extends NamedElementItemProvider
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addGroupedTemplatesPropertyDescriptor(object);
@@ -62,8 +58,7 @@ public class TemplateVariableGroupItemProvider extends NamedElementItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addGroupedTemplatesPropertyDescriptor(Object object)
-	{
+	protected void addGroupedTemplatesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -86,8 +81,7 @@ public class TemplateVariableGroupItemProvider extends NamedElementItemProvider
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/TemplateVariableGroup"));
 	}
 
@@ -98,8 +92,7 @@ public class TemplateVariableGroupItemProvider extends NamedElementItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
+	public String getText(Object object) {
 		String label = ((TemplateVariableGroup)object).getEntityName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TemplateVariableGroup_type") :
@@ -115,9 +108,9 @@ public class TemplateVariableGroupItemProvider extends NamedElementItemProvider
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**
@@ -128,8 +121,7 @@ public class TemplateVariableGroupItemProvider extends NamedElementItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -140,8 +132,7 @@ public class TemplateVariableGroupItemProvider extends NamedElementItemProvider
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return EnvironmentaldynamicsEditPlugin.INSTANCE;
 	}
 

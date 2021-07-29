@@ -14,6 +14,5 @@ import tools.mdsd.modelingfoundations.identifier.Entity;
  * @model
  * @generated
  */
-public interface Argument extends Entity
-{
+public interface Argument extends Entity {
 } // Argument

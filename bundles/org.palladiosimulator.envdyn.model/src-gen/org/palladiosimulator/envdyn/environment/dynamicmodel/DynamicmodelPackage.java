@@ -24,8 +24,7 @@ import tools.mdsd.modelingfoundations.identifier.IdentifierPackage;
  * @model kind="package"
  * @generated
  */
-public interface DynamicmodelPackage extends EPackage
-{
+public interface DynamicmodelPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -142,13 +141,13 @@ public interface DynamicmodelPackage extends EPackage
 	int DYNAMIC_BEHAVIOUR_EXTENSION__ENTITY_NAME = IdentifierPackage.ENTITY__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Model</b></em>' reference.
+	 * The feature id for the '<em><b>Ground Network</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_BEHAVIOUR_EXTENSION__MODEL = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
+	int DYNAMIC_BEHAVIOUR_EXTENSION__GROUND_NETWORK = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Behaviour</b></em>' containment reference.
@@ -271,13 +270,13 @@ public interface DynamicmodelPackage extends EPackage
 	int TIME_SLICE_INDUCTION = 7;
 
 	/**
-	 * The feature id for the '<em><b>Descriptive Model</b></em>' reference.
+	 * The feature id for the '<em><b>Local Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_SLICE_INDUCTION__DESCRIPTIVE_MODEL = 0;
+	int TIME_SLICE_INDUCTION__LOCAL_MODEL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Applied Ground Variable</b></em>' reference.
@@ -317,13 +316,13 @@ public interface DynamicmodelPackage extends EPackage
 	int INTER_TIME_SLICE_INDUCTION = 4;
 
 	/**
-	 * The feature id for the '<em><b>Descriptive Model</b></em>' reference.
+	 * The feature id for the '<em><b>Local Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTER_TIME_SLICE_INDUCTION__DESCRIPTIVE_MODEL = TIME_SLICE_INDUCTION__DESCRIPTIVE_MODEL;
+	int INTER_TIME_SLICE_INDUCTION__LOCAL_MODEL = TIME_SLICE_INDUCTION__LOCAL_MODEL;
 
 	/**
 	 * The feature id for the '<em><b>Applied Ground Variable</b></em>' reference.
@@ -372,13 +371,13 @@ public interface DynamicmodelPackage extends EPackage
 	int INTRA_TIME_SLICE_INDUCTION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Descriptive Model</b></em>' reference.
+	 * The feature id for the '<em><b>Local Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTRA_TIME_SLICE_INDUCTION__DESCRIPTIVE_MODEL = TIME_SLICE_INDUCTION__DESCRIPTIVE_MODEL;
+	int INTRA_TIME_SLICE_INDUCTION__LOCAL_MODEL = TIME_SLICE_INDUCTION__LOCAL_MODEL;
 
 	/**
 	 * The feature id for the '<em><b>Applied Ground Variable</b></em>' reference.
@@ -454,13 +453,13 @@ public interface DynamicmodelPackage extends EPackage
 	int TEMPORAL_DYNAMIC__INSTANTIATED_FACTOR = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Distribution Function</b></em>' reference.
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPORAL_DYNAMIC__DISTRIBUTION_FUNCTION = IdentifierPackage.ENTITY_FEATURE_COUNT + 1;
+	int TEMPORAL_DYNAMIC__DISTRIBUTION = IdentifierPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Temporal Dynamic</em>' class.
@@ -513,15 +512,15 @@ public interface DynamicmodelPackage extends EPackage
 	EClass getDynamicBehaviourExtension();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicBehaviourExtension#getModel <em>Model</em>}'.
+	 * Returns the meta object for the reference '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicBehaviourExtension#getGroundNetwork <em>Ground Network</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Model</em>'.
-	 * @see org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicBehaviourExtension#getModel()
+	 * @return the meta object for the reference '<em>Ground Network</em>'.
+	 * @see org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicBehaviourExtension#getGroundNetwork()
 	 * @see #getDynamicBehaviourExtension()
 	 * @generated
 	 */
-	EReference getDynamicBehaviourExtension_Model();
+	EReference getDynamicBehaviourExtension_GroundNetwork();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicBehaviourExtension#getBehaviour <em>Behaviour</em>}'.
@@ -640,15 +639,15 @@ public interface DynamicmodelPackage extends EPackage
 	EReference getTemporalDynamic_InstantiatedFactor();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TemporalDynamic#getDistributionFunction <em>Distribution Function</em>}'.
+	 * Returns the meta object for the reference '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TemporalDynamic#getDistribution <em>Distribution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Distribution Function</em>'.
-	 * @see org.palladiosimulator.envdyn.environment.dynamicmodel.TemporalDynamic#getDistributionFunction()
+	 * @return the meta object for the reference '<em>Distribution</em>'.
+	 * @see org.palladiosimulator.envdyn.environment.dynamicmodel.TemporalDynamic#getDistribution()
 	 * @see #getTemporalDynamic()
 	 * @generated
 	 */
-	EReference getTemporalDynamic_DistributionFunction();
+	EReference getTemporalDynamic_Distribution();
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TimeSliceInduction <em>Time Slice Induction</em>}'.
@@ -661,15 +660,15 @@ public interface DynamicmodelPackage extends EPackage
 	EClass getTimeSliceInduction();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TimeSliceInduction#getDescriptiveModel <em>Descriptive Model</em>}'.
+	 * Returns the meta object for the reference '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TimeSliceInduction#getLocalModel <em>Local Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Descriptive Model</em>'.
-	 * @see org.palladiosimulator.envdyn.environment.dynamicmodel.TimeSliceInduction#getDescriptiveModel()
+	 * @return the meta object for the reference '<em>Local Model</em>'.
+	 * @see org.palladiosimulator.envdyn.environment.dynamicmodel.TimeSliceInduction#getLocalModel()
 	 * @see #getTimeSliceInduction()
 	 * @generated
 	 */
-	EReference getTimeSliceInduction_DescriptiveModel();
+	EReference getTimeSliceInduction_LocalModel();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TimeSliceInduction#getAppliedGroundVariable <em>Applied Ground Variable</em>}'.
@@ -704,8 +703,7 @@ public interface DynamicmodelPackage extends EPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals
-	{
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.impl.DynamicBehaviourRepositoryImpl <em>Dynamic Behaviour Repository</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -735,12 +733,12 @@ public interface DynamicmodelPackage extends EPackage
 		EClass DYNAMIC_BEHAVIOUR_EXTENSION = eINSTANCE.getDynamicBehaviourExtension();
 
 		/**
-		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Ground Network</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DYNAMIC_BEHAVIOUR_EXTENSION__MODEL = eINSTANCE.getDynamicBehaviourExtension_Model();
+		EReference DYNAMIC_BEHAVIOUR_EXTENSION__GROUND_NETWORK = eINSTANCE.getDynamicBehaviourExtension_GroundNetwork();
 
 		/**
 		 * The meta object literal for the '<em><b>Behaviour</b></em>' containment reference feature.
@@ -841,12 +839,12 @@ public interface DynamicmodelPackage extends EPackage
 		EReference TEMPORAL_DYNAMIC__INSTANTIATED_FACTOR = eINSTANCE.getTemporalDynamic_InstantiatedFactor();
 
 		/**
-		 * The meta object literal for the '<em><b>Distribution Function</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Distribution</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TEMPORAL_DYNAMIC__DISTRIBUTION_FUNCTION = eINSTANCE.getTemporalDynamic_DistributionFunction();
+		EReference TEMPORAL_DYNAMIC__DISTRIBUTION = eINSTANCE.getTemporalDynamic_Distribution();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.impl.TimeSliceInductionImpl <em>Time Slice Induction</em>}' class.
@@ -859,12 +857,12 @@ public interface DynamicmodelPackage extends EPackage
 		EClass TIME_SLICE_INDUCTION = eINSTANCE.getTimeSliceInduction();
 
 		/**
-		 * The meta object literal for the '<em><b>Descriptive Model</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Local Model</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TIME_SLICE_INDUCTION__DESCRIPTIVE_MODEL = eINSTANCE.getTimeSliceInduction_DescriptiveModel();
+		EReference TIME_SLICE_INDUCTION__LOCAL_MODEL = eINSTANCE.getTimeSliceInduction_LocalModel();
 
 		/**
 		 * The meta object literal for the '<em><b>Applied Ground Variable</b></em>' reference feature.

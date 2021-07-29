@@ -28,8 +28,7 @@ import org.palladiosimulator.envdyn.environment.templatevariable.TemporalRelatio
  *
  * @generated
  */
-public class InterTimeSliceInductionImpl extends TimeSliceInductionImpl implements InterTimeSliceInduction
-{
+public class InterTimeSliceInductionImpl extends TimeSliceInductionImpl implements InterTimeSliceInduction {
 	/**
 	 * The cached value of the '{@link #getTemporalStructure() <em>Temporal Structure</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -45,8 +44,7 @@ public class InterTimeSliceInductionImpl extends TimeSliceInductionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InterTimeSliceInductionImpl()
-	{
+	protected InterTimeSliceInductionImpl() {
 		super();
 	}
 
@@ -56,8 +54,7 @@ public class InterTimeSliceInductionImpl extends TimeSliceInductionImpl implemen
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return DynamicmodelPackage.Literals.INTER_TIME_SLICE_INDUCTION;
 	}
 
@@ -67,8 +64,7 @@ public class InterTimeSliceInductionImpl extends TimeSliceInductionImpl implemen
 	 * @generated
 	 */
 	@Override
-	public EList<TemporalRelation> getTemporalStructure()
-	{
+	public EList<TemporalRelation> getTemporalStructure() {
 		if (temporalStructure == null) {
 			temporalStructure = new EObjectResolvingEList<TemporalRelation>(TemporalRelation.class, this, DynamicmodelPackage.INTER_TIME_SLICE_INDUCTION__TEMPORAL_STRUCTURE);
 		}
@@ -81,8 +77,7 @@ public class InterTimeSliceInductionImpl extends TimeSliceInductionImpl implemen
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DynamicmodelPackage.INTER_TIME_SLICE_INDUCTION__TEMPORAL_STRUCTURE:
 				return getTemporalStructure();
@@ -97,8 +92,7 @@ public class InterTimeSliceInductionImpl extends TimeSliceInductionImpl implemen
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DynamicmodelPackage.INTER_TIME_SLICE_INDUCTION__TEMPORAL_STRUCTURE:
 				getTemporalStructure().clear();
@@ -114,8 +108,7 @@ public class InterTimeSliceInductionImpl extends TimeSliceInductionImpl implemen
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DynamicmodelPackage.INTER_TIME_SLICE_INDUCTION__TEMPORAL_STRUCTURE:
 				getTemporalStructure().clear();
@@ -130,8 +123,7 @@ public class InterTimeSliceInductionImpl extends TimeSliceInductionImpl implemen
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DynamicmodelPackage.INTER_TIME_SLICE_INDUCTION__TEMPORAL_STRUCTURE:
 				return temporalStructure != null && !temporalStructure.isEmpty();

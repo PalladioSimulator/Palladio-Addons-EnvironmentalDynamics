@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_HtXBoLz3EemArPlurWe2qQ" selectedViews="_IP6VELz3EemArPlurWe2qQ" version="14.1.0.201810161215">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_HtXBoLz3EemArPlurWe2qQ" selectedViews="_IP6VELz3EemArPlurWe2qQ" version="14.3.1.202003261200">
     <semanticResources>environmentaldynamics.ecore</semanticResources>
     <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
     <semanticResources>platform:/resource/tools.mdsd.characteristics/model/characteristics.ecore</semanticResources>
@@ -25,17 +25,17 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="environmentaldynamics.ecore#//templatevariable"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_L93RYMWmEemnuvTQiY1jbQ" name="staticmodel class diagram" repPath="#_L9y_8MWmEemnuvTQiY1jbQ">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_L93RYMWmEemnuvTQiY1jbQ" name="staticmodel class diagram" repPath="#_L9y_8MWmEemnuvTQiY1jbQ" changeId="da168489-fcdd-40d7-bc87-fae6c21cd5b8">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="environmentaldynamics.ecore#//staticmodel"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_fvDckMWpEemnuvTQiY1jbQ" name="dynamicmodel class diagram" repPath="#_fu99AMWpEemnuvTQiY1jbQ">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_fvDckMWpEemnuvTQiY1jbQ" name="dynamicmodel class diagram" repPath="#_fu99AMWpEemnuvTQiY1jbQ" changeId="6b80adee-c552-4467-a769-ab3ba2ac82b2">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="environmentaldynamics.ecore#//dynamicmodel"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram uid="_YG41gMWiEemnuvTQiY1jbQ" name="templatevariable class diagram">
+  <diagram:DSemanticDiagram uid="_YG41gMWiEemnuvTQiY1jbQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_YHAxUMWiEemnuvTQiY1jbQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_YHAxUcWiEemnuvTQiY1jbQ">
         <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_YmoFgMWiEemnuvTQiY1jbQ" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
@@ -1028,7 +1028,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
     <target xmi:type="ecore:EPackage" href="environmentaldynamics.ecore#//templatevariable"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_L9y_8MWmEemnuvTQiY1jbQ" name="staticmodel class diagram">
+  <diagram:DSemanticDiagram uid="_L9y_8MWmEemnuvTQiY1jbQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_L92qUMWmEemnuvTQiY1jbQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_L92qUcWmEemnuvTQiY1jbQ">
         <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_MfjCJ8WmEemnuvTQiY1jbQ" labelExpression="service:renderAsNode" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
@@ -1138,7 +1138,7 @@
         <styles xmi:type="notation:DiagramStyle" xmi:id="_L934csWmEemnuvTQiY1jbQ"/>
         <edges xmi:type="notation:Edge" xmi:id="_MftaM8WmEemnuvTQiY1jbQ" type="4001" element="_MfmsgMWmEemnuvTQiY1jbQ" source="_Mfq98MWmEemnuvTQiY1jbQ" target="_MfrlBMWmEemnuvTQiY1jbQ">
           <children xmi:type="notation:Node" xmi:id="_MfuBQMWmEemnuvTQiY1jbQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MfuBQcWmEemnuvTQiY1jbQ" x="-13" y="75"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MfuBQcWmEemnuvTQiY1jbQ" x="2" y="52"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_MfuoUMWmEemnuvTQiY1jbQ" type="6002">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MfuoUcWmEemnuvTQiY1jbQ" x="-10"/>
@@ -1239,8 +1239,8 @@
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_MfjpMcWmEemnuvTQiY1jbQ" name=" dependenceStructure : DependenceRelation" tooltipText="">
         <target xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/GroundRandomVariable/dependenceStructure"/>
         <semanticElements xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/GroundRandomVariable/dependenceStructure"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_MfkQQMWmEemnuvTQiY1jbQ" labelAlignment="LEFT" description="_MfjCJ8WmEemnuvTQiY1jbQ" color="114,159,207">
-          <labelFormat>bold</labelFormat>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_MjLpsfBBEeuodMKZrqwyrg" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
@@ -1253,9 +1253,9 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_MffXwMWmEemnuvTQiY1jbQ" name="GroundProbabilisticModel" tooltipText="" incomingEdges="_MfmsgMWmEemnuvTQiY1jbQ _MfpIycWmEemnuvTQiY1jbQ" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="environmentaldynamics.ecore#//staticmodel/GroundProbabilisticModel"/>
-      <semanticElements xmi:type="ecore:EClass" href="environmentaldynamics.ecore#//staticmodel/GroundProbabilisticModel"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_MffXwMWmEemnuvTQiY1jbQ" name="LocalProbabilisticModel" tooltipText="" incomingEdges="_MfmsgMWmEemnuvTQiY1jbQ _MfpIycWmEemnuvTQiY1jbQ" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="environmentaldynamics.ecore#//staticmodel/LocalProbabilisticModel"/>
+      <semanticElements xmi:type="ecore:EClass" href="environmentaldynamics.ecore#//staticmodel/LocalProbabilisticModel"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -1264,16 +1264,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_MfleYMWmEemnuvTQiY1jbQ" name=" instantiatedFactor : TemplateFactor" tooltipText="">
-        <target xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/GroundProbabilisticModel/instantiatedFactor"/>
-        <semanticElements xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/GroundProbabilisticModel/instantiatedFactor"/>
+        <target xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/LocalProbabilisticModel/instantiatedFactor"/>
+        <semanticElements xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/LocalProbabilisticModel/instantiatedFactor"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_MfleYcWmEemnuvTQiY1jbQ" labelAlignment="LEFT" description="_MfjCJ8WmEemnuvTQiY1jbQ" color="114,159,207">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_wTSWwe_hEem-Xq672p5Xdg" name=" distribution : ProbabilityDistribution" tooltipText="">
-        <target xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/GroundProbabilisticModel/distribution"/>
-        <semanticElements xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/GroundProbabilisticModel/distribution"/>
+        <target xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/LocalProbabilisticModel/distribution"/>
+        <semanticElements xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/LocalProbabilisticModel/distribution"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_wTUzAO_hEem-Xq672p5Xdg" labelAlignment="LEFT" description="_MfjCJ8WmEemnuvTQiY1jbQ" color="114,159,207">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
@@ -1302,9 +1302,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_MfmsgMWmEemnuvTQiY1jbQ" name="[1..1] descriptiveModel" sourceNode="_MfdikMWmEemnuvTQiY1jbQ" targetNode="_MffXwMWmEemnuvTQiY1jbQ">
-      <target xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/GroundRandomVariable/descriptiveModel"/>
-      <semanticElements xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/GroundRandomVariable/descriptiveModel"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_MfmsgMWmEemnuvTQiY1jbQ" name="[1..1] localModel" sourceNode="_MfdikMWmEemnuvTQiY1jbQ" targetNode="_MffXwMWmEemnuvTQiY1jbQ">
+      <target xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/GroundRandomVariable/localModel"/>
+      <semanticElements xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/GroundRandomVariable/localModel"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_MfnTk8WmEemnuvTQiY1jbQ" description="_MfnTkMWmEemnuvTQiY1jbQ" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_MfnTlcWmEemnuvTQiY1jbQ" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -1368,9 +1368,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_gW8EDBA8EeqP-5NRzIZg-A" name="[1..*] localProbabilisticModels" sourceNode="_Mff-0sWmEemnuvTQiY1jbQ" targetNode="_Yjpt4BA8EeqP-5NRzIZg-A">
-      <target xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/GroundProbabilisticNetwork/localProbabilisticModels"/>
-      <semanticElements xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/GroundProbabilisticNetwork/localProbabilisticModels"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_gW8EDBA8EeqP-5NRzIZg-A" name="[1..*] localNetworks" sourceNode="_Mff-0sWmEemnuvTQiY1jbQ" targetNode="_Yjpt4BA8EeqP-5NRzIZg-A">
+      <target xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/GroundProbabilisticNetwork/localNetworks"/>
+      <semanticElements xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//staticmodel/GroundProbabilisticNetwork/localNetworks"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_bSdLkxA-EeqP-5NRzIZg-A" description="_MfpIwMWmEemnuvTQiY1jbQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_bSdLlRA-EeqP-5NRzIZg-A" showIcon="false">
           <labelFormat>bold</labelFormat>
@@ -1386,7 +1386,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
     <target xmi:type="ecore:EPackage" href="environmentaldynamics.ecore#//staticmodel"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_fu99AMWpEemnuvTQiY1jbQ" name="dynamicmodel class diagram">
+  <diagram:DSemanticDiagram uid="_fu99AMWpEemnuvTQiY1jbQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_fvCOcMWpEemnuvTQiY1jbQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_fvCOccWpEemnuvTQiY1jbQ">
         <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_gHJzgMWpEemnuvTQiY1jbQ" labelExpression="service:renderAsNode" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
@@ -1676,9 +1676,9 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_gHLBocWpEemnuvTQiY1jbQ" name=" model : GroundProbabilisticNetwork" tooltipText="">
-        <target xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//dynamicmodel/DynamicBehaviourExtension/model"/>
-        <semanticElements xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//dynamicmodel/DynamicBehaviourExtension/model"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_gHLBocWpEemnuvTQiY1jbQ" name=" groundNetwork : GroundProbabilisticNetwork" tooltipText="">
+        <target xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//dynamicmodel/DynamicBehaviourExtension/groundNetwork"/>
+        <semanticElements xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//dynamicmodel/DynamicBehaviourExtension/groundNetwork"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_gHLosMWpEemnuvTQiY1jbQ" labelAlignment="LEFT" description="_gHJzgMWpEemnuvTQiY1jbQ" color="114,159,207">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
@@ -1858,9 +1858,9 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_lzigERgSEeqyTJNFHEygHA" name=" distributionFunction : ProbabilityDistribution" tooltipText="">
-        <target xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//dynamicmodel/TemporalDynamic/distributionFunction"/>
-        <semanticElements xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//dynamicmodel/TemporalDynamic/distributionFunction"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_lzigERgSEeqyTJNFHEygHA" name=" distribution : ProbabilityDistribution" tooltipText="">
+        <target xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//dynamicmodel/TemporalDynamic/distribution"/>
+        <semanticElements xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//dynamicmodel/TemporalDynamic/distribution"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_lzigEhgSEeqyTJNFHEygHA" labelAlignment="LEFT" description="_gHJzgMWpEemnuvTQiY1jbQ" color="114,159,207">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
@@ -1881,9 +1881,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_lzpNwBgSEeqyTJNFHEygHA" name="[1..1] descriptiveModel" sourceNode="_rPQXUBgREeqyTJNFHEygHA" targetNode="_lzcZcBgSEeqyTJNFHEygHA">
-      <target xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//dynamicmodel/TimeSliceInduction/descriptiveModel"/>
-      <semanticElements xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//dynamicmodel/TimeSliceInduction/descriptiveModel"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_lzpNwBgSEeqyTJNFHEygHA" name="[1..1] localModel" sourceNode="_rPQXUBgREeqyTJNFHEygHA" targetNode="_lzcZcBgSEeqyTJNFHEygHA">
+      <target xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//dynamicmodel/TimeSliceInduction/localModel"/>
+      <semanticElements xmi:type="ecore:EReference" href="environmentaldynamics.ecore#//dynamicmodel/TimeSliceInduction/localModel"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_lzp00xgSEeqyTJNFHEygHA" description="_lzp00BgSEeqyTJNFHEygHA" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_lzp01RgSEeqyTJNFHEygHA" showIcon="false">
           <customFeatures>labelSize</customFeatures>

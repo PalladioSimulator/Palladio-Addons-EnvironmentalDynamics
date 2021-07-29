@@ -29,8 +29,7 @@ import tools.mdsd.modelingfoundations.identifier.impl.NamedElementImpl;
  *
  * @generated
  */
-public class TemplateVariableGroupImpl extends NamedElementImpl implements TemplateVariableGroup
-{
+public class TemplateVariableGroupImpl extends NamedElementImpl implements TemplateVariableGroup {
 	/**
 	 * The cached value of the '{@link #getGroupedTemplates() <em>Grouped Templates</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -46,8 +45,7 @@ public class TemplateVariableGroupImpl extends NamedElementImpl implements Templ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TemplateVariableGroupImpl()
-	{
+	protected TemplateVariableGroupImpl() {
 		super();
 	}
 
@@ -57,8 +55,7 @@ public class TemplateVariableGroupImpl extends NamedElementImpl implements Templ
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return TemplatevariablePackage.Literals.TEMPLATE_VARIABLE_GROUP;
 	}
 
@@ -68,8 +65,7 @@ public class TemplateVariableGroupImpl extends NamedElementImpl implements Templ
 	 * @generated
 	 */
 	@Override
-	public EList<TemplateVariable> getGroupedTemplates()
-	{
+	public EList<TemplateVariable> getGroupedTemplates() {
 		if (groupedTemplates == null) {
 			groupedTemplates = new EObjectResolvingEList<TemplateVariable>(TemplateVariable.class, this, TemplatevariablePackage.TEMPLATE_VARIABLE_GROUP__GROUPED_TEMPLATES);
 		}
@@ -82,8 +78,7 @@ public class TemplateVariableGroupImpl extends NamedElementImpl implements Templ
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE_GROUP__GROUPED_TEMPLATES:
 				return getGroupedTemplates();
@@ -98,8 +93,7 @@ public class TemplateVariableGroupImpl extends NamedElementImpl implements Templ
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE_GROUP__GROUPED_TEMPLATES:
 				getGroupedTemplates().clear();
@@ -115,8 +109,7 @@ public class TemplateVariableGroupImpl extends NamedElementImpl implements Templ
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE_GROUP__GROUPED_TEMPLATES:
 				getGroupedTemplates().clear();
@@ -131,8 +124,7 @@ public class TemplateVariableGroupImpl extends NamedElementImpl implements Templ
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE_GROUP__GROUPED_TEMPLATES:
 				return groupedTemplates != null && !groupedTemplates.isEmpty();

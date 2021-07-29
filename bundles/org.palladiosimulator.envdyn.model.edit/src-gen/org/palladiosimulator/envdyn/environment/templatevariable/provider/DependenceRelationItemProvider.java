@@ -24,16 +24,14 @@ import org.palladiosimulator.envdyn.environment.templatevariable.Templatevariabl
  * <!-- end-user-doc -->
  * @generated
  */
-public class DependenceRelationItemProvider extends RelationItemProvider
-{
+public class DependenceRelationItemProvider extends RelationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DependenceRelationItemProvider(AdapterFactory adapterFactory)
-	{
+	public DependenceRelationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,10 +42,8 @@ public class DependenceRelationItemProvider extends RelationItemProvider
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addTypePropertyDescriptor(object);
@@ -64,8 +60,7 @@ public class DependenceRelationItemProvider extends RelationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object)
-	{
+	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -87,8 +82,7 @@ public class DependenceRelationItemProvider extends RelationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTargetPropertyDescriptor(Object object)
-	{
+	protected void addTargetPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -110,8 +104,7 @@ public class DependenceRelationItemProvider extends RelationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSourcePropertyDescriptor(Object object)
-	{
+	protected void addSourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -133,8 +126,7 @@ public class DependenceRelationItemProvider extends RelationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addContingentPropertyDescriptor(Object object)
-	{
+	protected void addContingentPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -157,8 +149,7 @@ public class DependenceRelationItemProvider extends RelationItemProvider
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/DependenceRelation"));
 	}
 
@@ -169,8 +160,7 @@ public class DependenceRelationItemProvider extends RelationItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
+	public String getText(Object object) {
 		DependenceType labelValue = ((DependenceRelation)object).getType();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
@@ -187,12 +177,10 @@ public class DependenceRelationItemProvider extends RelationItemProvider
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(DependenceRelation.class))
-		{
+		switch (notification.getFeatureID(DependenceRelation.class)) {
 			case TemplatevariablePackage.DEPENDENCE_RELATION__TYPE:
 			case TemplatevariablePackage.DEPENDENCE_RELATION__CONTINGENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
@@ -209,8 +197,7 @@ public class DependenceRelationItemProvider extends RelationItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

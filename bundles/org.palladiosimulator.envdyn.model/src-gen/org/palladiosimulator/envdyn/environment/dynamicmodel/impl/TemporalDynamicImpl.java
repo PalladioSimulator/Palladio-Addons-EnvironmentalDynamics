@@ -27,7 +27,7 @@ import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
  * </p>
  * <ul>
  *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.impl.TemporalDynamicImpl#getInstantiatedFactor <em>Instantiated Factor</em>}</li>
- *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.impl.TemporalDynamicImpl#getDistributionFunction <em>Distribution Function</em>}</li>
+ *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.impl.TemporalDynamicImpl#getDistribution <em>Distribution</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,14 +44,14 @@ public class TemporalDynamicImpl extends EntityImpl implements TemporalDynamic {
 	protected TemplateFactor instantiatedFactor;
 
 	/**
-	 * The cached value of the '{@link #getDistributionFunction() <em>Distribution Function</em>}' reference.
+	 * The cached value of the '{@link #getDistribution() <em>Distribution</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDistributionFunction()
+	 * @see #getDistribution()
 	 * @generated
 	 * @ordered
 	 */
-	protected ProbabilityDistribution distributionFunction;
+	protected ProbabilityDistribution distribution;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,16 +118,16 @@ public class TemporalDynamicImpl extends EntityImpl implements TemporalDynamic {
 	 * @generated
 	 */
 	@Override
-	public ProbabilityDistribution getDistributionFunction() {
-		if (distributionFunction != null && distributionFunction.eIsProxy()) {
-			InternalEObject oldDistributionFunction = (InternalEObject)distributionFunction;
-			distributionFunction = (ProbabilityDistribution)eResolveProxy(oldDistributionFunction);
-			if (distributionFunction != oldDistributionFunction) {
+	public ProbabilityDistribution getDistribution() {
+		if (distribution != null && distribution.eIsProxy()) {
+			InternalEObject oldDistribution = (InternalEObject)distribution;
+			distribution = (ProbabilityDistribution)eResolveProxy(oldDistribution);
+			if (distribution != oldDistribution) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DynamicmodelPackage.TEMPORAL_DYNAMIC__DISTRIBUTION_FUNCTION, oldDistributionFunction, distributionFunction));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DynamicmodelPackage.TEMPORAL_DYNAMIC__DISTRIBUTION, oldDistribution, distribution));
 			}
 		}
-		return distributionFunction;
+		return distribution;
 	}
 
 	/**
@@ -135,8 +135,8 @@ public class TemporalDynamicImpl extends EntityImpl implements TemporalDynamic {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProbabilityDistribution basicGetDistributionFunction() {
-		return distributionFunction;
+	public ProbabilityDistribution basicGetDistribution() {
+		return distribution;
 	}
 
 	/**
@@ -145,11 +145,11 @@ public class TemporalDynamicImpl extends EntityImpl implements TemporalDynamic {
 	 * @generated
 	 */
 	@Override
-	public void setDistributionFunction(ProbabilityDistribution newDistributionFunction) {
-		ProbabilityDistribution oldDistributionFunction = distributionFunction;
-		distributionFunction = newDistributionFunction;
+	public void setDistribution(ProbabilityDistribution newDistribution) {
+		ProbabilityDistribution oldDistribution = distribution;
+		distribution = newDistribution;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DynamicmodelPackage.TEMPORAL_DYNAMIC__DISTRIBUTION_FUNCTION, oldDistributionFunction, distributionFunction));
+			eNotify(new ENotificationImpl(this, Notification.SET, DynamicmodelPackage.TEMPORAL_DYNAMIC__DISTRIBUTION, oldDistribution, distribution));
 	}
 
 	/**
@@ -163,9 +163,9 @@ public class TemporalDynamicImpl extends EntityImpl implements TemporalDynamic {
 			case DynamicmodelPackage.TEMPORAL_DYNAMIC__INSTANTIATED_FACTOR:
 				if (resolve) return getInstantiatedFactor();
 				return basicGetInstantiatedFactor();
-			case DynamicmodelPackage.TEMPORAL_DYNAMIC__DISTRIBUTION_FUNCTION:
-				if (resolve) return getDistributionFunction();
-				return basicGetDistributionFunction();
+			case DynamicmodelPackage.TEMPORAL_DYNAMIC__DISTRIBUTION:
+				if (resolve) return getDistribution();
+				return basicGetDistribution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -181,8 +181,8 @@ public class TemporalDynamicImpl extends EntityImpl implements TemporalDynamic {
 			case DynamicmodelPackage.TEMPORAL_DYNAMIC__INSTANTIATED_FACTOR:
 				setInstantiatedFactor((TemplateFactor)newValue);
 				return;
-			case DynamicmodelPackage.TEMPORAL_DYNAMIC__DISTRIBUTION_FUNCTION:
-				setDistributionFunction((ProbabilityDistribution)newValue);
+			case DynamicmodelPackage.TEMPORAL_DYNAMIC__DISTRIBUTION:
+				setDistribution((ProbabilityDistribution)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -199,8 +199,8 @@ public class TemporalDynamicImpl extends EntityImpl implements TemporalDynamic {
 			case DynamicmodelPackage.TEMPORAL_DYNAMIC__INSTANTIATED_FACTOR:
 				setInstantiatedFactor((TemplateFactor)null);
 				return;
-			case DynamicmodelPackage.TEMPORAL_DYNAMIC__DISTRIBUTION_FUNCTION:
-				setDistributionFunction((ProbabilityDistribution)null);
+			case DynamicmodelPackage.TEMPORAL_DYNAMIC__DISTRIBUTION:
+				setDistribution((ProbabilityDistribution)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -216,8 +216,8 @@ public class TemporalDynamicImpl extends EntityImpl implements TemporalDynamic {
 		switch (featureID) {
 			case DynamicmodelPackage.TEMPORAL_DYNAMIC__INSTANTIATED_FACTOR:
 				return instantiatedFactor != null;
-			case DynamicmodelPackage.TEMPORAL_DYNAMIC__DISTRIBUTION_FUNCTION:
-				return distributionFunction != null;
+			case DynamicmodelPackage.TEMPORAL_DYNAMIC__DISTRIBUTION:
+				return distribution != null;
 		}
 		return super.eIsSet(featureID);
 	}

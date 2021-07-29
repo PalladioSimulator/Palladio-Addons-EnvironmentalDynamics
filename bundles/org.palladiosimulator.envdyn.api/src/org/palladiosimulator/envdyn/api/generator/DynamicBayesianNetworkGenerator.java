@@ -69,7 +69,7 @@ public class DynamicBayesianNetworkGenerator extends ProbabilisticNetworkGenerat
 
 	private DynamicBehaviourExtension createDynamicBehaviourExtension(BayesianNetwork initial) {
 		DynamicBehaviourExtension extension = FACTORY.createDynamicBehaviourExtension();
-		extension.setModel(initial.get());
+		extension.setGroundNetwork(initial.get());
 		extension.setBehaviour(createInductiveDynamics(initial));
 		return extension;
 	}
@@ -79,7 +79,7 @@ public class DynamicBayesianNetworkGenerator extends ProbabilisticNetworkGenerat
 		for (LocalProbabilisticNetwork eachLocal : initial.getLocalProbabilisticNetworks()) {
 			for (InterTimeSliceInduction eachInduction : createInterTimeSliceInductions(eachLocal)) {
 				TemporalDynamic dynamic = createTemporalDynamic(eachInduction, eachLocal);
-				eachInduction.setDescriptiveModel(dynamic);
+				eachInduction.setLocalModel(dynamic);
 
 				dynamics.getLocalModels().add(dynamic);
 				dynamics.getTimeSliceInductions().add(eachInduction);

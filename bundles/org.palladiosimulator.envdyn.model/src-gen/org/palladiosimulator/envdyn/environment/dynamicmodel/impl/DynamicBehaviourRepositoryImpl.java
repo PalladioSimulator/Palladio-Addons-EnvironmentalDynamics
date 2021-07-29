@@ -33,8 +33,7 @@ import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
  *
  * @generated
  */
-public class DynamicBehaviourRepositoryImpl extends EntityImpl implements DynamicBehaviourRepository
-{
+public class DynamicBehaviourRepositoryImpl extends EntityImpl implements DynamicBehaviourRepository {
 	/**
 	 * The cached value of the '{@link #getExtensions() <em>Extensions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -50,8 +49,7 @@ public class DynamicBehaviourRepositoryImpl extends EntityImpl implements Dynami
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DynamicBehaviourRepositoryImpl()
-	{
+	protected DynamicBehaviourRepositoryImpl() {
 		super();
 	}
 
@@ -61,8 +59,7 @@ public class DynamicBehaviourRepositoryImpl extends EntityImpl implements Dynami
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return DynamicmodelPackage.Literals.DYNAMIC_BEHAVIOUR_REPOSITORY;
 	}
 
@@ -72,8 +69,7 @@ public class DynamicBehaviourRepositoryImpl extends EntityImpl implements Dynami
 	 * @generated
 	 */
 	@Override
-	public EList<DynamicBehaviourExtension> getExtensions()
-	{
+	public EList<DynamicBehaviourExtension> getExtensions() {
 		if (extensions == null) {
 			extensions = new EObjectContainmentEList<DynamicBehaviourExtension>(DynamicBehaviourExtension.class, this, DynamicmodelPackage.DYNAMIC_BEHAVIOUR_REPOSITORY__EXTENSIONS);
 		}
@@ -86,8 +82,7 @@ public class DynamicBehaviourRepositoryImpl extends EntityImpl implements Dynami
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_REPOSITORY__EXTENSIONS:
 				return ((InternalEList<?>)getExtensions()).basicRemove(otherEnd, msgs);
@@ -101,8 +96,7 @@ public class DynamicBehaviourRepositoryImpl extends EntityImpl implements Dynami
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_REPOSITORY__EXTENSIONS:
 				return getExtensions();
@@ -117,8 +111,7 @@ public class DynamicBehaviourRepositoryImpl extends EntityImpl implements Dynami
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_REPOSITORY__EXTENSIONS:
 				getExtensions().clear();
@@ -134,8 +127,7 @@ public class DynamicBehaviourRepositoryImpl extends EntityImpl implements Dynami
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_REPOSITORY__EXTENSIONS:
 				getExtensions().clear();
@@ -150,8 +142,7 @@ public class DynamicBehaviourRepositoryImpl extends EntityImpl implements Dynami
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_REPOSITORY__EXTENSIONS:
 				return extensions != null && !extensions.isEmpty();

@@ -33,8 +33,7 @@ import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
  *
  * @generated
  */
-public class ProbabilisticModelRepositoryImpl extends EntityImpl implements ProbabilisticModelRepository
-{
+public class ProbabilisticModelRepositoryImpl extends EntityImpl implements ProbabilisticModelRepository {
 	/**
 	 * The cached value of the '{@link #getModels() <em>Models</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -50,8 +49,7 @@ public class ProbabilisticModelRepositoryImpl extends EntityImpl implements Prob
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProbabilisticModelRepositoryImpl()
-	{
+	protected ProbabilisticModelRepositoryImpl() {
 		super();
 	}
 
@@ -61,8 +59,7 @@ public class ProbabilisticModelRepositoryImpl extends EntityImpl implements Prob
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return StaticmodelPackage.Literals.PROBABILISTIC_MODEL_REPOSITORY;
 	}
 
@@ -72,8 +69,7 @@ public class ProbabilisticModelRepositoryImpl extends EntityImpl implements Prob
 	 * @generated
 	 */
 	@Override
-	public EList<GroundProbabilisticNetwork> getModels()
-	{
+	public EList<GroundProbabilisticNetwork> getModels() {
 		if (models == null) {
 			models = new EObjectContainmentEList<GroundProbabilisticNetwork>(GroundProbabilisticNetwork.class, this, StaticmodelPackage.PROBABILISTIC_MODEL_REPOSITORY__MODELS);
 		}
@@ -86,8 +82,7 @@ public class ProbabilisticModelRepositoryImpl extends EntityImpl implements Prob
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case StaticmodelPackage.PROBABILISTIC_MODEL_REPOSITORY__MODELS:
 				return ((InternalEList<?>)getModels()).basicRemove(otherEnd, msgs);
@@ -101,8 +96,7 @@ public class ProbabilisticModelRepositoryImpl extends EntityImpl implements Prob
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StaticmodelPackage.PROBABILISTIC_MODEL_REPOSITORY__MODELS:
 				return getModels();
@@ -117,8 +111,7 @@ public class ProbabilisticModelRepositoryImpl extends EntityImpl implements Prob
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StaticmodelPackage.PROBABILISTIC_MODEL_REPOSITORY__MODELS:
 				getModels().clear();
@@ -134,8 +127,7 @@ public class ProbabilisticModelRepositoryImpl extends EntityImpl implements Prob
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case StaticmodelPackage.PROBABILISTIC_MODEL_REPOSITORY__MODELS:
 				getModels().clear();
@@ -150,8 +142,7 @@ public class ProbabilisticModelRepositoryImpl extends EntityImpl implements Prob
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case StaticmodelPackage.PROBABILISTIC_MODEL_REPOSITORY__MODELS:
 				return models != null && !models.isEmpty();

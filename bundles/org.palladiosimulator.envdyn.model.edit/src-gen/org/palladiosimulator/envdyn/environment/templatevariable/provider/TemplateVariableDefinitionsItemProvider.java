@@ -28,16 +28,14 @@ import tools.mdsd.modelingfoundations.identifier.provider.EntityItemProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TemplateVariableDefinitionsItemProvider extends EntityItemProvider
-{
+public class TemplateVariableDefinitionsItemProvider extends EntityItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemplateVariableDefinitionsItemProvider(AdapterFactory adapterFactory)
-	{
+	public TemplateVariableDefinitionsItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -48,10 +46,8 @@ public class TemplateVariableDefinitionsItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -67,10 +63,8 @@ public class TemplateVariableDefinitionsItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
-	{
-		if (childrenFeatures == null)
-		{
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TemplatevariablePackage.Literals.TEMPLATE_VARIABLE_DEFINITIONS__VARIABLES);
 			childrenFeatures.add(TemplatevariablePackage.Literals.TEMPLATE_VARIABLE_DEFINITIONS__FACTORS);
@@ -87,8 +81,7 @@ public class TemplateVariableDefinitionsItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child)
-	{
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
 		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
 
@@ -102,8 +95,7 @@ public class TemplateVariableDefinitionsItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/TemplateVariableDefinitions"));
 	}
 
@@ -114,9 +106,8 @@ public class TemplateVariableDefinitionsItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		String label = ((TemplateVariableDefinitions)object).getId();
+	public String getText(Object object) {
+		String label = ((TemplateVariableDefinitions)object).getEntityName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TemplateVariableDefinitions_type") :
 			getString("_UI_TemplateVariableDefinitions_type") + " " + label;
@@ -131,12 +122,10 @@ public class TemplateVariableDefinitionsItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TemplateVariableDefinitions.class))
-		{
+		switch (notification.getFeatureID(TemplateVariableDefinitions.class)) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__VARIABLES:
 			case TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__FACTORS:
 			case TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__ARGUMENTS:
@@ -156,8 +145,7 @@ public class TemplateVariableDefinitionsItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add
@@ -203,8 +191,7 @@ public class TemplateVariableDefinitionsItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return EnvironmentaldynamicsEditPlugin.INSTANCE;
 	}
 

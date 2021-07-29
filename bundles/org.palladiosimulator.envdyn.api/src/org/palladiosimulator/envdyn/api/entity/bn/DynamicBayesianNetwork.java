@@ -157,7 +157,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
 		private void createAndCache(LocalProbabilisticNetwork localNetwork) {
 			for (GroundRandomVariable each : localNetwork.getGroundRandomVariables()) {
 				dynBehaviourQuery.findInductionExtending(each)
-						.ifPresent(i -> createAndCacheCPD(each, i.getDescriptiveModel().getDistributionFunction()));
+						.ifPresent(i -> createAndCacheCPD(each, i.getLocalModel().getDistribution()));
 			}
 		}
 

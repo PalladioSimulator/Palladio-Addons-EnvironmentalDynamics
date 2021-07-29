@@ -26,8 +26,7 @@ import tools.mdsd.modelingfoundations.identifier.IdentifierPackage;
  * @model kind="package"
  * @generated
  */
-public interface TemplatevariablePackage extends EPackage
-{
+public interface TemplatevariablePackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -1103,8 +1102,7 @@ public interface TemplatevariablePackage extends EPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals
-	{
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.envdyn.environment.templatevariable.impl.TemplateVariableDefinitionsImpl <em>Template Variable Definitions</em>}' class.
 		 * <!-- begin-user-doc -->

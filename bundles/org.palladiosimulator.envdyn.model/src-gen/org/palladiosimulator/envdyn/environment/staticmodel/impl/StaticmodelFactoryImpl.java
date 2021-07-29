@@ -57,7 +57,7 @@ public class StaticmodelFactoryImpl extends EFactoryImpl implements StaticmodelF
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case StaticmodelPackage.GROUND_RANDOM_VARIABLE: return createGroundRandomVariable();
-			case StaticmodelPackage.GROUND_PROBABILISTIC_MODEL: return createGroundProbabilisticModel();
+			case StaticmodelPackage.LOCAL_PROBABILISTIC_MODEL: return createLocalProbabilisticModel();
 			case StaticmodelPackage.PROBABILISTIC_MODEL_REPOSITORY: return createProbabilisticModelRepository();
 			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK: return createGroundProbabilisticNetwork();
 			case StaticmodelPackage.LOCAL_PROBABILISTIC_NETWORK: return createLocalProbabilisticNetwork();
@@ -83,9 +83,9 @@ public class StaticmodelFactoryImpl extends EFactoryImpl implements StaticmodelF
 	 * @generated
 	 */
 	@Override
-	public GroundProbabilisticModel createGroundProbabilisticModel() {
-		GroundProbabilisticModelImpl groundProbabilisticModel = new GroundProbabilisticModelImpl();
-		return groundProbabilisticModel;
+	public LocalProbabilisticModel createLocalProbabilisticModel() {
+		LocalProbabilisticModelImpl localProbabilisticModel = new LocalProbabilisticModelImpl();
+		return localProbabilisticModel;
 	}
 
 	/**

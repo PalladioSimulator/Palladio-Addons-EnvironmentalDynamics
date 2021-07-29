@@ -22,8 +22,7 @@ import tools.mdsd.modelingfoundations.identifier.NamedElement;
  * @model
  * @generated
  */
-public interface TemplateVariableGroup extends NamedElement
-{
+public interface TemplateVariableGroup extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Grouped Templates</b></em>' reference list.
 	 * The list contents are of type {@link org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariable}.

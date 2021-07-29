@@ -22,8 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface LocalProbabilisticNetwork extends EObject
-{
+public interface LocalProbabilisticNetwork extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Ground Random Variables</b></em>' containment reference list.
 	 * The list contents are of type {@link org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable}.

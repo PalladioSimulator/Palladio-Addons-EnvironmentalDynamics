@@ -22,8 +22,7 @@ import org.palladiosimulator.envdyn.environment.templatevariable.TemporalRelatio
  * @model
  * @generated
  */
-public interface InterTimeSliceInduction extends TimeSliceInduction
-{
+public interface InterTimeSliceInduction extends TimeSliceInduction {
 	/**
 	 * Returns the value of the '<em><b>Temporal Structure</b></em>' reference list.
 	 * The list contents are of type {@link org.palladiosimulator.envdyn.environment.templatevariable.TemporalRelation}.

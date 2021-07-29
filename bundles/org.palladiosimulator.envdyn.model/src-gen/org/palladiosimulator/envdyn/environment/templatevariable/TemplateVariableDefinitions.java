@@ -26,8 +26,7 @@ import tools.mdsd.modelingfoundations.identifier.Entity;
  * @model
  * @generated
  */
-public interface TemplateVariableDefinitions extends Entity
-{
+public interface TemplateVariableDefinitions extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
 	 * The list contents are of type {@link org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariable}.

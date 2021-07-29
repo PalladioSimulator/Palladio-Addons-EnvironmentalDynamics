@@ -23,8 +23,7 @@ import tools.mdsd.modelingfoundations.identifier.Entity;
  * @model abstract="true"
  * @generated
  */
-public interface TemplateFactor extends Entity
-{
+public interface TemplateFactor extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Scope</b></em>' reference list.
 	 * The list contents are of type {@link org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariable}.

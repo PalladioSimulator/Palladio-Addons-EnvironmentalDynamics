@@ -21,16 +21,14 @@ import org.palladiosimulator.envdyn.environment.templatevariable.TimeSliceRelati
  * <!-- end-user-doc -->
  * @generated
  */
-public class TimeSliceRelationItemProvider extends TemporalRelationItemProvider
-{
+public class TimeSliceRelationItemProvider extends TemporalRelationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimeSliceRelationItemProvider(AdapterFactory adapterFactory)
-	{
+	public TimeSliceRelationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -41,10 +39,8 @@ public class TimeSliceRelationItemProvider extends TemporalRelationItemProvider
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addSourcePropertyDescriptor(object);
@@ -59,8 +55,7 @@ public class TimeSliceRelationItemProvider extends TemporalRelationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSourcePropertyDescriptor(Object object)
-	{
+	protected void addSourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -82,8 +77,7 @@ public class TimeSliceRelationItemProvider extends TemporalRelationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTargetPropertyDescriptor(Object object)
-	{
+	protected void addTargetPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -106,8 +100,7 @@ public class TimeSliceRelationItemProvider extends TemporalRelationItemProvider
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/TimeSliceRelation"));
 	}
 
@@ -118,8 +111,7 @@ public class TimeSliceRelationItemProvider extends TemporalRelationItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
+	public String getText(Object object) {
 		String label = ((TimeSliceRelation)object).getEntityName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TimeSliceRelation_type") :
@@ -135,9 +127,9 @@ public class TimeSliceRelationItemProvider extends TemporalRelationItemProvider
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**
@@ -148,8 +140,7 @@ public class TimeSliceRelationItemProvider extends TemporalRelationItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

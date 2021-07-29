@@ -79,12 +79,12 @@ public class StaticmodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StaticmodelPackage.GROUND_PROBABILISTIC_MODEL: {
-				GroundProbabilisticModel groundProbabilisticModel = (GroundProbabilisticModel)theEObject;
-				T result = caseGroundProbabilisticModel(groundProbabilisticModel);
-				if (result == null) result = caseEntity(groundProbabilisticModel);
-				if (result == null) result = caseIdentifier(groundProbabilisticModel);
-				if (result == null) result = caseNamedElement(groundProbabilisticModel);
+			case StaticmodelPackage.LOCAL_PROBABILISTIC_MODEL: {
+				LocalProbabilisticModel localProbabilisticModel = (LocalProbabilisticModel)theEObject;
+				T result = caseLocalProbabilisticModel(localProbabilisticModel);
+				if (result == null) result = caseEntity(localProbabilisticModel);
+				if (result == null) result = caseIdentifier(localProbabilisticModel);
+				if (result == null) result = caseNamedElement(localProbabilisticModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,17 +132,17 @@ public class StaticmodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ground Probabilistic Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Local Probabilistic Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ground Probabilistic Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Local Probabilistic Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGroundProbabilisticModel(GroundProbabilisticModel object) {
+	public T caseLocalProbabilisticModel(LocalProbabilisticModel object) {
 		return null;
 	}
 

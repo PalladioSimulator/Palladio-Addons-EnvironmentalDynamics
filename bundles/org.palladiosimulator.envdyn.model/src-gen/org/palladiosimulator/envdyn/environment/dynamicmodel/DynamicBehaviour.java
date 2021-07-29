@@ -22,8 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface DynamicBehaviour extends EObject
-{
+public interface DynamicBehaviour extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Local Models</b></em>' containment reference list.
 	 * The list contents are of type {@link org.palladiosimulator.envdyn.environment.dynamicmodel.TemporalDynamic}.

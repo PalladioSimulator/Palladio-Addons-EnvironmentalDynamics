@@ -26,23 +26,22 @@ import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.impl.DynamicBehaviourExtensionImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.impl.DynamicBehaviourExtensionImpl#getGroundNetwork <em>Ground Network</em>}</li>
  *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.impl.DynamicBehaviourExtensionImpl#getBehaviour <em>Behaviour</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DynamicBehaviourExtensionImpl extends EntityImpl implements DynamicBehaviourExtension
-{
+public class DynamicBehaviourExtensionImpl extends EntityImpl implements DynamicBehaviourExtension {
 	/**
-	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
+	 * The cached value of the '{@link #getGroundNetwork() <em>Ground Network</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModel()
+	 * @see #getGroundNetwork()
 	 * @generated
 	 * @ordered
 	 */
-	protected GroundProbabilisticNetwork model;
+	protected GroundProbabilisticNetwork groundNetwork;
 
 	/**
 	 * The cached value of the '{@link #getBehaviour() <em>Behaviour</em>}' containment reference.
@@ -59,8 +58,7 @@ public class DynamicBehaviourExtensionImpl extends EntityImpl implements Dynamic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DynamicBehaviourExtensionImpl()
-	{
+	protected DynamicBehaviourExtensionImpl() {
 		super();
 	}
 
@@ -70,8 +68,7 @@ public class DynamicBehaviourExtensionImpl extends EntityImpl implements Dynamic
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return DynamicmodelPackage.Literals.DYNAMIC_BEHAVIOUR_EXTENSION;
 	}
 
@@ -81,17 +78,16 @@ public class DynamicBehaviourExtensionImpl extends EntityImpl implements Dynamic
 	 * @generated
 	 */
 	@Override
-	public GroundProbabilisticNetwork getModel()
-	{
-		if (model != null && model.eIsProxy()) {
-			InternalEObject oldModel = (InternalEObject)model;
-			model = (GroundProbabilisticNetwork)eResolveProxy(oldModel);
-			if (model != oldModel) {
+	public GroundProbabilisticNetwork getGroundNetwork() {
+		if (groundNetwork != null && groundNetwork.eIsProxy()) {
+			InternalEObject oldGroundNetwork = (InternalEObject)groundNetwork;
+			groundNetwork = (GroundProbabilisticNetwork)eResolveProxy(oldGroundNetwork);
+			if (groundNetwork != oldGroundNetwork) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__MODEL, oldModel, model));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__GROUND_NETWORK, oldGroundNetwork, groundNetwork));
 			}
 		}
-		return model;
+		return groundNetwork;
 	}
 
 	/**
@@ -99,9 +95,8 @@ public class DynamicBehaviourExtensionImpl extends EntityImpl implements Dynamic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GroundProbabilisticNetwork basicGetModel()
-	{
-		return model;
+	public GroundProbabilisticNetwork basicGetGroundNetwork() {
+		return groundNetwork;
 	}
 
 	/**
@@ -110,12 +105,11 @@ public class DynamicBehaviourExtensionImpl extends EntityImpl implements Dynamic
 	 * @generated
 	 */
 	@Override
-	public void setModel(GroundProbabilisticNetwork newModel)
-	{
-		GroundProbabilisticNetwork oldModel = model;
-		model = newModel;
+	public void setGroundNetwork(GroundProbabilisticNetwork newGroundNetwork) {
+		GroundProbabilisticNetwork oldGroundNetwork = groundNetwork;
+		groundNetwork = newGroundNetwork;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__MODEL, oldModel, model));
+			eNotify(new ENotificationImpl(this, Notification.SET, DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__GROUND_NETWORK, oldGroundNetwork, groundNetwork));
 	}
 
 	/**
@@ -124,8 +118,7 @@ public class DynamicBehaviourExtensionImpl extends EntityImpl implements Dynamic
 	 * @generated
 	 */
 	@Override
-	public DynamicBehaviour getBehaviour()
-	{
+	public DynamicBehaviour getBehaviour() {
 		return behaviour;
 	}
 
@@ -134,8 +127,7 @@ public class DynamicBehaviourExtensionImpl extends EntityImpl implements Dynamic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBehaviour(DynamicBehaviour newBehaviour, NotificationChain msgs)
-	{
+	public NotificationChain basicSetBehaviour(DynamicBehaviour newBehaviour, NotificationChain msgs) {
 		DynamicBehaviour oldBehaviour = behaviour;
 		behaviour = newBehaviour;
 		if (eNotificationRequired()) {
@@ -151,8 +143,7 @@ public class DynamicBehaviourExtensionImpl extends EntityImpl implements Dynamic
 	 * @generated
 	 */
 	@Override
-	public void setBehaviour(DynamicBehaviour newBehaviour)
-	{
+	public void setBehaviour(DynamicBehaviour newBehaviour) {
 		if (newBehaviour != behaviour) {
 			NotificationChain msgs = null;
 			if (behaviour != null)
@@ -172,8 +163,7 @@ public class DynamicBehaviourExtensionImpl extends EntityImpl implements Dynamic
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__BEHAVIOUR:
 				return basicSetBehaviour(null, msgs);
@@ -187,12 +177,11 @@ public class DynamicBehaviourExtensionImpl extends EntityImpl implements Dynamic
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__MODEL:
-				if (resolve) return getModel();
-				return basicGetModel();
+			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__GROUND_NETWORK:
+				if (resolve) return getGroundNetwork();
+				return basicGetGroundNetwork();
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__BEHAVIOUR:
 				return getBehaviour();
 		}
@@ -205,11 +194,10 @@ public class DynamicBehaviourExtensionImpl extends EntityImpl implements Dynamic
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__MODEL:
-				setModel((GroundProbabilisticNetwork)newValue);
+			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__GROUND_NETWORK:
+				setGroundNetwork((GroundProbabilisticNetwork)newValue);
 				return;
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__BEHAVIOUR:
 				setBehaviour((DynamicBehaviour)newValue);
@@ -224,11 +212,10 @@ public class DynamicBehaviourExtensionImpl extends EntityImpl implements Dynamic
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__MODEL:
-				setModel((GroundProbabilisticNetwork)null);
+			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__GROUND_NETWORK:
+				setGroundNetwork((GroundProbabilisticNetwork)null);
 				return;
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__BEHAVIOUR:
 				setBehaviour((DynamicBehaviour)null);
@@ -243,11 +230,10 @@ public class DynamicBehaviourExtensionImpl extends EntityImpl implements Dynamic
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__MODEL:
-				return model != null;
+			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__GROUND_NETWORK:
+				return groundNetwork != null;
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR_EXTENSION__BEHAVIOUR:
 				return behaviour != null;
 		}

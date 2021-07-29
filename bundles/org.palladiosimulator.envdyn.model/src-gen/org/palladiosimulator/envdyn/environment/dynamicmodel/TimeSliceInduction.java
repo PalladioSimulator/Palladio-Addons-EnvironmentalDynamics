@@ -15,7 +15,7 @@ import org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TimeSliceInduction#getDescriptiveModel <em>Descriptive Model</em>}</li>
+ *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TimeSliceInduction#getLocalModel <em>Local Model</em>}</li>
  *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TimeSliceInduction#getAppliedGroundVariable <em>Applied Ground Variable</em>}</li>
  * </ul>
  *
@@ -23,29 +23,28 @@ import org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable
  * @model abstract="true"
  * @generated
  */
-public interface TimeSliceInduction extends EObject
-{
+public interface TimeSliceInduction extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Descriptive Model</b></em>' reference.
+	 * Returns the value of the '<em><b>Local Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Descriptive Model</em>' reference.
-	 * @see #setDescriptiveModel(TemporalDynamic)
-	 * @see org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicmodelPackage#getTimeSliceInduction_DescriptiveModel()
+	 * @return the value of the '<em>Local Model</em>' reference.
+	 * @see #setLocalModel(TemporalDynamic)
+	 * @see org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicmodelPackage#getTimeSliceInduction_LocalModel()
 	 * @model required="true"
 	 * @generated
 	 */
-	TemporalDynamic getDescriptiveModel();
+	TemporalDynamic getLocalModel();
 
 	/**
-	 * Sets the value of the '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TimeSliceInduction#getDescriptiveModel <em>Descriptive Model</em>}' reference.
+	 * Sets the value of the '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.TimeSliceInduction#getLocalModel <em>Local Model</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Descriptive Model</em>' reference.
-	 * @see #getDescriptiveModel()
+	 * @param value the new value of the '<em>Local Model</em>' reference.
+	 * @see #getLocalModel()
 	 * @generated
 	 */
-	void setDescriptiveModel(TemporalDynamic value);
+	void setLocalModel(TemporalDynamic value);
 
 	/**
 	 * Returns the value of the '<em><b>Applied Ground Variable</b></em>' reference.

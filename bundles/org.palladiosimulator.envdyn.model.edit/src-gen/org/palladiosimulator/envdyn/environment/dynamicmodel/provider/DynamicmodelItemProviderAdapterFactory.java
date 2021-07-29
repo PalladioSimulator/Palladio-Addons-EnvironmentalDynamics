@@ -32,8 +32,7 @@ import org.palladiosimulator.envdyn.environment.dynamicmodel.util.DynamicmodelAd
  * <!-- end-user-doc -->
  * @generated
  */
-public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable
-{
+public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -64,8 +63,7 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DynamicmodelItemProviderAdapterFactory()
-	{
+	public DynamicmodelItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
@@ -88,10 +86,8 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * @generated
 	 */
 	@Override
-	public Adapter createDynamicBehaviourRepositoryAdapter()
-	{
-		if (dynamicBehaviourRepositoryItemProvider == null)
-		{
+	public Adapter createDynamicBehaviourRepositoryAdapter() {
+		if (dynamicBehaviourRepositoryItemProvider == null) {
 			dynamicBehaviourRepositoryItemProvider = new DynamicBehaviourRepositoryItemProvider(this);
 		}
 
@@ -113,10 +109,8 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * @generated
 	 */
 	@Override
-	public Adapter createDynamicBehaviourExtensionAdapter()
-	{
-		if (dynamicBehaviourExtensionItemProvider == null)
-		{
+	public Adapter createDynamicBehaviourExtensionAdapter() {
+		if (dynamicBehaviourExtensionItemProvider == null) {
 			dynamicBehaviourExtensionItemProvider = new DynamicBehaviourExtensionItemProvider(this);
 		}
 
@@ -138,10 +132,8 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * @generated
 	 */
 	@Override
-	public Adapter createInductiveDynamicBehaviourAdapter()
-	{
-		if (inductiveDynamicBehaviourItemProvider == null)
-		{
+	public Adapter createInductiveDynamicBehaviourAdapter() {
+		if (inductiveDynamicBehaviourItemProvider == null) {
 			inductiveDynamicBehaviourItemProvider = new InductiveDynamicBehaviourItemProvider(this);
 		}
 
@@ -163,10 +155,8 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * @generated
 	 */
 	@Override
-	public Adapter createInterTimeSliceInductionAdapter()
-	{
-		if (interTimeSliceInductionItemProvider == null)
-		{
+	public Adapter createInterTimeSliceInductionAdapter() {
+		if (interTimeSliceInductionItemProvider == null) {
 			interTimeSliceInductionItemProvider = new InterTimeSliceInductionItemProvider(this);
 		}
 
@@ -188,10 +178,8 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * @generated
 	 */
 	@Override
-	public Adapter createIntraTimeSliceInductionAdapter()
-	{
-		if (intraTimeSliceInductionItemProvider == null)
-		{
+	public Adapter createIntraTimeSliceInductionAdapter() {
+		if (intraTimeSliceInductionItemProvider == null) {
 			intraTimeSliceInductionItemProvider = new IntraTimeSliceInductionItemProvider(this);
 		}
 
@@ -213,10 +201,8 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * @generated
 	 */
 	@Override
-	public Adapter createTemporalDynamicAdapter()
-	{
-		if (temporalDynamicItemProvider == null)
-		{
+	public Adapter createTemporalDynamicAdapter() {
+		if (temporalDynamicItemProvider == null) {
 			temporalDynamicItemProvider = new TemporalDynamicItemProvider(this);
 		}
 
@@ -230,8 +216,7 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * @generated
 	 */
 	@Override
-	public ComposeableAdapterFactory getRootAdapterFactory()
-	{
+	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
 
@@ -242,8 +227,7 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * @generated
 	 */
 	@Override
-	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory)
-	{
+	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
 
@@ -253,8 +237,7 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * @generated
 	 */
 	@Override
-	public boolean isFactoryForType(Object type)
-	{
+	public boolean isFactoryForType(Object type) {
 		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
 
@@ -265,8 +248,7 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * @generated
 	 */
 	@Override
-	public Adapter adapt(Notifier notifier, Object type)
-	{
+	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
 
@@ -276,13 +258,10 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * @generated
 	 */
 	@Override
-	public Object adapt(Object object, Object type)
-	{
-		if (isFactoryForType(type))
-		{
+	public Object adapt(Object object, Object type) {
+		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter)))
-			{
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -297,8 +276,7 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * @generated
 	 */
 	@Override
-	public void addListener(INotifyChangedListener notifyChangedListener)
-	{
+	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
 
@@ -309,8 +287,7 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * @generated
 	 */
 	@Override
-	public void removeListener(INotifyChangedListener notifyChangedListener)
-	{
+	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
 
@@ -321,12 +298,10 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * @generated
 	 */
 	@Override
-	public void fireNotifyChanged(Notification notification)
-	{
+	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
-		if (parentAdapterFactory != null)
-		{
+		if (parentAdapterFactory != null) {
 			parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}
@@ -338,8 +313,7 @@ public class DynamicmodelItemProviderAdapterFactory extends DynamicmodelAdapterF
 	 * @generated
 	 */
 	@Override
-	public void dispose()
-	{
+	public void dispose() {
 		if (dynamicBehaviourRepositoryItemProvider != null) dynamicBehaviourRepositoryItemProvider.dispose();
 		if (dynamicBehaviourExtensionItemProvider != null) dynamicBehaviourExtensionItemProvider.dispose();
 		if (inductiveDynamicBehaviourItemProvider != null) inductiveDynamicBehaviourItemProvider.dispose();

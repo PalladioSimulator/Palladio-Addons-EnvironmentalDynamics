@@ -25,16 +25,14 @@ import tools.mdsd.modelingfoundations.identifier.IdentifierPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TemporalRelationItemProvider extends RelationItemProvider
-{
+public class TemporalRelationItemProvider extends RelationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemporalRelationItemProvider(AdapterFactory adapterFactory)
-	{
+	public TemporalRelationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,10 +43,8 @@ public class TemporalRelationItemProvider extends RelationItemProvider
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addEntityNamePropertyDescriptor(object);
@@ -62,8 +58,7 @@ public class TemporalRelationItemProvider extends RelationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addEntityNamePropertyDescriptor(Object object)
-	{
+	protected void addEntityNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -86,8 +81,7 @@ public class TemporalRelationItemProvider extends RelationItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
+	public String getText(Object object) {
 		String label = ((TemporalRelation)object).getEntityName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TemporalRelation_type") :
@@ -103,12 +97,10 @@ public class TemporalRelationItemProvider extends RelationItemProvider
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TemporalRelation.class))
-		{
+		switch (notification.getFeatureID(TemporalRelation.class)) {
 			case TemplatevariablePackage.TEMPORAL_RELATION__ENTITY_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -124,8 +116,7 @@ public class TemporalRelationItemProvider extends RelationItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

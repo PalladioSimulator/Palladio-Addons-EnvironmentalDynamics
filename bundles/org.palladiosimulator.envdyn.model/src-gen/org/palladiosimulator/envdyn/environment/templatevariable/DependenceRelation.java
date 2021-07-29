@@ -22,8 +22,7 @@ package org.palladiosimulator.envdyn.environment.templatevariable;
  * @model
  * @generated
  */
-public interface DependenceRelation extends Relation
-{
+public interface DependenceRelation extends Relation {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.palladiosimulator.envdyn.environment.templatevariable.DependenceType}.

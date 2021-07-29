@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel;
+import org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel;
 import org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage;
 
 import org.palladiosimulator.envdyn.environment.templatevariable.provider.EnvironmentaldynamicsEditPlugin;
@@ -22,21 +22,19 @@ import org.palladiosimulator.envdyn.environment.templatevariable.provider.Enviro
 import tools.mdsd.modelingfoundations.identifier.provider.EntityItemProvider;
 
 /**
- * This is the item provider adapter for a {@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel} object.
+ * This is the item provider adapter for a {@link org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class GroundProbabilisticModelItemProvider extends EntityItemProvider
-{
+public class LocalProbabilisticModelItemProvider extends EntityItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GroundProbabilisticModelItemProvider(AdapterFactory adapterFactory)
-	{
+	public LocalProbabilisticModelItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -47,10 +45,8 @@ public class GroundProbabilisticModelItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addInstantiatedFactorPropertyDescriptor(object);
@@ -65,15 +61,14 @@ public class GroundProbabilisticModelItemProvider extends EntityItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInstantiatedFactorPropertyDescriptor(Object object)
-	{
+	protected void addInstantiatedFactorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GroundProbabilisticModel_instantiatedFactor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GroundProbabilisticModel_instantiatedFactor_feature", "_UI_GroundProbabilisticModel_type"),
-				 StaticmodelPackage.Literals.GROUND_PROBABILISTIC_MODEL__INSTANTIATED_FACTOR,
+				 getString("_UI_LocalProbabilisticModel_instantiatedFactor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LocalProbabilisticModel_instantiatedFactor_feature", "_UI_LocalProbabilisticModel_type"),
+				 StaticmodelPackage.Literals.LOCAL_PROBABILISTIC_MODEL__INSTANTIATED_FACTOR,
 				 true,
 				 false,
 				 true,
@@ -88,15 +83,14 @@ public class GroundProbabilisticModelItemProvider extends EntityItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDistributionPropertyDescriptor(Object object)
-	{
+	protected void addDistributionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GroundProbabilisticModel_distribution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GroundProbabilisticModel_distribution_feature", "_UI_GroundProbabilisticModel_type"),
-				 StaticmodelPackage.Literals.GROUND_PROBABILISTIC_MODEL__DISTRIBUTION,
+				 getString("_UI_LocalProbabilisticModel_distribution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LocalProbabilisticModel_distribution_feature", "_UI_LocalProbabilisticModel_type"),
+				 StaticmodelPackage.Literals.LOCAL_PROBABILISTIC_MODEL__DISTRIBUTION,
 				 true,
 				 false,
 				 true,
@@ -106,15 +100,14 @@ public class GroundProbabilisticModelItemProvider extends EntityItemProvider
 	}
 
 	/**
-	 * This returns GroundProbabilisticModel.gif.
+	 * This returns LocalProbabilisticModel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GroundProbabilisticModel"));
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/LocalProbabilisticModel"));
 	}
 
 	/**
@@ -124,12 +117,11 @@ public class GroundProbabilisticModelItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		String label = ((GroundProbabilisticModel)object).getId();
+	public String getText(Object object) {
+		String label = ((LocalProbabilisticModel)object).getEntityName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_GroundProbabilisticModel_type") :
-			getString("_UI_GroundProbabilisticModel_type") + " " + label;
+			getString("_UI_LocalProbabilisticModel_type") :
+			getString("_UI_LocalProbabilisticModel_type") + " " + label;
 	}
 
 
@@ -141,9 +133,9 @@ public class GroundProbabilisticModelItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**
@@ -154,8 +146,7 @@ public class GroundProbabilisticModelItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -166,8 +157,7 @@ public class GroundProbabilisticModelItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return EnvironmentaldynamicsEditPlugin.INSTANCE;
 	}
 

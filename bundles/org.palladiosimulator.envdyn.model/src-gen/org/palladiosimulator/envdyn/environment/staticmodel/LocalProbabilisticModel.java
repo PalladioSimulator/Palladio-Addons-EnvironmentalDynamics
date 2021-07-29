@@ -10,36 +10,36 @@ import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Ground Probabilistic Model</b></em>'.
+ * A representation of the model object '<em><b>Local Probabilistic Model</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel#getInstantiatedFactor <em>Instantiated Factor</em>}</li>
- *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel#getDistribution <em>Distribution</em>}</li>
+ *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel#getInstantiatedFactor <em>Instantiated Factor</em>}</li>
+ *   <li>{@link org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel#getDistribution <em>Distribution</em>}</li>
  * </ul>
  *
- * @see org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage#getGroundProbabilisticModel()
+ * @see org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage#getLocalProbabilisticModel()
  * @model
  * @generated
  */
-public interface GroundProbabilisticModel extends Entity {
+public interface LocalProbabilisticModel extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Instantiated Factor</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Instantiated Factor</em>' reference.
 	 * @see #setInstantiatedFactor(TemplateFactor)
-	 * @see org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage#getGroundProbabilisticModel_InstantiatedFactor()
+	 * @see org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage#getLocalProbabilisticModel_InstantiatedFactor()
 	 * @model required="true"
 	 * @generated
 	 */
 	TemplateFactor getInstantiatedFactor();
 
 	/**
-	 * Sets the value of the '{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel#getInstantiatedFactor <em>Instantiated Factor</em>}' reference.
+	 * Sets the value of the '{@link org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel#getInstantiatedFactor <em>Instantiated Factor</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Instantiated Factor</em>' reference.
@@ -54,14 +54,14 @@ public interface GroundProbabilisticModel extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Distribution</em>' reference.
 	 * @see #setDistribution(ProbabilityDistribution)
-	 * @see org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage#getGroundProbabilisticModel_Distribution()
+	 * @see org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage#getLocalProbabilisticModel_Distribution()
 	 * @model required="true"
 	 * @generated
 	 */
 	ProbabilityDistribution getDistribution();
 
 	/**
-	 * Sets the value of the '{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel#getDistribution <em>Distribution</em>}' reference.
+	 * Sets the value of the '{@link org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel#getDistribution <em>Distribution</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Distribution</em>' reference.
@@ -70,4 +70,4 @@ public interface GroundProbabilisticModel extends Entity {
 	 */
 	void setDistribution(ProbabilityDistribution value);
 
-} // GroundProbabilisticModel
+} // LocalProbabilisticModel

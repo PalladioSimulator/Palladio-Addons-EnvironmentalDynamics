@@ -14,6 +14,5 @@ import tools.mdsd.modelingfoundations.identifier.NamedElement;
  * @model abstract="true"
  * @generated
  */
-public interface TemporalRelation extends Relation, NamedElement
-{
+public interface TemporalRelation extends Relation, NamedElement {
 } // TemporalRelation

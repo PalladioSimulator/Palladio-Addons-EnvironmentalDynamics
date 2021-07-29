@@ -20,8 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface InductiveDynamicBehaviour extends DynamicBehaviour
-{
+public interface InductiveDynamicBehaviour extends DynamicBehaviour {
 	/**
 	 * Returns the value of the '<em><b>Time Slice Inductions</b></em>' containment reference list.
 	 * The list contents are of type {@link org.palladiosimulator.envdyn.environment.dynamicmodel.TimeSliceInduction}.

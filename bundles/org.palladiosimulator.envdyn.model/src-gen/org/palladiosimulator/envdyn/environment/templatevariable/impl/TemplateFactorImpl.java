@@ -34,8 +34,7 @@ import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
  *
  * @generated
  */
-public abstract class TemplateFactorImpl extends EntityImpl implements TemplateFactor
-{
+public abstract class TemplateFactorImpl extends EntityImpl implements TemplateFactor {
 	/**
 	 * The cached value of the '{@link #getScope() <em>Scope</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -71,8 +70,7 @@ public abstract class TemplateFactorImpl extends EntityImpl implements TemplateF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TemplateFactorImpl()
-	{
+	protected TemplateFactorImpl() {
 		super();
 	}
 
@@ -82,8 +80,7 @@ public abstract class TemplateFactorImpl extends EntityImpl implements TemplateF
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return TemplatevariablePackage.Literals.TEMPLATE_FACTOR;
 	}
 
@@ -93,8 +90,7 @@ public abstract class TemplateFactorImpl extends EntityImpl implements TemplateF
 	 * @generated
 	 */
 	@Override
-	public EList<TemplateVariable> getScope()
-	{
+	public EList<TemplateVariable> getScope() {
 		if (scope == null) {
 			scope = new EObjectResolvingEList<TemplateVariable>(TemplateVariable.class, this, TemplatevariablePackage.TEMPLATE_FACTOR__SCOPE);
 		}
@@ -107,8 +103,7 @@ public abstract class TemplateFactorImpl extends EntityImpl implements TemplateF
 	 * @generated
 	 */
 	@Override
-	public boolean isTemporal()
-	{
+	public boolean isTemporal() {
 		return temporal;
 	}
 
@@ -118,8 +113,7 @@ public abstract class TemplateFactorImpl extends EntityImpl implements TemplateF
 	 * @generated
 	 */
 	@Override
-	public void setTemporal(boolean newTemporal)
-	{
+	public void setTemporal(boolean newTemporal) {
 		boolean oldTemporal = temporal;
 		temporal = newTemporal;
 		if (eNotificationRequired())
@@ -132,8 +126,7 @@ public abstract class TemplateFactorImpl extends EntityImpl implements TemplateF
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_FACTOR__SCOPE:
 				return getScope();
@@ -150,8 +143,7 @@ public abstract class TemplateFactorImpl extends EntityImpl implements TemplateF
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_FACTOR__SCOPE:
 				getScope().clear();
@@ -170,8 +162,7 @@ public abstract class TemplateFactorImpl extends EntityImpl implements TemplateF
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_FACTOR__SCOPE:
 				getScope().clear();
@@ -189,8 +180,7 @@ public abstract class TemplateFactorImpl extends EntityImpl implements TemplateF
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.TEMPLATE_FACTOR__SCOPE:
 				return scope != null && !scope.isEmpty();
@@ -206,8 +196,7 @@ public abstract class TemplateFactorImpl extends EntityImpl implements TemplateF
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());

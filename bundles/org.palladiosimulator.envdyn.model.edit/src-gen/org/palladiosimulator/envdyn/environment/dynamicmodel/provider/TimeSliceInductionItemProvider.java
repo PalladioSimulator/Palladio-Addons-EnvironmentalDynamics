@@ -37,16 +37,14 @@ public class TimeSliceInductionItemProvider
 		IStructuredItemContentProvider,
 		ITreeItemContentProvider,
 		IItemLabelProvider,
-		IItemPropertySource
-{
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimeSliceInductionItemProvider(AdapterFactory adapterFactory)
-	{
+	public TimeSliceInductionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,33 +55,30 @@ public class TimeSliceInductionItemProvider
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDescriptiveModelPropertyDescriptor(object);
+			addLocalModelPropertyDescriptor(object);
 			addAppliedGroundVariablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Descriptive Model feature.
+	 * This adds a property descriptor for the Local Model feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDescriptiveModelPropertyDescriptor(Object object)
-	{
+	protected void addLocalModelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TimeSliceInduction_descriptiveModel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TimeSliceInduction_descriptiveModel_feature", "_UI_TimeSliceInduction_type"),
-				 DynamicmodelPackage.Literals.TIME_SLICE_INDUCTION__DESCRIPTIVE_MODEL,
+				 getString("_UI_TimeSliceInduction_localModel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TimeSliceInduction_localModel_feature", "_UI_TimeSliceInduction_type"),
+				 DynamicmodelPackage.Literals.TIME_SLICE_INDUCTION__LOCAL_MODEL,
 				 true,
 				 false,
 				 true,
@@ -98,8 +93,7 @@ public class TimeSliceInductionItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAppliedGroundVariablePropertyDescriptor(Object object)
-	{
+	protected void addAppliedGroundVariablePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -122,8 +116,7 @@ public class TimeSliceInductionItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
+	public String getText(Object object) {
 		return getString("_UI_TimeSliceInduction_type");
 	}
 
@@ -136,9 +129,9 @@ public class TimeSliceInductionItemProvider
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**
@@ -149,8 +142,7 @@ public class TimeSliceInductionItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -161,8 +153,7 @@ public class TimeSliceInductionItemProvider
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return EnvironmentaldynamicsEditPlugin.INSTANCE;
 	}
 

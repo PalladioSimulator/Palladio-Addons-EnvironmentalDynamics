@@ -27,8 +27,7 @@ import org.palladiosimulator.envdyn.environment.templatevariable.Templatevariabl
  *
  * @generated
  */
-public class LogicalVariableImpl extends MinimalEObjectImpl.Container implements LogicalVariable
-{
+public class LogicalVariableImpl extends MinimalEObjectImpl.Container implements LogicalVariable {
 	/**
 	 * The cached value of the '{@link #getArgument() <em>Argument</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -44,8 +43,7 @@ public class LogicalVariableImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LogicalVariableImpl()
-	{
+	protected LogicalVariableImpl() {
 		super();
 	}
 
@@ -55,8 +53,7 @@ public class LogicalVariableImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return TemplatevariablePackage.Literals.LOGICAL_VARIABLE;
 	}
 
@@ -66,8 +63,7 @@ public class LogicalVariableImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
-	public Argument getArgument()
-	{
+	public Argument getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
 			argument = (Argument)eResolveProxy(oldArgument);
@@ -84,8 +80,7 @@ public class LogicalVariableImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Argument basicGetArgument()
-	{
+	public Argument basicGetArgument() {
 		return argument;
 	}
 
@@ -95,8 +90,7 @@ public class LogicalVariableImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
-	public void setArgument(Argument newArgument)
-	{
+	public void setArgument(Argument newArgument) {
 		Argument oldArgument = argument;
 		argument = newArgument;
 		if (eNotificationRequired())
@@ -109,8 +103,7 @@ public class LogicalVariableImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TemplatevariablePackage.LOGICAL_VARIABLE__ARGUMENT:
 				if (resolve) return getArgument();
@@ -125,8 +118,7 @@ public class LogicalVariableImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TemplatevariablePackage.LOGICAL_VARIABLE__ARGUMENT:
 				setArgument((Argument)newValue);
@@ -141,8 +133,7 @@ public class LogicalVariableImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.LOGICAL_VARIABLE__ARGUMENT:
 				setArgument((Argument)null);
@@ -157,8 +148,7 @@ public class LogicalVariableImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TemplatevariablePackage.LOGICAL_VARIABLE__ARGUMENT:
 				return argument != null;

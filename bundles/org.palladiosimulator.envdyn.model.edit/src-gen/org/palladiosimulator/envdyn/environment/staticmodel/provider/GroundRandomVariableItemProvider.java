@@ -27,16 +27,14 @@ import tools.mdsd.modelingfoundations.identifier.provider.EntityItemProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GroundRandomVariableItemProvider extends EntityItemProvider
-{
+public class GroundRandomVariableItemProvider extends EntityItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GroundRandomVariableItemProvider(AdapterFactory adapterFactory)
-	{
+	public GroundRandomVariableItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -47,15 +45,13 @@ public class GroundRandomVariableItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addInstantiatedTemplatePropertyDescriptor(object);
 			addDependenceStructurePropertyDescriptor(object);
-			addDescriptiveModelPropertyDescriptor(object);
+			addLocalModelPropertyDescriptor(object);
 			addAppliedObjectsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -67,8 +63,7 @@ public class GroundRandomVariableItemProvider extends EntityItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInstantiatedTemplatePropertyDescriptor(Object object)
-	{
+	protected void addInstantiatedTemplatePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -90,8 +85,7 @@ public class GroundRandomVariableItemProvider extends EntityItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDependenceStructurePropertyDescriptor(Object object)
-	{
+	protected void addDependenceStructurePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -108,20 +102,19 @@ public class GroundRandomVariableItemProvider extends EntityItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Descriptive Model feature.
+	 * This adds a property descriptor for the Local Model feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDescriptiveModelPropertyDescriptor(Object object)
-	{
+	protected void addLocalModelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GroundRandomVariable_descriptiveModel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GroundRandomVariable_descriptiveModel_feature", "_UI_GroundRandomVariable_type"),
-				 StaticmodelPackage.Literals.GROUND_RANDOM_VARIABLE__DESCRIPTIVE_MODEL,
+				 getString("_UI_GroundRandomVariable_localModel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GroundRandomVariable_localModel_feature", "_UI_GroundRandomVariable_type"),
+				 StaticmodelPackage.Literals.GROUND_RANDOM_VARIABLE__LOCAL_MODEL,
 				 true,
 				 false,
 				 true,
@@ -136,8 +129,7 @@ public class GroundRandomVariableItemProvider extends EntityItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAppliedObjectsPropertyDescriptor(Object object)
-	{
+	protected void addAppliedObjectsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -160,8 +152,7 @@ public class GroundRandomVariableItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/GroundRandomVariable"));
 	}
 
@@ -172,9 +163,8 @@ public class GroundRandomVariableItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		String label = ((GroundRandomVariable)object).getId();
+	public String getText(Object object) {
+		String label = ((GroundRandomVariable)object).getEntityName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GroundRandomVariable_type") :
 			getString("_UI_GroundRandomVariable_type") + " " + label;
@@ -189,9 +179,9 @@ public class GroundRandomVariableItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**
@@ -202,8 +192,7 @@ public class GroundRandomVariableItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -214,8 +203,7 @@ public class GroundRandomVariableItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return EnvironmentaldynamicsEditPlugin.INSTANCE;
 	}
 

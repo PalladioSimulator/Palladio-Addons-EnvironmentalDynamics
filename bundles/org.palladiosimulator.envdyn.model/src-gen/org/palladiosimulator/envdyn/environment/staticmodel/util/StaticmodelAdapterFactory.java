@@ -76,8 +76,8 @@ public class StaticmodelAdapterFactory extends AdapterFactoryImpl {
 				return createGroundRandomVariableAdapter();
 			}
 			@Override
-			public Adapter caseGroundProbabilisticModel(GroundProbabilisticModel object) {
-				return createGroundProbabilisticModelAdapter();
+			public Adapter caseLocalProbabilisticModel(LocalProbabilisticModel object) {
+				return createLocalProbabilisticModelAdapter();
 			}
 			@Override
 			public Adapter caseProbabilisticModelRepository(ProbabilisticModelRepository object) {
@@ -138,16 +138,16 @@ public class StaticmodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel <em>Ground Probabilistic Model</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel <em>Local Probabilistic Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticModel
+	 * @see org.palladiosimulator.envdyn.environment.staticmodel.LocalProbabilisticModel
 	 * @generated
 	 */
-	public Adapter createGroundProbabilisticModelAdapter() {
+	public Adapter createLocalProbabilisticModelAdapter() {
 		return null;
 	}
 

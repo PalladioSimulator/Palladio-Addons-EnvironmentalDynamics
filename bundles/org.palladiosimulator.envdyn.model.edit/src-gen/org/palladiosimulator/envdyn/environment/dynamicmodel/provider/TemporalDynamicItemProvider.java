@@ -27,16 +27,14 @@ import tools.mdsd.modelingfoundations.identifier.provider.EntityItemProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TemporalDynamicItemProvider extends EntityItemProvider
-{
+public class TemporalDynamicItemProvider extends EntityItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemporalDynamicItemProvider(AdapterFactory adapterFactory)
-	{
+	public TemporalDynamicItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -47,14 +45,12 @@ public class TemporalDynamicItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addInstantiatedFactorPropertyDescriptor(object);
-			addDistributionFunctionPropertyDescriptor(object);
+			addDistributionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -65,8 +61,7 @@ public class TemporalDynamicItemProvider extends EntityItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInstantiatedFactorPropertyDescriptor(Object object)
-	{
+	protected void addInstantiatedFactorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -83,20 +78,19 @@ public class TemporalDynamicItemProvider extends EntityItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Distribution Function feature.
+	 * This adds a property descriptor for the Distribution feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDistributionFunctionPropertyDescriptor(Object object)
-	{
+	protected void addDistributionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TemporalDynamic_distributionFunction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TemporalDynamic_distributionFunction_feature", "_UI_TemporalDynamic_type"),
-				 DynamicmodelPackage.Literals.TEMPORAL_DYNAMIC__DISTRIBUTION_FUNCTION,
+				 getString("_UI_TemporalDynamic_distribution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TemporalDynamic_distribution_feature", "_UI_TemporalDynamic_type"),
+				 DynamicmodelPackage.Literals.TEMPORAL_DYNAMIC__DISTRIBUTION,
 				 true,
 				 false,
 				 true,
@@ -112,8 +106,7 @@ public class TemporalDynamicItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/TemporalDynamic"));
 	}
 
@@ -124,9 +117,8 @@ public class TemporalDynamicItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		String label = ((TemporalDynamic)object).getId();
+	public String getText(Object object) {
+		String label = ((TemporalDynamic)object).getEntityName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TemporalDynamic_type") :
 			getString("_UI_TemporalDynamic_type") + " " + label;
@@ -141,9 +133,9 @@ public class TemporalDynamicItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**
@@ -154,8 +146,7 @@ public class TemporalDynamicItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -166,8 +157,7 @@ public class TemporalDynamicItemProvider extends EntityItemProvider
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return EnvironmentaldynamicsEditPlugin.INSTANCE;
 	}
 

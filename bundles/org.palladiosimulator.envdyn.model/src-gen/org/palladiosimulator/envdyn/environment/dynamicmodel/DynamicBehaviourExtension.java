@@ -15,7 +15,7 @@ import tools.mdsd.modelingfoundations.identifier.Entity;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicBehaviourExtension#getModel <em>Model</em>}</li>
+ *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicBehaviourExtension#getGroundNetwork <em>Ground Network</em>}</li>
  *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicBehaviourExtension#getBehaviour <em>Behaviour</em>}</li>
  * </ul>
  *
@@ -23,29 +23,28 @@ import tools.mdsd.modelingfoundations.identifier.Entity;
  * @model
  * @generated
  */
-public interface DynamicBehaviourExtension extends Entity
-{
+public interface DynamicBehaviourExtension extends Entity {
 	/**
-	 * Returns the value of the '<em><b>Model</b></em>' reference.
+	 * Returns the value of the '<em><b>Ground Network</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Model</em>' reference.
-	 * @see #setModel(GroundProbabilisticNetwork)
-	 * @see org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicmodelPackage#getDynamicBehaviourExtension_Model()
+	 * @return the value of the '<em>Ground Network</em>' reference.
+	 * @see #setGroundNetwork(GroundProbabilisticNetwork)
+	 * @see org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicmodelPackage#getDynamicBehaviourExtension_GroundNetwork()
 	 * @model required="true"
 	 * @generated
 	 */
-	GroundProbabilisticNetwork getModel();
+	GroundProbabilisticNetwork getGroundNetwork();
 
 	/**
-	 * Sets the value of the '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicBehaviourExtension#getModel <em>Model</em>}' reference.
+	 * Sets the value of the '{@link org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicBehaviourExtension#getGroundNetwork <em>Ground Network</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model</em>' reference.
-	 * @see #getModel()
+	 * @param value the new value of the '<em>Ground Network</em>' reference.
+	 * @see #getGroundNetwork()
 	 * @generated
 	 */
-	void setModel(GroundProbabilisticNetwork value);
+	void setGroundNetwork(GroundProbabilisticNetwork value);
 
 	/**
 	 * Returns the value of the '<em><b>Behaviour</b></em>' containment reference.

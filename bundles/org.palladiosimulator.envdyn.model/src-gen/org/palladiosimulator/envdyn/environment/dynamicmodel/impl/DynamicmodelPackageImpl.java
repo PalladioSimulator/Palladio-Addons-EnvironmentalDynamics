@@ -210,7 +210,7 @@ public class DynamicmodelPackageImpl extends EPackageImpl implements Dynamicmode
 	 * @generated
 	 */
 	@Override
-	public EReference getDynamicBehaviourExtension_Model() {
+	public EReference getDynamicBehaviourExtension_GroundNetwork() {
 		return (EReference)dynamicBehaviourExtensionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -330,7 +330,7 @@ public class DynamicmodelPackageImpl extends EPackageImpl implements Dynamicmode
 	 * @generated
 	 */
 	@Override
-	public EReference getTemporalDynamic_DistributionFunction() {
+	public EReference getTemporalDynamic_Distribution() {
 		return (EReference)temporalDynamicEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -350,7 +350,7 @@ public class DynamicmodelPackageImpl extends EPackageImpl implements Dynamicmode
 	 * @generated
 	 */
 	@Override
-	public EReference getTimeSliceInduction_DescriptiveModel() {
+	public EReference getTimeSliceInduction_LocalModel() {
 		return (EReference)timeSliceInductionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -397,7 +397,7 @@ public class DynamicmodelPackageImpl extends EPackageImpl implements Dynamicmode
 		createEReference(dynamicBehaviourRepositoryEClass, DYNAMIC_BEHAVIOUR_REPOSITORY__EXTENSIONS);
 
 		dynamicBehaviourExtensionEClass = createEClass(DYNAMIC_BEHAVIOUR_EXTENSION);
-		createEReference(dynamicBehaviourExtensionEClass, DYNAMIC_BEHAVIOUR_EXTENSION__MODEL);
+		createEReference(dynamicBehaviourExtensionEClass, DYNAMIC_BEHAVIOUR_EXTENSION__GROUND_NETWORK);
 		createEReference(dynamicBehaviourExtensionEClass, DYNAMIC_BEHAVIOUR_EXTENSION__BEHAVIOUR);
 
 		dynamicBehaviourEClass = createEClass(DYNAMIC_BEHAVIOUR);
@@ -414,10 +414,10 @@ public class DynamicmodelPackageImpl extends EPackageImpl implements Dynamicmode
 
 		temporalDynamicEClass = createEClass(TEMPORAL_DYNAMIC);
 		createEReference(temporalDynamicEClass, TEMPORAL_DYNAMIC__INSTANTIATED_FACTOR);
-		createEReference(temporalDynamicEClass, TEMPORAL_DYNAMIC__DISTRIBUTION_FUNCTION);
+		createEReference(temporalDynamicEClass, TEMPORAL_DYNAMIC__DISTRIBUTION);
 
 		timeSliceInductionEClass = createEClass(TIME_SLICE_INDUCTION);
-		createEReference(timeSliceInductionEClass, TIME_SLICE_INDUCTION__DESCRIPTIVE_MODEL);
+		createEReference(timeSliceInductionEClass, TIME_SLICE_INDUCTION__LOCAL_MODEL);
 		createEReference(timeSliceInductionEClass, TIME_SLICE_INDUCTION__APPLIED_GROUND_VARIABLE);
 	}
 
@@ -467,7 +467,7 @@ public class DynamicmodelPackageImpl extends EPackageImpl implements Dynamicmode
 		initEReference(getDynamicBehaviourRepository_Extensions(), this.getDynamicBehaviourExtension(), null, "extensions", null, 0, -1, DynamicBehaviourRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dynamicBehaviourExtensionEClass, DynamicBehaviourExtension.class, "DynamicBehaviourExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDynamicBehaviourExtension_Model(), theStaticmodelPackage.getGroundProbabilisticNetwork(), null, "model", null, 1, 1, DynamicBehaviourExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDynamicBehaviourExtension_GroundNetwork(), theStaticmodelPackage.getGroundProbabilisticNetwork(), null, "groundNetwork", null, 1, 1, DynamicBehaviourExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDynamicBehaviourExtension_Behaviour(), this.getDynamicBehaviour(), null, "behaviour", null, 1, 1, DynamicBehaviourExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dynamicBehaviourEClass, DynamicBehaviour.class, "DynamicBehaviour", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -484,10 +484,10 @@ public class DynamicmodelPackageImpl extends EPackageImpl implements Dynamicmode
 
 		initEClass(temporalDynamicEClass, TemporalDynamic.class, "TemporalDynamic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTemporalDynamic_InstantiatedFactor(), theTemplatevariablePackage.getTemplateFactor(), null, "instantiatedFactor", null, 1, 1, TemporalDynamic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTemporalDynamic_DistributionFunction(), theDistributionfunctionPackage.getProbabilityDistribution(), null, "distributionFunction", null, 1, 1, TemporalDynamic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTemporalDynamic_Distribution(), theDistributionfunctionPackage.getProbabilityDistribution(), null, "distribution", null, 1, 1, TemporalDynamic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(timeSliceInductionEClass, TimeSliceInduction.class, "TimeSliceInduction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTimeSliceInduction_DescriptiveModel(), this.getTemporalDynamic(), null, "descriptiveModel", null, 1, 1, TimeSliceInduction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimeSliceInduction_LocalModel(), this.getTemporalDynamic(), null, "localModel", null, 1, 1, TimeSliceInduction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTimeSliceInduction_AppliedGroundVariable(), theStaticmodelPackage.getGroundRandomVariable(), null, "appliedGroundVariable", null, 1, 1, TimeSliceInduction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource

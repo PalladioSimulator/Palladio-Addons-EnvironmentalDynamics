@@ -20,8 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface LogicalVariable extends EObject
-{
+public interface LogicalVariable extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Argument</b></em>' reference.
 	 * <!-- begin-user-doc -->

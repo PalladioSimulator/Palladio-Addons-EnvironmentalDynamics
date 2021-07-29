@@ -24,23 +24,22 @@ import org.palladiosimulator.envdyn.environment.staticmodel.GroundRandomVariable
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.impl.TimeSliceInductionImpl#getDescriptiveModel <em>Descriptive Model</em>}</li>
+ *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.impl.TimeSliceInductionImpl#getLocalModel <em>Local Model</em>}</li>
  *   <li>{@link org.palladiosimulator.envdyn.environment.dynamicmodel.impl.TimeSliceInductionImpl#getAppliedGroundVariable <em>Applied Ground Variable</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class TimeSliceInductionImpl extends MinimalEObjectImpl.Container implements TimeSliceInduction
-{
+public abstract class TimeSliceInductionImpl extends MinimalEObjectImpl.Container implements TimeSliceInduction {
 	/**
-	 * The cached value of the '{@link #getDescriptiveModel() <em>Descriptive Model</em>}' reference.
+	 * The cached value of the '{@link #getLocalModel() <em>Local Model</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescriptiveModel()
+	 * @see #getLocalModel()
 	 * @generated
 	 * @ordered
 	 */
-	protected TemporalDynamic descriptiveModel;
+	protected TemporalDynamic localModel;
 
 	/**
 	 * The cached value of the '{@link #getAppliedGroundVariable() <em>Applied Ground Variable</em>}' reference.
@@ -57,8 +56,7 @@ public abstract class TimeSliceInductionImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TimeSliceInductionImpl()
-	{
+	protected TimeSliceInductionImpl() {
 		super();
 	}
 
@@ -68,8 +66,7 @@ public abstract class TimeSliceInductionImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return DynamicmodelPackage.Literals.TIME_SLICE_INDUCTION;
 	}
 
@@ -79,17 +76,16 @@ public abstract class TimeSliceInductionImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	@Override
-	public TemporalDynamic getDescriptiveModel()
-	{
-		if (descriptiveModel != null && descriptiveModel.eIsProxy()) {
-			InternalEObject oldDescriptiveModel = (InternalEObject)descriptiveModel;
-			descriptiveModel = (TemporalDynamic)eResolveProxy(oldDescriptiveModel);
-			if (descriptiveModel != oldDescriptiveModel) {
+	public TemporalDynamic getLocalModel() {
+		if (localModel != null && localModel.eIsProxy()) {
+			InternalEObject oldLocalModel = (InternalEObject)localModel;
+			localModel = (TemporalDynamic)eResolveProxy(oldLocalModel);
+			if (localModel != oldLocalModel) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DynamicmodelPackage.TIME_SLICE_INDUCTION__DESCRIPTIVE_MODEL, oldDescriptiveModel, descriptiveModel));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DynamicmodelPackage.TIME_SLICE_INDUCTION__LOCAL_MODEL, oldLocalModel, localModel));
 			}
 		}
-		return descriptiveModel;
+		return localModel;
 	}
 
 	/**
@@ -97,9 +93,8 @@ public abstract class TimeSliceInductionImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemporalDynamic basicGetDescriptiveModel()
-	{
-		return descriptiveModel;
+	public TemporalDynamic basicGetLocalModel() {
+		return localModel;
 	}
 
 	/**
@@ -108,12 +103,11 @@ public abstract class TimeSliceInductionImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	@Override
-	public void setDescriptiveModel(TemporalDynamic newDescriptiveModel)
-	{
-		TemporalDynamic oldDescriptiveModel = descriptiveModel;
-		descriptiveModel = newDescriptiveModel;
+	public void setLocalModel(TemporalDynamic newLocalModel) {
+		TemporalDynamic oldLocalModel = localModel;
+		localModel = newLocalModel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DynamicmodelPackage.TIME_SLICE_INDUCTION__DESCRIPTIVE_MODEL, oldDescriptiveModel, descriptiveModel));
+			eNotify(new ENotificationImpl(this, Notification.SET, DynamicmodelPackage.TIME_SLICE_INDUCTION__LOCAL_MODEL, oldLocalModel, localModel));
 	}
 
 	/**
@@ -122,8 +116,7 @@ public abstract class TimeSliceInductionImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	@Override
-	public GroundRandomVariable getAppliedGroundVariable()
-	{
+	public GroundRandomVariable getAppliedGroundVariable() {
 		if (appliedGroundVariable != null && appliedGroundVariable.eIsProxy()) {
 			InternalEObject oldAppliedGroundVariable = (InternalEObject)appliedGroundVariable;
 			appliedGroundVariable = (GroundRandomVariable)eResolveProxy(oldAppliedGroundVariable);
@@ -140,8 +133,7 @@ public abstract class TimeSliceInductionImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GroundRandomVariable basicGetAppliedGroundVariable()
-	{
+	public GroundRandomVariable basicGetAppliedGroundVariable() {
 		return appliedGroundVariable;
 	}
 
@@ -151,8 +143,7 @@ public abstract class TimeSliceInductionImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	@Override
-	public void setAppliedGroundVariable(GroundRandomVariable newAppliedGroundVariable)
-	{
+	public void setAppliedGroundVariable(GroundRandomVariable newAppliedGroundVariable) {
 		GroundRandomVariable oldAppliedGroundVariable = appliedGroundVariable;
 		appliedGroundVariable = newAppliedGroundVariable;
 		if (eNotificationRequired())
@@ -165,12 +156,11 @@ public abstract class TimeSliceInductionImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DynamicmodelPackage.TIME_SLICE_INDUCTION__DESCRIPTIVE_MODEL:
-				if (resolve) return getDescriptiveModel();
-				return basicGetDescriptiveModel();
+			case DynamicmodelPackage.TIME_SLICE_INDUCTION__LOCAL_MODEL:
+				if (resolve) return getLocalModel();
+				return basicGetLocalModel();
 			case DynamicmodelPackage.TIME_SLICE_INDUCTION__APPLIED_GROUND_VARIABLE:
 				if (resolve) return getAppliedGroundVariable();
 				return basicGetAppliedGroundVariable();
@@ -184,11 +174,10 @@ public abstract class TimeSliceInductionImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DynamicmodelPackage.TIME_SLICE_INDUCTION__DESCRIPTIVE_MODEL:
-				setDescriptiveModel((TemporalDynamic)newValue);
+			case DynamicmodelPackage.TIME_SLICE_INDUCTION__LOCAL_MODEL:
+				setLocalModel((TemporalDynamic)newValue);
 				return;
 			case DynamicmodelPackage.TIME_SLICE_INDUCTION__APPLIED_GROUND_VARIABLE:
 				setAppliedGroundVariable((GroundRandomVariable)newValue);
@@ -203,11 +192,10 @@ public abstract class TimeSliceInductionImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
+	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DynamicmodelPackage.TIME_SLICE_INDUCTION__DESCRIPTIVE_MODEL:
-				setDescriptiveModel((TemporalDynamic)null);
+			case DynamicmodelPackage.TIME_SLICE_INDUCTION__LOCAL_MODEL:
+				setLocalModel((TemporalDynamic)null);
 				return;
 			case DynamicmodelPackage.TIME_SLICE_INDUCTION__APPLIED_GROUND_VARIABLE:
 				setAppliedGroundVariable((GroundRandomVariable)null);
@@ -222,11 +210,10 @@ public abstract class TimeSliceInductionImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DynamicmodelPackage.TIME_SLICE_INDUCTION__DESCRIPTIVE_MODEL:
-				return descriptiveModel != null;
+			case DynamicmodelPackage.TIME_SLICE_INDUCTION__LOCAL_MODEL:
+				return localModel != null;
 			case DynamicmodelPackage.TIME_SLICE_INDUCTION__APPLIED_GROUND_VARIABLE:
 				return appliedGroundVariable != null;
 		}

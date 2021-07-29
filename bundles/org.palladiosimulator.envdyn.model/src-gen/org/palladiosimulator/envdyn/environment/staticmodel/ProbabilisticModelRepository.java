@@ -22,8 +22,7 @@ import tools.mdsd.modelingfoundations.identifier.Entity;
  * @model
  * @generated
  */
-public interface ProbabilisticModelRepository extends Entity
-{
+public interface ProbabilisticModelRepository extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Models</b></em>' containment reference list.
 	 * The list contents are of type {@link org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork}.

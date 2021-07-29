@@ -91,8 +91,7 @@ import org.eclipse.ui.PartInitException;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TemplatevariableModelWizard extends Wizard implements INewWizard
-{
+public class TemplatevariableModelWizard extends Wizard implements INewWizard {
 	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc -->
@@ -174,8 +173,7 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 	 * @generated
 	 */
 	@Override
-	public void init(IWorkbench workbench, IStructuredSelection selection)
-	{
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(EnvironmentaldynamicsEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
@@ -188,18 +186,13 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection<String> getInitialObjectNames()
-	{
-		if (initialObjectNames == null)
-		{
+	protected Collection<String> getInitialObjectNames() {
+		if (initialObjectNames == null) {
 			initialObjectNames = new ArrayList<String>();
-			for (EClassifier eClassifier : templatevariablePackage.getEClassifiers())
-			{
-				if (eClassifier instanceof EClass)
-				{
+			for (EClassifier eClassifier : templatevariablePackage.getEClassifiers()) {
+				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass)eClassifier;
-					if (!eClass.isAbstract())
-					{
+					if (!eClass.isAbstract()) {
 						initialObjectNames.add(eClass.getName());
 					}
 				}
@@ -215,8 +208,7 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EObject createInitialModel()
-	{
+	protected EObject createInitialModel() {
 		EClass eClass = (EClass)templatevariablePackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = templatevariableFactory.create(eClass);
 		return rootObject;
@@ -229,10 +221,8 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 	 * @generated
 	 */
 	@Override
-	public boolean performFinish()
-	{
-		try
-		{
+	public boolean performFinish() {
+		try {
 			// Remember the file.
 			//
 			final IFile modelFile = getModelFile();
@@ -240,13 +230,10 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 			// Do the work within an operation.
 			//
 			WorkspaceModifyOperation operation =
-				new WorkspaceModifyOperation()
-				{
+				new WorkspaceModifyOperation() {
 					@Override
-					protected void execute(IProgressMonitor progressMonitor)
-					{
-						try
-						{
+					protected void execute(IProgressMonitor progressMonitor) {
+						try {
 							// Create a resource set
 							//
 							ResourceSet resourceSet = new ResourceSetImpl();
@@ -262,8 +249,7 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 							// Add the initial model object to the contents.
 							//
 							EObject rootObject = createInitialModel();
-							if (rootObject != null)
-							{
+							if (rootObject != null) {
 								resource.getContents().add(rootObject);
 							}
 
@@ -273,12 +259,10 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 							options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
 							resource.save(options);
 						}
-						catch (Exception exception)
-						{
+						catch (Exception exception) {
 							EnvironmentaldynamicsEditorPlugin.INSTANCE.log(exception);
 						}
-						finally
-						{
+						finally {
 							progressMonitor.done();
 						}
 					}
@@ -291,15 +275,12 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 			IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow();
 			IWorkbenchPage page = workbenchWindow.getActivePage();
 			final IWorkbenchPart activePart = page.getActivePart();
-			if (activePart instanceof ISetSelectionTarget)
-			{
+			if (activePart instanceof ISetSelectionTarget) {
 				final ISelection targetSelection = new StructuredSelection(modelFile);
 				getShell().getDisplay().asyncExec
-					(new Runnable()
-					 {
+					(new Runnable() {
 						 @Override
-						 public void run()
-						 {
+						 public void run() {
 							 ((ISetSelectionTarget)activePart).selectReveal(targetSelection);
 						 }
 					 });
@@ -307,22 +288,19 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 
 			// Open an editor on the new file.
 			//
-			try
-			{
+			try {
 				page.openEditor
 					(new FileEditorInput(modelFile),
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
 			}
-			catch (PartInitException exception)
-			{
+			catch (PartInitException exception) {
 				MessageDialog.openError(workbenchWindow.getShell(), EnvironmentaldynamicsEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
-		catch (Exception exception)
-		{
+		catch (Exception exception) {
 			EnvironmentaldynamicsEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
@@ -334,16 +312,14 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class TemplatevariableModelWizardNewFileCreationPage extends WizardNewFileCreationPage
-	{
+	public class TemplatevariableModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public TemplatevariableModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection)
-		{
+		public TemplatevariableModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
 		}
 
@@ -354,13 +330,10 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 		 * @generated
 		 */
 		@Override
-		protected boolean validatePage()
-		{
-			if (super.validatePage())
-			{
+		protected boolean validatePage() {
+			if (super.validatePage()) {
 				String extension = new Path(getFileName()).getFileExtension();
-				if (extension == null || !FILE_EXTENSIONS.contains(extension))
-				{
+				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
 					setErrorMessage(EnvironmentaldynamicsEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
@@ -375,8 +348,7 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public IFile getModelFile()
-		{
+		public IFile getModelFile() {
 			return ResourcesPlugin.getWorkspace().getRoot().getFile(getContainerFullPath().append(getFileName()));
 		}
 	}
@@ -387,8 +359,7 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class TemplatevariableModelWizardInitialObjectCreationPage extends WizardPage
-	{
+	public class TemplatevariableModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -416,8 +387,7 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public TemplatevariableModelWizardInitialObjectCreationPage(String pageId)
-		{
+		public TemplatevariableModelWizardInitialObjectCreationPage(String pageId) {
 			super(pageId);
 		}
 
@@ -427,8 +397,7 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 		 * @generated
 		 */
 		@Override
-		public void createControl(Composite parent)
-		{
+		public void createControl(Composite parent) {
 			Composite composite = new Composite(parent, SWT.NONE);
 			{
 				GridLayout layout = new GridLayout();
@@ -460,13 +429,11 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 				initialObjectField.setLayoutData(data);
 			}
 
-			for (String objectName : getInitialObjectNames())
-			{
+			for (String objectName : getInitialObjectNames()) {
 				initialObjectField.add(getLabel(objectName));
 			}
 
-			if (initialObjectField.getItemCount() == 1)
-			{
+			if (initialObjectField.getItemCount() == 1) {
 				initialObjectField.select(0);
 			}
 			initialObjectField.addModifyListener(validator);
@@ -487,8 +454,7 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 				encodingField.setLayoutData(data);
 			}
 
-			for (String encoding : getEncodings())
-			{
+			for (String encoding : getEncodings()) {
 				encodingField.add(encoding);
 			}
 
@@ -505,11 +471,9 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 		 * @generated
 		 */
 		protected ModifyListener validator =
-			new ModifyListener()
-			{
+			new ModifyListener() {
 				@Override
-				public void modifyText(ModifyEvent e)
-				{
+				public void modifyText(ModifyEvent e) {
 					setPageComplete(validatePage());
 				}
 			};
@@ -519,8 +483,7 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		protected boolean validatePage()
-		{
+		protected boolean validatePage() {
 			return getInitialObjectName() != null && getEncodings().contains(encodingField.getText());
 		}
 
@@ -530,18 +493,14 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 		 * @generated
 		 */
 		@Override
-		public void setVisible(boolean visible)
-		{
+		public void setVisible(boolean visible) {
 			super.setVisible(visible);
-			if (visible)
-			{
-				if (initialObjectField.getItemCount() == 1)
-				{
+			if (visible) {
+				if (initialObjectField.getItemCount() == 1) {
 					initialObjectField.clearSelection();
 					encodingField.setFocus();
 				}
-				else
-				{
+				else {
 					encodingField.clearSelection();
 					initialObjectField.setFocus();
 				}
@@ -553,14 +512,11 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public String getInitialObjectName()
-		{
+		public String getInitialObjectName() {
 			String label = initialObjectField.getText();
 
-			for (String name : getInitialObjectNames())
-			{
-				if (getLabel(name).equals(label))
-				{
+			for (String name : getInitialObjectNames()) {
+				if (getLabel(name).equals(label)) {
 					return name;
 				}
 			}
@@ -572,8 +528,7 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public String getEncoding()
-		{
+		public String getEncoding() {
 			return encodingField.getText();
 		}
 
@@ -583,14 +538,11 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		protected String getLabel(String typeName)
-		{
-			try
-			{
+		protected String getLabel(String typeName) {
+			try {
 				return EnvironmentaldynamicsEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
-			catch(MissingResourceException mre)
-			{
+			catch(MissingResourceException mre) {
 				EnvironmentaldynamicsEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
@@ -601,13 +553,10 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		protected Collection<String> getEncodings()
-		{
-			if (encodings == null)
-			{
+		protected Collection<String> getEncodings() {
+			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(EnvironmentaldynamicsEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); )
-				{
+				for (StringTokenizer stringTokenizer = new StringTokenizer(EnvironmentaldynamicsEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -622,8 +571,7 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 	 * @generated
 	 */
 		@Override
-	public void addPages()
-	{
+	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new TemplatevariableModelWizardNewFileCreationPage("Whatever", selection);
@@ -634,25 +582,21 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
 		//
-		if (selection != null && !selection.isEmpty())
-		{
+		if (selection != null && !selection.isEmpty()) {
 			// Get the resource...
 			//
 			Object selectedElement = selection.iterator().next();
-			if (selectedElement instanceof IResource)
-			{
+			if (selectedElement instanceof IResource) {
 				// Get the resource parent, if its a file.
 				//
 				IResource selectedResource = (IResource)selectedElement;
-				if (selectedResource.getType() == IResource.FILE)
-				{
+				if (selectedResource.getType() == IResource.FILE) {
 					selectedResource = selectedResource.getParent();
 				}
 
 				// This gives us a directory...
 				//
-				if (selectedResource instanceof IFolder || selectedResource instanceof IProject)
-				{
+				if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
 					// Set this for the container.
 					//
 					newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
@@ -662,8 +606,7 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 					String defaultModelBaseFilename = EnvironmentaldynamicsEditorPlugin.INSTANCE.getString("_UI_TemplatevariableEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i)
-					{
+					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
 						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
 					}
 					newFileCreationPage.setFileName(modelFilename);
@@ -682,8 +625,7 @@ public class TemplatevariableModelWizard extends Wizard implements INewWizard
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IFile getModelFile()
-	{
+	public IFile getModelFile() {
 		return newFileCreationPage.getModelFile();
 	}
 
