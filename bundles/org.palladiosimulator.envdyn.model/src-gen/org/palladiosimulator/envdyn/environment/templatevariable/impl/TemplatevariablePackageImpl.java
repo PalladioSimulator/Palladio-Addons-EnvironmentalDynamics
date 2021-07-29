@@ -292,18 +292,8 @@ public class TemplatevariablePackageImpl extends EPackageImpl implements Templat
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTemplateVariable_Shared() {
-		return (EAttribute)templateVariableEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getTemplateVariable_Signature() {
-		return (EReference)templateVariableEClass.getEStructuralFeatures().get(1);
+		return (EReference)templateVariableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -313,7 +303,7 @@ public class TemplatevariablePackageImpl extends EPackageImpl implements Templat
 	 */
 	@Override
 	public EReference getTemplateVariable_Refines() {
-		return (EReference)templateVariableEClass.getEStructuralFeatures().get(2);
+		return (EReference)templateVariableEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -583,7 +573,6 @@ public class TemplatevariablePackageImpl extends EPackageImpl implements Templat
 		createEReference(templateVariableDefinitionsEClass, TEMPLATE_VARIABLE_DEFINITIONS__TEMPLATE_GROUPS);
 
 		templateVariableEClass = createEClass(TEMPLATE_VARIABLE);
-		createEAttribute(templateVariableEClass, TEMPLATE_VARIABLE__SHARED);
 		createEReference(templateVariableEClass, TEMPLATE_VARIABLE__SIGNATURE);
 		createEReference(templateVariableEClass, TEMPLATE_VARIABLE__REFINES);
 
@@ -677,7 +666,6 @@ public class TemplatevariablePackageImpl extends EPackageImpl implements Templat
 		initEReference(getTemplateVariableDefinitions_TemplateGroups(), this.getTemplateVariableGroup(), null, "templateGroups", null, 0, -1, TemplateVariableDefinitions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(templateVariableEClass, TemplateVariable.class, "TemplateVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTemplateVariable_Shared(), ecorePackage.getEBoolean(), "shared", null, 1, 1, TemplateVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTemplateVariable_Signature(), this.getLogicalVariable(), null, "signature", null, 1, -1, TemplateVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTemplateVariable_Refines(), this.getTemplateVariable(), null, "refines", null, 0, 1, TemplateVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

@@ -17,8 +17,6 @@
           eType="#//templatevariable/TemplateVariableGroup" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TemplateVariable" eSuperTypes="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="shared" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="signature" lowerBound="1"
           upperBound="-1" eType="#//templatevariable/LogicalVariable" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="refines" eType="#//templatevariable/TemplateVariable"/>

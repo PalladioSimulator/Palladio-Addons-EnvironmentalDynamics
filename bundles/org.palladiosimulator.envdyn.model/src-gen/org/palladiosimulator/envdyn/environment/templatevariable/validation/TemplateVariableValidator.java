@@ -18,7 +18,6 @@ import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariabl
 public interface TemplateVariableValidator {
 	boolean validate();
 
-	boolean validateShared(boolean value);
 	boolean validateSignature(EList<LogicalVariable> value);
 	boolean validateRefines(TemplateVariable value);
 }

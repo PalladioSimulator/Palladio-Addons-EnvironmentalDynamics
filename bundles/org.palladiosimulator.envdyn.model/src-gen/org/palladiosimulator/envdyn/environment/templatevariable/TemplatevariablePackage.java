@@ -179,22 +179,13 @@ public interface TemplatevariablePackage extends EPackage {
 	int TEMPLATE_VARIABLE__ENTITY_NAME = IdentifierPackage.ENTITY__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Shared</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMPLATE_VARIABLE__SHARED = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Signature</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPLATE_VARIABLE__SIGNATURE = IdentifierPackage.ENTITY_FEATURE_COUNT + 1;
+	int TEMPLATE_VARIABLE__SIGNATURE = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference.
@@ -203,7 +194,7 @@ public interface TemplatevariablePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPLATE_VARIABLE__REFINES = IdentifierPackage.ENTITY_FEATURE_COUNT + 2;
+	int TEMPLATE_VARIABLE__REFINES = IdentifierPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Template Variable</em>' class.
@@ -212,7 +203,7 @@ public interface TemplatevariablePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPLATE_VARIABLE_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 3;
+	int TEMPLATE_VARIABLE_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Template Variable</em>' class.
@@ -806,17 +797,6 @@ public interface TemplatevariablePackage extends EPackage {
 	EClass getTemplateVariable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariable#isShared <em>Shared</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Shared</em>'.
-	 * @see org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariable#isShared()
-	 * @see #getTemplateVariable()
-	 * @generated
-	 */
-	EAttribute getTemplateVariable_Shared();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariable#getSignature <em>Signature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1162,14 +1142,6 @@ public interface TemplatevariablePackage extends EPackage {
 		 * @generated
 		 */
 		EClass TEMPLATE_VARIABLE = eINSTANCE.getTemplateVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Shared</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEMPLATE_VARIABLE__SHARED = eINSTANCE.getTemplateVariable_Shared();
 
 		/**
 		 * The meta object literal for the '<em><b>Signature</b></em>' containment reference list feature.

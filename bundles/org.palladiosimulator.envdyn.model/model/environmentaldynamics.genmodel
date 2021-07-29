@@ -25,7 +25,6 @@
       </genClasses>
       <genClasses ecoreClass="environmentaldynamics.ecore#//templatevariable/TemplateVariable"
           labelFeature="platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environmentaldynamics.ecore#//templatevariable/TemplateVariable/shared"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariable/signature"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference environmentaldynamics.ecore#//templatevariable/TemplateVariable/refines"/>

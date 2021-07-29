@@ -31,7 +31,6 @@ import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.envdyn.environment.templatevariable.impl.TemplateVariableImpl#isShared <em>Shared</em>}</li>
  *   <li>{@link org.palladiosimulator.envdyn.environment.templatevariable.impl.TemplateVariableImpl#getSignature <em>Signature</em>}</li>
  *   <li>{@link org.palladiosimulator.envdyn.environment.templatevariable.impl.TemplateVariableImpl#getRefines <em>Refines</em>}</li>
  * </ul>
@@ -39,26 +38,6 @@ import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
  * @generated
  */
 public class TemplateVariableImpl extends EntityImpl implements TemplateVariable {
-	/**
-	 * The default value of the '{@link #isShared() <em>Shared</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isShared()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean SHARED_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isShared() <em>Shared</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isShared()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean shared = SHARED_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getSignature() <em>Signature</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -96,29 +75,6 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	@Override
 	protected EClass eStaticClass() {
 		return TemplatevariablePackage.Literals.TEMPLATE_VARIABLE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isShared() {
-		return shared;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setShared(boolean newShared) {
-		boolean oldShared = shared;
-		shared = newShared;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TemplatevariablePackage.TEMPLATE_VARIABLE__SHARED, oldShared, shared));
 	}
 
 	/**
@@ -196,8 +152,6 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TemplatevariablePackage.TEMPLATE_VARIABLE__SHARED:
-				return isShared();
 			case TemplatevariablePackage.TEMPLATE_VARIABLE__SIGNATURE:
 				return getSignature();
 			case TemplatevariablePackage.TEMPLATE_VARIABLE__REFINES:
@@ -216,9 +170,6 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TemplatevariablePackage.TEMPLATE_VARIABLE__SHARED:
-				setShared((Boolean)newValue);
-				return;
 			case TemplatevariablePackage.TEMPLATE_VARIABLE__SIGNATURE:
 				getSignature().clear();
 				getSignature().addAll((Collection<? extends LogicalVariable>)newValue);
@@ -238,9 +189,6 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TemplatevariablePackage.TEMPLATE_VARIABLE__SHARED:
-				setShared(SHARED_EDEFAULT);
-				return;
 			case TemplatevariablePackage.TEMPLATE_VARIABLE__SIGNATURE:
 				getSignature().clear();
 				return;
@@ -259,30 +207,12 @@ public class TemplateVariableImpl extends EntityImpl implements TemplateVariable
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TemplatevariablePackage.TEMPLATE_VARIABLE__SHARED:
-				return shared != SHARED_EDEFAULT;
 			case TemplatevariablePackage.TEMPLATE_VARIABLE__SIGNATURE:
 				return signature != null && !signature.isEmpty();
 			case TemplatevariablePackage.TEMPLATE_VARIABLE__REFINES:
 				return refines != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (shared: ");
-		result.append(shared);
-		result.append(')');
-		return result.toString();
 	}
 
 } //TemplateVariableImpl
