@@ -4,7 +4,9 @@ import static org.palladiosimulator.envdyn.api.generator.annotation.AnnotationCo
 import static org.palladiosimulator.envdyn.api.generator.annotation.AnnotationConstants.INSTANTIATION_POSTFIX;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
+import java.util.function.Predicate;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -27,13 +29,52 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
 public class AnnotationInstantiationStrategy implements NetworkInstantiationStrategy {
+	
+	private static class GroundRandomVariableCache {
+		
+		Set<GroundRandomVariable> cache;
+		
+		public GroundRandomVariableCache() {
+			this.cache = Sets.newHashSet();
+		}
+		
+		public void cache(GroundRandomVariable variable) {
+			cache.add(variable);
+		}
+		
+		public Optional<GroundRandomVariable> findVariableWith(TemplateVariable template, Set<EObject> objects) {
+			return cache.stream()
+					.filter(variableInstantiating(template, objects))
+					.findFirst();
+					
+		}
 
+		private Predicate<GroundRandomVariable> variableInstantiating(TemplateVariable template,
+				Set<EObject> objects) {
+			return variable -> {
+				boolean unequalTemplates = !variable.getInstantiatedTemplate().getId().equals(template.getId());
+				if (unequalTemplates) {
+					return false;
+				}
+				
+				List<EObject> appliedObjs = Lists.newArrayList(variable.getAppliedObjects());
+				for (EObject each : objects) {
+					appliedObjs.removeIf(obj -> obj == each);
+				}
+				return appliedObjs.size() == 0;
+			};
+		}
+		
+	}
+	
 	private final static StaticmodelFactory MODEL_FACTORY = StaticmodelFactory.eINSTANCE;
 
 	private final InstantiationContextProvider contextProvider;
+	private final GroundRandomVariableCache groundVariableCache;
 
 	public AnnotationInstantiationStrategy(TemplateVariableDefinitions templateDefinitions) {
 		this.contextProvider = new InstantiationContextProvider(templateDefinitions);
+		this.groundVariableCache = new GroundRandomVariableCache();
 	}
 
 	@Override
@@ -67,11 +108,8 @@ public class AnnotationInstantiationStrategy implements NetworkInstantiationStra
 	private List<GroundRandomVariable> instantiateGroundVariables(ResolvedInstantiationContext resolved) {
 		List<GroundRandomVariable> result = Lists.newArrayList();
 		for (TemplateVariable each : resolved.getInstantiatedTemplates()) {
-			if (resolved.singleInstantiation(each)) {
-				result.add(createRandomVariable(each, resolved));
-			} else {
-				result.addAll(createRandomVariables(each, resolved));
-			}
+			GroundRandomVariable variable = createRandomVariable(each, resolved);
+			result.add(variable);
 		}
 		return result;
 	}
@@ -83,23 +121,15 @@ public class AnnotationInstantiationStrategy implements NetworkInstantiationStra
 
 		Set<EObject> appliedObjects = resolved.filterElementsInstantiating(template);
 		Set<DependenceRelation> dependenceStructure = defQuery.filterRelationsWithTarget(Sets.newHashSet(template));
-
-		return createRandomVariable(template, dependenceStructure, appliedObjects);
-	}
-
-	private List<GroundRandomVariable> createRandomVariables(TemplateVariable template,
-			ResolvedInstantiationContext resolved) {
-		List<GroundRandomVariable> variables = Lists.newArrayList();
-		for (InstantiationContext each : resolved.filterContextsIncluding(template)) {
-			TemplateDefinitionsQuerying defQuery = TemplateDefinitionsQuerying
-					.withBaseTemplatesOnly((TemplateVariableDefinitions) template.eContainer());
-
-			Set<EObject> appliedObjects = Sets.newHashSet(each.getAppliedObject());
-			Set<DependenceRelation> dependenceStructure = defQuery.filterRelationsWithTarget(Sets.newHashSet(template));
-
-			variables.add(createRandomVariable(template, dependenceStructure, appliedObjects));
+		
+		Optional<GroundRandomVariable> cachedVariable = groundVariableCache.findVariableWith(template, appliedObjects);
+		if (cachedVariable.isPresent()) {
+			return cachedVariable.get();
 		}
-		return variables;
+
+		GroundRandomVariable variable = createRandomVariable(template, dependenceStructure, appliedObjects);
+		groundVariableCache.cache(variable);
+		return variable;
 	}
 
 	private GroundRandomVariable createRandomVariable(TemplateVariable template,
