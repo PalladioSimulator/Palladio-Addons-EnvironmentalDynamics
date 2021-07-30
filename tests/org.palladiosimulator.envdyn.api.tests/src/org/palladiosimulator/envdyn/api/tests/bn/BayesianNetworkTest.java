@@ -16,6 +16,10 @@ import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariabl
 
 public class BayesianNetworkTest extends BayesianModelTest {
 
+	private final static int EXPECTED_NUMBER_OF_VARIABLES = 12;
+	private final static int EXPECTED_NUMBER_OF_LOCAL_NETWORKS = 7;
+	private final static int EXPECTED_NUMBER_OF_LOCAL_MODELS = EXPECTED_NUMBER_OF_VARIABLES;
+	
 	private TemplateVariableDefinitions templateDefinitions;
 	private BayesianNetwork bayNetwork;
 	private List<InputValue> sample;
@@ -50,7 +54,9 @@ public class BayesianNetworkTest extends BayesianModelTest {
 	}
 
 	private void thenBNIsProperlyGenerated() {
-		assertTrue(bayNetwork.getGroundVariables().size() > 0);
+		assertTrue(bayNetwork.getGroundVariables().size() == EXPECTED_NUMBER_OF_VARIABLES);
+		assertTrue(bayNetwork.getLocalProbabilisticNetworks().size() == EXPECTED_NUMBER_OF_LOCAL_NETWORKS);
+		assertTrue(bayNetwork.get().getLocalModels().size() == EXPECTED_NUMBER_OF_LOCAL_MODELS);
 	}
 
 	private void givenBayesianNetwork() {

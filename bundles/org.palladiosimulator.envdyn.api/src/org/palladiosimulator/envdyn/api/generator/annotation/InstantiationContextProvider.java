@@ -5,6 +5,7 @@ import static java.util.stream.Collectors.toSet;
 import static org.palladiosimulator.envdyn.api.util.AnnotationHandler.filterAnnotated;
 import static org.palladiosimulator.envdyn.api.util.AnnotationHandler.getInstantiationTag;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -13,8 +14,8 @@ import java.util.function.Predicate;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.modelversioning.emfprofile.Stereotype;
+import org.palladiosimulator.envdyn.api.exception.EnvironmentalDynamicsException;
 import org.palladiosimulator.envdyn.api.util.AnnotationHandler;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariable;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariableDefinitions;
@@ -76,25 +77,67 @@ public class InstantiationContextProvider {
 			return c -> contains(template, c.getTemplates());
 		}
 
-		private boolean contains(TemplateVariable template, Set<TemplateVariable> templates) {
+		private boolean contains(TemplateVariable template, Collection<TemplateVariable> templates) {
 			return templates.stream().anyMatch(t -> t.getId().equals(template.getId()));
 		}
+		
+		
 
 		private Set<TemplateVariable> getCommonTemplateStructure(Set<InstantiationContext> contexts) {
-			List<TemplateVariable> result = Lists.newArrayList();
-			InstantiationContext dummyContext = Lists.newArrayList(contexts).get(0);
-			EObject dummyElement = dummyContext.getAppliedObject();
+			InstantiationContext anyContext = Lists.newArrayList(contexts).get(0);
+			EObject anyElement = anyContext.getAppliedObject();
 
-			Optional<TemplateVariableGroup> group = ANNOTATION_HANDLER.getTemplateGroup(dummyContext.getStereotype(),
-					dummyElement);
-			if (group.isPresent()) {
-				EcoreUtil.resolveAll(group.get());
-				result.addAll(group.get().getGroupedTemplates());
-			} else {
-				result.add(ANNOTATION_HANDLER.getTemplate(dummyContext.getStereotype(), dummyElement).get());
+			List<TemplateVariableGroup> groups = ANNOTATION_HANDLER.getTemplateGroups(anyContext.getStereotype(),
+					anyElement);
+			if (groups.size() > 0) {
+				return retrieveCommonTemplateStructure(contexts);
 			}
 
-			return Sets.newHashSet(result);
+			List<TemplateVariable> templates = ANNOTATION_HANDLER.getTemplates(anyContext.getStereotype(), anyElement);
+			if (templates.size() > 0) {
+				return retrieveCommonTemplate(contexts);
+			}
+
+			throw new EnvironmentalDynamicsException(String
+					.format("There are no template instntiations for instantiation tag %s", anyContext.getTagId()));
+		}
+
+		private Set<TemplateVariable> retrieveCommonTemplateStructure(Set<InstantiationContext> contexts) {
+			Map<String, List<TemplateVariableGroup>> groupCluster = contexts.stream()
+					.flatMap(each -> ANNOTATION_HANDLER.getTemplateGroups(each.getStereotype(), each.getAppliedObject()).stream())
+					.collect(groupingBy(TemplateVariableGroup::getEntityName));
+			
+			for (String each : groupCluster.keySet()) {
+				TemplateVariableGroup group = groupCluster.get(each).get(0);
+				boolean isInAllContextsIncluded = contexts.stream().allMatch(c -> {
+					List<TemplateVariableGroup> groups = ANNOTATION_HANDLER.getTemplateGroups(c.getStereotype(), c.getAppliedObject());
+					return groups.stream().anyMatch(g -> g.getEntityName().equals(group.getEntityName()));
+				});
+				if (isInAllContextsIncluded) {
+					return Sets.newHashSet(group.getGroupedTemplates());
+				}
+			}
+
+			throw new EnvironmentalDynamicsException("There is no common template structure.");
+		}
+
+		private Set<TemplateVariable> retrieveCommonTemplate(Set<InstantiationContext> contexts) {
+			Map<String, List<TemplateVariable>> templateCluster = contexts.stream()
+					.flatMap(each -> ANNOTATION_HANDLER.getTemplates(each.getStereotype(), each.getAppliedObject()).stream())
+					.collect(groupingBy(TemplateVariable::getId));
+			
+			for (String each : templateCluster.keySet()) {
+				TemplateVariable template = templateCluster.get(each).get(0);
+				boolean isInAllContextsIncluded = contexts.stream().allMatch(c -> {
+					List<TemplateVariable> templates = ANNOTATION_HANDLER.getTemplates(c.getStereotype(), c.getAppliedObject());
+					return contains(template, templates);
+				});
+				if (isInAllContextsIncluded) {
+					return Sets.newHashSet(template);
+				}
+			}
+
+			throw new EnvironmentalDynamicsException("There is no common template structure.");
 		}
 
 	}

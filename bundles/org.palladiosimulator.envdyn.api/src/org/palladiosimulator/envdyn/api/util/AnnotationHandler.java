@@ -81,13 +81,15 @@ public class AnnotationHandler {
 //		};
 //	}
 
-	public Optional<TemplateVariableGroup> getTemplateGroup(Stereotype tag, EObject appliedElement) {
-		return Optional.ofNullable(
-				(TemplateVariableGroup) getAppliedParameter(tag, appliedElement, TAGGED_TEMPLATE_GROUP_NAME));
+	@SuppressWarnings("unchecked")
+	public List<TemplateVariableGroup> getTemplateGroups(Stereotype tag, EObject appliedElement) {
+		Object templateGroups = getAppliedParameter(tag, appliedElement, TAGGED_TEMPLATE_GROUP_NAME);
+		return (List<TemplateVariableGroup>) templateGroups;
 	}
 
-	public Optional<TemplateVariable> getTemplate(Stereotype tag, EObject appliedElement) {
-		return Optional.ofNullable((TemplateVariable) getAppliedParameter(tag, appliedElement, TAGGED_TEMPLATE_NAME));
+	@SuppressWarnings("unchecked")
+	public List<TemplateVariable> getTemplates(Stereotype tag, EObject appliedElement) {
+		return (List<TemplateVariable>) getAppliedParameter(tag, appliedElement, TAGGED_TEMPLATE_NAME);
 	}
 
 	public Optional<Argument> getArgument(EObject appliedElement, Stereotype tag) {
