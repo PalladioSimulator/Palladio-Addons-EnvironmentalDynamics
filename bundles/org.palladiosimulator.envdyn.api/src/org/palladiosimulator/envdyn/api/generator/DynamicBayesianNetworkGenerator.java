@@ -31,6 +31,7 @@ import org.palladiosimulator.envdyn.environment.templatevariable.TemporalRelatio
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
+import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
 import tools.mdsd.probdist.distributiontype.DistributiontypeFactory;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionType;
@@ -51,10 +52,10 @@ public class DynamicBayesianNetworkGenerator extends ProbabilisticNetworkGenerat
 	}
 
 	@Override
-	public DynamicBayesianNetwork createProbabilisticNetwork(GroundProbabilisticNetwork network) {
-		BayesianNetwork initial = new BayesianNetworkGenerator(definitions).createProbabilisticNetwork(network);
+	public DynamicBayesianNetwork createProbabilisticNetwork(GroundProbabilisticNetwork network, IProbabilityDistributionFactory probabilityDistributionFactory) {
+		BayesianNetwork initial = new BayesianNetworkGenerator(definitions).createProbabilisticNetwork(network, probabilityDistributionFactory);
 		DynamicBehaviourExtension extension = createDynamicBehaviourExtensionAndRepo(initial);
-		return new DynamicBayesianNetwork(createDistributionSkeleton(extension), initial, extension);
+		return new DynamicBayesianNetwork(createDistributionSkeleton(extension), initial, extension, probabilityDistributionFactory);
 	}
 
 	private DynamicBehaviourExtension createDynamicBehaviourExtensionAndRepo(BayesianNetwork initial) {

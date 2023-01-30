@@ -5,6 +5,8 @@ import org.palladiosimulator.envdyn.api.generator.annotation.AnnotationInstantia
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariableDefinitions;
 
+import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
+
 public abstract class ProbabilisticNetworkGenerator<T> {
 	
 	protected final TemplateVariableDefinitions definitions;
@@ -20,9 +22,9 @@ public abstract class ProbabilisticNetworkGenerator<T> {
 		this(definitions, new AnnotationInstantiationStrategy(definitions));
 	}
 
-	public T generate(ResourceSet appliedModels) {
-		return createProbabilisticNetwork(instantiationStrategy.instantiate(appliedModels));
+	public T generate(ResourceSet appliedModels, IProbabilityDistributionFactory probabilityDistributionFactory) {
+		return createProbabilisticNetwork(instantiationStrategy.instantiate(appliedModels), probabilityDistributionFactory);
 	}
 
-	public abstract T createProbabilisticNetwork(GroundProbabilisticNetwork network);
+	public abstract T createProbabilisticNetwork(GroundProbabilisticNetwork network, IProbabilityDistributionFactory probabilityDistributionFactory);
 }

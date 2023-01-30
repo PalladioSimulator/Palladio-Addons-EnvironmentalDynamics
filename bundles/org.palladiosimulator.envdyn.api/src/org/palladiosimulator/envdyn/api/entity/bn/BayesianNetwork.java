@@ -30,6 +30,7 @@ import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
 import tools.mdsd.probdist.api.entity.UnivariateProbabilitiyMassFunction;
 import tools.mdsd.probdist.api.entity.UnivariateProbabilityDensityFunction;
 import tools.mdsd.probdist.api.entity.Value;
+import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
 import tools.mdsd.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
@@ -63,6 +64,11 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 	}
 
 	private class LocalProbabilisticModelHandler extends ProbabilityDistributionHandler {
+	    private final IProbabilityDistributionFactory probabilityDistributionFactory;
+	    
+	    public LocalProbabilisticModelHandler(IProbabilityDistributionFactory probabilityDistributionFactory) {
+	        this.probabilityDistributionFactory = probabilityDistributionFactory;
+	    }
 
 		@Override
 		protected void initialize() {
@@ -83,14 +89,14 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 		
 		private void createAndCachePD(GroundRandomVariable variable) {
 			ProbabilityDistribution distribution = variable.getDescriptiveModel().getDistribution();
-			ProbabilityDistributionFunction<?> pdf = ProbabilityDistributionBuilder.create().withStructure(distribution)
+			ProbabilityDistributionFunction<?> pdf = ProbabilityDistributionBuilder.create(probabilityDistributionFactory).withStructure(distribution)
 					.build();
 			cache(variable, pdf);
 		}
 
 		private void createAndCacheCPD(GroundRandomVariable variable) {
 			ProbabilityDistribution distribution = variable.getDescriptiveModel().getDistribution();
-			ProbabilityDistributionFunction<?> pdf = ProbabilityDistributionBuilder.create().withStructure(distribution)
+			ProbabilityDistributionFunction<?> pdf = ProbabilityDistributionBuilder.create(probabilityDistributionFactory).withStructure(distribution)
 					.asConditionalProbabilityDistribution().build();
 			cache(variable, pdf);
 		}
@@ -100,11 +106,11 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 	private final GroundProbabilisticNetwork groundNetwork;
 	private final LocalProbabilisticModelHandler probModelHandler;
 
-	public BayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, GroundProbabilisticNetwork groundNetwork) {
+	public BayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, GroundProbabilisticNetwork groundNetwork, IProbabilityDistributionFactory probabilityDistributionFactory) {
 		super(distSkeleton);
 
 		this.groundNetwork = groundNetwork;
-		this.probModelHandler = new LocalProbabilisticModelHandler();
+		this.probModelHandler = new LocalProbabilisticModelHandler(probabilityDistributionFactory);
 
 		checkConsistency();
 	}
