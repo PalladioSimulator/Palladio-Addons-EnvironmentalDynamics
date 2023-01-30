@@ -15,6 +15,9 @@ import org.palladiosimulator.envdyn.environment.dynamicmodel.DynamicBehaviourRep
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariableDefinitions;
 
+import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
+import tools.mdsd.probdist.api.factory.ProbabilityDistributionFactory;
+
 public class DynamicBayesianNetworkTest extends BayesianModelTest {
 
 	private final static int SAMPLED_TIME_SLICES = 5;
@@ -22,6 +25,13 @@ public class DynamicBayesianNetworkTest extends BayesianModelTest {
 	private GroundProbabilisticNetwork groundNetwork;
 	private DynamicBayesianNetwork dynBayNetwork;
 	private Trajectory sampledTraj;
+	
+	private IProbabilityDistributionFactory probabilityDistributionFactory;
+	
+	@Before
+	public void setUp() {
+	    this.probabilityDistributionFactory = ProbabilityDistributionFactory.get();
+	}
 
 	@Before
 	public void reset() {
@@ -39,14 +49,14 @@ public class DynamicBayesianNetworkTest extends BayesianModelTest {
 
 	@Test
 	public void dbnSampleTest() {
-		givenDynamicBayesianNetwork();
+		givenDynamicBayesianNetwork(probabilityDistributionFactory);
 		whenStartSampling();
 		thenSampleIsValid();
 	}
 	
 	@Test
 	public void dbnTrajectorySamplingTest() {
-		givenDynamicBayesianNetwork();
+		givenDynamicBayesianNetwork(probabilityDistributionFactory);
 		whenStartSamplingATrajectory();
 		thenTheTrajectoryIsValid();
 	}
@@ -58,18 +68,18 @@ public class DynamicBayesianNetworkTest extends BayesianModelTest {
 	private void whenGeneratingDBN() {
 		TemplateVariableDefinitions definitions = (TemplateVariableDefinitions) ModelLoader.get().loadTemplates()
 				.getContents().get(0);
-		dynBayNetwork = new DynamicBayesianNetworkGenerator(definitions).createProbabilisticNetwork(groundNetwork);
+		dynBayNetwork = new DynamicBayesianNetworkGenerator(definitions).createProbabilisticNetwork(groundNetwork, probabilityDistributionFactory);
 	}
 
 	private void thenDBNIsProperlyGenerated() {
 		assertTrue(dynBayNetwork != null);
 	}
 
-	private void givenDynamicBayesianNetwork() {
+	private void givenDynamicBayesianNetwork(IProbabilityDistributionFactory probabilityDistributionFactory) {
 		DynamicBehaviourRepository repo = (DynamicBehaviourRepository) ModelLoader.get().loadDynamicBehaviourRepo()
 				.getContents().get(0);
 		DynamicBehaviourExtension dynamics = repo.getExtensions().get(0);
-		dynBayNetwork = new DynamicBayesianNetwork(null, loadBayesianNetwork(), dynamics);
+		dynBayNetwork = new DynamicBayesianNetwork(null, loadBayesianNetwork(), dynamics, probabilityDistributionFactory);
 	}
 
 	private void whenStartSampling() {
