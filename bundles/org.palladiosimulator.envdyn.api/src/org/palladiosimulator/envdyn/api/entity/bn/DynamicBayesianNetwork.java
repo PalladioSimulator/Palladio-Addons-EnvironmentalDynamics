@@ -31,6 +31,7 @@ import tools.mdsd.probdist.api.entity.Conditionable;
 import tools.mdsd.probdist.api.entity.ConditionalProbabilityDistribution;
 import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
 import tools.mdsd.probdist.api.entity.Value;
+import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
 import tools.mdsd.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
@@ -148,6 +149,12 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
 	}
 
 	private class TemporalProbabilityHandler extends ProbabilityDistributionHandler {
+	    
+        private final IProbabilityDistributionFactory probabilityDistributionFactory;
+        
+        public TemporalProbabilityHandler(IProbabilityDistributionFactory probabilityDistributionFactory) {
+            this.probabilityDistributionFactory = probabilityDistributionFactory;
+        }	    
 
 		@Override
 		protected void initialize() {
@@ -162,7 +169,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
 		}
 
 		private void createAndCacheCPD(GroundRandomVariable variable, ProbabilityDistribution distribution) {
-			ProbabilityDistributionFunction<?> pdf = ProbabilityDistributionBuilder.create().withStructure(distribution)
+			ProbabilityDistributionFunction<?> pdf = ProbabilityDistributionBuilder.create(probabilityDistributionFactory).withStructure(distribution)
 					.asConditionalProbabilityDistribution().build();
 			cache(variable, pdf);
 		}
@@ -180,13 +187,13 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
 	private final List<ConditionalInputValue> conditionals;
 
 	public DynamicBayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, BayesianNetwork initialDistribution,
-			DynamicBehaviourExtension dynamics) {
+			DynamicBehaviourExtension dynamics, IProbabilityDistributionFactory probabilityDistributionFactory) {
 		super(distSkeleton);
 
 		this.dynamics = dynamics;
 		this.dynBehaviourQuery = InductiveDynamicBehaviourQuerying.create(dynamics);
 		this.initialDistribution = initialDistribution;
-		this.probHandler = new TemporalProbabilityHandler();
+		this.probHandler = new TemporalProbabilityHandler(probabilityDistributionFactory);
 		this.conditionals = Lists.newArrayList();
 	}
 
