@@ -11,6 +11,8 @@ import tools.mdsd.probdist.api.apache.supplier.MultinomialDistributionSupplier;
 import tools.mdsd.probdist.api.apache.util.DistributionTypeModelUtil;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionRegistry;
 import tools.mdsd.probdist.api.factory.ProbabilityDistributionFactory;
+import tools.mdsd.probdist.api.parser.DefaultParameterParser;
+import tools.mdsd.probdist.api.parser.ParameterParser;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionRepository;
 
 public class BayesianModelTest {
@@ -32,7 +34,8 @@ public class BayesianModelTest {
 		
 		defaultProbabilityDistributionFactory = new ProbabilityDistributionFactory();
 		IProbabilityDistributionRegistry probabilityDistributionRegistry = defaultProbabilityDistributionFactory;
-		probabilityDistributionRegistry.register(new MultinomialDistributionSupplier());
+		ParameterParser parameterParser = new DefaultParameterParser();
+        probabilityDistributionRegistry.register(new MultinomialDistributionSupplier(parameterParser));
 	}
 	
 	protected BayesianNetwork loadBayesianNetwork() {
