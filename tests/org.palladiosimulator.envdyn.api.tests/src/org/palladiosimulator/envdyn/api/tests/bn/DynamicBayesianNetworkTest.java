@@ -16,7 +16,6 @@ import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticN
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariableDefinitions;
 
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
-import tools.mdsd.probdist.api.factory.ProbabilityDistributionFactory;
 
 public class DynamicBayesianNetworkTest extends BayesianModelTest {
 
@@ -26,12 +25,6 @@ public class DynamicBayesianNetworkTest extends BayesianModelTest {
 	private DynamicBayesianNetwork dynBayNetwork;
 	private Trajectory sampledTraj;
 	
-	private IProbabilityDistributionFactory probabilityDistributionFactory;
-	
-	@Before
-	public void setUp() {
-	    this.probabilityDistributionFactory = ProbabilityDistributionFactory.get();
-	}
 
 	@Before
 	public void reset() {
@@ -49,14 +42,14 @@ public class DynamicBayesianNetworkTest extends BayesianModelTest {
 
 	@Test
 	public void dbnSampleTest() {
-		givenDynamicBayesianNetwork(probabilityDistributionFactory);
+		givenDynamicBayesianNetwork(defaultProbabilityDistributionFactory);
 		whenStartSampling();
 		thenSampleIsValid();
 	}
 	
 	@Test
 	public void dbnTrajectorySamplingTest() {
-		givenDynamicBayesianNetwork(probabilityDistributionFactory);
+		givenDynamicBayesianNetwork(defaultProbabilityDistributionFactory);
 		whenStartSamplingATrajectory();
 		thenTheTrajectoryIsValid();
 	}
@@ -68,7 +61,7 @@ public class DynamicBayesianNetworkTest extends BayesianModelTest {
 	private void whenGeneratingDBN() {
 		TemplateVariableDefinitions definitions = (TemplateVariableDefinitions) ModelLoader.get().loadTemplates()
 				.getContents().get(0);
-		dynBayNetwork = new DynamicBayesianNetworkGenerator(definitions).createProbabilisticNetwork(groundNetwork, probabilityDistributionFactory);
+		dynBayNetwork = new DynamicBayesianNetworkGenerator(definitions).createProbabilisticNetwork(groundNetwork, defaultProbabilityDistributionFactory);
 	}
 
 	private void thenDBNIsProperlyGenerated() {
