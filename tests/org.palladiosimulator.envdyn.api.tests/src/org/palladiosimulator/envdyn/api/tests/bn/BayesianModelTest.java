@@ -8,7 +8,7 @@ import org.palladiosimulator.envdyn.api.tests.util.ModelLoader;
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork;
 
 import tools.mdsd.probdist.api.apache.supplier.MultinomialDistributionSupplier;
-import tools.mdsd.probdist.api.apache.util.DistributionTypeModelUtil;
+import tools.mdsd.probdist.api.apache.util.ProbabilityDistributionRepositoryLookup;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionRegistry;
 import tools.mdsd.probdist.api.factory.ProbabilityDistributionFactory;
 import tools.mdsd.probdist.api.parser.DefaultParameterParser;
@@ -30,7 +30,7 @@ public class BayesianModelTest {
 
 		ProbabilityDistributionRepository distTypes = (ProbabilityDistributionRepository) ModelLoader.get()
 				.loadDistributionTypes().getContents().get(0);
-		DistributionTypeModelUtil.get(distTypes);
+		ProbabilityDistributionRepositoryLookup.get(distTypes);
 		
 		defaultProbabilityDistributionFactory = new ProbabilityDistributionFactory();
 		IProbabilityDistributionRegistry probabilityDistributionRegistry = defaultProbabilityDistributionFactory;
