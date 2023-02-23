@@ -11,7 +11,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.palladiosimulator.envdyn.model,
  org.palladiosimulator.mdsdprofiles.api;bundle-version="1.0.1",
  com.google.guava;bundle-version="21.0.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: org.palladiosimulator.envdyn.api
 Bundle-ActivationPolicy: lazy
 Export-Package: org.palladiosimulator.envdyn.api.entity,
