@@ -9,6 +9,7 @@ jobs:
       use-display-output: true
       no-caching: true
       runner-label: ubuntu-latest
+      java-version: 17
       deploy-updatesite: 'releng/org.palladiosimulator.envdyn.updatesite/target/repository'
     secrets:
       SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
