@@ -4,7 +4,7 @@ Bundle-Name: %pluginName
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-SymbolicName: org.palladiosimulator.envdyn.model.edit;singleton:=true
 Automatic-Module-Name: org.palladiosimulator.envdyn.model.edit
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.2.0
 Bundle-ClassPath: .
 Bundle-Activator: org.palladiosimulator.envdyn.environment.templatevariable.provider.EnvironmentaldynamicsEditPlugin$Implementation
 Bundle-Vendor: %providerName
