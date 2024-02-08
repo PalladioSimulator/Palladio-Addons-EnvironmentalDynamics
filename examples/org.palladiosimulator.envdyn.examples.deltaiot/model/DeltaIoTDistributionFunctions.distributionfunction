@@ -25,7 +25,7 @@
     <instantiated href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
   </distributions>
   <distributions xsi:type="distributionfunction:ProbabilityDistribution" id="_QMq_YBKuEeqXWPQDIrbTtg" entityName="SignalToNoiseRatio5to9" params="_Yi31URKuEeqXWPQDIrbTtg">
-    <randomVariables id="_2ub1ABKuEeqXWPQDIrbTtg" entityName="SNR_5to9" valueSpace="CATEGORY"/>
+    <randomVariables id="_ZBHm0MZnEe6cz4woW_5crA" entityName="SNR_5to9" valueSpace="CATEGORY"/>
     <instantiated href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
   </distributions>
   <distributions xsi:type="distributionfunction:ProbabilityDistribution" id="_QojYoEfsEeqXQ7PJJHW2Yg" entityName="SignalToNoiseRatio2to4" params="_bm9FQUf_EeqXQ7PJJHW2Yg">
@@ -907,8 +907,4 @@
       </cpdEntries>
     </representation>
   </params>
-  
-  
-  
-  
 </distributionfunction:ProbabilityDistributionFunctionRepository>
