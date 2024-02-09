@@ -26,7 +26,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="TemplateFactor" abstract="true" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="scope" lowerBound="1"
           upperBound="-1" eType="#//templatevariable/TemplateVariable"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="temporal" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="temporal" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
           defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Argument" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity"/>
@@ -47,7 +47,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
           eType="#//templatevariable/TemplateVariable"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="contingent" lowerBound="1"
-          eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+          eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TemporalRelation" abstract="true"
         eSuperTypes="#//templatevariable/Relation ../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//NamedElement"/>
@@ -80,7 +80,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="descriptiveModel" lowerBound="1"
           eType="#//staticmodel/GroundProbabilisticModel"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="appliedObjects" lowerBound="1"
-          upperBound="-1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+          upperBound="-1" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GroundProbabilisticModel" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedFactor" lowerBound="1"
