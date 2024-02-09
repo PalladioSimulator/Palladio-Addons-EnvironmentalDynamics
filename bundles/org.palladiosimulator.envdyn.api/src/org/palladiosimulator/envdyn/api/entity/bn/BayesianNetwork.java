@@ -254,7 +254,8 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
         List<InputValue> samples = Lists.newArrayList();
         for (LocalProbabilisticNetwork eachLocal : groundNetwork.getLocalProbabilisticModels()) {
             for (GroundRandomVariable eachVariable : orderGroundVariablesTopologically(eachLocal)) {
-                Value<?> value = (Value<?>) getPDF(eachVariable, samples).sample();
+                ProbabilityDistributionFunction<?> pdf = getPDF(eachVariable, samples);
+                Value<?> value = (Value<?>) pdf.sample();
                 samples.add(InputValue.create(value, eachVariable));
             }
         }
