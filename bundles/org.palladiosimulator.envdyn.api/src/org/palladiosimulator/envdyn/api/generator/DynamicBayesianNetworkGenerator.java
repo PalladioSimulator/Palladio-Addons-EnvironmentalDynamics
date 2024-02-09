@@ -31,6 +31,7 @@ import org.palladiosimulator.envdyn.environment.templatevariable.TemporalRelatio
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
+import tools.mdsd.probdist.api.entity.Value;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
 import tools.mdsd.probdist.distributiontype.DistributiontypeFactory;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
@@ -41,7 +42,8 @@ import tools.mdsd.probdist.distributiontype.ProbabilityDistributionType;
  * This generator is supposed to be seen as a convenience class, since the dynamic behavious extension should be rather 
  * modeled by the developer. 
  */
-public class DynamicBayesianNetworkGenerator<V> extends ProbabilisticNetworkGenerator<DynamicBayesianNetwork<V>> {
+public class DynamicBayesianNetworkGenerator<I extends Value<?>>
+        extends ProbabilisticNetworkGenerator<DynamicBayesianNetwork<I>> {
 
     private final static String DBN_PREFIX = "DynamicBayesianNetwork";
     private final static String REPO_NAME = "TmpRepo";
@@ -52,16 +54,16 @@ public class DynamicBayesianNetworkGenerator<V> extends ProbabilisticNetworkGene
     }
 
     @Override
-    public DynamicBayesianNetwork<V> createProbabilisticNetwork(GroundProbabilisticNetwork network,
+    public DynamicBayesianNetwork<I> createProbabilisticNetwork(GroundProbabilisticNetwork network,
             IProbabilityDistributionFactory probabilityDistributionFactory) {
-        BayesianNetwork<V> initial = new BayesianNetworkGenerator<V>(definitions).createProbabilisticNetwork(network,
+        BayesianNetwork<I> initial = new BayesianNetworkGenerator<I>(definitions).createProbabilisticNetwork(network,
                 probabilityDistributionFactory);
         DynamicBehaviourExtension extension = createDynamicBehaviourExtensionAndRepo(initial);
         return new DynamicBayesianNetwork<>(createDistributionSkeleton(extension), initial, extension,
                 probabilityDistributionFactory);
     }
 
-    private DynamicBehaviourExtension createDynamicBehaviourExtensionAndRepo(BayesianNetwork<V> initial) {
+    private DynamicBehaviourExtension createDynamicBehaviourExtensionAndRepo(BayesianNetwork<I> initial) {
         DynamicBehaviourRepository dynRepo = FACTORY.createDynamicBehaviourRepository();
         dynRepo.setEntityName(REPO_NAME);
 
@@ -72,14 +74,14 @@ public class DynamicBayesianNetworkGenerator<V> extends ProbabilisticNetworkGene
         return dynamics;
     }
 
-    private DynamicBehaviourExtension createDynamicBehaviourExtension(BayesianNetwork<V> initial) {
+    private DynamicBehaviourExtension createDynamicBehaviourExtension(BayesianNetwork<I> initial) {
         DynamicBehaviourExtension extension = FACTORY.createDynamicBehaviourExtension();
         extension.setModel(initial.get());
         extension.setBehaviour(createInductiveDynamics(initial));
         return extension;
     }
 
-    private DynamicBehaviour createInductiveDynamics(BayesianNetwork<V> initial) {
+    private DynamicBehaviour createInductiveDynamics(BayesianNetwork<I> initial) {
         InductiveDynamicBehaviour dynamics = FACTORY.createInductiveDynamicBehaviour();
         for (LocalProbabilisticNetwork eachLocal : initial.getLocalProbabilisticNetworks()) {
             for (InterTimeSliceInduction eachInduction : createInterTimeSliceInductions(eachLocal)) {

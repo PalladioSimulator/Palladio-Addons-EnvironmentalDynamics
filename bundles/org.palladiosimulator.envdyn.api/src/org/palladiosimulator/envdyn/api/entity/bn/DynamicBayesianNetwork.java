@@ -35,8 +35,8 @@ import tools.mdsd.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
 
-public class DynamicBayesianNetwork<I> extends ProbabilityDistributionFunction<Trajectory>
-        implements ProbabilisticModel<Trajectory>, Conditionable<DynamicBayesianNetwork> {
+public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistributionFunction<Trajectory>
+        implements ProbabilisticModel<Trajectory>, Conditionable<DynamicBayesianNetwork<I>> {
 
     private final static int SINGLE_TIME_SLICE = 0;
 
