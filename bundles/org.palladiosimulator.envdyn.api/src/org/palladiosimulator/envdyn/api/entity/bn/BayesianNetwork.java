@@ -36,7 +36,7 @@ import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionType;
 
 public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistributionFunction<List<InputValue>>
-        implements ProbabilisticModel<InputValue> {
+        implements ProbabilisticModel<InputValue<I>> {
 
     private class LocalProbabilisticModelHandler extends ProbabilityDistributionHandler {
         private final IProbabilityDistributionFactory probabilityDistributionFactory;
@@ -166,12 +166,12 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
     }
 
     @Override
-    public Double infer(List<InputValue> inputs) {
+    public Double infer(List<InputValue<I>> inputs) {
         throw new UnsupportedOperationException("The method is not implemented yet.");
     }
 
     @Override
-    public void learn(List<InputValue> trainingData) {
+    public void learn(List<InputValue<I>> trainingData) {
         throw new UnsupportedOperationException("The method is not implemented yet.");
     }
 
