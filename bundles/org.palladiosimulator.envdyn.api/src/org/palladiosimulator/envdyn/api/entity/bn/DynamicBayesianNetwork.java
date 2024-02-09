@@ -30,28 +30,28 @@ import tools.mdsd.probdist.api.entity.CategoricalValue;
 import tools.mdsd.probdist.api.entity.Conditionable;
 import tools.mdsd.probdist.api.entity.ConditionalProbabilityDistribution;
 import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
-import tools.mdsd.probdist.api.entity.Value;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
 import tools.mdsd.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
 
 public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Trajectory>
-        implements ProbabilisticModel<Trajectory>, Conditionable<DynamicBayesianNetwork> {
+        implements ProbabilisticModel<Trajectory>, Conditionable<DynamicBayesianNetwork, CategoricalValue> {
 
     private final static int SINGLE_TIME_SLICE = 0;
 
-    public static class ConditionalInputValue extends Conditional {
+    public static class ConditionalInputValue extends Conditional<CategoricalValue> {
 
         private final GroundRandomVariable variable;
 
-        private ConditionalInputValue(Domain valueSpace, Value<?> value, GroundRandomVariable variable) {
+        private ConditionalInputValue(Domain valueSpace, CategoricalValue value, GroundRandomVariable variable) {
             super(valueSpace, value);
 
             this.variable = variable;
         }
 
-        public static ConditionalInputValue create(Conditional conditional, GroundRandomVariable variable) {
+        public static ConditionalInputValue create(Conditional<CategoricalValue> conditional,
+                GroundRandomVariable variable) {
             return new ConditionalInputValue(conditional.getValueSpace(), conditional.getValue(), variable);
         }
 
@@ -228,7 +228,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
     }
 
     @Override
-    public DynamicBayesianNetwork given(List<Conditional> conditionals) {
+    public DynamicBayesianNetwork given(List<Conditional<CategoricalValue>> conditionals) {
         checkValidity(conditionals);
 
         setConditionals(asConditionalInputValues(conditionals));
@@ -282,7 +282,8 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
         for (InterTimeSliceInduction each : dynBehaviourQuery.getInterTimeSliceInductions()) {
             ConditionalProbabilityDistribution localCPD = probHandler.getCPD(each.getAppliedGroundVariable());
 
-            List<Conditional> resolvedConditionals = resolveConditionals(each, toConditionalInputs(last));
+            List<Conditional<CategoricalValue>> resolvedConditionals = resolveConditionals(each,
+                    toConditionalInputs(last));
             InputValue resolvedValue = getInputValue(each.getAppliedGroundVariable(), current);
 
             probability *= localCPD.given(resolvedConditionals)
@@ -309,7 +310,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
     private List<InputValue> sampleNextGiven(List<ConditionalInputValue> conditionals) {
         List<InputValue> sample = Lists.newArrayList();
         for (InterTimeSliceInduction each : dynBehaviourQuery.getInterTimeSliceInductions()) {
-            List<Conditional> resolved = resolveConditionals(each, conditionals);
+            List<Conditional<CategoricalValue>> resolved = resolveConditionals(each, conditionals);
             ConditionalProbabilityDistribution localCPD = probHandler.getCPD(each.getAppliedGroundVariable());
             sample.add(InputValue.create(localCPD.given(resolved)
                 .sample(), each.getAppliedGroundVariable()));
@@ -331,7 +332,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
         return ConditionalProbabilityDistribution.class.cast(pdf);
     }
 
-    private List<Conditional> resolveConditionals(InterTimeSliceInduction induction,
+    private List<Conditional<CategoricalValue>> resolveConditionals(InterTimeSliceInduction induction,
             List<ConditionalInputValue> conditionals) {
         Set<TemplateVariable> interfaceVarParents = getInterfaceVariableParents(induction);
 
@@ -362,7 +363,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
             .collect(toSet());
     }
 
-    private void checkValidity(List<Conditional> conditionals) {
+    private void checkValidity(List<Conditional<CategoricalValue>> conditionals) {
         if (conditionals.isEmpty()) {
             return;
         }
@@ -374,13 +375,14 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
         }
     }
 
-    public static List<ConditionalInputValue> asConditionalInputValues(List<Conditional> conditionals) {
+    public static List<ConditionalInputValue> asConditionalInputValues(
+            List<Conditional<CategoricalValue>> conditionals) {
         return conditionals.stream()
             .map(ConditionalInputValue.class::cast)
             .collect(toList());
     }
 
-    public static List<Conditional> asConditionals(List<ConditionalInputValue> conditionals) {
+    public static List<Conditional<CategoricalValue>> asConditionals(List<ConditionalInputValue> conditionals) {
         return conditionals.stream()
             .map(Conditional.class::cast)
             .collect(toList());

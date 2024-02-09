@@ -291,7 +291,8 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
         return pdf;
     }
 
-    private List<Conditional> resolveConditionals(GroundRandomVariable variable, List<InputValue> history) {
+    private List<Conditional<CategoricalValue>> resolveConditionals(GroundRandomVariable variable,
+            List<InputValue> history) {
         LocalProbabilisticNetwork localNetwork = (LocalProbabilisticNetwork) variable.eContainer();
         TemplateDefinitionsQuerying templateQuery = TemplateDefinitionsQuerying
             .withTemplateScope(getTemplates(localNetwork));
