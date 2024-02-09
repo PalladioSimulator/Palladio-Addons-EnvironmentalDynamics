@@ -35,7 +35,7 @@ import tools.mdsd.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
 
-public class DynamicBayesianNetwork<V> extends ProbabilityDistributionFunction<Trajectory>
+public class DynamicBayesianNetwork<I> extends ProbabilityDistributionFunction<Trajectory>
         implements ProbabilisticModel<Trajectory>, Conditionable<DynamicBayesianNetwork> {
 
     private final static int SINGLE_TIME_SLICE = 0;
@@ -189,11 +189,11 @@ public class DynamicBayesianNetwork<V> extends ProbabilityDistributionFunction<T
 
     private final InductiveDynamicBehaviourQuerying dynBehaviourQuery;
     private final DynamicBehaviourExtension dynamics;
-    private final BayesianNetwork<V> initialDistribution;
+    private final BayesianNetwork<I> initialDistribution;
     private final TemporalProbabilityHandler probHandler;
     private final List<ConditionalInputValue> conditionals;
 
-    public DynamicBayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, BayesianNetwork<V> initialDistribution,
+    public DynamicBayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, BayesianNetwork<I> initialDistribution,
             DynamicBehaviourExtension dynamics, IProbabilityDistributionFactory probabilityDistributionFactory) {
         super(distSkeleton);
 
@@ -225,7 +225,7 @@ public class DynamicBayesianNetwork<V> extends ProbabilityDistributionFunction<T
     }
 
     @Override
-    public DynamicBayesianNetwork<V> given(List<Conditional> conditionals) {
+    public DynamicBayesianNetwork<I> given(List<Conditional> conditionals) {
         checkValidity(conditionals);
 
         setConditionals(asConditionalInputValues(conditionals));
@@ -233,7 +233,7 @@ public class DynamicBayesianNetwork<V> extends ProbabilityDistributionFunction<T
         return this;
     }
 
-    public BayesianNetwork<V> getBayesianNetwork() {
+    public BayesianNetwork<I> getBayesianNetwork() {
         return initialDistribution;
     }
 

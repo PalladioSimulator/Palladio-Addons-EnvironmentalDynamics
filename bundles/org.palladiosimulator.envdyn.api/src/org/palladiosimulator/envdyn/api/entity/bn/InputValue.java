@@ -6,13 +6,13 @@ import tools.mdsd.probdist.api.entity.CategoricalValue;
 import tools.mdsd.probdist.api.entity.NumericalValue;
 import tools.mdsd.probdist.api.entity.Value;
 
-public class InputValue<V> {
+public class InputValue<I> {
 
     private final GroundRandomVariable variable;
 
-    private Value<V> value;
+    private Value<I> value;
 
-    private InputValue(Value<V> value, GroundRandomVariable variable) {
+    private InputValue(Value<I> value, GroundRandomVariable variable) {
         this.value = value;
         this.variable = variable;
     }
@@ -25,11 +25,11 @@ public class InputValue<V> {
         return variable;
     }
 
-    public Value<V> getValue() {
+    public Value<I> getValue() {
         return value;
     }
 
-    public void setValue(Value<V> value) {
+    public void setValue(Value<I> value) {
         this.value = value;
     }
 
