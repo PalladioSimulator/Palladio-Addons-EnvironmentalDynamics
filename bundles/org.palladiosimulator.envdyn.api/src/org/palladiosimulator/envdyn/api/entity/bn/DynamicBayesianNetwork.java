@@ -137,7 +137,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
 		private String stringifyTimeSlice(int timeSlice, List<InputValue> values) {
 			StringBuilder builder = new StringBuilder();
 			for (InputValue each : values) {
-				builder.append(String.format("(Variable: %1s, Value: %2s),", each.variable.getEntityName(),
+				builder.append(String.format("(Variable: %1s, Value: %2s),", each.getVariable().getEntityName(),
 						each.value.toString()));
 			}
 
@@ -370,7 +370,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
 	}
 
 	public static ConditionalInputValue toConditionalInput(InputValue input) {
-		return ConditionalInputValue.create(new Conditional(input.value.getDomain(), input.value), input.variable);
+		return ConditionalInputValue.create(new Conditional(input.value.getDomain(), input.value), input.getVariable());
 	}
 
 	public static List<InputValue> toInputValues(List<ConditionalInputValue> conditionals) {
