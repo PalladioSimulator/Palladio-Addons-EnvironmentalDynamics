@@ -39,9 +39,10 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
         implements ProbabilisticModel<InputValue<I>> {
 
     private class LocalProbabilisticModelHandler extends ProbabilityDistributionHandler {
-        private final IProbabilityDistributionFactory probabilityDistributionFactory;
+        private final IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory;
 
-        public LocalProbabilisticModelHandler(IProbabilityDistributionFactory probabilityDistributionFactory) {
+        public LocalProbabilisticModelHandler(
+                IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory) {
             this.probabilityDistributionFactory = probabilityDistributionFactory;
         }
 
@@ -66,7 +67,7 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
         private void createAndCachePD(GroundRandomVariable variable) {
             ProbabilityDistribution distribution = variable.getDescriptiveModel()
                 .getDistribution();
-            ProbabilityDistributionFunction<?> pdf = ProbabilityDistributionBuilder
+            ProbabilityDistributionFunction<CategoricalValue> pdf = ProbabilityDistributionBuilder
                 .create(probabilityDistributionFactory)
                 .withStructure(distribution)
                 .build();
@@ -90,7 +91,7 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
     private final LocalProbabilisticModelHandler probModelHandler;
 
     public BayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, GroundProbabilisticNetwork groundNetwork,
-            IProbabilityDistributionFactory probabilityDistributionFactory) {
+            IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory) {
         super(distSkeleton);
 
         this.groundNetwork = groundNetwork;
