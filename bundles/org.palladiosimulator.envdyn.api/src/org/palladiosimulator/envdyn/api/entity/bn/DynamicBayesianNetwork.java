@@ -11,7 +11,6 @@ import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.envdyn.api.entity.ProbabilisticModel;
-import org.palladiosimulator.envdyn.api.entity.bn.BayesianNetwork.InputValue;
 import org.palladiosimulator.envdyn.api.entity.bn.DynamicBayesianNetwork.Trajectory;
 import org.palladiosimulator.envdyn.api.exception.EnvironmentalDynamicsException;
 import org.palladiosimulator.envdyn.api.util.InductiveDynamicBehaviourQuerying;

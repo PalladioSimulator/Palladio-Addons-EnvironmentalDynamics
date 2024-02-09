@@ -10,7 +10,6 @@ import java.util.Set;
 import org.palladiosimulator.envdyn.api.entity.ProbabilisticModel;
 import org.palladiosimulator.envdyn.api.entity.TemplateVariableTopology;
 import org.palladiosimulator.envdyn.api.entity.TemplateVariableTopology.TopologyIterator;
-import org.palladiosimulator.envdyn.api.entity.bn.BayesianNetwork.InputValue;
 import org.palladiosimulator.envdyn.api.exception.EnvironmentalDynamicsException;
 import org.palladiosimulator.envdyn.api.util.TemplateDefinitionsQuerying;
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork;
@@ -38,43 +37,6 @@ import tools.mdsd.probdist.distributiontype.ProbabilityDistributionType;
 
 public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputValue>>
         implements ProbabilisticModel<InputValue> {
-
-    public static class InputValue {
-
-        private final GroundRandomVariable variable;
-
-        private Value<?> value;
-
-        private InputValue(Value<?> value, GroundRandomVariable variable) {
-            this.value = value;
-            this.variable = variable;
-        }
-
-        public GroundRandomVariable getVariable() {
-            return variable;
-        }
-
-        public Value<?> getValue() {
-            return value;
-        }
-
-        public void setValue(Value<?> value) {
-            this.value = value;
-        }
-
-        public static InputValue create(Value<?> value, GroundRandomVariable variable) {
-            return new InputValue(value, variable);
-        }
-
-        public CategoricalValue asCategorical() throws ClassCastException {
-            return (CategoricalValue) value;
-        }
-
-        public NumericalValue asNumerical() throws ClassCastException {
-            return (NumericalValue) value;
-        }
-
-    }
 
     private class LocalProbabilisticModelHandler extends ProbabilityDistributionHandler {
         private final IProbabilityDistributionFactory probabilityDistributionFactory;
