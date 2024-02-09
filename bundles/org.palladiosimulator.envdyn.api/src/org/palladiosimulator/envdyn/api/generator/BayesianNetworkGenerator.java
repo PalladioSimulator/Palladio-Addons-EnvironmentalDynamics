@@ -9,32 +9,33 @@ import tools.mdsd.probdist.distributiontype.DistributiontypeFactory;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionType;
 
-public class BayesianNetworkGenerator extends ProbabilisticNetworkGenerator<BayesianNetwork> {
+public class BayesianNetworkGenerator<V> extends ProbabilisticNetworkGenerator<BayesianNetwork<V>> {
 
-	private final static String BN_PREFIX = "BayesianNetwork";
+    private final static String BN_PREFIX = "BayesianNetwork";
 
-	public BayesianNetworkGenerator(TemplateVariableDefinitions definitions) {
-		super(definitions);
-	}
+    public BayesianNetworkGenerator(TemplateVariableDefinitions definitions) {
+        super(definitions);
+    }
 
-	public BayesianNetworkGenerator(TemplateVariableDefinitions definitions,
-			NetworkInstantiationStrategy instantiationStrategy) {
-		super(definitions, instantiationStrategy);
-	}
+    public BayesianNetworkGenerator(TemplateVariableDefinitions definitions,
+            NetworkInstantiationStrategy instantiationStrategy) {
+        super(definitions, instantiationStrategy);
+    }
 
-	@Override
-	public BayesianNetwork createProbabilisticNetwork(GroundProbabilisticNetwork network, IProbabilityDistributionFactory probabilityDistributionFactory) {
-		return new BayesianNetwork(createDistributionSkeleton(network), network, probabilityDistributionFactory);
-	}
+    @Override
+    public BayesianNetwork<V> createProbabilisticNetwork(GroundProbabilisticNetwork network,
+            IProbabilityDistributionFactory probabilityDistributionFactory) {
+        return new BayesianNetwork<>(createDistributionSkeleton(network), network, probabilityDistributionFactory);
+    }
 
-	private ProbabilityDistributionSkeleton createDistributionSkeleton(GroundProbabilisticNetwork network) {
-		ProbabilityDistributionSkeleton skeleton = DistributiontypeFactory.eINSTANCE
-				.createProbabilityDistributionSkeleton();
-		skeleton.setEntityName(String.format("%s1_%2s", BN_PREFIX, network.getEntityName()));
-		// TODO this is not always the case and should be resolved
-		skeleton.setType(ProbabilityDistributionType.DISCRETE);
-		// skeleton.getParamStructures().add(...);
-		return skeleton;
-	}
+    private ProbabilityDistributionSkeleton createDistributionSkeleton(GroundProbabilisticNetwork network) {
+        ProbabilityDistributionSkeleton skeleton = DistributiontypeFactory.eINSTANCE
+            .createProbabilityDistributionSkeleton();
+        skeleton.setEntityName(String.format("%s1_%2s", BN_PREFIX, network.getEntityName()));
+        // TODO this is not always the case and should be resolved
+        skeleton.setType(ProbabilityDistributionType.DISCRETE);
+        // skeleton.getParamStructures().add(...);
+        return skeleton;
+    }
 
 }
