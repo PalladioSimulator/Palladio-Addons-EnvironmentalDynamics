@@ -5,26 +5,30 @@ import org.palladiosimulator.envdyn.api.generator.annotation.AnnotationInstantia
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariableDefinitions;
 
+import tools.mdsd.probdist.api.entity.CategoricalValue;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
 
 public abstract class ProbabilisticNetworkGenerator<T> {
-	
-	protected final TemplateVariableDefinitions definitions;
-	protected final NetworkInstantiationStrategy instantiationStrategy;
 
-	protected ProbabilisticNetworkGenerator(TemplateVariableDefinitions definitions,
-			NetworkInstantiationStrategy instantiationStrategy) {
-		this.definitions = definitions;
-		this.instantiationStrategy = instantiationStrategy;
-	}
+    protected final TemplateVariableDefinitions definitions;
+    protected final NetworkInstantiationStrategy instantiationStrategy;
 
-	protected ProbabilisticNetworkGenerator(TemplateVariableDefinitions definitions) {
-		this(definitions, new AnnotationInstantiationStrategy(definitions));
-	}
+    protected ProbabilisticNetworkGenerator(TemplateVariableDefinitions definitions,
+            NetworkInstantiationStrategy instantiationStrategy) {
+        this.definitions = definitions;
+        this.instantiationStrategy = instantiationStrategy;
+    }
 
-	public T generate(ResourceSet appliedModels, IProbabilityDistributionFactory probabilityDistributionFactory) {
-		return createProbabilisticNetwork(instantiationStrategy.instantiate(appliedModels), probabilityDistributionFactory);
-	}
+    protected ProbabilisticNetworkGenerator(TemplateVariableDefinitions definitions) {
+        this(definitions, new AnnotationInstantiationStrategy(definitions));
+    }
 
-	public abstract T createProbabilisticNetwork(GroundProbabilisticNetwork network, IProbabilityDistributionFactory probabilityDistributionFactory);
+    public T generate(ResourceSet appliedModels,
+            IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory) {
+        return createProbabilisticNetwork(instantiationStrategy.instantiate(appliedModels),
+                probabilityDistributionFactory);
+    }
+
+    public abstract T createProbabilisticNetwork(GroundProbabilisticNetwork network,
+            IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory);
 }

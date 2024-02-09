@@ -26,6 +26,7 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
 import tools.mdsd.probdist.api.builder.ProbabilityDistributionBuilder;
+import tools.mdsd.probdist.api.entity.CategoricalValue;
 import tools.mdsd.probdist.api.entity.Conditionable;
 import tools.mdsd.probdist.api.entity.ConditionalProbabilityDistribution;
 import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
@@ -35,8 +36,8 @@ import tools.mdsd.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
 
-public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistributionFunction<Trajectory>
-        implements ProbabilisticModel<Trajectory>, Conditionable<DynamicBayesianNetwork<I>> {
+public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Trajectory>
+        implements ProbabilisticModel<Trajectory>, Conditionable<DynamicBayesianNetwork> {
 
     private final static int SINGLE_TIME_SLICE = 0;
 
@@ -152,9 +153,10 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
 
     private class TemporalProbabilityHandler extends ProbabilityDistributionHandler {
 
-        private final IProbabilityDistributionFactory probabilityDistributionFactory;
+        private final IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory;
 
-        public TemporalProbabilityHandler(IProbabilityDistributionFactory probabilityDistributionFactory) {
+        public TemporalProbabilityHandler(
+                IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory) {
             this.probabilityDistributionFactory = probabilityDistributionFactory;
         }
 
@@ -173,7 +175,7 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
         }
 
         private void createAndCacheCPD(GroundRandomVariable variable, ProbabilityDistribution distribution) {
-            ProbabilityDistributionFunction<?> pdf = ProbabilityDistributionBuilder
+            ProbabilityDistributionFunction<CategoricalValue> pdf = ProbabilityDistributionBuilder
                 .create(probabilityDistributionFactory)
                 .withStructure(distribution)
                 .asConditionalProbabilityDistribution()
@@ -189,12 +191,13 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
 
     private final InductiveDynamicBehaviourQuerying dynBehaviourQuery;
     private final DynamicBehaviourExtension dynamics;
-    private final BayesianNetwork<I> initialDistribution;
+    private final BayesianNetwork initialDistribution;
     private final TemporalProbabilityHandler probHandler;
     private final List<ConditionalInputValue> conditionals;
 
-    public DynamicBayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, BayesianNetwork<I> initialDistribution,
-            DynamicBehaviourExtension dynamics, IProbabilityDistributionFactory probabilityDistributionFactory) {
+    public DynamicBayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, BayesianNetwork initialDistribution,
+            DynamicBehaviourExtension dynamics,
+            IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory) {
         super(distSkeleton);
 
         this.dynamics = dynamics;
@@ -225,7 +228,7 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
     }
 
     @Override
-    public DynamicBayesianNetwork<I> given(List<Conditional> conditionals) {
+    public DynamicBayesianNetwork given(List<Conditional> conditionals) {
         checkValidity(conditionals);
 
         setConditionals(asConditionalInputValues(conditionals));
@@ -233,7 +236,7 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
         return this;
     }
 
-    public BayesianNetwork<I> getBayesianNetwork() {
+    public BayesianNetwork getBayesianNetwork() {
         return initialDistribution;
     }
 
@@ -323,8 +326,8 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
     private ConditionalProbabilityDistribution getCPDFromInitial(IntraTimeSliceInduction induction,
             List<ConditionalInputValue> conditionals) {
         List<InputValue> history = toInputValues(conditionals);
-        ProbabilityDistributionFunction<?> pdf = initialDistribution.getPDF(induction.getAppliedGroundVariable(),
-                history);
+        ProbabilityDistributionFunction<CategoricalValue> pdf = initialDistribution
+            .getPDF(induction.getAppliedGroundVariable(), history);
         return ConditionalProbabilityDistribution.class.cast(pdf);
     }
 

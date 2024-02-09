@@ -17,7 +17,7 @@ import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariabl
 public class BayesianNetworkTest extends BayesianModelTest {
 
     private TemplateVariableDefinitions templateDefinitions;
-    private BayesianNetwork<?> bayNetwork;
+    private BayesianNetwork bayNetwork;
     private List<InputValue> sample;
 
     @Before
@@ -49,7 +49,7 @@ public class BayesianNetworkTest extends BayesianModelTest {
     }
 
     private void whenGeneratingBN() {
-        bayNetwork = new BayesianNetworkGenerator<>(templateDefinitions).generate(APPLIED_MODELS,
+        bayNetwork = new BayesianNetworkGenerator(templateDefinitions).generate(APPLIED_MODELS,
                 defaultProbabilityDistributionFactory);
     }
 

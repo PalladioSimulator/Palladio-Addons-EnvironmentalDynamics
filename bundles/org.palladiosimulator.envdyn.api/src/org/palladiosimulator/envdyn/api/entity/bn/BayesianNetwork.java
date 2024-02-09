@@ -28,15 +28,14 @@ import tools.mdsd.probdist.api.entity.NumericalValue;
 import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
 import tools.mdsd.probdist.api.entity.UnivariateProbabilitiyMassFunction;
 import tools.mdsd.probdist.api.entity.UnivariateProbabilityDensityFunction;
-import tools.mdsd.probdist.api.entity.Value;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
 import tools.mdsd.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionType;
 
-public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistributionFunction<List<InputValue>>
-        implements ProbabilisticModel<InputValue<I>> {
+public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputValue>>
+        implements ProbabilisticModel<InputValue<CategoricalValue>> {
 
     private class LocalProbabilisticModelHandler extends ProbabilityDistributionHandler {
         private final IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory;
@@ -77,7 +76,7 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
         private void createAndCacheCPD(GroundRandomVariable variable) {
             ProbabilityDistribution distribution = variable.getDescriptiveModel()
                 .getDistribution();
-            ProbabilityDistributionFunction<?> pdf = ProbabilityDistributionBuilder
+            ProbabilityDistributionFunction<CategoricalValue> pdf = ProbabilityDistributionBuilder
                 .create(probabilityDistributionFactory)
                 .withStructure(distribution)
                 .asConditionalProbabilityDistribution()
@@ -167,12 +166,12 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
     }
 
     @Override
-    public Double infer(List<InputValue<I>> inputs) {
+    public Double infer(List<InputValue<CategoricalValue>> inputs) {
         throw new UnsupportedOperationException("The method is not implemented yet.");
     }
 
     @Override
-    public void learn(List<InputValue<I>> trainingData) {
+    public void learn(List<InputValue<CategoricalValue>> trainingData) {
         throw new UnsupportedOperationException("The method is not implemented yet.");
     }
 
@@ -228,7 +227,8 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
         return probability;
     }
 
-    private double calculateLocalProbability(ProbabilityDistributionFunction<?> pdf, InputValue inputValue) {
+    private double calculateLocalProbability(ProbabilityDistributionFunction<CategoricalValue> pdf,
+            InputValue inputValue) {
         try {
             ProbabilityDistributionSkeleton skeleton = pdf.getDistributionSkeleton();
             if (skeleton.getType() == ProbabilityDistributionType.DISCRETE) {
@@ -242,7 +242,8 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
 
     }
 
-    private double calculateLocalProbability(ProbabilityDistributionFunction<?> pdf, CategoricalValue value) {
+    private double calculateLocalProbability(ProbabilityDistributionFunction<CategoricalValue> pdf,
+            CategoricalValue value) {
         if (UnivariateProbabilitiyMassFunction.class.isInstance(pdf)) {
             return UnivariateProbabilitiyMassFunction.class.cast(pdf)
                 .probability(value);
@@ -255,8 +256,8 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
         List<InputValue> samples = Lists.newArrayList();
         for (LocalProbabilisticNetwork eachLocal : groundNetwork.getLocalProbabilisticModels()) {
             for (GroundRandomVariable eachVariable : orderGroundVariablesTopologically(eachLocal)) {
-                ProbabilityDistributionFunction<?> pdf = getPDF(eachVariable, samples);
-                Value<?> value = (Value<?>) pdf.sample();
+                ProbabilityDistributionFunction<CategoricalValue> pdf = getPDF(eachVariable, samples);
+                CategoricalValue value = pdf.sample();
                 samples.add(InputValue.create(value, eachVariable));
             }
         }
@@ -280,8 +281,9 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
         return new TemplateVariableTopology(templateQuery).topologicallyOrderedTemplates();
     }
 
-    protected ProbabilityDistributionFunction<?> getPDF(GroundRandomVariable variable, List<InputValue> history) {
-        ProbabilityDistributionFunction<?> pdf = probModelHandler.getPDF(variable);
+    protected ProbabilityDistributionFunction<CategoricalValue> getPDF(GroundRandomVariable variable,
+            List<InputValue> history) {
+        ProbabilityDistributionFunction<CategoricalValue> pdf = probModelHandler.getPDF(variable);
         if (ConditionalProbabilityDistribution.class.isInstance(pdf)) {
             ConditionalProbabilityDistribution.class.cast(pdf)
                 .given(resolveConditionals(variable, history));
