@@ -9,7 +9,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.palladiosimulator.envdyn.api.entity.bn.BayesianNetwork;
-import org.palladiosimulator.envdyn.api.entity.bn.BayesianNetwork.InputValue;
+import org.palladiosimulator.envdyn.api.entity.bn.InputValue;
 import org.palladiosimulator.envdyn.api.generator.BayesianNetworkGenerator;
 import org.palladiosimulator.envdyn.api.tests.util.ModelLoader;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariableDefinitions;
