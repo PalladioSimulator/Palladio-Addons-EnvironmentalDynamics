@@ -138,7 +138,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
 			StringBuilder builder = new StringBuilder();
 			for (InputValue each : values) {
 				builder.append(String.format("(Variable: %1s, Value: %2s),", each.getVariable().getEntityName(),
-						each.value.toString()));
+						each.getValue().toString()));
 			}
 
 			String stringValues = builder.toString();
@@ -370,7 +370,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
 	}
 
 	public static ConditionalInputValue toConditionalInput(InputValue input) {
-		return ConditionalInputValue.create(new Conditional(input.value.getDomain(), input.value), input.getVariable());
+		return ConditionalInputValue.create(new Conditional(input.getValue().getDomain(), input.getValue()), input.getVariable());
 	}
 
 	public static List<InputValue> toInputValues(List<ConditionalInputValue> conditionals) {

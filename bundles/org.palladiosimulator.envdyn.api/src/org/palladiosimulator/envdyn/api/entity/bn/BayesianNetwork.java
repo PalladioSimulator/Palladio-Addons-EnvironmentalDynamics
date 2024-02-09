@@ -43,7 +43,7 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 
         private final GroundRandomVariable variable;
 
-        public Value<?> value;
+        private Value<?> value;
 
         private InputValue(Value<?> value, GroundRandomVariable variable) {
             this.value = value;
@@ -52,6 +52,14 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 
         public GroundRandomVariable getVariable() {
             return variable;
+        }
+
+        public Value<?> getValue() {
+            return value;
+        }
+
+        public void setValue(Value<?> value) {
+            this.value = value;
         }
 
         public static InputValue create(Value<?> value, GroundRandomVariable variable) {
@@ -331,15 +339,15 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
     }
 
     private Conditional toConditional(InputValue value) {
-        return new Conditional(getDomain(value), value.value);
+        return new Conditional(getDomain(value), value.getValue());
     }
 
     private Domain getDomain(InputValue input) {
-        if (NumericalValue.class.isInstance(input.value)) {
-            return NumericalValue.class.cast(input.value)
+        if (NumericalValue.class.isInstance(input.getValue())) {
+            return NumericalValue.class.cast(input.getValue())
                 .getDomain();
         } else {
-            return CategoricalValue.class.cast(input.value)
+            return CategoricalValue.class.cast(input.getValue())
                 .getDomain();
         }
     }
