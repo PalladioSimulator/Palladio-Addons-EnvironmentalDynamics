@@ -41,118 +41,132 @@ import tools.mdsd.probdist.distributiontype.ProbabilityDistributionType;
  * This generator is supposed to be seen as a convenience class, since the dynamic behavious extension should be rather 
  * modeled by the developer. 
  */
-public class DynamicBayesianNetworkGenerator extends ProbabilisticNetworkGenerator<DynamicBayesianNetwork> {
+public class DynamicBayesianNetworkGenerator<V> extends ProbabilisticNetworkGenerator<DynamicBayesianNetwork<V>> {
 
-	private final static String DBN_PREFIX = "DynamicBayesianNetwork";
-	private final static String REPO_NAME = "TmpRepo";
-	private final static DynamicmodelFactory FACTORY = DynamicmodelFactory.eINSTANCE;
+    private final static String DBN_PREFIX = "DynamicBayesianNetwork";
+    private final static String REPO_NAME = "TmpRepo";
+    private final static DynamicmodelFactory FACTORY = DynamicmodelFactory.eINSTANCE;
 
-	public DynamicBayesianNetworkGenerator(TemplateVariableDefinitions definitions) {
-		super(definitions);
-	}
+    public DynamicBayesianNetworkGenerator(TemplateVariableDefinitions definitions) {
+        super(definitions);
+    }
 
-	@Override
-	public DynamicBayesianNetwork createProbabilisticNetwork(GroundProbabilisticNetwork network, IProbabilityDistributionFactory probabilityDistributionFactory) {
-		BayesianNetwork initial = new BayesianNetworkGenerator(definitions).createProbabilisticNetwork(network, probabilityDistributionFactory);
-		DynamicBehaviourExtension extension = createDynamicBehaviourExtensionAndRepo(initial);
-		return new DynamicBayesianNetwork(createDistributionSkeleton(extension), initial, extension, probabilityDistributionFactory);
-	}
+    @Override
+    public DynamicBayesianNetwork<V> createProbabilisticNetwork(GroundProbabilisticNetwork network,
+            IProbabilityDistributionFactory probabilityDistributionFactory) {
+        BayesianNetwork<V> initial = new BayesianNetworkGenerator<V>(definitions).createProbabilisticNetwork(network,
+                probabilityDistributionFactory);
+        DynamicBehaviourExtension extension = createDynamicBehaviourExtensionAndRepo(initial);
+        return new DynamicBayesianNetwork<>(createDistributionSkeleton(extension), initial, extension,
+                probabilityDistributionFactory);
+    }
 
-	private DynamicBehaviourExtension createDynamicBehaviourExtensionAndRepo(BayesianNetwork initial) {
-		DynamicBehaviourRepository dynRepo = FACTORY.createDynamicBehaviourRepository();
-		dynRepo.setEntityName(REPO_NAME);
+    private DynamicBehaviourExtension createDynamicBehaviourExtensionAndRepo(BayesianNetwork<V> initial) {
+        DynamicBehaviourRepository dynRepo = FACTORY.createDynamicBehaviourRepository();
+        dynRepo.setEntityName(REPO_NAME);
 
-		DynamicBehaviourExtension dynamics = createDynamicBehaviourExtension(initial);
-		dynRepo.getExtensions().add(dynamics);
+        DynamicBehaviourExtension dynamics = createDynamicBehaviourExtension(initial);
+        dynRepo.getExtensions()
+            .add(dynamics);
 
-		return dynamics;
-	}
+        return dynamics;
+    }
 
-	private DynamicBehaviourExtension createDynamicBehaviourExtension(BayesianNetwork initial) {
-		DynamicBehaviourExtension extension = FACTORY.createDynamicBehaviourExtension();
-		extension.setModel(initial.get());
-		extension.setBehaviour(createInductiveDynamics(initial));
-		return extension;
-	}
+    private DynamicBehaviourExtension createDynamicBehaviourExtension(BayesianNetwork<V> initial) {
+        DynamicBehaviourExtension extension = FACTORY.createDynamicBehaviourExtension();
+        extension.setModel(initial.get());
+        extension.setBehaviour(createInductiveDynamics(initial));
+        return extension;
+    }
 
-	private DynamicBehaviour createInductiveDynamics(BayesianNetwork initial) {
-		InductiveDynamicBehaviour dynamics = FACTORY.createInductiveDynamicBehaviour();
-		for (LocalProbabilisticNetwork eachLocal : initial.getLocalProbabilisticNetworks()) {
-			for (InterTimeSliceInduction eachInduction : createInterTimeSliceInductions(eachLocal)) {
-				TemporalDynamic dynamic = createTemporalDynamic(eachInduction, eachLocal);
-				eachInduction.setDescriptiveModel(dynamic);
+    private DynamicBehaviour createInductiveDynamics(BayesianNetwork<V> initial) {
+        InductiveDynamicBehaviour dynamics = FACTORY.createInductiveDynamicBehaviour();
+        for (LocalProbabilisticNetwork eachLocal : initial.getLocalProbabilisticNetworks()) {
+            for (InterTimeSliceInduction eachInduction : createInterTimeSliceInductions(eachLocal)) {
+                TemporalDynamic dynamic = createTemporalDynamic(eachInduction, eachLocal);
+                eachInduction.setDescriptiveModel(dynamic);
 
-				dynamics.getLocalModels().add(dynamic);
-				dynamics.getTimeSliceInductions().add(eachInduction);
-			}
-		}
-		return dynamics;
-	}
+                dynamics.getLocalModels()
+                    .add(dynamic);
+                dynamics.getTimeSliceInductions()
+                    .add(eachInduction);
+            }
+        }
+        return dynamics;
+    }
 
-	private Set<InterTimeSliceInduction> createInterTimeSliceInductions(LocalProbabilisticNetwork localNetwork) {
-		TemplateDefinitionsQuerying defQuery = createDefinitionQuerying(localNetwork);
-		return localNetwork.getGroundRandomVariables().stream().map(v -> createInterTimeSliceInductions(v, defQuery))
-				.filter(Optional::isPresent).map(Optional::get).collect(toSet());
-	}
+    private Set<InterTimeSliceInduction> createInterTimeSliceInductions(LocalProbabilisticNetwork localNetwork) {
+        TemplateDefinitionsQuerying defQuery = createDefinitionQuerying(localNetwork);
+        return localNetwork.getGroundRandomVariables()
+            .stream()
+            .map(v -> createInterTimeSliceInductions(v, defQuery))
+            .filter(Optional::isPresent)
+            .map(Optional::get)
+            .collect(toSet());
+    }
 
-	private Optional<InterTimeSliceInduction> createInterTimeSliceInductions(GroundRandomVariable variable,
-			TemplateDefinitionsQuerying defQuery) {
+    private Optional<InterTimeSliceInduction> createInterTimeSliceInductions(GroundRandomVariable variable,
+            TemplateDefinitionsQuerying defQuery) {
 //		for (TemplateVariable each : defQuery.filterInterfaceVariables()) {
 //			if (areEqual(each, variable.getInstantiatedTemplate())) {
 //				Set<TemporalRelation> temporalStructure = defQuery.filterTemporalRelationsWithTarget(each);
 //				return Optional.of(createInterTimeSliceInduction(variable, temporalStructure));
 //			}
 //		}
-		Set<TemporalRelation> temporalStructure = defQuery
-				.filterTemporalRelationsWithTarget(variable.getInstantiatedTemplate());
-		if (temporalStructure.isEmpty()) {
-			return Optional.empty();
-		}
-		return Optional.of(createInterTimeSliceInduction(variable, temporalStructure));
-	}
+        Set<TemporalRelation> temporalStructure = defQuery
+            .filterTemporalRelationsWithTarget(variable.getInstantiatedTemplate());
+        if (temporalStructure.isEmpty()) {
+            return Optional.empty();
+        }
+        return Optional.of(createInterTimeSliceInduction(variable, temporalStructure));
+    }
 
-	private InterTimeSliceInduction createInterTimeSliceInduction(GroundRandomVariable appliedVariable,
-			Set<TemporalRelation> temporalStructure) {
-		InterTimeSliceInduction induction = FACTORY.createInterTimeSliceInduction();
-		induction.setAppliedGroundVariable(appliedVariable);
-		induction.getTemporalStructure().addAll(temporalStructure);
-		return induction;
-	}
+    private InterTimeSliceInduction createInterTimeSliceInduction(GroundRandomVariable appliedVariable,
+            Set<TemporalRelation> temporalStructure) {
+        InterTimeSliceInduction induction = FACTORY.createInterTimeSliceInduction();
+        induction.setAppliedGroundVariable(appliedVariable);
+        induction.getTemporalStructure()
+            .addAll(temporalStructure);
+        return induction;
+    }
 
-	private TemporalDynamic createTemporalDynamic(InterTimeSliceInduction induction,
-			LocalProbabilisticNetwork localNetwork) {
-		TemplateFactor temporalFactor = createDefinitionQuerying(localNetwork)
-				.findTemporalTemplateFactorWith(deriveScopeFrom(induction))
-				.orElseThrow(() -> new EnvironmentalDynamicsException("There is no scope defined."));
-		return createLocalDynamicModel(temporalFactor, induction.getAppliedGroundVariable());
-	}
+    private TemporalDynamic createTemporalDynamic(InterTimeSliceInduction induction,
+            LocalProbabilisticNetwork localNetwork) {
+        TemplateFactor temporalFactor = createDefinitionQuerying(localNetwork)
+            .findTemporalTemplateFactorWith(deriveScopeFrom(induction))
+            .orElseThrow(() -> new EnvironmentalDynamicsException("There is no scope defined."));
+        return createLocalDynamicModel(temporalFactor, induction.getAppliedGroundVariable());
+    }
 
-	private TemporalDynamic createLocalDynamicModel(TemplateFactor temporalFactor, GroundRandomVariable variable) {
-		TemporalDynamic dynamic = FACTORY.createTemporalDynamic();
-		dynamic.setEntityName(String.format("%s_Temporal", variable.getEntityName()));
-		dynamic.setInstantiatedFactor(temporalFactor);
-		return dynamic;
-	}
+    private TemporalDynamic createLocalDynamicModel(TemplateFactor temporalFactor, GroundRandomVariable variable) {
+        TemporalDynamic dynamic = FACTORY.createTemporalDynamic();
+        dynamic.setEntityName(String.format("%s_Temporal", variable.getEntityName()));
+        dynamic.setInstantiatedFactor(temporalFactor);
+        return dynamic;
+    }
 
-	private TemplateDefinitionsQuerying createDefinitionQuerying(LocalProbabilisticNetwork localNetwork) {
-		Set<TemplateVariable> templateScope = getTemplates(localNetwork);
-		Set<Relation> relationScope = getRelations(templateScope);
-		return TemplateDefinitionsQuerying.withScope(relationScope, templateScope);
-	}
+    private TemplateDefinitionsQuerying createDefinitionQuerying(LocalProbabilisticNetwork localNetwork) {
+        Set<TemplateVariable> templateScope = getTemplates(localNetwork);
+        Set<Relation> relationScope = getRelations(templateScope);
+        return TemplateDefinitionsQuerying.withScope(relationScope, templateScope);
+    }
 
-	private Set<Relation> getRelations(Set<TemplateVariable> templateScope) {
-		EObject defs = Lists.newArrayList(templateScope).get(0).eContainer();
-		return Sets.newHashSet(TemplateVariableDefinitions.class.cast(defs).getRelation());
-	}
+    private Set<Relation> getRelations(Set<TemplateVariable> templateScope) {
+        EObject defs = Lists.newArrayList(templateScope)
+            .get(0)
+            .eContainer();
+        return Sets.newHashSet(TemplateVariableDefinitions.class.cast(defs)
+            .getRelation());
+    }
 
-	private ProbabilityDistributionSkeleton createDistributionSkeleton(DynamicBehaviourExtension dynamics) {
-		ProbabilityDistributionSkeleton skeleton = DistributiontypeFactory.eINSTANCE
-				.createProbabilityDistributionSkeleton();
-		skeleton.setEntityName(String.format("%s1_%2s", DBN_PREFIX, dynamics.getEntityName()));
-		// TODO this is not always the case and should be resolved
-		skeleton.setType(ProbabilityDistributionType.DISCRETE);
-		// skeleton.getParamStructures().add(...);
-		return skeleton;
-	}
+    private ProbabilityDistributionSkeleton createDistributionSkeleton(DynamicBehaviourExtension dynamics) {
+        ProbabilityDistributionSkeleton skeleton = DistributiontypeFactory.eINSTANCE
+            .createProbabilityDistributionSkeleton();
+        skeleton.setEntityName(String.format("%s1_%2s", DBN_PREFIX, dynamics.getEntityName()));
+        // TODO this is not always the case and should be resolved
+        skeleton.setType(ProbabilityDistributionType.DISCRETE);
+        // skeleton.getParamStructures().add(...);
+        return skeleton;
+    }
 
 }

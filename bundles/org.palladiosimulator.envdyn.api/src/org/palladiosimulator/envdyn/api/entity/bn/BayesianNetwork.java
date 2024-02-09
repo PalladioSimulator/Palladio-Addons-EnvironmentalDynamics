@@ -35,7 +35,7 @@ import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionType;
 
-public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputValue>>
+public class BayesianNetwork<V> extends ProbabilityDistributionFunction<List<InputValue>>
         implements ProbabilisticModel<InputValue> {
 
     private class LocalProbabilisticModelHandler extends ProbabilityDistributionHandler {
