@@ -287,8 +287,9 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
                     toConditionalInputs(last));
             InputValue resolvedValue = getInputValue(each.getAppliedGroundVariable(), current);
 
-            probability *= localCPD.given(resolvedConditionals)
-                .probability(resolvedValue.asCategorical());
+            ConditionalProbabilityDistribution givenCPD = localCPD.given(resolvedConditionals);
+            CategoricalValue value = resolvedValue.asCategorical();
+            probability *= givenCPD.probability(value);
         }
 
         for (IntraTimeSliceInduction each : dynBehaviourQuery.getIntraTimeSliceInductions()) {
