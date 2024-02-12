@@ -377,8 +377,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
         }
     }
 
-    public static List<ConditionalInputValue> asConditionalInputValues(
-            List<Conditional<CategoricalValue>> conditionals) {
+    private List<ConditionalInputValue> asConditionalInputValues(List<Conditional<CategoricalValue>> conditionals) {
         return conditionals.stream()
             .map(ConditionalInputValue.class::cast)
             .collect(toList());
@@ -396,18 +395,18 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
             .collect(toList());
     }
 
-    public static ConditionalInputValue toConditionalInput(InputValue input) {
+    private static ConditionalInputValue toConditionalInput(InputValue input) {
         return ConditionalInputValue.create(new Conditional(input.getValue()
             .getDomain(), input.getValue()), input.getVariable());
     }
 
-    public static List<InputValue> toInputValues(List<ConditionalInputValue> conditionals) {
+    private static List<InputValue> toInputValues(List<ConditionalInputValue> conditionals) {
         return conditionals.stream()
             .map(DynamicBayesianNetwork::toInputValue)
             .collect(toList());
     }
 
-    public static InputValue toInputValue(ConditionalInputValue conditional) {
+    private static InputValue toInputValue(ConditionalInputValue conditional) {
         return InputValue.create(conditional.getValue(), conditional.getGroundVariable());
     }
 
