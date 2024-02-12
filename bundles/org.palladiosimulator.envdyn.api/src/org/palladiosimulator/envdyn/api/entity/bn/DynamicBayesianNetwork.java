@@ -195,6 +195,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
     private final BayesianNetwork initialDistribution;
     private final TemporalProbabilityHandler probHandler;
     private final List<ConditionalInputValue> conditionals;
+    private final ConditionalInputValueUtil conditionalInputValueUtil = new ConditionalInputValueUtil();
 
     public DynamicBayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, BayesianNetwork initialDistribution,
             DynamicBehaviourExtension dynamics,
@@ -268,7 +269,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
         Trajectory samplePath = Trajectory.create(timeSlices);
         for (int i = 0; samplePath.inTimeRange(i); i++) {
             List<InputValue> sample = sampleNext();
-            setConditionals(toConditionalInputs(sample));
+            setConditionals(conditionalInputValueUtil.toConditionalInputs(sample));
             samplePath.append(sample);
         }
         return samplePath;
@@ -284,7 +285,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
             ConditionalProbabilityDistribution localCPD = probHandler.getCPD(each.getAppliedGroundVariable());
 
             List<Conditional<CategoricalValue>> resolvedConditionals = resolveConditionals(each,
-                    toConditionalInputs(last));
+                    conditionalInputValueUtil.toConditionalInputs(last));
             InputValue resolvedValue = getInputValue(each.getAppliedGroundVariable(), current);
 
             ConditionalProbabilityDistribution givenCPD = localCPD.given(resolvedConditionals);
@@ -293,7 +294,8 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
         }
 
         for (IntraTimeSliceInduction each : dynBehaviourQuery.getIntraTimeSliceInductions()) {
-            ConditionalProbabilityDistribution localCPD = getCPDFromInitial(each, toConditionalInputs(current));
+            ConditionalProbabilityDistribution localCPD = getCPDFromInitial(each,
+                    conditionalInputValueUtil.toConditionalInputs(current));
 
             InputValue resolvedValue = getInputValue(each.getAppliedGroundVariable(), current);
 
@@ -328,7 +330,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
 
     private ConditionalProbabilityDistribution getCPDFromInitial(IntraTimeSliceInduction induction,
             List<ConditionalInputValue> conditionals) {
-        List<InputValue> history = toInputValues(conditionals);
+        List<InputValue> history = conditionalInputValueUtil.toInputValues(conditionals);
         ProbabilityDistributionFunction<CategoricalValue> pdf = initialDistribution
             .getPDF(induction.getAppliedGroundVariable(), history);
         return ConditionalProbabilityDistribution.class.cast(pdf);
@@ -348,7 +350,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
                 }
             }
         }
-        return asConditionals(resolved);
+        return conditionalInputValueUtil.asConditionals(resolved);
     }
 
     private boolean shareSameContext(GroundRandomVariable parent, GroundRandomVariable child) {
@@ -382,32 +384,4 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
             .map(ConditionalInputValue.class::cast)
             .collect(toList());
     }
-
-    public static List<Conditional<CategoricalValue>> asConditionals(List<ConditionalInputValue> conditionals) {
-        return conditionals.stream()
-            .map(Conditional.class::cast)
-            .collect(toList());
-    }
-
-    public static List<ConditionalInputValue> toConditionalInputs(List<InputValue> inputs) {
-        return inputs.stream()
-            .map(DynamicBayesianNetwork::toConditionalInput)
-            .collect(toList());
-    }
-
-    private static ConditionalInputValue toConditionalInput(InputValue input) {
-        return ConditionalInputValue.create(new Conditional(input.getValue()
-            .getDomain(), input.getValue()), input.getVariable());
-    }
-
-    private static List<InputValue> toInputValues(List<ConditionalInputValue> conditionals) {
-        return conditionals.stream()
-            .map(DynamicBayesianNetwork::toInputValue)
-            .collect(toList());
-    }
-
-    private static InputValue toInputValue(ConditionalInputValue conditional) {
-        return InputValue.create(conditional.getValue(), conditional.getGroundVariable());
-    }
-
 }
