@@ -26,13 +26,11 @@ import tools.mdsd.probdist.api.entity.Conditionable.Conditional;
 import tools.mdsd.probdist.api.entity.ConditionalProbabilityDistribution;
 import tools.mdsd.probdist.api.entity.NumericalValue;
 import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
-import tools.mdsd.probdist.api.entity.UnivariateProbabilitiyMassFunction;
-import tools.mdsd.probdist.api.entity.UnivariateProbabilityDensityFunction;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
+import tools.mdsd.probdist.api.factory.ProbabilityCalculator;
 import tools.mdsd.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
-import tools.mdsd.probdist.distributiontype.ProbabilityDistributionType;
 
 public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputValue>>
         implements ProbabilisticModel<InputValue<CategoricalValue>> {
@@ -88,6 +86,7 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 
     private final GroundProbabilisticNetwork groundNetwork;
     private final LocalProbabilisticModelHandler probModelHandler;
+    private final ProbabilityCalculator probabilityCalculator;
 
     public BayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, GroundProbabilisticNetwork groundNetwork,
             IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory) {
@@ -95,6 +94,7 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
 
         this.groundNetwork = groundNetwork;
         this.probModelHandler = new LocalProbabilisticModelHandler(probabilityDistributionFactory);
+        this.probabilityCalculator = probabilityDistributionFactory.getProbabilityCalculator();
 
         checkConsistency();
     }
@@ -221,35 +221,11 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
         for (LocalProbabilisticNetwork eachLocal : groundNetwork.getLocalProbabilisticModels()) {
             for (GroundRandomVariable eachVariable : orderGroundVariablesTopologically(eachLocal)) {
                 InputValue input = getInputValue(eachVariable, inputs);
-                probability *= calculateLocalProbability(getPDF(eachVariable, inputs), input);
+                ProbabilityDistributionFunction<CategoricalValue> pdf = getPDF(eachVariable, inputs);
+                probability *= probabilityCalculator.calculateLocalProbability(pdf, input.getValue());
             }
         }
         return probability;
-    }
-
-    private double calculateLocalProbability(ProbabilityDistributionFunction<CategoricalValue> pdf,
-            InputValue inputValue) {
-        try {
-            ProbabilityDistributionSkeleton skeleton = pdf.getDistributionSkeleton();
-            if (skeleton.getType() == ProbabilityDistributionType.DISCRETE) {
-                return calculateLocalProbability(pdf, inputValue.asCategorical());
-            }
-            return UnivariateProbabilityDensityFunction.class.cast(pdf)
-                .probability(inputValue.asNumerical());
-        } catch (ClassCastException e) {
-            throw new EnvironmentalDynamicsException("The distributions input space do not match.", e);
-        }
-
-    }
-
-    private double calculateLocalProbability(ProbabilityDistributionFunction<CategoricalValue> pdf,
-            CategoricalValue value) {
-        if (UnivariateProbabilitiyMassFunction.class.isInstance(pdf)) {
-            return UnivariateProbabilitiyMassFunction.class.cast(pdf)
-                .probability(value);
-        }
-        return ConditionalProbabilityDistribution.class.cast(pdf)
-            .probability(value);
     }
 
     private List<InputValue> sampleNext() {
