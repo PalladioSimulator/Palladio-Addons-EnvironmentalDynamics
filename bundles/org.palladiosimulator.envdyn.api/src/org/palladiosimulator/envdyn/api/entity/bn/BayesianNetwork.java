@@ -24,7 +24,6 @@ import tools.mdsd.probdist.api.builder.ProbabilityDistributionBuilder;
 import tools.mdsd.probdist.api.entity.CategoricalValue;
 import tools.mdsd.probdist.api.entity.Conditionable.Conditional;
 import tools.mdsd.probdist.api.entity.ConditionalProbabilityDistribution;
-import tools.mdsd.probdist.api.entity.NumericalValue;
 import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
 import tools.mdsd.probdist.api.factory.ProbabilityCalculator;
@@ -286,13 +285,8 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
     }
 
     private Domain getDomain(InputValue input) {
-        if (NumericalValue.class.isInstance(input.getValue())) {
-            return NumericalValue.class.cast(input.getValue())
-                .getDomain();
-        } else {
-            return CategoricalValue.class.cast(input.getValue())
-                .getDomain();
-        }
+        return input.getValue()
+            .getDomain();
     }
 
     protected static InputValue getInputValue(GroundRandomVariable variable, List<InputValue> inputs) {
