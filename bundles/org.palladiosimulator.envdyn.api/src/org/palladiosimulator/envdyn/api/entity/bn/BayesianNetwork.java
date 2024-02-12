@@ -63,8 +63,9 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
         private void createAndCachePD(GroundRandomVariable variable) {
             ProbabilityDistribution distribution = variable.getDescriptiveModel()
                 .getDistribution();
-            ProbabilityDistributionFunction<CategoricalValue> pdf = ProbabilityDistributionBuilder
-                .create(probabilityDistributionFactory)
+            ProbabilityDistributionBuilder<CategoricalValue> probabilityDistributionBuilder = probabilityDistributionFactory
+                .getProbabilityDistributionBuilder();
+            ProbabilityDistributionFunction<CategoricalValue> pdf = probabilityDistributionBuilder
                 .withStructure(distribution)
                 .build();
             cache(variable, pdf);
@@ -73,8 +74,9 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
         private void createAndCacheCPD(GroundRandomVariable variable) {
             ProbabilityDistribution distribution = variable.getDescriptiveModel()
                 .getDistribution();
-            ProbabilityDistributionFunction<CategoricalValue> pdf = ProbabilityDistributionBuilder
-                .create(probabilityDistributionFactory)
+            ProbabilityDistributionBuilder<CategoricalValue> probabilityDistributionBuilder = probabilityDistributionFactory
+                .getProbabilityDistributionBuilder();
+            ProbabilityDistributionFunction<CategoricalValue> pdf = probabilityDistributionBuilder
                 .withStructure(distribution)
                 .asConditionalProbabilityDistribution()
                 .build();
