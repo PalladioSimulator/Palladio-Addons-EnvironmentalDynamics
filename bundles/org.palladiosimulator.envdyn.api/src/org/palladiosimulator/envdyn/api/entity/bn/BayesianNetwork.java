@@ -282,7 +282,7 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
     }
 
     private Conditional toConditional(InputValue value) {
-        return new Conditional(getDomain(value), value.getValue());
+        return new Conditional<>(getDomain(value), value.getValue());
     }
 
     private Domain getDomain(InputValue input) {
