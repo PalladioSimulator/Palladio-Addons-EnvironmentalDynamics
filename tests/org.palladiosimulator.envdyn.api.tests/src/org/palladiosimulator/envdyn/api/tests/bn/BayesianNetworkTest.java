@@ -14,10 +14,12 @@ import org.palladiosimulator.envdyn.api.generator.BayesianNetworkGenerator;
 import org.palladiosimulator.envdyn.api.tests.util.ModelLoader;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariableDefinitions;
 
+import tools.mdsd.probdist.api.entity.CategoricalValue;
+
 public class BayesianNetworkTest extends BayesianModelTest {
 
     private TemplateVariableDefinitions templateDefinitions;
-    private BayesianNetwork bayNetwork;
+    private BayesianNetwork<CategoricalValue> bayNetwork;
     private List<InputValue> sample;
 
     @Before
@@ -49,8 +51,9 @@ public class BayesianNetworkTest extends BayesianModelTest {
     }
 
     private void whenGeneratingBN() {
-        bayNetwork = new BayesianNetworkGenerator(templateDefinitions).generate(APPLIED_MODELS,
-                defaultProbabilityDistributionFactory);
+        BayesianNetworkGenerator<CategoricalValue> bayesianNetworkGenerator = new BayesianNetworkGenerator<>(
+                templateDefinitions);
+        bayNetwork = bayesianNetworkGenerator.generate(APPLIED_MODELS, defaultProbabilityDistributionFactory);
     }
 
     private void thenBNIsProperlyGenerated() {

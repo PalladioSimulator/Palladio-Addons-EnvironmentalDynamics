@@ -4,13 +4,13 @@ import org.palladiosimulator.envdyn.api.entity.bn.BayesianNetwork;
 import org.palladiosimulator.envdyn.environment.staticmodel.GroundProbabilisticNetwork;
 import org.palladiosimulator.envdyn.environment.templatevariable.TemplateVariableDefinitions;
 
-import tools.mdsd.probdist.api.entity.CategoricalValue;
+import tools.mdsd.probdist.api.entity.Value;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
 import tools.mdsd.probdist.distributiontype.DistributiontypeFactory;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionType;
 
-public class BayesianNetworkGenerator extends ProbabilisticNetworkGenerator<BayesianNetwork> {
+public class BayesianNetworkGenerator<I extends Value<?>> extends ProbabilisticNetworkGenerator<BayesianNetwork<I>, I> {
 
     private final static String BN_PREFIX = "BayesianNetwork";
 
@@ -24,9 +24,9 @@ public class BayesianNetworkGenerator extends ProbabilisticNetworkGenerator<Baye
     }
 
     @Override
-    public BayesianNetwork createProbabilisticNetwork(GroundProbabilisticNetwork network,
-            IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory) {
-        return new BayesianNetwork(createDistributionSkeleton(network), network, probabilityDistributionFactory);
+    public BayesianNetwork<I> createProbabilisticNetwork(GroundProbabilisticNetwork network,
+            IProbabilityDistributionFactory<I> probabilityDistributionFactory) {
+        return new BayesianNetwork<>(createDistributionSkeleton(network), network, probabilityDistributionFactory);
     }
 
     private ProbabilityDistributionSkeleton createDistributionSkeleton(GroundProbabilisticNetwork network) {

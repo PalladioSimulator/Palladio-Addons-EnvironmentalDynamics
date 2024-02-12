@@ -26,33 +26,34 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
 import tools.mdsd.probdist.api.builder.ProbabilityDistributionBuilder;
-import tools.mdsd.probdist.api.entity.CategoricalValue;
 import tools.mdsd.probdist.api.entity.Conditionable;
+import tools.mdsd.probdist.api.entity.ConditionableProbabilityDistribution;
 import tools.mdsd.probdist.api.entity.ConditionalProbabilityDistribution;
 import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
+import tools.mdsd.probdist.api.entity.Value;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
 import tools.mdsd.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
 
-public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Trajectory>
-        implements ProbabilisticModel<Trajectory>, Conditionable<CategoricalValue> {
+public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistributionFunction<Trajectory>
+        implements ProbabilisticModel<Trajectory>, Conditionable<I> {
 
     private final static int SINGLE_TIME_SLICE = 0;
 
-    public static class ConditionalInputValue extends Conditional<CategoricalValue> {
+    public static class ConditionalInputValue<I extends Value<?>> extends Conditional<I> {
 
         private final GroundRandomVariable variable;
 
-        private ConditionalInputValue(Domain valueSpace, CategoricalValue value, GroundRandomVariable variable) {
+        private ConditionalInputValue(Domain valueSpace, I value, GroundRandomVariable variable) {
             super(valueSpace, value);
 
             this.variable = variable;
         }
 
-        public static ConditionalInputValue create(Conditional<CategoricalValue> conditional,
+        public static <I extends Value<?>> ConditionalInputValue<I> create(Conditional<I> conditional,
                 GroundRandomVariable variable) {
-            return new ConditionalInputValue(conditional.getValueSpace(), conditional.getValue(), variable);
+            return new ConditionalInputValue<>(conditional.getValueSpace(), conditional.getValue(), variable);
         }
 
         public GroundRandomVariable getGroundVariable() {
@@ -151,19 +152,19 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
 
     }
 
-    private class TemporalProbabilityHandler extends ProbabilityDistributionHandler {
+    private class TemporalProbabilityHandler extends ProbabilityDistributionHandler<I> {
 
-        private final IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory;
+        private final IProbabilityDistributionFactory<I> probabilityDistributionFactory;
 
-        public TemporalProbabilityHandler(
-                IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory) {
+        public TemporalProbabilityHandler(IProbabilityDistributionFactory<I> probabilityDistributionFactory) {
             this.probabilityDistributionFactory = probabilityDistributionFactory;
         }
 
         @Override
         protected void initialize() {
-            initialDistribution.getLocalProbabilisticNetworks()
-                .forEach(this::createAndCache);
+            List<LocalProbabilisticNetwork> localProbabilisticNetworks = initialDistribution
+                .getLocalProbabilisticNetworks();
+            localProbabilisticNetworks.forEach(this::createAndCache);
         }
 
         private void createAndCache(LocalProbabilisticNetwork localNetwork) {
@@ -175,31 +176,29 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
         }
 
         private void createAndCacheCPD(GroundRandomVariable variable, ProbabilityDistribution distribution) {
-            ProbabilityDistributionBuilder<CategoricalValue> probabilityDistributionBuilder = probabilityDistributionFactory
+            ProbabilityDistributionBuilder<I> probabilityDistributionBuilder = probabilityDistributionFactory
                 .getProbabilityDistributionBuilder();
-            ProbabilityDistributionFunction<CategoricalValue> pdf = probabilityDistributionBuilder
-                .withStructure(distribution)
+            ProbabilityDistributionFunction<I> pdf = probabilityDistributionBuilder.withStructure(distribution)
                 .asConditionalProbabilityDistribution()
                 .build();
             cache(variable, pdf);
         }
 
-        public ConditionalProbabilityDistribution getCPD(GroundRandomVariable variable) {
-            return ConditionalProbabilityDistribution.class.cast(getPDF(variable));
+        public ConditionableProbabilityDistribution<I> getCPD(GroundRandomVariable variable) {
+            return (ConditionableProbabilityDistribution<I>) getPDF(variable);
         }
 
     }
 
     private final InductiveDynamicBehaviourQuerying dynBehaviourQuery;
     private final DynamicBehaviourExtension dynamics;
-    private final BayesianNetwork initialDistribution;
+    private final BayesianNetwork<I> initialDistribution;
     private final TemporalProbabilityHandler probHandler;
-    private final List<ConditionalInputValue> conditionals;
-    private final ConditionalInputValueUtil conditionalInputValueUtil = new ConditionalInputValueUtil();
+    private final List<ConditionalInputValue<I>> conditionals;
+    private final ConditionalInputValueUtil<I> conditionalInputValueUtil = new ConditionalInputValueUtil<>();
 
-    public DynamicBayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, BayesianNetwork initialDistribution,
-            DynamicBehaviourExtension dynamics,
-            IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory) {
+    public DynamicBayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, BayesianNetwork<I> initialDistribution,
+            DynamicBehaviourExtension dynamics, IProbabilityDistributionFactory<I> probabilityDistributionFactory) {
         super(distSkeleton);
 
         this.dynamics = dynamics;
@@ -230,7 +229,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
     }
 
     @Override
-    public DynamicBayesianNetwork given(List<Conditional<CategoricalValue>> conditionals) {
+    public DynamicBayesianNetwork<I> given(List<Conditional<I>> conditionals) {
         checkValidity(conditionals);
 
         setConditionals(asConditionalInputValues(conditionals));
@@ -238,7 +237,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
         return this;
     }
 
-    public BayesianNetwork getBayesianNetwork() {
+    public BayesianNetwork<I> getBayesianNetwork() {
         return initialDistribution;
     }
 
@@ -246,7 +245,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
         return dynamics;
     }
 
-    private void setConditionals(List<ConditionalInputValue> conditionals) {
+    private void setConditionals(List<ConditionalInputValue<I>> conditionals) {
         this.conditionals.clear();
         this.conditionals.addAll(conditionals);
     }
@@ -282,14 +281,15 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
     private double calculateProbability(List<InputValue> current, List<InputValue> last) {
         double probability = 1;
         for (InterTimeSliceInduction each : dynBehaviourQuery.getInterTimeSliceInductions()) {
-            ConditionalProbabilityDistribution localCPD = probHandler.getCPD(each.getAppliedGroundVariable());
+            ConditionableProbabilityDistribution<I> localCPD = probHandler.getCPD(each.getAppliedGroundVariable());
 
-            List<Conditional<CategoricalValue>> resolvedConditionals = resolveConditionals(each,
+            List<Conditional<I>> resolvedConditionals = resolveConditionals(each,
                     conditionalInputValueUtil.toConditionalInputs(last));
             InputValue resolvedValue = getInputValue(each.getAppliedGroundVariable(), current);
 
-            ConditionalProbabilityDistribution givenCPD = localCPD.given(resolvedConditionals);
-            CategoricalValue value = resolvedValue.asCategorical();
+            ConditionableProbabilityDistribution<I> givenCPD = (ConditionableProbabilityDistribution<I>) localCPD
+                .given(resolvedConditionals);
+            I value = (I) resolvedValue.getValue();
             probability *= givenCPD.probability(value);
         }
 
@@ -311,13 +311,14 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
         return sampleNextGiven(conditionals);
     }
 
-    private List<InputValue> sampleNextGiven(List<ConditionalInputValue> conditionals) {
+    private List<InputValue> sampleNextGiven(List<ConditionalInputValue<I>> conditionals) {
         List<InputValue> sample = Lists.newArrayList();
         for (InterTimeSliceInduction each : dynBehaviourQuery.getInterTimeSliceInductions()) {
-            List<Conditional<CategoricalValue>> resolved = resolveConditionals(each, conditionals);
-            ConditionalProbabilityDistribution localCPD = probHandler.getCPD(each.getAppliedGroundVariable());
-            sample.add(InputValue.create(localCPD.given(resolved)
-                .sample(), each.getAppliedGroundVariable()));
+            List<Conditional<I>> resolved = resolveConditionals(each, conditionals);
+            ConditionableProbabilityDistribution<I> localCPD = probHandler.getCPD(each.getAppliedGroundVariable());
+            ConditionableProbabilityDistribution<I> given = (ConditionableProbabilityDistribution<I>) localCPD
+                .given(resolved);
+            sample.add(InputValue.create(given.sample(), each.getAppliedGroundVariable()));
         }
 
         for (IntraTimeSliceInduction each : dynBehaviourQuery.getIntraTimeSliceInductions()) {
@@ -329,19 +330,19 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
     }
 
     private ConditionalProbabilityDistribution getCPDFromInitial(IntraTimeSliceInduction induction,
-            List<ConditionalInputValue> conditionals) {
+            List<ConditionalInputValue<I>> conditionals) {
         List<InputValue> history = conditionalInputValueUtil.toInputValues(conditionals);
-        ProbabilityDistributionFunction<CategoricalValue> pdf = initialDistribution
-            .getPDF(induction.getAppliedGroundVariable(), history);
+        ProbabilityDistributionFunction<I> pdf = initialDistribution.getPDF(induction.getAppliedGroundVariable(),
+                history);
         return ConditionalProbabilityDistribution.class.cast(pdf);
     }
 
-    private List<Conditional<CategoricalValue>> resolveConditionals(InterTimeSliceInduction induction,
-            List<ConditionalInputValue> conditionals) {
+    private List<Conditional<I>> resolveConditionals(InterTimeSliceInduction induction,
+            List<ConditionalInputValue<I>> conditionals) {
         Set<TemplateVariable> interfaceVarParents = getInterfaceVariableParents(induction);
 
-        List<ConditionalInputValue> resolved = Lists.newArrayList();
-        for (ConditionalInputValue each : conditionals) {
+        List<ConditionalInputValue<I>> resolved = Lists.newArrayList();
+        for (ConditionalInputValue<I> each : conditionals) {
             TemplateVariable instantiated = each.getGroundVariable()
                 .getInstantiatedTemplate();
             if (contains(instantiated, interfaceVarParents)) {
@@ -367,7 +368,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
             .collect(toSet());
     }
 
-    private void checkValidity(List<Conditional<CategoricalValue>> conditionals) {
+    private void checkValidity(List<Conditional<I>> conditionals) {
         if (conditionals.isEmpty()) {
             return;
         }
@@ -379,7 +380,7 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
         }
     }
 
-    private List<ConditionalInputValue> asConditionalInputValues(List<Conditional<CategoricalValue>> conditionals) {
+    private List<ConditionalInputValue<I>> asConditionalInputValues(List<Conditional<I>> conditionals) {
         return conditionals.stream()
             .map(ConditionalInputValue.class::cast)
             .collect(toList());
