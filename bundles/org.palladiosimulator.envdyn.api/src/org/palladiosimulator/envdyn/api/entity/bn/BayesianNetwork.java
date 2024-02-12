@@ -23,7 +23,7 @@ import com.google.common.collect.Lists;
 import tools.mdsd.probdist.api.builder.ProbabilityDistributionBuilder;
 import tools.mdsd.probdist.api.entity.CategoricalValue;
 import tools.mdsd.probdist.api.entity.Conditionable.Conditional;
-import tools.mdsd.probdist.api.entity.ConditionalProbabilityDistribution;
+import tools.mdsd.probdist.api.entity.ConditionableProbabilityDistribution;
 import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
 import tools.mdsd.probdist.api.factory.ProbabilityCalculator;
@@ -261,9 +261,10 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
     protected ProbabilityDistributionFunction<CategoricalValue> getPDF(GroundRandomVariable variable,
             List<InputValue> history) {
         ProbabilityDistributionFunction<CategoricalValue> pdf = probModelHandler.getPDF(variable);
-        if (ConditionalProbabilityDistribution.class.isInstance(pdf)) {
-            ConditionalProbabilityDistribution.class.cast(pdf)
-                .given(resolveConditionals(variable, history));
+        if (pdf instanceof ConditionableProbabilityDistribution) {
+            ConditionableProbabilityDistribution conditionableProbabilityDistribution = (ConditionableProbabilityDistribution) pdf;
+            List<Conditional<CategoricalValue>> conditionals = resolveConditionals(variable, history);
+            conditionableProbabilityDistribution.given(conditionals);
         }
         return pdf;
     }
