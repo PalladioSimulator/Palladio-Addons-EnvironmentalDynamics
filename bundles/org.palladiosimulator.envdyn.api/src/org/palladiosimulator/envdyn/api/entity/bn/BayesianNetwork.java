@@ -25,6 +25,7 @@ import tools.mdsd.probdist.api.entity.CategoricalValue;
 import tools.mdsd.probdist.api.entity.Conditionable.Conditional;
 import tools.mdsd.probdist.api.entity.ConditionableProbabilityDistribution;
 import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
+import tools.mdsd.probdist.api.entity.Value;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
 import tools.mdsd.probdist.api.factory.ProbabilityCalculator;
 import tools.mdsd.probdist.distributionfunction.Domain;
@@ -34,11 +35,10 @@ import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
 public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputValue>>
         implements ProbabilisticModel<InputValue<CategoricalValue>> {
 
-    private class LocalProbabilisticModelHandler extends ProbabilityDistributionHandler {
-        private final IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory;
+    private class LocalProbabilisticModelHandler<I extends Value<?>> extends ProbabilityDistributionHandler<I> {
+        private final IProbabilityDistributionFactory<I> probabilityDistributionFactory;
 
-        public LocalProbabilisticModelHandler(
-                IProbabilityDistributionFactory<CategoricalValue> probabilityDistributionFactory) {
+        public LocalProbabilisticModelHandler(IProbabilityDistributionFactory<I> probabilityDistributionFactory) {
             this.probabilityDistributionFactory = probabilityDistributionFactory;
         }
 
@@ -63,10 +63,9 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
         private void createAndCachePD(GroundRandomVariable variable) {
             ProbabilityDistribution distribution = variable.getDescriptiveModel()
                 .getDistribution();
-            ProbabilityDistributionBuilder<CategoricalValue> probabilityDistributionBuilder = probabilityDistributionFactory
+            ProbabilityDistributionBuilder<I> probabilityDistributionBuilder = probabilityDistributionFactory
                 .getProbabilityDistributionBuilder();
-            ProbabilityDistributionFunction<CategoricalValue> pdf = probabilityDistributionBuilder
-                .withStructure(distribution)
+            ProbabilityDistributionFunction<I> pdf = probabilityDistributionBuilder.withStructure(distribution)
                 .build();
             cache(variable, pdf);
         }
@@ -74,10 +73,9 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
         private void createAndCacheCPD(GroundRandomVariable variable) {
             ProbabilityDistribution distribution = variable.getDescriptiveModel()
                 .getDistribution();
-            ProbabilityDistributionBuilder<CategoricalValue> probabilityDistributionBuilder = probabilityDistributionFactory
+            ProbabilityDistributionBuilder<I> probabilityDistributionBuilder = probabilityDistributionFactory
                 .getProbabilityDistributionBuilder();
-            ProbabilityDistributionFunction<CategoricalValue> pdf = probabilityDistributionBuilder
-                .withStructure(distribution)
+            ProbabilityDistributionFunction<I> pdf = probabilityDistributionBuilder.withStructure(distribution)
                 .asConditionalProbabilityDistribution()
                 .build();
             cache(variable, pdf);
@@ -86,7 +84,7 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
     }
 
     private final GroundProbabilisticNetwork groundNetwork;
-    private final LocalProbabilisticModelHandler probModelHandler;
+    private final LocalProbabilisticModelHandler<CategoricalValue> probModelHandler;
     private final ProbabilityCalculator probabilityCalculator;
 
     public BayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, GroundProbabilisticNetwork groundNetwork,
@@ -94,7 +92,7 @@ public class BayesianNetwork extends ProbabilityDistributionFunction<List<InputV
         super(distSkeleton);
 
         this.groundNetwork = groundNetwork;
-        this.probModelHandler = new LocalProbabilisticModelHandler(probabilityDistributionFactory);
+        this.probModelHandler = new LocalProbabilisticModelHandler<>(probabilityDistributionFactory);
         this.probabilityCalculator = probabilityDistributionFactory.getProbabilityCalculator();
 
         checkConsistency();
