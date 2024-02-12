@@ -175,8 +175,9 @@ public class DynamicBayesianNetwork extends ProbabilityDistributionFunction<Traj
         }
 
         private void createAndCacheCPD(GroundRandomVariable variable, ProbabilityDistribution distribution) {
-            ProbabilityDistributionFunction<CategoricalValue> pdf = ProbabilityDistributionBuilder
-                .create(probabilityDistributionFactory)
+            ProbabilityDistributionBuilder<CategoricalValue> probabilityDistributionBuilder = probabilityDistributionFactory
+                .getProbabilityDistributionBuilder();
+            ProbabilityDistributionFunction<CategoricalValue> pdf = probabilityDistributionBuilder
                 .withStructure(distribution)
                 .asConditionalProbabilityDistribution()
                 .build();
