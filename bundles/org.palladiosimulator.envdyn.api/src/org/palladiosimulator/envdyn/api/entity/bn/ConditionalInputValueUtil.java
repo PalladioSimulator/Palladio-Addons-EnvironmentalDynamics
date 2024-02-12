@@ -6,34 +6,34 @@ import java.util.List;
 
 import org.palladiosimulator.envdyn.api.entity.bn.DynamicBayesianNetwork.ConditionalInputValue;
 
-import tools.mdsd.probdist.api.entity.CategoricalValue;
 import tools.mdsd.probdist.api.entity.Conditionable.Conditional;
+import tools.mdsd.probdist.api.entity.Value;
 
-public class ConditionalInputValueUtil {
-    public List<Conditional<CategoricalValue>> asConditionals(List<ConditionalInputValue> conditionals) {
+public class ConditionalInputValueUtil<I extends Value<?>> {
+    public List<Conditional<I>> asConditionals(List<ConditionalInputValue<I>> conditionals) {
         return conditionals.stream()
             .map(Conditional.class::cast)
             .collect(toList());
     }
 
-    public List<ConditionalInputValue> toConditionalInputs(List<InputValue> inputs) {
+    public List<ConditionalInputValue<I>> toConditionalInputs(List<InputValue> inputs) {
         return inputs.stream()
             .map(this::toConditionalInput)
             .collect(toList());
     }
 
-    private ConditionalInputValue toConditionalInput(InputValue input) {
-        return ConditionalInputValue.create(new Conditional(input.getValue()
+    private ConditionalInputValue<I> toConditionalInput(InputValue input) {
+        return ConditionalInputValue.create(new Conditional<>(input.getValue()
             .getDomain(), input.getValue()), input.getVariable());
     }
 
-    public List<InputValue> toInputValues(List<ConditionalInputValue> conditionals) {
+    public List<InputValue> toInputValues(List<ConditionalInputValue<I>> conditionals) {
         return conditionals.stream()
             .map(this::toInputValue)
             .collect(toList());
     }
 
-    private InputValue toInputValue(ConditionalInputValue conditional) {
+    private InputValue toInputValue(ConditionalInputValue<I> conditional) {
         return InputValue.create(conditional.getValue(), conditional.getGroundVariable());
     }
 }
