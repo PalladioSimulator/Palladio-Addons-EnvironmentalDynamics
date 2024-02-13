@@ -2,7 +2,6 @@ package org.palladiosimulator.envdyn.api.entity.bn;
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
-import static org.palladiosimulator.envdyn.api.entity.bn.BayesianNetwork.getInputValue;
 import static org.palladiosimulator.envdyn.api.util.TemplateDefinitionsQuerying.contains;
 
 import java.util.List;
@@ -284,7 +283,8 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
 
             List<Conditional<I>> resolvedConditionals = resolveConditionals(each,
                     conditionalInputValueUtil.toConditionalInputs(last));
-            InputValue<I> resolvedValue = getInputValue(each.getAppliedGroundVariable(), current);
+            InputValue<I> resolvedValue = conditionalInputValueUtil.getInputValue(each.getAppliedGroundVariable(),
+                    current);
 
             ConditionableProbabilityDistribution<I> givenCPD = (ConditionableProbabilityDistribution<I>) localCPD
                 .given(resolvedConditionals);
@@ -296,7 +296,8 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
             ConditionableProbabilityDistribution<I> localCPD = getCPDFromInitial(each,
                     conditionalInputValueUtil.toConditionalInputs(current));
 
-            InputValue<I> resolvedInputValue = getInputValue(each.getAppliedGroundVariable(), current);
+            InputValue<I> resolvedInputValue = conditionalInputValueUtil.getInputValue(each.getAppliedGroundVariable(),
+                    current);
             I resolvedValue = resolvedInputValue.getValue();
             probability *= localCPD.probability(resolvedValue);
         }

@@ -85,6 +85,7 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
     private final GroundProbabilisticNetwork groundNetwork;
     private final LocalProbabilisticModelHandler probModelHandler;
     private final ProbabilityCalculator<I> probabilityCalculator;
+    private final ConditionalInputValueUtil<I> conditionalInputValueUtil = new ConditionalInputValueUtil<>();
 
     public BayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, GroundProbabilisticNetwork groundNetwork,
             IProbabilityDistributionFactory<I> probabilityDistributionFactory) {
@@ -218,7 +219,7 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
         double probability = 1;
         for (LocalProbabilisticNetwork eachLocal : groundNetwork.getLocalProbabilisticModels()) {
             for (GroundRandomVariable eachVariable : orderGroundVariablesTopologically(eachLocal)) {
-                InputValue<I> input = getInputValue(eachVariable, inputs);
+                InputValue<I> input = conditionalInputValueUtil.getInputValue(eachVariable, inputs);
                 ProbabilityDistributionFunction<I> pdf = getPDF(eachVariable, inputs);
                 I value = input.getValue();
                 probability *= probabilityCalculator.calculateLocalProbability(pdf, value);
@@ -274,7 +275,7 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
         List<GroundRandomVariable> instantiatedParents = filterGroundVariablesInstantiating(
                 templateQuery.filterAllParentsOf(variable.getInstantiatedTemplate()), localNetwork);
         return instantiatedParents.stream()
-            .map(each -> getInputValue(each, history))
+            .map(each -> conditionalInputValueUtil.getInputValue(each, history))
             .map(this::toConditional)
             .collect(toList());
     }
@@ -287,18 +288,4 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
         return input.getValue()
             .getDomain();
     }
-
-    protected static <I extends Value<?>> InputValue<I> getInputValue(GroundRandomVariable variable,
-            List<InputValue<I>> inputs) {
-        return inputs.stream()
-            .filter(input -> input.getVariable()
-                .getId()
-                .equals(variable.getId()))
-            .findFirst()
-            .orElseThrow(() -> new IllegalArgumentException(
-                    String.format("The network does not contain the ground random variable for template %s",
-                            variable.getInstantiatedTemplate()
-                                .getEntityName())));
-    }
-
 }
