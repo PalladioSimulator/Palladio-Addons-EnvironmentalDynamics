@@ -16,24 +16,24 @@ public class ConditionalInputValueUtil<I extends Value<?>> {
             .collect(toList());
     }
 
-    public List<ConditionalInputValue<I>> toConditionalInputs(List<InputValue> inputs) {
+    public List<ConditionalInputValue<I>> toConditionalInputs(List<InputValue<I>> inputs) {
         return inputs.stream()
             .map(this::toConditionalInput)
             .collect(toList());
     }
 
-    private ConditionalInputValue<I> toConditionalInput(InputValue input) {
+    private ConditionalInputValue<I> toConditionalInput(InputValue<I> input) {
         return ConditionalInputValue.create(new Conditional<>(input.getValue()
             .getDomain(), input.getValue()), input.getVariable());
     }
 
-    public List<InputValue> toInputValues(List<ConditionalInputValue<I>> conditionals) {
+    public List<InputValue<I>> toInputValues(List<ConditionalInputValue<I>> conditionals) {
         return conditionals.stream()
             .map(this::toInputValue)
             .collect(toList());
     }
 
-    private InputValue toInputValue(ConditionalInputValue<I> conditional) {
+    private InputValue<I> toInputValue(ConditionalInputValue<I> conditional) {
         return InputValue.create(conditional.getValue(), conditional.getGroundVariable());
     }
 }

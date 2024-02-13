@@ -20,7 +20,7 @@ public class BayesianNetworkTest extends BayesianModelTest {
 
     private TemplateVariableDefinitions templateDefinitions;
     private BayesianNetwork<CategoricalValue> bayNetwork;
-    private List<InputValue> sample;
+    private List<InputValue<CategoricalValue>> sample;
 
     @Before
     public void reset() {

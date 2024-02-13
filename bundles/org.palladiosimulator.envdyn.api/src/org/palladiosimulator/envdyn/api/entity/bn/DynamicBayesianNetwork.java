@@ -28,7 +28,6 @@ import com.google.common.collect.Sets;
 import tools.mdsd.probdist.api.builder.ProbabilityDistributionBuilder;
 import tools.mdsd.probdist.api.entity.Conditionable;
 import tools.mdsd.probdist.api.entity.ConditionableProbabilityDistribution;
-import tools.mdsd.probdist.api.entity.ConditionalProbabilityDistribution;
 import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
 import tools.mdsd.probdist.api.entity.Value;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
@@ -36,8 +35,8 @@ import tools.mdsd.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
 
-public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistributionFunction<Trajectory>
-        implements ProbabilisticModel<Trajectory>, Conditionable<I> {
+public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistributionFunction<Trajectory<I>>
+        implements ProbabilisticModel<Trajectory<I>>, Conditionable<I> {
 
     private final static int SINGLE_TIME_SLICE = 0;
 
@@ -62,37 +61,37 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
 
     }
 
-    public static class Trajectory {
+    public static class Trajectory<I extends Value<?>> {
 
         private final int trajLength;
-        private final Map<Integer, List<InputValue>> samplePath;
+        private final Map<Integer, List<InputValue<I>>> samplePath;
 
-        private Trajectory(int trajLength, Map<Integer, List<InputValue>> samplePath) {
+        private Trajectory(int trajLength, Map<Integer, List<InputValue<I>>> samplePath) {
             this.trajLength = trajLength;
             this.samplePath = samplePath;
         }
 
-        public static Trajectory create(int timeSlices, List<List<InputValue>> samples) {
+        public static <I extends Value<?>> Trajectory<I> create(int timeSlices, List<List<InputValue<I>>> samples) {
             if (timeSlices != samples.size() - 1) {
                 throw new IllegalArgumentException("The number of time slices must match the input sequence size.");
             }
 
-            Map<Integer, List<InputValue>> samplePath = Maps.newHashMap();
+            Map<Integer, List<InputValue<I>>> samplePath = Maps.newHashMap();
             for (int i = 0; i < timeSlices; i++) {
                 samplePath.put(i, samples.get(i));
             }
-            return new Trajectory(timeSlices, samplePath);
+            return new Trajectory<>(timeSlices, samplePath);
         }
 
-        public static Trajectory create(int timeSlices) {
-            Map<Integer, List<InputValue>> samplePath = Maps.newHashMap();
+        public static <I extends Value<?>> Trajectory<I> create(int timeSlices) {
+            Map<Integer, List<InputValue<I>>> samplePath = Maps.newHashMap();
             for (int i = 0; i <= timeSlices; i++) {
                 samplePath.put(i, Lists.newArrayList());
             }
-            return new Trajectory(timeSlices, samplePath);
+            return new Trajectory<>(timeSlices, samplePath);
         }
 
-        public List<InputValue> valueAtTime(int timeSlice) {
+        public List<InputValue<I>> valueAtTime(int timeSlice) {
             if (Boolean.logicalOr(timeSlice > samplePath.size(), timeSlice < 0)) {
                 throw new IllegalArgumentException("The time slice is not in the range of the trajectory.");
             }
@@ -103,7 +102,7 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
             return timeSlice <= trajLength;
         }
 
-        public void append(List<InputValue> samples) {
+        public void append(List<InputValue<I>> samples) {
             if (maxTrajSizeNotReached()) {
                 samplePath.put(calculateTimeSlice(), samples);
             }
@@ -136,9 +135,9 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
             return builder.toString();
         }
 
-        private String stringifyTimeSlice(int timeSlice, List<InputValue> values) {
+        private String stringifyTimeSlice(int timeSlice, List<InputValue<I>> values) {
             StringBuilder builder = new StringBuilder();
-            for (InputValue each : values) {
+            for (InputValue<I> each : values) {
                 builder.append(String.format("(Variable: %1s, Value: %2s),", each.getVariable()
                     .getEntityName(),
                         each.getValue()
@@ -209,22 +208,22 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
     }
 
     @Override
-    public Double probability(Trajectory value) {
+    public Double probability(Trajectory<I> value) {
         return unrollForProbability(value);
     }
 
     @Override
-    public Trajectory sample() {
+    public Trajectory<I> sample() {
         return unrollForSampling(SINGLE_TIME_SLICE);
     }
 
     @Override
-    public Double infer(List<Trajectory> inputs) {
+    public Double infer(List<Trajectory<I>> inputs) {
         throw new UnsupportedOperationException("The method is not implemented yet.");
     }
 
     @Override
-    public void learn(List<Trajectory> trainingData) {
+    public void learn(List<Trajectory<I>> trainingData) {
         throw new UnsupportedOperationException("The method is not implemented yet.");
     }
 
@@ -250,69 +249,69 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
         this.conditionals.addAll(conditionals);
     }
 
-    public Double unrollForProbability(Trajectory traj) {
+    public Double unrollForProbability(Trajectory<I> traj) {
         double probability = 1;
         for (int timeSlice = 0; traj.inTimeRange(timeSlice); timeSlice++) {
-            List<InputValue> current = traj.valueAtTime(timeSlice);
+            List<InputValue<I>> current = traj.valueAtTime(timeSlice);
             if (timeSlice == 0) {
                 probability *= calculateInitialProbability(current);
             } else {
-                List<InputValue> last = traj.valueAtTime(timeSlice - 1);
+                List<InputValue<I>> last = traj.valueAtTime(timeSlice - 1);
                 probability *= calculateProbability(current, last);
             }
         }
         return probability;
     }
 
-    public Trajectory unrollForSampling(int timeSlices) {
-        Trajectory samplePath = Trajectory.create(timeSlices);
+    public Trajectory<I> unrollForSampling(int timeSlices) {
+        Trajectory<I> samplePath = Trajectory.create(timeSlices);
         for (int i = 0; samplePath.inTimeRange(i); i++) {
-            List<InputValue> sample = sampleNext();
+            List<InputValue<I>> sample = sampleNext();
             setConditionals(conditionalInputValueUtil.toConditionalInputs(sample));
             samplePath.append(sample);
         }
         return samplePath;
     }
 
-    private double calculateInitialProbability(List<InputValue> inputs) {
+    private double calculateInitialProbability(List<InputValue<I>> inputs) {
         return initialDistribution.probability(inputs);
     }
 
-    private double calculateProbability(List<InputValue> current, List<InputValue> last) {
+    private double calculateProbability(List<InputValue<I>> current, List<InputValue<I>> last) {
         double probability = 1;
         for (InterTimeSliceInduction each : dynBehaviourQuery.getInterTimeSliceInductions()) {
             ConditionableProbabilityDistribution<I> localCPD = probHandler.getCPD(each.getAppliedGroundVariable());
 
             List<Conditional<I>> resolvedConditionals = resolveConditionals(each,
                     conditionalInputValueUtil.toConditionalInputs(last));
-            InputValue resolvedValue = getInputValue(each.getAppliedGroundVariable(), current);
+            InputValue<I> resolvedValue = getInputValue(each.getAppliedGroundVariable(), current);
 
             ConditionableProbabilityDistribution<I> givenCPD = (ConditionableProbabilityDistribution<I>) localCPD
                 .given(resolvedConditionals);
-            I value = (I) resolvedValue.getValue();
+            I value = resolvedValue.getValue();
             probability *= givenCPD.probability(value);
         }
 
         for (IntraTimeSliceInduction each : dynBehaviourQuery.getIntraTimeSliceInductions()) {
-            ConditionalProbabilityDistribution localCPD = getCPDFromInitial(each,
+            ConditionableProbabilityDistribution<I> localCPD = getCPDFromInitial(each,
                     conditionalInputValueUtil.toConditionalInputs(current));
 
-            InputValue resolvedValue = getInputValue(each.getAppliedGroundVariable(), current);
-
-            probability *= localCPD.probability(resolvedValue.asCategorical());
+            InputValue<I> resolvedInputValue = getInputValue(each.getAppliedGroundVariable(), current);
+            I resolvedValue = resolvedInputValue.getValue();
+            probability *= localCPD.probability(resolvedValue);
         }
         return probability;
     }
 
-    private List<InputValue> sampleNext() {
+    private List<InputValue<I>> sampleNext() {
         if (conditionals.isEmpty()) {
             return initialDistribution.sample();
         }
         return sampleNextGiven(conditionals);
     }
 
-    private List<InputValue> sampleNextGiven(List<ConditionalInputValue<I>> conditionals) {
-        List<InputValue> sample = Lists.newArrayList();
+    private List<InputValue<I>> sampleNextGiven(List<ConditionalInputValue<I>> conditionals) {
+        List<InputValue<I>> sample = Lists.newArrayList();
         for (InterTimeSliceInduction each : dynBehaviourQuery.getInterTimeSliceInductions()) {
             List<Conditional<I>> resolved = resolveConditionals(each, conditionals);
             ConditionableProbabilityDistribution<I> localCPD = probHandler.getCPD(each.getAppliedGroundVariable());
@@ -322,19 +321,20 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
         }
 
         for (IntraTimeSliceInduction each : dynBehaviourQuery.getIntraTimeSliceInductions()) {
-            ConditionalProbabilityDistribution localCPD = getCPDFromInitial(each, conditionals);
-            sample.add(InputValue.create(localCPD.sample(), each.getAppliedGroundVariable()));
+            ConditionableProbabilityDistribution<I> localCPD = getCPDFromInitial(each, conditionals);
+            InputValue<I> inputValue = InputValue.create(localCPD.sample(), each.getAppliedGroundVariable());
+            sample.add(inputValue);
         }
 
         return sample;
     }
 
-    private ConditionalProbabilityDistribution getCPDFromInitial(IntraTimeSliceInduction induction,
+    private ConditionableProbabilityDistribution<I> getCPDFromInitial(IntraTimeSliceInduction induction,
             List<ConditionalInputValue<I>> conditionals) {
-        List<InputValue> history = conditionalInputValueUtil.toInputValues(conditionals);
+        List<InputValue<I>> history = conditionalInputValueUtil.toInputValues(conditionals);
         ProbabilityDistributionFunction<I> pdf = initialDistribution.getPDF(induction.getAppliedGroundVariable(),
                 history);
-        return ConditionalProbabilityDistribution.class.cast(pdf);
+        return (ConditionableProbabilityDistribution<I>) pdf;
     }
 
     private List<Conditional<I>> resolveConditionals(InterTimeSliceInduction induction,
