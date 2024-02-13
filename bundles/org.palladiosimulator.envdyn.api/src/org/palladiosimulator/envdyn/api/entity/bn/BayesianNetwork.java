@@ -31,7 +31,7 @@ import tools.mdsd.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
 
-public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistributionFunction<List<InputValue>>
+public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistributionFunction<List<InputValue<I>>>
         implements ProbabilisticModel<InputValue<I>> {
 
     private class LocalProbabilisticModelHandler extends ProbabilityDistributionHandler<I> {
@@ -152,14 +152,14 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
     }
 
     @Override
-    public Double probability(List<InputValue> inputs) {
+    public Double probability(List<InputValue<I>> inputs) {
         checkValidity(inputs);
 
         return calculateProability(inputs);
     }
 
     @Override
-    public List<InputValue> sample() {
+    public List<InputValue<I>> sample() {
         return sampleNext();
     }
 
@@ -198,12 +198,12 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
     }
 
     // Assuming no random variable needs to be marginalized
-    private void checkValidity(List<InputValue> inputs) {
+    private void checkValidity(List<InputValue<I>> inputs) {
         if (getGroundVariables().size() != inputs.size()) {
             throw new IllegalArgumentException("The input size does not match the size network variables.");
         }
 
-        for (InputValue each : inputs) {
+        for (InputValue<I> each : inputs) {
             if (getGroundVariables().contains(each.getVariable()) == false) {
                 throw new IllegalArgumentException(
                         String.format("The network does not contain the ground random variable for template %s",
@@ -214,21 +214,21 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
         }
     }
 
-    private double calculateProability(List<InputValue> inputs) {
+    private double calculateProability(List<InputValue<I>> inputs) {
         double probability = 1;
         for (LocalProbabilisticNetwork eachLocal : groundNetwork.getLocalProbabilisticModels()) {
             for (GroundRandomVariable eachVariable : orderGroundVariablesTopologically(eachLocal)) {
-                InputValue input = getInputValue(eachVariable, inputs);
+                InputValue<I> input = getInputValue(eachVariable, inputs);
                 ProbabilityDistributionFunction<I> pdf = getPDF(eachVariable, inputs);
-                I value = (I) input.getValue();
+                I value = input.getValue();
                 probability *= probabilityCalculator.calculateLocalProbability(pdf, value);
             }
         }
         return probability;
     }
 
-    private List<InputValue> sampleNext() {
-        List<InputValue> samples = Lists.newArrayList();
+    private List<InputValue<I>> sampleNext() {
+        List<InputValue<I>> samples = Lists.newArrayList();
         for (LocalProbabilisticNetwork eachLocal : groundNetwork.getLocalProbabilisticModels()) {
             for (GroundRandomVariable eachVariable : orderGroundVariablesTopologically(eachLocal)) {
                 ProbabilityDistributionFunction<I> pdf = getPDF(eachVariable, samples);
@@ -256,7 +256,7 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
         return new TemplateVariableTopology(templateQuery).topologicallyOrderedTemplates();
     }
 
-    protected ProbabilityDistributionFunction<I> getPDF(GroundRandomVariable variable, List<InputValue> history) {
+    protected ProbabilityDistributionFunction<I> getPDF(GroundRandomVariable variable, List<InputValue<I>> history) {
         ProbabilityDistributionFunction<I> pdf = probModelHandler.getPDF(variable);
         if (pdf instanceof ConditionableProbabilityDistribution) {
             ConditionableProbabilityDistribution<I> conditionableProbabilityDistribution = (ConditionableProbabilityDistribution<I>) pdf;
@@ -266,7 +266,7 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
         return pdf;
     }
 
-    private List<Conditional<I>> resolveConditionals(GroundRandomVariable variable, List<InputValue> history) {
+    private List<Conditional<I>> resolveConditionals(GroundRandomVariable variable, List<InputValue<I>> history) {
         LocalProbabilisticNetwork localNetwork = (LocalProbabilisticNetwork) variable.eContainer();
         TemplateDefinitionsQuerying templateQuery = TemplateDefinitionsQuerying
             .withTemplateScope(getTemplates(localNetwork));
@@ -279,16 +279,17 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
             .collect(toList());
     }
 
-    private Conditional<I> toConditional(InputValue value) {
+    private Conditional<I> toConditional(InputValue<I> value) {
         return new Conditional<>(getDomain(value), value.getValue());
     }
 
-    private Domain getDomain(InputValue input) {
+    private Domain getDomain(InputValue<I> input) {
         return input.getValue()
             .getDomain();
     }
 
-    protected static InputValue getInputValue(GroundRandomVariable variable, List<InputValue> inputs) {
+    protected static <I extends Value<?>> InputValue<I> getInputValue(GroundRandomVariable variable,
+            List<InputValue<I>> inputs) {
         return inputs.stream()
             .filter(input -> input.getVariable()
                 .getId()
