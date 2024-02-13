@@ -90,8 +90,7 @@ public class TemplatevariableItemProviderAdapterFactory extends Templatevariable
 	@Override
 	public Adapter createTemplateVariableDefinitionsAdapter()
 	{
-		if (templateVariableDefinitionsItemProvider == null)
-		{
+		if (templateVariableDefinitionsItemProvider == null) {
 			templateVariableDefinitionsItemProvider = new TemplateVariableDefinitionsItemProvider(this);
 		}
 
@@ -115,8 +114,7 @@ public class TemplatevariableItemProviderAdapterFactory extends Templatevariable
 	@Override
 	public Adapter createTemplateVariableAdapter()
 	{
-		if (templateVariableItemProvider == null)
-		{
+		if (templateVariableItemProvider == null) {
 			templateVariableItemProvider = new TemplateVariableItemProvider(this);
 		}
 
@@ -140,8 +138,7 @@ public class TemplatevariableItemProviderAdapterFactory extends Templatevariable
 	@Override
 	public Adapter createArgumentAdapter()
 	{
-		if (argumentItemProvider == null)
-		{
+		if (argumentItemProvider == null) {
 			argumentItemProvider = new ArgumentItemProvider(this);
 		}
 
@@ -165,8 +162,7 @@ public class TemplatevariableItemProviderAdapterFactory extends Templatevariable
 	@Override
 	public Adapter createProbabilisticTemplateFactorAdapter()
 	{
-		if (probabilisticTemplateFactorItemProvider == null)
-		{
+		if (probabilisticTemplateFactorItemProvider == null) {
 			probabilisticTemplateFactorItemProvider = new ProbabilisticTemplateFactorItemProvider(this);
 		}
 
@@ -190,8 +186,7 @@ public class TemplatevariableItemProviderAdapterFactory extends Templatevariable
 	@Override
 	public Adapter createDependenceRelationAdapter()
 	{
-		if (dependenceRelationItemProvider == null)
-		{
+		if (dependenceRelationItemProvider == null) {
 			dependenceRelationItemProvider = new DependenceRelationItemProvider(this);
 		}
 
@@ -215,8 +210,7 @@ public class TemplatevariableItemProviderAdapterFactory extends Templatevariable
 	@Override
 	public Adapter createPersistenceRelationAdapter()
 	{
-		if (persistenceRelationItemProvider == null)
-		{
+		if (persistenceRelationItemProvider == null) {
 			persistenceRelationItemProvider = new PersistenceRelationItemProvider(this);
 		}
 
@@ -240,8 +234,7 @@ public class TemplatevariableItemProviderAdapterFactory extends Templatevariable
 	@Override
 	public Adapter createTimeSliceRelationAdapter()
 	{
-		if (timeSliceRelationItemProvider == null)
-		{
+		if (timeSliceRelationItemProvider == null) {
 			timeSliceRelationItemProvider = new TimeSliceRelationItemProvider(this);
 		}
 
@@ -265,8 +258,7 @@ public class TemplatevariableItemProviderAdapterFactory extends Templatevariable
 	@Override
 	public Adapter createTemplateVariableGroupAdapter()
 	{
-		if (templateVariableGroupItemProvider == null)
-		{
+		if (templateVariableGroupItemProvider == null) {
 			templateVariableGroupItemProvider = new TemplateVariableGroupItemProvider(this);
 		}
 
@@ -290,8 +282,7 @@ public class TemplatevariableItemProviderAdapterFactory extends Templatevariable
 	@Override
 	public Adapter createLogicalVariableAdapter()
 	{
-		if (logicalVariableItemProvider == null)
-		{
+		if (logicalVariableItemProvider == null) {
 			logicalVariableItemProvider = new LogicalVariableItemProvider(this);
 		}
 
@@ -353,11 +344,9 @@ public class TemplatevariableItemProviderAdapterFactory extends Templatevariable
 	@Override
 	public Object adapt(Object object, Object type)
 	{
-		if (isFactoryForType(type))
-		{
+		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter)))
-			{
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -400,8 +389,7 @@ public class TemplatevariableItemProviderAdapterFactory extends Templatevariable
 	{
 		changeNotifier.fireNotifyChanged(notification);
 
-		if (parentAdapterFactory != null)
-		{
+		if (parentAdapterFactory != null) {
 			parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}

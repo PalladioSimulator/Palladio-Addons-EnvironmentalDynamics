@@ -49,8 +49,7 @@ public class TemplateFactorItemProvider extends EntityItemProvider
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addScopePropertyDescriptor(object);
@@ -133,8 +132,7 @@ public class TemplateFactorItemProvider extends EntityItemProvider
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TemplateFactor.class))
-		{
+		switch (notification.getFeatureID(TemplateFactor.class)) {
 			case TemplatevariablePackage.TEMPLATE_FACTOR__TEMPORAL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

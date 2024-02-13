@@ -57,8 +57,7 @@ public class LogicalVariableItemProvider
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addArgumentPropertyDescriptor(object);
@@ -125,6 +124,7 @@ public class LogicalVariableItemProvider
 	public void notifyChanged(Notification notification)
 	{
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

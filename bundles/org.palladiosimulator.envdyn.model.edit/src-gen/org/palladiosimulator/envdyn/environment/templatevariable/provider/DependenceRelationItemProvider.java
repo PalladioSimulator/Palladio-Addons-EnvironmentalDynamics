@@ -46,8 +46,7 @@ public class DependenceRelationItemProvider extends RelationItemProvider
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addTypePropertyDescriptor(object);
@@ -191,8 +190,7 @@ public class DependenceRelationItemProvider extends RelationItemProvider
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(DependenceRelation.class))
-		{
+		switch (notification.getFeatureID(DependenceRelation.class)) {
 			case TemplatevariablePackage.DEPENDENCE_RELATION__TYPE:
 			case TemplatevariablePackage.DEPENDENCE_RELATION__CONTINGENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

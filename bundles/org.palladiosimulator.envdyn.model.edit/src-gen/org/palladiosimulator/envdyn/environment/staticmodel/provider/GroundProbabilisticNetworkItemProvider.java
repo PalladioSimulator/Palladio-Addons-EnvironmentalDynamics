@@ -52,8 +52,7 @@ public class GroundProbabilisticNetworkItemProvider extends EntityItemProvider
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -71,8 +70,7 @@ public class GroundProbabilisticNetworkItemProvider extends EntityItemProvider
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
 	{
-		if (childrenFeatures == null)
-		{
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(StaticmodelPackage.Literals.GROUND_PROBABILISTIC_NETWORK__LOCAL_MODELS);
 			childrenFeatures.add(StaticmodelPackage.Literals.GROUND_PROBABILISTIC_NETWORK__LOCAL_PROBABILISTIC_MODELS);
@@ -134,8 +132,7 @@ public class GroundProbabilisticNetworkItemProvider extends EntityItemProvider
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(GroundProbabilisticNetwork.class))
-		{
+		switch (notification.getFeatureID(GroundProbabilisticNetwork.class)) {
 			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_MODELS:
 			case StaticmodelPackage.GROUND_PROBABILISTIC_NETWORK__LOCAL_PROBABILISTIC_MODELS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

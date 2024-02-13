@@ -52,8 +52,7 @@ public class ProbabilisticModelRepositoryItemProvider extends EntityItemProvider
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -71,8 +70,7 @@ public class ProbabilisticModelRepositoryItemProvider extends EntityItemProvider
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
 	{
-		if (childrenFeatures == null)
-		{
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(StaticmodelPackage.Literals.PROBABILISTIC_MODEL_REPOSITORY__MODELS);
 		}
@@ -133,8 +131,7 @@ public class ProbabilisticModelRepositoryItemProvider extends EntityItemProvider
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ProbabilisticModelRepository.class))
-		{
+		switch (notification.getFeatureID(ProbabilisticModelRepository.class)) {
 			case StaticmodelPackage.PROBABILISTIC_MODEL_REPOSITORY__MODELS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

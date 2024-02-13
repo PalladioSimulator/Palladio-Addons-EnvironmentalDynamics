@@ -47,8 +47,7 @@ public class TemporalRelationItemProvider extends RelationItemProvider
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addEntityNamePropertyDescriptor(object);
@@ -107,8 +106,7 @@ public class TemporalRelationItemProvider extends RelationItemProvider
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TemporalRelation.class))
-		{
+		switch (notification.getFeatureID(TemporalRelation.class)) {
 			case TemplatevariablePackage.TEMPORAL_RELATION__ENTITY_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

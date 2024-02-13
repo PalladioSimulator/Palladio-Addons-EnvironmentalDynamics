@@ -63,8 +63,7 @@ public class DynamicBehaviourItemProvider
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -82,8 +81,7 @@ public class DynamicBehaviourItemProvider
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
 	{
-		if (childrenFeatures == null)
-		{
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DynamicmodelPackage.Literals.DYNAMIC_BEHAVIOUR__LOCAL_MODELS);
 		}
@@ -129,8 +127,7 @@ public class DynamicBehaviourItemProvider
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(DynamicBehaviour.class))
-		{
+		switch (notification.getFeatureID(DynamicBehaviour.class)) {
 			case DynamicmodelPackage.DYNAMIC_BEHAVIOUR__LOCAL_MODELS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

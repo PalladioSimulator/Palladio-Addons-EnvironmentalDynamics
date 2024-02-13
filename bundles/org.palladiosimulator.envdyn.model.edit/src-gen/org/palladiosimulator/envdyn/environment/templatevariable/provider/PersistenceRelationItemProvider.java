@@ -43,8 +43,7 @@ public class PersistenceRelationItemProvider extends TemporalRelationItemProvide
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addInterfaceVariablePropertyDescriptor(object);
@@ -114,6 +113,7 @@ public class PersistenceRelationItemProvider extends TemporalRelationItemProvide
 	public void notifyChanged(Notification notification)
 	{
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

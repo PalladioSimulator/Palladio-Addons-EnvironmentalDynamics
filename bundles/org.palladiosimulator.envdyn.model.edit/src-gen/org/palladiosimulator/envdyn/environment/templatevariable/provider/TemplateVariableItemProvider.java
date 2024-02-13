@@ -52,8 +52,7 @@ public class TemplateVariableItemProvider extends EntityItemProvider
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addSharedPropertyDescriptor(object);
@@ -119,8 +118,7 @@ public class TemplateVariableItemProvider extends EntityItemProvider
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
 	{
-		if (childrenFeatures == null)
-		{
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TemplatevariablePackage.Literals.TEMPLATE_VARIABLE__SIGNATURE);
 		}
@@ -181,8 +179,7 @@ public class TemplateVariableItemProvider extends EntityItemProvider
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TemplateVariable.class))
-		{
+		switch (notification.getFeatureID(TemplateVariable.class)) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE__SHARED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

@@ -50,8 +50,7 @@ public class TemplateVariableDefinitionsItemProvider extends EntityItemProvider
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -69,8 +68,7 @@ public class TemplateVariableDefinitionsItemProvider extends EntityItemProvider
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
 	{
-		if (childrenFeatures == null)
-		{
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TemplatevariablePackage.Literals.TEMPLATE_VARIABLE_DEFINITIONS__VARIABLES);
 			childrenFeatures.add(TemplatevariablePackage.Literals.TEMPLATE_VARIABLE_DEFINITIONS__FACTORS);
@@ -135,8 +133,7 @@ public class TemplateVariableDefinitionsItemProvider extends EntityItemProvider
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TemplateVariableDefinitions.class))
-		{
+		switch (notification.getFeatureID(TemplateVariableDefinitions.class)) {
 			case TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__VARIABLES:
 			case TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__FACTORS:
 			case TemplatevariablePackage.TEMPLATE_VARIABLE_DEFINITIONS__ARGUMENTS:

@@ -76,7 +76,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedTemplate"
           lowerBound="1" eType="#//templatevariable/TemplateVariable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dependenceStructure"
-          lowerBound="1" upperBound="-1" eType="#//templatevariable/DependenceRelation"/>
+          upperBound="-1" eType="#//templatevariable/DependenceRelation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="descriptiveModel" lowerBound="1"
           eType="#//staticmodel/GroundProbabilisticModel"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="appliedObjects" lowerBound="1"

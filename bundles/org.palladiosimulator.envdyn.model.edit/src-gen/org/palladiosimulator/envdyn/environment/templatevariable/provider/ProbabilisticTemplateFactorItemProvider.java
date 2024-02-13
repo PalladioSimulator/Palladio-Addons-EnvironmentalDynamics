@@ -43,8 +43,7 @@ public class ProbabilisticTemplateFactorItemProvider extends TemplateFactorItemP
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addDistributionFamilyPropertyDescriptor(object);
@@ -114,6 +113,7 @@ public class ProbabilisticTemplateFactorItemProvider extends TemplateFactorItemP
 	public void notifyChanged(Notification notification)
 	{
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

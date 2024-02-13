@@ -90,8 +90,7 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	@Override
 	public Adapter createGroundRandomVariableAdapter()
 	{
-		if (groundRandomVariableItemProvider == null)
-		{
+		if (groundRandomVariableItemProvider == null) {
 			groundRandomVariableItemProvider = new GroundRandomVariableItemProvider(this);
 		}
 
@@ -115,8 +114,7 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	@Override
 	public Adapter createGroundProbabilisticModelAdapter()
 	{
-		if (groundProbabilisticModelItemProvider == null)
-		{
+		if (groundProbabilisticModelItemProvider == null) {
 			groundProbabilisticModelItemProvider = new GroundProbabilisticModelItemProvider(this);
 		}
 
@@ -140,8 +138,7 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	@Override
 	public Adapter createProbabilisticModelRepositoryAdapter()
 	{
-		if (probabilisticModelRepositoryItemProvider == null)
-		{
+		if (probabilisticModelRepositoryItemProvider == null) {
 			probabilisticModelRepositoryItemProvider = new ProbabilisticModelRepositoryItemProvider(this);
 		}
 
@@ -165,8 +162,7 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	@Override
 	public Adapter createGroundProbabilisticNetworkAdapter()
 	{
-		if (groundProbabilisticNetworkItemProvider == null)
-		{
+		if (groundProbabilisticNetworkItemProvider == null) {
 			groundProbabilisticNetworkItemProvider = new GroundProbabilisticNetworkItemProvider(this);
 		}
 
@@ -190,8 +186,7 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	@Override
 	public Adapter createLocalProbabilisticNetworkAdapter()
 	{
-		if (localProbabilisticNetworkItemProvider == null)
-		{
+		if (localProbabilisticNetworkItemProvider == null) {
 			localProbabilisticNetworkItemProvider = new LocalProbabilisticNetworkItemProvider(this);
 		}
 
@@ -253,11 +248,9 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	@Override
 	public Object adapt(Object object, Object type)
 	{
-		if (isFactoryForType(type))
-		{
+		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter)))
-			{
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -300,8 +293,7 @@ public class StaticmodelItemProviderAdapterFactory extends StaticmodelAdapterFac
 	{
 		changeNotifier.fireNotifyChanged(notification);
 
-		if (parentAdapterFactory != null)
-		{
+		if (parentAdapterFactory != null) {
 			parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}

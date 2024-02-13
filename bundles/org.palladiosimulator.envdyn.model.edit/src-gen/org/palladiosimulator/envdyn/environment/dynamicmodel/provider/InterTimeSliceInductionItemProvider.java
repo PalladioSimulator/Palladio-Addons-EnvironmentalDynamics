@@ -42,8 +42,7 @@ public class InterTimeSliceInductionItemProvider extends TimeSliceInductionItemP
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addTemporalStructurePropertyDescriptor(object);
@@ -110,6 +109,7 @@ public class InterTimeSliceInductionItemProvider extends TimeSliceInductionItemP
 	public void notifyChanged(Notification notification)
 	{
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

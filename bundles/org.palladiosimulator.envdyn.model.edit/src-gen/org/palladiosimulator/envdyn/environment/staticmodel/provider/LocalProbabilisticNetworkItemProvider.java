@@ -63,8 +63,7 @@ public class LocalProbabilisticNetworkItemProvider
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -82,8 +81,7 @@ public class LocalProbabilisticNetworkItemProvider
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
 	{
-		if (childrenFeatures == null)
-		{
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(StaticmodelPackage.Literals.LOCAL_PROBABILISTIC_NETWORK__GROUND_RANDOM_VARIABLES);
 		}
@@ -141,8 +139,7 @@ public class LocalProbabilisticNetworkItemProvider
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(LocalProbabilisticNetwork.class))
-		{
+		switch (notification.getFeatureID(LocalProbabilisticNetwork.class)) {
 			case StaticmodelPackage.LOCAL_PROBABILISTIC_NETWORK__GROUND_RANDOM_VARIABLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

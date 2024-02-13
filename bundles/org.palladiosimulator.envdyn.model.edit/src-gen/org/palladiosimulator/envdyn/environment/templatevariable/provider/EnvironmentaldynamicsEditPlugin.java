@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 import tools.mdsd.modelingfoundations.identifier.provider.ModelEditPlugin;
+import tools.mdsd.probdist.distributiontype.provider.ProbdistEditPlugin;
 
 /**
  * This is the central singleton for the Environmentaldynamics edit plugin.
@@ -43,10 +44,10 @@ public final class EnvironmentaldynamicsEditPlugin extends EMFPlugin
 	public EnvironmentaldynamicsEditPlugin()
 	{
 		super
-		  (new ResourceLocator [] 
-		   {
+		  (new ResourceLocator [] {
 		     EcoreEditPlugin.INSTANCE,
 		     ModelEditPlugin.INSTANCE,
+		     ProbdistEditPlugin.INSTANCE,
 		   });
 	}
 

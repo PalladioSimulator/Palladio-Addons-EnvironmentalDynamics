@@ -47,8 +47,7 @@ public class TemplateVariableGroupItemProvider extends NamedElementItemProvider
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addGroupedTemplatesPropertyDescriptor(object);
@@ -118,6 +117,7 @@ public class TemplateVariableGroupItemProvider extends NamedElementItemProvider
 	public void notifyChanged(Notification notification)
 	{
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

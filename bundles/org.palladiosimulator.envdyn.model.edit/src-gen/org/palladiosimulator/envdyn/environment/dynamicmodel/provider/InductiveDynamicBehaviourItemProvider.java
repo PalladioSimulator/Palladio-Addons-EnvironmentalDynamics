@@ -46,8 +46,7 @@ public class InductiveDynamicBehaviourItemProvider extends DynamicBehaviourItemP
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -65,8 +64,7 @@ public class InductiveDynamicBehaviourItemProvider extends DynamicBehaviourItemP
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
 	{
-		if (childrenFeatures == null)
-		{
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DynamicmodelPackage.Literals.INDUCTIVE_DYNAMIC_BEHAVIOUR__TIME_SLICE_INDUCTIONS);
 		}
@@ -124,8 +122,7 @@ public class InductiveDynamicBehaviourItemProvider extends DynamicBehaviourItemP
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(InductiveDynamicBehaviour.class))
-		{
+		switch (notification.getFeatureID(InductiveDynamicBehaviour.class)) {
 			case DynamicmodelPackage.INDUCTIVE_DYNAMIC_BEHAVIOUR__TIME_SLICE_INDUCTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

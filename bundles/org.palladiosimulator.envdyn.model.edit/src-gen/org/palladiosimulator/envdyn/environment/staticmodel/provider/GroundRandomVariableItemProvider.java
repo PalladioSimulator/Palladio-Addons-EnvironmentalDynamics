@@ -49,8 +49,7 @@ public class GroundRandomVariableItemProvider extends EntityItemProvider
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addInstantiatedTemplatePropertyDescriptor(object);
@@ -192,6 +191,7 @@ public class GroundRandomVariableItemProvider extends EntityItemProvider
 	public void notifyChanged(Notification notification)
 	{
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

@@ -61,7 +61,7 @@ public interface GroundRandomVariable extends Entity
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dependence Structure</em>' reference list.
 	 * @see org.palladiosimulator.envdyn.environment.staticmodel.StaticmodelPackage#getGroundRandomVariable_DependenceStructure()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	EList<DependenceRelation> getDependenceStructure();

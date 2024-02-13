@@ -43,8 +43,7 @@ public class TimeSliceRelationItemProvider extends TemporalRelationItemProvider
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
 	{
-		if (itemPropertyDescriptors == null)
-		{
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addSourcePropertyDescriptor(object);
@@ -138,6 +137,7 @@ public class TimeSliceRelationItemProvider extends TemporalRelationItemProvider
 	public void notifyChanged(Notification notification)
 	{
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**
