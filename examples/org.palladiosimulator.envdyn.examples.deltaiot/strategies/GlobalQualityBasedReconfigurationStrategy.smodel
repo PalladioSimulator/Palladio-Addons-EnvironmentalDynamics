@@ -1,0 +1,82 @@
+//  This is a strategy model for GlobalQualityBasedReconfigurationStrategy.
+
+modelName = "GlobalQualityBasedReconfigurationStrategy";
+
+const float lowerPacketLossThreshold = 0.1;					// public final static Threshold LOWER_PACKET_LOSS = Threshold.lessThan(0.1);
+const float lowerEngergyConsuptionThreshold = 0.4;			// public final static Threshold LOWER_ENERGY_CONSUMPTION = Threshold.lessThan(0.4);
+
+probe int packetLoss:id"PrismID";   
+probe int energyConsumption:id"PrimsID";
+
+
+action DistributionFactorAdjustement();
+action TransmissionPowerAdjustement();
+
+
+
+if (packetLoss < lowerPacketLossThreshold) {
+	handlePacketLoss();		// how to describe as QVTO ? handlePacketLoss(state, packetLoss, options);
+}
+
+if (energyConsumption < lowerEngergyConsuptionThreshold) {
+	handleEnergyConsumption();		// how to describe as QVTO ? handleEnergyConsumption(state, energyConsumtption, options);
+}
+
+
+/////////////////////////////////////
+
+@Override
+    protected QVToReconfiguration handlePacketLoss(
+            PcmSelfAdaptiveSystemState<QVTOReconfigurator, List<InputValue<CategoricalValue>>> state,
+            SimulatedMeasurement packetLoss, Set<QVToReconfiguration> options) {
+        DistributionFactorReconfiguration disFactorReconf = retrieveDistributionFactorReconfiguration(options);
+
+        boolean canBeStillDistributed = false;
+        canBeStillDistributed |= increaseDistributionFactorOfMote7(disFactorReconf);
+        canBeStillDistributed |= increaseDistributionFactorOfMote10(disFactorReconf);
+        canBeStillDistributed |= increaseDistributionFactorOfMote12(disFactorReconf);
+        if (canBeStillDistributed) {
+            return disFactorReconf;
+        }
+
+        TransmissionPowerReconfiguration transPowerReconf = retrieveTransmissionPowerReconfiguration(options);
+
+        boolean canStillIncreaseLevel = false;
+        for (String each : VARIABLE_REFERENCES) {
+            canStillIncreaseLevel |= increaseTransmissionPower(each, transPowerReconf);
+        }
+        if (canStillIncreaseLevel) {
+            return transPowerReconf;
+        }
+
+        return QVToReconfiguration.empty();
+    }
+    
+    
+    
+    @Override
+    protected QVToReconfiguration handleEnergyConsumption(
+            PcmSelfAdaptiveSystemState<QVTOReconfigurator, List<InputValue<CategoricalValue>>> state,
+            SimulatedMeasurement energyConsumtption, Set<QVToReconfiguration> options) {
+        TransmissionPowerReconfiguration transPowerReconf = retrieveTransmissionPowerReconfiguration(options);
+
+        boolean canStillIncreaseLevel = false;
+        for (String each : VARIABLE_REFERENCES) {
+            canStillIncreaseLevel |= increaseTransmissionPower(each, transPowerReconf);
+        }
+        if (canStillIncreaseLevel) {
+            return transPowerReconf;
+        }
+
+        DistributionFactorReconfiguration disFactorReconf = retrieveDistributionFactorReconfiguration(options);
+
+        boolean canStillDecreaseDistribtion = false;
+        canStillDecreaseDistribtion |= decreaseDistributionFactorOfMote7(disFactorReconf);
+        canStillDecreaseDistribtion |= decreaseDistributionFactorOfMote10(disFactorReconf);
+        canStillDecreaseDistribtion |= decreaseDistributionFactorOfMote12(disFactorReconf);
+        if (canStillDecreaseDistribtion) {
+            return disFactorReconf;
+        }
+
+        return QVToReconfiguration.empty();
+    }

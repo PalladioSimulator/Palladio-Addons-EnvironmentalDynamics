@@ -1,1 +1,7 @@
-const float lowerThreshold = 1.0;
+//  This is a strategy model for EmptyReconfigurationStrategy.
+
+modelName = "EmptyReconfigurationStrategy";
+
+if (true) {
+
+}

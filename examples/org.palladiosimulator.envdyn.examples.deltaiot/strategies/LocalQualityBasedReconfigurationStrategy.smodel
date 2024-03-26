@@ -1,0 +1,94 @@
+//  This is a strategy model for LocalQualityBasedReconfigurationStrategy.
+
+modelName = "LocalQualityBasedReconfigurationStrategy";
+
+
+const float lowerPacketLossThreshold = 0.1;					// public final static Threshold LOWER_PACKET_LOSS = Threshold.lessThan(0.1);
+const float lowerEngergyConsuptionThreshold = 0.4;			// public final static Threshold LOWER_ENERGY_CONSUMPTION = Threshold.lessThan(0.4);
+const float mediumPacketLossThreshold = 0.3	;				// public final static Threshold MEDIUM_PACKET_LOSS = Threshold.lessThan(0.3);
+
+probe int packetLoss:id"energyComsumption" ; //prop:"" module:""  ;   
+probe int energyConsumption:id"PrimsID";
+
+action DistributionFactorAdjustement();
+action TransmissionPowerAdjustement();
+
+
+
+if (packetLoss < lowerPacketLossThreshold) {
+//	handlePacketLoss();		// how to describe as QVTO ? handlePacketLoss(state, packetLoss, options);
+//  handlePacketLoss:
+//	if (MEDIUM_PACKET_LOSS.isSatisfied(packetLoss.getValue())) {
+//            action = increaseDistribution(state, options);
+//        } else {
+//            action = increaseTransmissionPower(state, options);
+//        }
+	
+	if (packetLoss < mediumPacketLossThreshold) {
+//		private QVToReconfiguration increaseDistribution(
+//            PcmSelfAdaptiveSystemState<QVTOReconfigurator, List<InputValue<CategoricalValue>>> state,
+//            Set<QVToReconfiguration> options) {
+//        DistributionFactorReconfiguration disFactorReconf = retrieveDistributionFactorReconfiguration(options);
+//
+//        Map<AssemblyContext, Map<LinkingResource, Double>> sourceMotesToLinks = filterMotesWithWirelessLinks(state);
+//        for (AssemblyContext each : sourceMotesToLinks.keySet()) {
+//            Map<LinkingResource, Double> links = sourceMotesToLinks.get(each);
+//            if (links.size() == 2) {
+//                increaseDistributionFactorWithHighestSNR(each, links, disFactorReconf);
+//            }
+//        }
+//
+//        return disFactorReconf;
+//    }
+	}
+	
+}
+
+if (energyConsumption < lowerEngergyConsuptionThreshold) {
+//	handleEnergyConsumption();		// how to describe as QVTO ? handleEnergyConsumption(state, energyConsumtption, options);
+	
+	if (LOWER_ENERGY_CONSUMPTION.isSatisfied(energyConsumtption.getValue())) {
+            return decreaseDistribution(state, options);
+        } else {
+            return decreaseTransmissionPower(state, options);
+        }
+}
+
+
+
+
+
+@Override
+    protected QVToReconfiguration handlePacketLoss(
+            PcmSelfAdaptiveSystemState<QVTOReconfigurator, List<InputValue<CategoricalValue>>> state,
+            SimulatedMeasurement packetLoss, Set<QVToReconfiguration> options) {
+        LOGGER.info("Start with actions selection.");
+        long start = System.currentTimeMillis();
+
+        QVToReconfiguration action;
+        if (MEDIUM_PACKET_LOSS.isSatisfied(packetLoss.getValue())) {
+            action = increaseDistribution(state, options);
+        } else {
+            action = increaseTransmissionPower(state, options);
+        }
+
+        long end = System.currentTimeMillis();
+
+        LOGGER.info("Stop with action selection, took : " + ((end - start) / 1000));
+
+        return action;
+    }
+    
+    
+    @Override
+    protected QVToReconfiguration handleEnergyConsumption(
+            PcmSelfAdaptiveSystemState<QVTOReconfigurator, List<InputValue<CategoricalValue>>> state,
+            SimulatedMeasurement energyConsumtption, Set<QVToReconfiguration> options) {
+        if (LOWER_ENERGY_CONSUMPTION.isSatisfied(energyConsumtption.getValue())) {
+            return decreaseDistribution(state, options);
+        } else {
+            return decreaseTransmissionPower(state, options);
+        }
+    }
+    
+ 
