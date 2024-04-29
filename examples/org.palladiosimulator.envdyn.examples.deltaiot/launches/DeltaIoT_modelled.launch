@@ -4,14 +4,12 @@
     <intAttribute key="NumberOfSimulationsPerRun" value="2"/>
     <stringAttribute key="Quality Objective" value="PERFORMANCE"/>
     <stringAttribute key="Simulation Engine" value="PRISM"/>
-    <stringAttribute key="SimulationID" value="DeltaIoT_custom"/>
-    <stringAttribute key="Simulator Type" value="CUSTOM"/>
+    <stringAttribute key="SimulationID" value="DeltaIoT_modelled"/>
+    <stringAttribute key="Simulator Type" value="MODELLED"/>
     <stringAttribute key="allocationFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIotAllocation.allocation"/>
     <stringAttribute key="dynamicModelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTEnvironmentalDynamics.dynamicmodel"/>
     <stringAttribute key="experimentsFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTExperiment.experiments"/>
-    <listAttribute key="monitors">
-        <listEntry value="System Response Time"/>
-    </listAttribute>
+    <listAttribute key="monitors"/>
     <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
     <listAttribute key="prismModuleFile">
         <listEntry value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/prism/EnergyConsumption.prism"/>
@@ -21,7 +19,7 @@
         <listEntry value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/prism/EnergyConsumption.props"/>
         <listEntry value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/prism/PacketLoss.props"/>
     </listAttribute>
-    <stringAttribute key="smodelFile" value=""/>
+    <stringAttribute key="smodelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/strategies/EmptyReconfigurationStrategy.smodel"/>
     <stringAttribute key="staticModelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel"/>
     <stringAttribute key="usageFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/dummy.usagemodel"/>
 </launchConfiguration>
