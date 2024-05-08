@@ -42,7 +42,7 @@ const string link15	= "_sWqfUMWTEem8XvI7PKw-OA";	// entityName="Unicast10to6"
 const string link16	= "_0QjzwMWTEem8XvI7PKw-OA";	// entityName="Unicast10to5"
 const string link17	= "_9BF1QMWTEem8XvI7PKw-OA";	// entityName="Unicast5to9"
 
-// Local variables
+// Local variables to store current power settings per link
 var int link1_power = 15;
 var int link2_power = 15;		// Mote 7
 var int link3_power = 15;		// Mote 7, Mote 3
@@ -61,6 +61,7 @@ var int link15_power = 15;
 var int link16_power = 15;
 var int link17_power = 15;
 
+// Local variables to store current distribution settings per link
 var double link7_dist = 0.0;		// nochmals nachprüfen
 var double link8_dist = 0.0;
 var double link15_dist = 0.0;
@@ -69,23 +70,23 @@ var double link5_dist = 0.0;
 var double link6_dist = 0.0;
 
 // Umweltvariablen SNR
-envvar int SRN_6to4Link_SignalToNoiseRatioInstantiation: variableId="_8lRGYEdwEeq4nph5UDtc-g";
-envvar int SRN_5to9Link_SignalToNoiseRatioInstantiation: variableId="_8lVX0kdwEeq4nph5UDtc-g";
-envvar int SRN_14to12Link_SignalToNoiseRatioInstantiation: variableId="_8lWl8UdwEeq4nph5UDtc-g";
-envvar int SRN_7to3Link_SignalToNoiseRatioInstantiation: variableId="_8lXNAEdwEeq4nph5UDtc-g";
-envvar int SRN_11to7Link_SignalToNoiseRatioInstantiation: variableId="_8lXNBEdwEeq4nph5UDtc-g";
-envvar int SRN_15to12Link_SignalToNoiseRatioInstantiation: variableId="_8lX0FEdwEeq4nph5UDtc-g";
-envvar int SRN_12to7Link_SignalToNoiseRatioInstantiation: variableId="_8lYbIEdwEeq4nph5UDtc-g";
-envvar int SRN_13to11Link_SignalToNoiseRatioInstantiation: variableId="_8lYbJkdwEeq4nph5UDtc-g";
-envvar int SRN_7to2Link_SignalToNoiseRatioInstantiation: variableId="_8lZCM0dwEeq4nph5UDtc-g";
-envvar int SRN_10to6Link_SignalToNoiseRatioInstantiation: variableId="_8lZpQ0dwEeq4nph5UDtc-g";
-envvar int SRN_9to1Link_SignalToNoiseRatioInstantiation: variableId="_8laQUEdwEeq4nph5UDtc-g";
-envvar int SRN_10to5Link_SignalToNoiseRatioInstantiation: variableId="_8la3ZUdwEeq4nph5UDtc-g";
-envvar int SRN_4to1Link_SignalToNoiseRatioInstantiation: variableId="_8lbec0dwEeq4nph5UDtc-g";
-envvar int SRN_8to1Link_SignalToNoiseRatioInstantiation: variableId="_8lcFgkdwEeq4nph5UDtc-g";
-envvar int SRN_12to3Link_SignalToNoiseRatioInstantiation: variableId="_8ldTokdwEeq4nph5UDtc-g";
-envvar int SRN_3to1Link_SignalToNoiseRatioInstantiation: variableId="_8ld6sEdwEeq4nph5UDtc-g";
-envvar int SRN_2to4Link_SignalToNoiseRatioInstantiation: variableId="_8lfI0EdwEeq4nph5UDtc-g";
+envvar double SRN_6to4Link_SignalToNoiseRatioInstantiation: variableId="_8lRGYEdwEeq4nph5UDtc-g";
+envvar double SRN_5to9Link_SignalToNoiseRatioInstantiation: variableId="_8lVX0kdwEeq4nph5UDtc-g";
+envvar double SRN_14to12Link_SignalToNoiseRatioInstantiation: variableId="_8lWl8UdwEeq4nph5UDtc-g";
+envvar double SRN_7to3Link_SignalToNoiseRatioInstantiation: variableId="_8lXNAEdwEeq4nph5UDtc-g";
+envvar double SRN_11to7Link_SignalToNoiseRatioInstantiation: variableId="_8lXNBEdwEeq4nph5UDtc-g";
+envvar double SRN_15to12Link_SignalToNoiseRatioInstantiation: variableId="_8lX0FEdwEeq4nph5UDtc-g";
+envvar double SRN_12to7Link_SignalToNoiseRatioInstantiation: variableId="_8lYbIEdwEeq4nph5UDtc-g";
+envvar double SRN_13to11Link_SignalToNoiseRatioInstantiation: variableId="_8lYbJkdwEeq4nph5UDtc-g";
+envvar double SRN_7to2Link_SignalToNoiseRatioInstantiation: variableId="_8lZCM0dwEeq4nph5UDtc-g";
+envvar double SRN_10to6Link_SignalToNoiseRatioInstantiation: variableId="_8lZpQ0dwEeq4nph5UDtc-g";
+envvar double SRN_9to1Link_SignalToNoiseRatioInstantiation: variableId="_8laQUEdwEeq4nph5UDtc-g";
+envvar double SRN_10to5Link_SignalToNoiseRatioInstantiation: variableId="_8la3ZUdwEeq4nph5UDtc-g";
+envvar double SRN_4to1Link_SignalToNoiseRatioInstantiation: variableId="_8lbec0dwEeq4nph5UDtc-g";
+envvar double SRN_8to1Link_SignalToNoiseRatioInstantiation: variableId="_8lcFgkdwEeq4nph5UDtc-g";
+envvar double SRN_12to3Link_SignalToNoiseRatioInstantiation: variableId="_8ldTokdwEeq4nph5UDtc-g";
+envvar double SRN_3to1Link_SignalToNoiseRatioInstantiation: variableId="_8ld6sEdwEeq4nph5UDtc-g";
+envvar double SRN_2to4Link_SignalToNoiseRatioInstantiation: variableId="_8lfI0EdwEeq4nph5UDtc-g";
 
 
 // probes: Motes; sind überflüssig
