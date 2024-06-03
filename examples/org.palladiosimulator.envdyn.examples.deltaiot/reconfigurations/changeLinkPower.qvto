@@ -1,11 +1,4 @@
--- Deklaration
-//metamodel SimpleUML { /* wie oben Listing 2.1 */ }
-//metamodel SimpleRDBM { /* wie oben Listing 2.1 */ }
--- Benutzung
-//modeltype UML uses SimpleUML;
-//modeltype RDBM uses SimpleRDBM;
-
-// Variante 2: extern definierten Metamodellen
+// declaration: externally defined metamodels
 modeltype PCM_CORE uses 'http://palladiosimulator.org/PalladioComponentModel/Core/5.2';
 modeltype PCM_CORE_COMP uses 'http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2';
 modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2';
@@ -14,18 +7,12 @@ modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/
 modeltype PCM_PARAM uses 'http://palladiosimulator.org/PalladioComponentModel/Parameter/5.2';
 
 
-// Variante 3: Metamodelle im Eclipse-Kontext
-//modeltype PCM uses 'http:///palladiosimulator.org/model/pcm.ecore';
-
-
 transformation  changeLinkPower(inout pcmSystem : PCM_SYS, in pcmResEnv : PCM_RES_ENV, in pcmAlloc : PCM_ALLOC) {
 
 	// action parameters passed to qvto transformation to update PCM model
 	configuration property link : String;			// link id
-	configuration property referenceName : String;	// varible referenceName
+	configuration property referenceName : String;	// variable referenceName
 	configuration property value : Integer;			// power value
-//	property link : String = '_sWqfUMWTEem8XvI7PKw-OA';	// link id link15
-//	property value : Integer = 15;						// power value
 
 	main() {
 		log('*** STARTED: Transformation rule [changeLinkPower] ...');
