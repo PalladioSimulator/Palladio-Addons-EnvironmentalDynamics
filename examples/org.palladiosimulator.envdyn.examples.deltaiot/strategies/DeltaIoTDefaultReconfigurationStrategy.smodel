@@ -3,27 +3,9 @@
 modelName = "DeltaIoTDefaultReconfigurationStrategy";
 
 const int CHANGE_POWER_VALUE = 1;
-const double CHANGE_DIST_VALUE = 10.0;
+const double CHANGE_DIST_VALUE = 0.1; 				// original value from Paper: 10.0
 
-// Links entsprechen Linking Resources *.resourceenvironment; Frage: was wird am Architekturmodell verändert so dass Links hier definiert werden müssen?
-//archvar link1	id="_-wdssMWJEem8XvI7PKw-OA" entityName="Unicast13to11"
-//archvar link2	id="_55XWsMWQEem8XvI7PKw-OA" entityName="Unicast14to12"	
-//archvar link3	id="_IXND0MWSEem8XvI7PKw-OA" entityName="Unicast15to12"
-//archvar link4	id="_O51DUMWSEem8XvI7PKw-OA" entityName="Unicast11to7"
-//archvar link5	id="_t4JVoMWSEem8XvI7PKw-OA" entityName="Unicast12to7"
-//archvar link6	id="_2xD3EMWSEem8XvI7PKw-OA" entityName="Unicast12to3"
-//archvar link7	id="_96v2kMWSEem8XvI7PKw-OA" entityName="Unicast7to3"
-//archvar link8	id="_FQkNkMWTEem8XvI7PKw-OA" entityName="Unicast7to2"
-//archvar link9	id="_MqV3gMWTEem8XvI7PKw-OA" entityName="Unicast2to4"
-//archvar link10	id="_RkgrcMWTEem8XvI7PKw-OA" entityName="Unicast3to1"
-//archvar link11	id="_Yi0hYMWTEem8XvI7PKw-OA" entityName="Unicast8to1"
-//archvar link12	id="_e2HEYMWTEem8XvI7PKw-OA" entityName="Unicast4to1"
-//archvar link13	id="_kPLa0MWTEem8XvI7PKw-OA" entityName="Unicast9to1"
-//archvar link14	id="_oDy78MWTEem8XvI7PKw-OA" entityName="Unicast6to4"
-//archvar link15	id="_sWqfUMWTEem8XvI7PKw-OA" entityName="Unicast10to6"
-//archvar link16	id="_0QjzwMWTEem8XvI7PKw-OA" entityName="Unicast10to5"
-//archvar link17	id="_9BF1QMWTEem8XvI7PKw-OA" entityName="Unicast5to9"
-// temporal workaround until decided if archvar is required 
+// constants to represent links; refers to id of linking resource in *.resourceenvironment
 const string link1	= "_-wdssMWJEem8XvI7PKw-OA";	// entityName="Unicast13to11"
 const string link2	= "_55XWsMWQEem8XvI7PKw-OA"; 	// entityName="Unicast14to12"	
 const string link3	= "_IXND0MWSEem8XvI7PKw-OA"; 	// entityName="Unicast15to12"
@@ -42,34 +24,57 @@ const string link15	= "_sWqfUMWTEem8XvI7PKw-OA";	// entityName="Unicast10to6"
 const string link16	= "_0QjzwMWTEem8XvI7PKw-OA";	// entityName="Unicast10to5"
 const string link17	= "_9BF1QMWTEem8XvI7PKw-OA";	// entityName="Unicast5to9"
 
-// Local variables to store current power settings per link
-var int link1_power = 15;
-var int link2_power = 15;		// Mote 7
-var int link3_power = 15;		// Mote 7, Mote 3
-var int link4_power = 15;
-var int link5_power = 15;		// Mote 10
-var int link6_power = 15;		// Mote 10
-var int link7_power = 15;		// Mote 7
-var int link8_power = 15;
-var int link9_power = 15;
-var int link10_power = 15;		
-var int link11_power = 15;
-var int link12_power = 15;
-var int link13_power = 15;
-var int link14_power = 15;
-var int link15_power = 15;
-var int link16_power = 15;
-var int link17_power = 15;
 
-// Local variables to store current distribution settings per link
-var double link7_dist = 0.0;		// nochmals nachprüfen
-var double link8_dist = 0.0;
-var double link15_dist = 0.0;
-var double link16_dist = 0.0;
-var double link5_dist = 0.0;
-var double link6_dist = 0.0;
+// local variables to store referenceName; additionally required due to PCM metamodel constraints 
+// as 2nd key to identify assembly context for link; not part of the original DeltaIoT strategy; 
+var string link1_referenceName = "TransmissionPower13to11";
+var string link2_referenceName = "TransmissionPower14to12";		// Mote 7
+var string link3_referenceName = "TransmissionPower15to12";		// Mote 7, Mote 3
+var string link4_referenceName = "TransmissionPower11to7";
+var string link5_referenceName = "TransmissionPower12to7";		// Mote 10
+var string link6_referenceName = "TransmissionPower12to3";		// Mote 10
+var string link7_referenceName = "TransmissionPower7to3";		// Mote 7
+var string link8_referenceName = "TransmissionPower7to2";
+var string link9_referenceName = "TransmissionPower2to4";
+var string link10_referenceName = "TransmissionPower3to1";		
+var string link11_referenceName = "TransmissionPower8to1";
+var string link12_referenceName = "TransmissionPower4to1";
+var string link13_referenceName = "TransmissionPower9to1";
+var string link14_referenceName = "TransmissionPower6to4";
+var string link15_referenceName = "TransmissionPower10to6";
+var string link16_referenceName = "TransmissionPower10to5";
+var string link17_referenceName = "TransmissionPower5to9";
 
-// Umweltvariablen SNR
+
+// Local variables to store current power settings per link; ; initial values taken from *.reconfigurationparams
+var int link1_power = 0;
+var int link2_power = 0;		// Mote 7
+var int link3_power = 0;		// Mote 7, Mote 3
+var int link4_power = 0;
+var int link5_power = 0;		// Mote 10
+var int link6_power = 0;		// Mote 10
+var int link7_power = 0;		// Mote 7
+var int link8_power = 0;
+var int link9_power = 0;
+var int link10_power = 0;		
+var int link11_power = 0;
+var int link12_power = 0;
+var int link13_power = 0;
+var int link14_power = 0;
+var int link15_power = 0;
+var int link16_power = 0;
+var int link17_power = 0;
+
+
+// Local variables to store current distribution settings per link; initial values taken from *.reconfigurationparams
+var double link7_dist = 0.4;		
+var double link8_dist = 0.6;
+var double link15_dist = 0.4;
+var double link16_dist = 0.6;
+var double link5_dist = 0.6;	
+var double link6_dist = 0.4;
+
+// Environment variables 'SNR'
 envvar double SRN_6to4Link_SignalToNoiseRatioInstantiation: variableId="_8lRGYEdwEeq4nph5UDtc-g";
 envvar double SRN_5to9Link_SignalToNoiseRatioInstantiation: variableId="_8lVX0kdwEeq4nph5UDtc-g";
 envvar double SRN_14to12Link_SignalToNoiseRatioInstantiation: variableId="_8lWl8UdwEeq4nph5UDtc-g";
@@ -89,43 +94,12 @@ envvar double SRN_3to1Link_SignalToNoiseRatioInstantiation: variableId="_8ld6sEd
 envvar double SRN_2to4Link_SignalToNoiseRatioInstantiation: variableId="_8lfI0EdwEeq4nph5UDtc-g";
 
 
-// probes: Motes; sind überflüssig
-// hier müssen die gesamten PCM Komponenten adressiert werden die aktuell im DeltaIoT.system erfasst sind
-// mote1	id="_rh4NoMTpEem6vJHOl6M9XA" entityName="Gateway1Instance"
-// mote2	id="_t_dDUMTpEem6vJHOl6M9XA" entityName="ST3to1"
-// mote3	id="_cd24AMTtEem6vJHOl6M9XA" entityName="TemperatureSensor3"
-// mote4	id="_9shcUMTtEem6vJHOl6M9XA" entityName="PassiveInfraredSensor8"
-// mode5	id="_BL_M0MTuEem6vJHOl6M9XA" entityName="ST8to1"
-// mote6	id="_KE9Q0MVrEem8XvI7PKw-OA" entityName="ST9to1"	
-// mote7	id="_efL5UMVrEem8XvI7PKw-OA" entityName="TemperatureSensor9"
-// mote8	id="_shdhQMVrEem8XvI7PKw-OA" entityName="ST4to1"
-// mote9	id="_ys03UMVrEem8XvI7PKw-OA" entityName="PassiveInfraredSensor4"
-// mote10	id="_7iTqQMVrEem8XvI7PKw-OA" entityName="PassiveInfraredSensor10"
-// mote11	id="_ELpeoMVsEem8XvI7PKw-OA" entityName="DT10to6_5"
-// mote12	id="_TzjAkMVsEem8XvI7PKw-OA" entityName="RFIDSensor5"
-// mote13	id="_ebvHQMVsEem8XvI7PKw-OA" entityName="ST5to9"
-// mote14	id="_uUhk4MVsEem8XvI7PKw-OA" entityName="TemperatureSensor6"
-// mote15	id="_1avZoMVsEem8XvI7PKw-OA" entityName="ST6to4"
-// mote16 	id="_a37z4MVtEem8XvI7PKw-OA" entityName="RFIDSensor7"
-// mote17	id="_ymkMYMVtEem8XvI7PKw-OA" entityName="ST2to4"
-// mote18	id="_qjREUMVtEem8XvI7PKw-OA" entityName="PassiveInfraredSensor2"
-// mote19	id="_IHglUMVuEem8XvI7PKw-OA" entityName="DT7to3_2"
-// mote20	id="_btcqIMVuEem8XvI7PKw-OA" entityName="RFIDSensor11"
-// mote21	id="_fnNxAMVuEem8XvI7PKw-OA" entityName="PassiveInfraredSensor13"
-// mote22	id="_oXbpcMVuEem8XvI7PKw-OA" entityName="RFIDSensor12"
-// mote23	id="_1qCH8MVuEem8XvI7PKw-OA" entityName="PassiveInfraredSensor14"
-// mote24	id="_5Y_F8MVuEem8XvI7PKw-OA" entityName="TemperatureSensor15"
-// mote25	id="_-WaCMMVuEem8XvI7PKw-OA" entityName="ST15to12"
-// mote26	id="_D5PYoMVvEem8XvI7PKw-OA" entityName="ST14to12"
-// mote27	id="_TBd8AMVvEem8XvI7PKw-OA" entityName="DT12to3_7"
-// mote28	id="_dDR_MMVvEem8XvI7PKw-OA" entityName="ST11to7"
-// mote29	id="_jcTWwMVvEem8XvI7PKw-OA" entityName="ST13to11"
-
+// probes: Motes; definition is superfluous as we are only interested in the links
 
 
 // actions in this case are no QVTO transformations but Model-to-Text Transformations of Prism Input files
-action changeLinkPower(param string link, param int value);
-action changeLinkDistribution(param string link, param double value);
+action changeLinkPower(param string link, param string referenceName, param int value); // referenceName required as additional parameter compared to original DeltaIoT strategy
+action changeLinkDistribution(param string link, param double value); 
 
 
 /** check link conditions */
@@ -136,187 +110,187 @@ if (!(SRN_6to4Link_SignalToNoiseRatioInstantiation > 0 && link14_power == 0) || 
 	// check for each link SNR settings
 	if (SRN_6to4Link_SignalToNoiseRatioInstantiation < 0) {
 		link14_power = link14_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link14,  value=link14_power);
+		changeLinkPower(link=link14, referenceName=link14_referenceName, value=link14_power);
 	}
 	if (SRN_6to4Link_SignalToNoiseRatioInstantiation > 0) {
 		link1_power = link14_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link14, value=link14_power);
+		changeLinkPower(link=link14, referenceName=link14_referenceName, value=link14_power);
 	}
 }
 
 if (!(SRN_5to9Link_SignalToNoiseRatioInstantiation > 0 && link17_power == 0) || !(SRN_5to9Link_SignalToNoiseRatioInstantiation < 0 && link17_power == 15)) {	
 	if (SRN_5to9Link_SignalToNoiseRatioInstantiation < 0) {
 		link17_power = link17_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link17, value=link17_power);
+		changeLinkPower(link=link17, referenceName=link17_referenceName, value=link17_power);
 	}
 	if (SRN_5to9Link_SignalToNoiseRatioInstantiation > 0) {
 		link17_power = link17_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link17, value=link17_power);
+		changeLinkPower(link=link17, referenceName=link17_referenceName, value=link17_power);
 	}
 }
 
 if (!(SRN_14to12Link_SignalToNoiseRatioInstantiation > 0 && link2_power == 0) || !(SRN_14to12Link_SignalToNoiseRatioInstantiation < 0 && link2_power == 15)) {
 	if (SRN_14to12Link_SignalToNoiseRatioInstantiation < 0) {
 		link2_power = link2_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link2, value=link2_power);
+		changeLinkPower(link=link2, referenceName=link2_referenceName, value=link2_power);
 	}
 	if (SRN_14to12Link_SignalToNoiseRatioInstantiation > 0) {
 		link2_power = link2_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link2, value=link2_power);
+		changeLinkPower(link=link2, referenceName=link2_referenceName, value=link2_power);
 	}
 }
 
 if (!(SRN_7to3Link_SignalToNoiseRatioInstantiation > 0 && link7_power == 0) || !(SRN_7to3Link_SignalToNoiseRatioInstantiation < 0 && link7_power == 15)) {
 	if (SRN_7to3Link_SignalToNoiseRatioInstantiation < 0) {
 		link7_power = link7_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link7, value=link7_power);
+		changeLinkPower(link=link7, referenceName=link7_referenceName, value=link7_power);
 	}
 	if (SRN_7to3Link_SignalToNoiseRatioInstantiation > 0) {
 		link7_power = link7_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link7, value=link7_power);
+		changeLinkPower(link=link7, referenceName=link7_referenceName, value=link7_power);
 	}
 }
 
 if (!(SRN_11to7Link_SignalToNoiseRatioInstantiation > 0 && link4_power == 0) || !(SRN_11to7Link_SignalToNoiseRatioInstantiation < 0 && link4_power == 15)) {
 	if (SRN_11to7Link_SignalToNoiseRatioInstantiation < 0) {
 		link4_power = link4_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link4, value=link4_power);
+		changeLinkPower(link=link4, referenceName=link4_referenceName, value=link4_power);
 	}
 	if (SRN_11to7Link_SignalToNoiseRatioInstantiation > 0) {
 		link4_power = link4_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link4, value=link4_power);
+		changeLinkPower(link=link4, referenceName=link4_referenceName, value=link4_power);
 	}
 }
 
 if (!(SRN_15to12Link_SignalToNoiseRatioInstantiation > 0 && link3_power == 0) || !(SRN_15to12Link_SignalToNoiseRatioInstantiation < 0 && link3_power == 15)) {	
 	if (SRN_15to12Link_SignalToNoiseRatioInstantiation < 0) {
 		link3_power = link3_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link3, value=link3_power);
+		changeLinkPower(link=link3, referenceName=link3_referenceName, value=link3_power);
 	}
 	if (SRN_15to12Link_SignalToNoiseRatioInstantiation > 0) {
 		link3_power = link3_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link3, value=link3_power);
+		changeLinkPower(link=link3, referenceName=link3_referenceName, value=link3_power);
 	}
 }
 
 if (!(SRN_12to7Link_SignalToNoiseRatioInstantiation > 0 && link5_power == 0) || !(SRN_12to7Link_SignalToNoiseRatioInstantiation < 0 && link5_power == 15)) {
 	if (SRN_12to7Link_SignalToNoiseRatioInstantiation < 0) {
 		link5_power = link5_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link5, value=link5_power);
+		changeLinkPower(link=link5, referenceName=link5_referenceName, value=link5_power);
 	}
 	if (SRN_12to7Link_SignalToNoiseRatioInstantiation > 0) {
 		link5_power = link5_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link5, value=link5_power);
+		changeLinkPower(link=link5, referenceName=link5_referenceName, value=link5_power);
 	}
 }
 
 if (!(SRN_13to11Link_SignalToNoiseRatioInstantiation > 0 && link1_power == 0) || !(SRN_13to11Link_SignalToNoiseRatioInstantiation < 0 && link1_power == 15)) {
 	if (SRN_13to11Link_SignalToNoiseRatioInstantiation < 0) {
 		link1_power = link1_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link1, value=link1_power);
+		changeLinkPower(link=link1, referenceName=link1_referenceName, value=link1_power);
 	}
 	if (SRN_13to11Link_SignalToNoiseRatioInstantiation > 0) {
 		link1_power = link1_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link1, value=link1_power);
+		changeLinkPower(link=link1, referenceName=link1_referenceName, value=link1_power);
 	}
 }
 
 if (!(SRN_7to2Link_SignalToNoiseRatioInstantiation > 0 && link8_power == 0) || !(SRN_7to2Link_SignalToNoiseRatioInstantiation < 0 && link8_power == 15)) {
 	if (SRN_7to2Link_SignalToNoiseRatioInstantiation < 0) {
 		link8_power = link8_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link8, value=link8_power);
+		changeLinkPower(link=link8, referenceName=link8_referenceName, value=link8_power);
 	}
 	if (SRN_7to2Link_SignalToNoiseRatioInstantiation > 0) {
 		link8_power = link8_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link8, value=link8_power);
+		changeLinkPower(link=link8, referenceName=link8_referenceName, value=link8_power);
 	}
 }
 
 if (!(SRN_10to6Link_SignalToNoiseRatioInstantiation > 0 && link15_power == 0) || !(SRN_10to6Link_SignalToNoiseRatioInstantiation < 0 && link15_power == 15)) {
 	if (SRN_10to6Link_SignalToNoiseRatioInstantiation < 0) {
 		link15_power = link15_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link15, value=link15_power);
+		changeLinkPower(link=link15, referenceName=link15_referenceName, value=link15_power);
 	}
 	if (SRN_10to6Link_SignalToNoiseRatioInstantiation > 0) {
 		link15_power = link15_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link15, value=link15_power);
+		changeLinkPower(link=link15, referenceName=link15_referenceName, value=link15_power);
 	}
 }
 
 if (!(SRN_9to1Link_SignalToNoiseRatioInstantiation > 0 && link13_power == 0) || !(SRN_9to1Link_SignalToNoiseRatioInstantiation < 0 && link13_power == 15)) {
 	if (SRN_9to1Link_SignalToNoiseRatioInstantiation < 0) {
 		link13_power = link13_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link13, value=link13_power);
+		changeLinkPower(link=link13, referenceName=link13_referenceName, value=link13_power);
 	}
 	if (SRN_9to1Link_SignalToNoiseRatioInstantiation > 0) {
 		link13_power = link13_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link13, value=link13_power);
+		changeLinkPower(link=link13, referenceName=link13_referenceName, value=link13_power);
 	}
 }
 
 if (!(SRN_10to5Link_SignalToNoiseRatioInstantiation > 0 && link16_power == 0) || !(SRN_10to5Link_SignalToNoiseRatioInstantiation < 0 && link16_power == 15)) {
 	if (SRN_10to5Link_SignalToNoiseRatioInstantiation < 0) {
 		link16_power = link16_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link16, value=link16_power);
+		changeLinkPower(link=link16, referenceName=link16_referenceName, value=link16_power);
 	}
 	if (SRN_10to5Link_SignalToNoiseRatioInstantiation > 0) {
 		link16_power = link16_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link16, value=link16_power);
+		changeLinkPower(link=link16, referenceName=link16_referenceName, value=link16_power);
 	}
 }
 
 if (!(SRN_4to1Link_SignalToNoiseRatioInstantiation > 0 && link12_power == 0) || !(SRN_4to1Link_SignalToNoiseRatioInstantiation < 0 && link12_power == 15)) {
 	if (SRN_4to1Link_SignalToNoiseRatioInstantiation < 0) {
 		link12_power = link12_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link12, value=link12_power);
+		changeLinkPower(link=link12, referenceName=link12_referenceName, value=link12_power);
 	}
 	if (SRN_4to1Link_SignalToNoiseRatioInstantiation > 0) {
 		link12_power = link12_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link12, value=link12_power);
+		changeLinkPower(link=link12, referenceName=link12_referenceName, value=link12_power);
 	}
 }
 
 if (!(SRN_8to1Link_SignalToNoiseRatioInstantiation > 0 && link11_power == 0) || !(SRN_8to1Link_SignalToNoiseRatioInstantiation < 0 && link11_power == 15)) {
 	if (SRN_8to1Link_SignalToNoiseRatioInstantiation < 0) {
 		link11_power = link11_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link11, value=link11_power);
+		changeLinkPower(link=link11, referenceName=link11_referenceName, value=link11_power);
 	}
 	if (SRN_8to1Link_SignalToNoiseRatioInstantiation > 0) {
 		link11_power = link11_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link11, value=link11_power);
+		changeLinkPower(link=link11, referenceName=link11_referenceName, value=link11_power);
 	}
 }
 
 if (!(SRN_12to3Link_SignalToNoiseRatioInstantiation > 0 && link6_power == 0) || !(SRN_12to3Link_SignalToNoiseRatioInstantiation < 0 && link6_power == 15)) {
 	if (SRN_12to3Link_SignalToNoiseRatioInstantiation < 0) {
 		link6_power = link6_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link6, value=link6_power);
+		changeLinkPower(link=link6, referenceName=link6_referenceName, value=link6_power);
 	}
 	if (SRN_12to3Link_SignalToNoiseRatioInstantiation > 0) {
 		link6_power = link6_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link6, value=link6_power);
+		changeLinkPower(link=link6, referenceName=link6_referenceName, value=link6_power);
 	}
 }
 
 if (!(SRN_3to1Link_SignalToNoiseRatioInstantiation > 0 && link10_power == 0) || !(SRN_3to1Link_SignalToNoiseRatioInstantiation < 0 && link10_power == 15)) {
 	if (SRN_3to1Link_SignalToNoiseRatioInstantiation < 0) {
 		link10_power = link10_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link10, value=link10_power);
+		changeLinkPower(link=link10, referenceName=link10_referenceName, value=link10_power);
 	}
 	if (SRN_3to1Link_SignalToNoiseRatioInstantiation > 0) {
 		link10_power = link10_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link10, value=link10_power);
+		changeLinkPower(link=link10, referenceName=link10_referenceName, value=link10_power);
 	}
 }
 
 if (!(SRN_2to4Link_SignalToNoiseRatioInstantiation > 0 && link9_power == 0) || !(SRN_2to4Link_SignalToNoiseRatioInstantiation < 0 && link9_power == 15)) {
 	if (SRN_2to4Link_SignalToNoiseRatioInstantiation < 0) {
 		link9_power = link9_power + CHANGE_POWER_VALUE;
-		changeLinkPower(link=link9, value=link9_power);
+		changeLinkPower(link=link9, referenceName=link9_referenceName, value=link9_power);
 	}
 	if (SRN_2to4Link_SignalToNoiseRatioInstantiation > 0) {
 		link9_power = link9_power - CHANGE_POWER_VALUE;
-		changeLinkPower(link=link9, value=link9_power);
+		changeLinkPower(link=link9, referenceName=link9_referenceName, value=link9_power);
 	}
 }	
 	
