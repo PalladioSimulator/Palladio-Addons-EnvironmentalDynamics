@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.m2m.qvt.oml.QvtTransformation">
-    <stringAttribute key="bad_container_name" value="\org.palladiosimulator.envdyn.examples.deltaiot\launches\transformation-changeLinkPower"/>
     <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
-    <mapAttribute key="org.eclipse.debug.core.preferred_launchers"/>
     <booleanAttribute key="org.eclipse.m2m.qvt.oml.interpreter.clearContents1" value="true"/>
     <booleanAttribute key="org.eclipse.m2m.qvt.oml.interpreter.clearContents2" value="true"/>
     <booleanAttribute key="org.eclipse.m2m.qvt.oml.interpreter.clearContents3" value="true"/>
@@ -16,7 +14,7 @@
     <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.featureName2" value=""/>
     <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.featureName3" value=""/>
     <booleanAttribute key="org.eclipse.m2m.qvt.oml.interpreter.isInrementalUpdate" value="false"/>
-    <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.module" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot.rework/transforms/NewTransformation.qvto"/>
+    <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.module" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/reconfigurations/changeLinkPower.qvto"/>
     <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetModel1" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTSystem.system"/>
     <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetModel2" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTResources.resourceenvironment"/>
     <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetModel3" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIotAllocation.allocation"/>
