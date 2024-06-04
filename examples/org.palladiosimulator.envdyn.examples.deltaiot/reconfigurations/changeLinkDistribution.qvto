@@ -1,0 +1,97 @@
+// declaration: externally defined metamodels
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2';
+modeltype PCM_CORE uses 'http://palladiosimulator.org/PalladioComponentModel/Core/5.2';
+modeltype PCM_COMP uses 'http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2';
+modeltype PCM_REP uses 'http://palladiosimulator.org/PalladioComponentModel/Repository/5.2';
+modeltype PCM_SEFF uses 'http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.2';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2';
+modeltype PCM_PARAM uses 'http://palladiosimulator.org/PalladioComponentModel/Parameter/5.2';
+
+transformation changeLinkDistribution(inout pcmRepository : PCM_REP, in pcmResEnv : PCM_RES_ENV, in pcmAlloc : PCM_ALLOC) {
+
+	// action parameters passed to qvto transformation to update PCM model
+	configuration property link : String;		// link id
+	configuration property probabilisticBranchTransition : String;	// variable probabilisticBranchTransition; refers to appliedBranch in *.reconfiugurationParams
+	configuration property value : Real;		// distribution value
+
+
+	main() {
+	
+		log('*** STARTED: Transformation rule [changeLinkDistribution] ...');
+		adjustDistributionFactor();
+		log('*** DONE: Transformation rule [changeLinkDistribution]');
+						 								  
+	}
+	
+	/**
+	 * Distribution factor adjustment.
+	 */
+	helper adjustDistributionFactor() {
+		var rc : ResourceContainer = findResourceContainerForLink(link);
+		assert fatal(rc != null) with log('No ResourceContainer found with link id: ' + link);
+
+		var branchToAdjust : ProbabilisticBranchTransition = findProbabilisticBranchTransitionForLinkingResource(rc, probabilisticBranchTransition); 
+		assert fatal(branchToAdjust != null) with log('No ProbabilisticBranchTransition found with for link/probabilisticBranchTransition: ' + link + '/' + probabilisticBranchTransition);
+
+		log('[changeLinkDistribution: set branchProbability ' + branchToAdjust.entityName + ' to value:' + value.toString() + ']');
+		branchToAdjust.branchProbability := value;
+	}
+	
+	query findComponentForAssemblyContext(in assemblyCtx :  AssemblyContext) : BasicComponent {
+		var basicComponent : BasicComponent := assemblyCtx.encapsulatedComponent__AssemblyContext.oclAsType(BasicComponent);
+		return basicComponent;
+	}
+	
+	
+	query findResourceContainerForLink(in link : String ) : ResourceContainer {
+		var linkingResources = pcmResEnv.rootObjects()[ResourceEnvironment].allSubobjects()[LinkingResource];
+	
+		linkingResources->forEach(linkResource){
+			if linkResource.id = link then {
+				var resourceContainers : Set(ResourceContainer) := linkResource.connectedResourceContainers_LinkingResource;
+				var sourceRC : ResourceContainer := resourceContainers->asList()->first();
+				log('Found ResourceContainer[' + sourceRC.entityName +', ' + sourceRC.id +']');
+				return sourceRC;
+			}
+			endif
+		};
+		return null;
+	}
+	
+	
+	query findProbabilisticBranchTransitionForLinkingResource(in rc : ResourceContainer, in probabilisticBranchTransition : String) : ProbabilisticBranchTransition {
+		var assemblyCtxs : Set(AssemblyContext) = findAssemblyContextsForResourceContainer(rc);
+		
+		assemblyCtxs->forEach(assemblyCtx){
+			var basicComponent : BasicComponent := assemblyCtx.encapsulatedComponent__AssemblyContext.oclAsType(BasicComponent);
+			var branchTransitions : Bag(ProbabilisticBranchTransition) := basicComponent.serviceEffectSpecifications__BasicComponent.allSubobjects()[ProbabilisticBranchTransition];
+			branchTransitions->forEach(branchTransition) {
+				if (branchTransition.entityName = probabilisticBranchTransition ) {
+					var branchToAdjust : ProbabilisticBranchTransition := branchTransition;
+					return branchToAdjust;
+				} endif;			
+			}
+		};
+		return null;
+	}
+	
+	query findAssemblyContextsForResourceContainer(in rc : ResourceContainer) : Set(AssemblyContext) {
+		var contexts : Set(AssemblyContext);
+		var allocations : Set(Allocation) = pcmAlloc.rootObjects()[Allocation];
+		
+		allocations->forEach(allocation) {
+			var ctxs = allocation.allSubobjectsOfKind(AllocationContext);
+			ctxs->forEach(context) {
+				log('Check context[' + context.entityName + ']');
+				var rcContext = context.resourceContainer_AllocationContext;
+				if (rcContext = rc) then {
+					contexts += context.assemblyContext_AllocationContext;
+				} endif;
+			}
+		};
+		
+		return contexts;
+	}
+
+}
