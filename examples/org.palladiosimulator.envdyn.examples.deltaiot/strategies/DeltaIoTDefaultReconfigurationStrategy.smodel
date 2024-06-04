@@ -74,6 +74,16 @@ var double link16_dist = 0.6;
 var double link5_dist = 0.6;	
 var double link6_dist = 0.4;
 
+
+// local variables to store probabilisticBranchTransition; additionally required due to PCM metamodel constraints 
+// as 2nd key to identify assembly context for link; not part of the original DeltaIoT strategy; 
+var string link5_probabilisticBranchTransition = "TransmitToMote7";		// Mote 10
+var string link6_probabilisticBranchTransition = "TransmitToMote3";		// Mote 10
+var string link7_probabilisticBranchTransition = "TransmitFrom7toMote3";		// Mote 7
+var string link8_probabilisticBranchTransition = "TransmitToMote2";
+var string link15_probabilisticBranchTransition = "TransmitToMote6";
+var string link16_probabilisticBranchTransition = "TransmitToMote5";
+
 // Environment variables 'SNR'
 envvar double SRN_6to4Link_SignalToNoiseRatioInstantiation: variableId="_8lRGYEdwEeq4nph5UDtc-g";
 envvar double SRN_5to9Link_SignalToNoiseRatioInstantiation: variableId="_8lVX0kdwEeq4nph5UDtc-g";
@@ -99,7 +109,7 @@ envvar double SRN_2to4Link_SignalToNoiseRatioInstantiation: variableId="_8lfI0Ed
 
 // actions in this case are no QVTO transformations but Model-to-Text Transformations of Prism Input files
 action changeLinkPower(param string link, param string referenceName, param int value); // referenceName required as additional parameter compared to original DeltaIoT strategy
-action changeLinkDistribution(param string link, param double value); 
+action changeLinkDistribution(param string link, param string probabilisticBranchTransition, param double value); 
 
 
 /** check link conditions */
@@ -300,41 +310,41 @@ if (!(SRN_2to4Link_SignalToNoiseRatioInstantiation > 0 && link9_power == 0) || !
 if(!(link7_power == link8_power)){
 	if(link7_power > link8_power){
 		link7_dist = link7_dist - CHANGE_DIST_VALUE;
-		changeLinkDistribution(link=link7, value=link7_dist);
+		changeLinkDistribution(link=link7, probabilisticBranchTransition=link7_probabilisticBranchTransition, value=link7_dist);
 		link8_dist = link8_dist + CHANGE_DIST_VALUE;
-		changeLinkDistribution(link=link8, value=link8_dist);
+		changeLinkDistribution(link=link8, probabilisticBranchTransition=link8_probabilisticBranchTransition, value=link8_dist);
 	} else {
 		link7_dist = link7_dist + CHANGE_DIST_VALUE;
-		changeLinkDistribution(link=link7, value=link7_dist);
+		changeLinkDistribution(link=link7, probabilisticBranchTransition=link7_probabilisticBranchTransition, value=link7_dist);
 		link8_dist = link8_dist - CHANGE_DIST_VALUE;
-		changeLinkDistribution(link=link8, value=link8_dist);
+		changeLinkDistribution(link=link8, probabilisticBranchTransition=link8_probabilisticBranchTransition, value=link8_dist);
 	}
 }
 // Mote 10: link15, link16
 if(!(link15_power == link16_power)){
 	if(link15_power > link16_power){
 		link15_dist = link15_dist - CHANGE_DIST_VALUE;
-		changeLinkDistribution(link=link15, value=link15_dist);
+		changeLinkDistribution(link=link15, probabilisticBranchTransition=link15_probabilisticBranchTransition, value=link15_dist);
 		link16_dist = link16_dist + CHANGE_DIST_VALUE;
-		changeLinkDistribution(link=link16, value=link16_dist);
+		changeLinkDistribution(link=link16, probabilisticBranchTransition=link16_probabilisticBranchTransition, value=link16_dist);
 	} else {
 		link15_dist = link15_dist + CHANGE_DIST_VALUE;
-		changeLinkDistribution(link=link15, value=link15_dist);
+		changeLinkDistribution(link=link15, probabilisticBranchTransition=link15_probabilisticBranchTransition, value=link15_dist);
 		link16_dist = link16_dist - CHANGE_DIST_VALUE;
-		changeLinkDistribution(link=link16, value=link16_dist);
+		changeLinkDistribution(link=link16, probabilisticBranchTransition=link16_probabilisticBranchTransition, value=link16_dist);
 	}
 }
 // Mote12: link5, link6
 if(!(link5_power == link6_power)){
 	if(link5_power > link6_power){
 		link5_dist = link5_dist - CHANGE_DIST_VALUE;
-		changeLinkDistribution(link=link5, value=link5_dist);
+		changeLinkDistribution(link=link5, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist);
 		link6_dist = link6_dist + CHANGE_DIST_VALUE;
-		changeLinkDistribution(link=link6, value=link6_dist);
+		changeLinkDistribution(link=link6, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist);
 	} else {
 		link5_dist = link5_dist + CHANGE_DIST_VALUE;
-		changeLinkDistribution(link=link5, value=link5_dist);
+		changeLinkDistribution(link=link5, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist);
 		link6_dist = link6_dist - CHANGE_DIST_VALUE;
-		changeLinkDistribution(link=link6, value=link6_dist);
+		changeLinkDistribution(link=link6, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist);
 	}
 }
