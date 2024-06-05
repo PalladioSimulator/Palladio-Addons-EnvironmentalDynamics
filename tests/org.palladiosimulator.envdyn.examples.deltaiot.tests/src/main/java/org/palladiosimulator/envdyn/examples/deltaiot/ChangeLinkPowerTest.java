@@ -59,13 +59,6 @@ public class ChangeLinkPowerTest {
     }
 
     private void registerPackages(ResourceSet set, List<EPackage> packages) {
-        /*
-         * set.getPackageRegistry() .put(CompositionPackage.eNS_URI, CompositionPackage.eINSTANCE);
-         * set.getPackageRegistry() .put(RepositoryPackage.eNS_URI, RepositoryPackage.eINSTANCE);
-         */
-        // set.getPackageRegistry()
-        // .put(SystemPackage.eNS_URI, SystemPackage.eINSTANCE);
-//        set.getPackageRegistry().put(StochasticExpressions.eNS_URI, StochasticExpressions.eINSTANCE);
         for (EPackage ePackage : packages) {
             set.getPackageRegistry()
                 .put(ePackage.getNsURI(), ePackage);
@@ -85,14 +78,6 @@ public class ChangeLinkPowerTest {
     @Test
     public void testChangeLinkPowerWorks() throws URISyntaxException {
         ClassLoader classLoader = getClass().getClassLoader();
-        // src\main\resources\org\palladiosimulator\envdyn\examples\deltaiot
-        /*
-         * String resourcePath = getClass().getPackageName() .replace(".", "/") +
-         * "/DeltaIoTSystem.system"; URL resourceURL = classLoader.getResource(resourcePath);
-         * java.net.URI javaURI = resourceURL.toURI(); // Java URI URI systemURI =
-         * URI.createURI(javaURI.toString()); // EMF URI
-         */
-//        URI systemEmfURI = URI.createURI("platform:/resource/model/DeltaIoTSystem.system");
 
         URI systemURI = getResourceUri("DeltaIoTSystem.system");
         URI resourceEnvironmentURI = getResourceUri("DeltaIoTResources.resourceenvironment");
@@ -103,17 +88,11 @@ public class ChangeLinkPowerTest {
             .replace(".", "/");
         String transformationResourcePath = resourceBasePath + "/changeLinkPower.qvto";
         URL transformationResourceURL = classLoader.getResource(transformationResourcePath);
-        // org/palladiosimulator/envdyn/examples/deltaiot/reconfigurations/changeLinkPower.qvto
         java.net.URI javaTransformationURI = transformationResourceURL.toURI(); // Java URI
         URI transformationURI = URI.createURI(javaTransformationURI.toString()); // EMF URI
-//        URI transformationURI = URI.createURI("platform:/resource/myqvtprj/ChangeTheWorld.qvto");
-        // create executor for the given transformation
+
         TransformationExecutor executor = new TransformationExecutor(transformationURI);
 
-        // define the transformation input
-        // Remark: we take the objects from a resource, however
-        // a list of arbitrary in-memory EObjects may be passed
-//        ResourceSet resourceSet = new ResourceSetImpl();
         Resource systemResource = loadResource(rs, systemURI);
         EObject systemObject = systemResource.getContents()
             .get(0);
@@ -124,56 +103,22 @@ public class ChangeLinkPowerTest {
         EObject allocationObject = allocationResource.getContents()
             .get(0);
 
-        List<EObject> inObjects = Arrays.asList(systemObject, resourceEnvironmentObject, allocationObject);
-
-        // create the input extent with its initial contents
         ModelExtent systemInput = new BasicModelExtent(Collections.singletonList(systemObject));
         ModelExtent resourceEnvironmentInput = new BasicModelExtent(
                 Collections.singletonList(resourceEnvironmentObject));
         ModelExtent allocationInput = new BasicModelExtent(Collections.singletonList(allocationObject));
-        // create an empty extent to catch the output
-        // ModelExtent output = new BasicModelExtent();
 
-        // setup the execution environment details ->
-        // configuration properties, logger, monitor object etc.
         ExecutionContextImpl context = new ExecutionContextImpl();
         context.setLog(new TestQVTOLogger());
-        // context.setConfigProperty("keepModeling", true);
-        // TODO: add simexp modeling parameters
         context.setConfigProperty("link", "_oDy78MWTEem8XvI7PKw-OA");
         context.setConfigProperty("referenceName", "TransmissionPower6to4");
         context.setConfigProperty("value", 1);
 
-        // run the transformation assigned to the executor with the given
-        // input and output and execution context -> ChangeTheWorld(in, out)
-        // Remark: variable arguments count is supported
-
-        // ExecutionContext executionContext, ModelExtent... modelParameters
         ExecutionDiagnostic actualResult = executor.execute(context, systemInput, resourceEnvironmentInput,
                 allocationInput);
 
-//     // check the result for success
-//     if(result.getSeverity() == Diagnostic.OK) {
-//         // the output objects got captured in the output extent
-//         List<EObject> outObjects = output.getContents();
-//         // let's persist them using a resource 
-//             ResourceSet resourceSet2 = new ResourceSetImpl();
-//         Resource outResource = resourceSet2.getResource(
-//                 URI.createURI("platform:/resource/myqvtprj/tomorrow.betterWorld"), true);
-//         outResource.getContents().addAll(outObjects);
-//         outResource.save(Collections.emptyMap());
-//     } else {
-//         // turn the result diagnostic into status and send it to error log          
-//         IStatus status = BasicDiagnostic.toIStatus(result);
-//         Activator.getDefault().getLog().log(status);
-//     }
-
         assertThat(actualResult.getSeverity()).isEqualTo(Diagnostic.OK);
-        // List<EObject> actualOutput = output.getContents();
-
-        // EObject actualObject = inObjects.get(0);
         System actualSystem = (System) systemObject;
-
         AssemblyContext actualContext = findAssemblyContext(actualSystem, "_uUhk4MVsEem8XvI7PKw-OA");
         assertNotNull(actualContext);
         VariableUsage actualVariableUsage = findUsage(actualContext, "TransmissionPower6to4");
@@ -183,30 +128,6 @@ public class ChangeLinkPowerTest {
         PCMRandomVariable actualRandomVariable = actualVariableCharacterisation
             .getSpecification_VariableCharacterisation();
         assertThat(actualRandomVariable.getSpecification()).isEqualTo("1");
-
-//         assertThat(actualOutput.)
-
-//        URI transformationURI = null;
-////        protected void setUpInternalExecutor(URI uri, Optional<EPackage.Registry> registry) {
-////            if (registry.isPresent()) {
-////                executor = new TransformationExecutor(uri, registry.get());
-////            } else {
-////          executor = new TransformationExecutor(uri);
-////            }
-////        }
-////        
-//        TransformationExecutor executor = new TransformationExecutor(transformationURI);
-//
-//        Map<String, Object> contextParams = new HashMap<>();
-//        // FIXME: Provide content
-//        ExecutionContext executionContext = setupExecutionContext(contextParams);
-//
-//        // model parameters
-//        Map<String, Object> modelCtxParameters = new HashMap<>();
-//        contextParams.put("linkId", "4711");
-//        ModelExtent modelParameters = setupModelExtend(modelCtxParameters);
-//        ExecutionDiagnostic actualResult = executor.execute(executionContext, modelParameters);
-//        executor.cleanup();
     }
 
     private Resource loadResource(ResourceSet rs, URI uri) {
@@ -237,16 +158,4 @@ public class ChangeLinkPowerTest {
         }
         return null;
     }
-
-//    private ExecutionContext setupExecutionContext(Map<String, Object> contextParams) {
-//        ExecutionContextImpl result = new ExecutionContextImpl();
-//        // FIXME: provide logger
-////        Log log = new QVTOReconfigurationLogger(getClass());
-////        result.setLog(log);
-//        for (Map.Entry<String, Object> contextParam : contextParams.entrySet()) {
-//            result.setConfigProperty(contextParam.getKey(), contextParam.getValue());
-//        }
-//        return result;
-//    }
-
 }
