@@ -53,16 +53,20 @@ transformation  changeLinkPower(inout pcmSystem : PCM_SYS, in pcmResEnv : PCM_RE
 	}
 	
 	query findAssemblyContextForLinkingResource(in rc : ResourceContainer, in referenceName : String) : AssemblyContext {
+		log('[findAssemblyContextForLinkingResource: search referenceName: ' + referenceName + ']');
 		var assemblyCtxs : Set(AssemblyContext) = findAssemblyContextsForResourceContainer(rc);
 		
 		assemblyCtxs->forEach(assemblyCtx){
+			log('[findAssemblyContextForLinkingResource: check assemblyCtx: ' + assemblyCtx.id + ']');
 			assemblyCtx.configParameterUsages__AssemblyContext->forEach(ref) {
+				log('[findAssemblyContextForLinkingResource: check ref: ' + ref.namedReference__VariableUsage.referenceName + ']');
 				if ref.namedReference__VariableUsage.referenceName = referenceName then {
 					return assemblyCtx;					
 				}endif;			
 			};
 		};
 		
+		log('[findAssemblyContextForLinkingResource: no context found]');
 		return null;
 	}
 	
