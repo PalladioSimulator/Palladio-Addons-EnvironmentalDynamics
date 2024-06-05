@@ -71,13 +71,11 @@ public class ChangeLinkPowerTest {
     }
 
     @Test
-    public void testChangeLinkPowerWorks() throws URISyntaxException {
+    public void testChangeLinkPower() throws URISyntaxException {
         URI systemURI = getResourceUri("DeltaIoTSystem.system");
         URI resourceEnvironmentURI = getResourceUri("DeltaIoTResources.resourceenvironment");
         URI allocationURI = getResourceUri("DeltaIotAllocation.allocation");
-
         URI transformationURI = getResourceUri("changeLinkPower.qvto");
-
         Resource systemResource = loadResource(rs, systemURI);
         EObject systemObject = systemResource.getContents()
             .get(0);
@@ -87,17 +85,11 @@ public class ChangeLinkPowerTest {
         Resource allocationResource = loadResource(rs, allocationURI);
         EObject allocationObject = allocationResource.getContents()
             .get(0);
-
         ModelExtent systemInput = new BasicModelExtent(Collections.singletonList(systemObject));
         ModelExtent resourceEnvironmentInput = new BasicModelExtent(
                 Collections.singletonList(resourceEnvironmentObject));
         ModelExtent allocationInput = new BasicModelExtent(Collections.singletonList(allocationObject));
-
-        ExecutionContextImpl context = new ExecutionContextImpl();
-        context.setLog(new TestQVTOLogger());
-        context.setConfigProperty("link", "_oDy78MWTEem8XvI7PKw-OA");
-        context.setConfigProperty("referenceName", REFERENCE_NAME);
-        context.setConfigProperty("value", 1);
+        ExecutionContextImpl context = createExecutionContext("_oDy78MWTEem8XvI7PKw-OA", 1);
 
         ExecutionDiagnostic actualResult = executeTrafo(transformationURI, context, systemInput,
                 resourceEnvironmentInput, allocationInput);
@@ -157,6 +149,15 @@ public class ChangeLinkPowerTest {
             }
         }
         return null;
+    }
+
+    private ExecutionContextImpl createExecutionContext(String linkId, int value) {
+        ExecutionContextImpl context = new ExecutionContextImpl();
+        context.setLog(new TestQVTOLogger());
+        context.setConfigProperty("link", linkId);
+        context.setConfigProperty("referenceName", REFERENCE_NAME);
+        context.setConfigProperty("value", value);
+        return context;
     }
 
     private ExecutionDiagnostic executeTrafo(URI trafoUri, ExecutionContext context, ModelExtent... modelParameters) {
