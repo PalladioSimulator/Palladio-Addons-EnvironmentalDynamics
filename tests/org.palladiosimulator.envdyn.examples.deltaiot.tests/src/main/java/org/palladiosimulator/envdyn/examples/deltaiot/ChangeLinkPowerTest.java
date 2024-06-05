@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
@@ -54,9 +55,9 @@ public class ChangeLinkPowerTest {
     }
 
     private void registerFactories(Resource.Factory.Registry reg, List<EPackage> packages) {
+        Map<String, Object> extensionToFactoryMap = reg.getExtensionToFactoryMap();
         for (EPackage ePackage : packages) {
-            reg.getExtensionToFactoryMap()
-                .put(ePackage.getName(), new XMIResourceFactoryImpl());
+            extensionToFactoryMap.put(ePackage.getName(), new XMIResourceFactoryImpl());
         }
     }
 
