@@ -153,10 +153,11 @@ public class ChangeLinkPowerTest {
 
     private ExecutionDiagnostic executeTrafo(URI trafoUri, ExecutionContext context, ModelExtent... modelParameters) {
         TransformationExecutor executor = new TransformationExecutor(trafoUri);
-
-        ExecutionDiagnostic result = executor.execute(context, modelParameters);
-
-        return result;
+        try {
+            ExecutionDiagnostic result = executor.execute(context, modelParameters);
+            return result;
+        } finally {
+            executor.cleanup();
+        }
     }
-
 }
