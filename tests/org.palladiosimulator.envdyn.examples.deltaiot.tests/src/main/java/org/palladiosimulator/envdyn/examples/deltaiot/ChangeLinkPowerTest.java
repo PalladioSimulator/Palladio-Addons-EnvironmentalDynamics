@@ -13,11 +13,13 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EPackage.Registry;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.m2m.qvt.oml.BasicModelExtent;
+import org.eclipse.m2m.qvt.oml.ExecutionContext;
 import org.eclipse.m2m.qvt.oml.ExecutionContextImpl;
 import org.eclipse.m2m.qvt.oml.ExecutionDiagnostic;
 import org.eclipse.m2m.qvt.oml.ModelExtent;
@@ -59,9 +61,9 @@ public class ChangeLinkPowerTest {
     }
 
     private void registerPackages(ResourceSet set, List<EPackage> packages) {
+        Registry packageRegistry = set.getPackageRegistry();
         for (EPackage ePackage : packages) {
-            set.getPackageRegistry()
-                .put(ePackage.getNsURI(), ePackage);
+            packageRegistry.put(ePackage.getNsURI(), ePackage);
         }
     }
 
@@ -77,21 +79,11 @@ public class ChangeLinkPowerTest {
 
     @Test
     public void testChangeLinkPowerWorks() throws URISyntaxException {
-        ClassLoader classLoader = getClass().getClassLoader();
-
         URI systemURI = getResourceUri("DeltaIoTSystem.system");
         URI resourceEnvironmentURI = getResourceUri("DeltaIoTResources.resourceenvironment");
         URI allocationURI = getResourceUri("DeltaIotAllocation.allocation");
 
-        // Refer to an existing transformation via URI
-        String resourceBasePath = getClass().getPackageName()
-            .replace(".", "/");
-        String transformationResourcePath = resourceBasePath + "/changeLinkPower.qvto";
-        URL transformationResourceURL = classLoader.getResource(transformationResourcePath);
-        java.net.URI javaTransformationURI = transformationResourceURL.toURI(); // Java URI
-        URI transformationURI = URI.createURI(javaTransformationURI.toString()); // EMF URI
-
-        TransformationExecutor executor = new TransformationExecutor(transformationURI);
+        URI transformationURI = getResourceUri("changeLinkPower.qvto");
 
         Resource systemResource = loadResource(rs, systemURI);
         EObject systemObject = systemResource.getContents()
@@ -114,8 +106,8 @@ public class ChangeLinkPowerTest {
         context.setConfigProperty("referenceName", "TransmissionPower6to4");
         context.setConfigProperty("value", 1);
 
-        ExecutionDiagnostic actualResult = executor.execute(context, systemInput, resourceEnvironmentInput,
-                allocationInput);
+        ExecutionDiagnostic actualResult = executeTrafo(transformationURI, context, systemInput,
+                resourceEnvironmentInput, allocationInput);
 
         assertThat(actualResult.getSeverity()).isEqualTo(Diagnostic.OK);
         System actualSystem = (System) systemObject;
@@ -158,4 +150,13 @@ public class ChangeLinkPowerTest {
         }
         return null;
     }
+
+    private ExecutionDiagnostic executeTrafo(URI trafoUri, ExecutionContext context, ModelExtent... modelParameters) {
+        TransformationExecutor executor = new TransformationExecutor(trafoUri);
+
+        ExecutionDiagnostic result = executor.execute(context, modelParameters);
+
+        return result;
+    }
+
 }
