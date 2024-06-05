@@ -40,6 +40,8 @@ import de.uka.ipd.sdq.stoex.VariableReference;
 
 public class ChangeLinkPowerTest {
 
+    private static final String REFERENCE_NAME = "TransmissionPower6to4";
+
     private ResourceSet rs;
 
     @Before
@@ -68,16 +70,6 @@ public class ChangeLinkPowerTest {
         }
     }
 
-    private URI getResourceUri(String resourceName) throws URISyntaxException {
-        ClassLoader classLoader = getClass().getClassLoader();
-        String resourcePath = getClass().getPackageName()
-            .replace(".", "/") + "/" + resourceName;
-        URL resourceURL = classLoader.getResource(resourcePath);
-        java.net.URI javaURI = resourceURL.toURI(); // Java URI
-        URI systemURI = URI.createURI(javaURI.toString()); // EMF URI
-        return systemURI;
-    }
-
     @Test
     public void testChangeLinkPowerWorks() throws URISyntaxException {
         URI systemURI = getResourceUri("DeltaIoTSystem.system");
@@ -104,7 +96,7 @@ public class ChangeLinkPowerTest {
         ExecutionContextImpl context = new ExecutionContextImpl();
         context.setLog(new TestQVTOLogger());
         context.setConfigProperty("link", "_oDy78MWTEem8XvI7PKw-OA");
-        context.setConfigProperty("referenceName", "TransmissionPower6to4");
+        context.setConfigProperty("referenceName", REFERENCE_NAME);
         context.setConfigProperty("value", 1);
 
         ExecutionDiagnostic actualResult = executeTrafo(transformationURI, context, systemInput,
@@ -112,15 +104,19 @@ public class ChangeLinkPowerTest {
 
         assertThat(actualResult.getSeverity()).isEqualTo(Diagnostic.OK);
         System actualSystem = (System) systemObject;
-        AssemblyContext actualContext = findAssemblyContext(actualSystem, "_uUhk4MVsEem8XvI7PKw-OA");
-        assertNotNull(actualContext);
-        VariableUsage actualVariableUsage = findUsage(actualContext, "TransmissionPower6to4");
-        VariableCharacterisation actualVariableCharacterisation = actualVariableUsage
-            .getVariableCharacterisation_VariableUsage()
-            .get(0);
-        PCMRandomVariable actualRandomVariable = actualVariableCharacterisation
-            .getSpecification_VariableCharacterisation();
+        PCMRandomVariable actualRandomVariable = findRandomVariable(actualSystem, "_uUhk4MVsEem8XvI7PKw-OA",
+                REFERENCE_NAME);
         assertThat(actualRandomVariable.getSpecification()).isEqualTo("1");
+    }
+
+    private URI getResourceUri(String resourceName) throws URISyntaxException {
+        ClassLoader classLoader = getClass().getClassLoader();
+        String resourcePath = getClass().getPackageName()
+            .replace(".", "/") + "/" + resourceName;
+        URL resourceURL = classLoader.getResource(resourcePath);
+        java.net.URI javaURI = resourceURL.toURI(); // Java URI
+        URI systemURI = URI.createURI(javaURI.toString()); // EMF URI
+        return systemURI;
     }
 
     private Resource loadResource(ResourceSet rs, URI uri) {
@@ -129,6 +125,17 @@ public class ChangeLinkPowerTest {
             throw new RuntimeException("unable to load: " + uri);
         }
         return resource;
+    }
+
+    private PCMRandomVariable findRandomVariable(System system, String assemblyContextId, String referenceName) {
+        AssemblyContext actualContext = findAssemblyContext(system, assemblyContextId);
+        assertNotNull(actualContext);
+        VariableUsage actualVariableUsage = findUsage(actualContext, referenceName);
+        VariableCharacterisation actualVariableCharacterisation = actualVariableUsage
+            .getVariableCharacterisation_VariableUsage()
+            .get(0);
+        PCMRandomVariable randomVariable = actualVariableCharacterisation.getSpecification_VariableCharacterisation();
+        return randomVariable;
     }
 
     private AssemblyContext findAssemblyContext(System actualSystem, String id) {
