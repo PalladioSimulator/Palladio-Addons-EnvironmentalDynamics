@@ -40,7 +40,6 @@ transformation  changeLinkPower(inout pcmSystem : PCM_SYS) {
 		var assemblyConnectors : Bag(AssemblyConnector) = pcmSystem.rootObjects()[System].allSubobjects()[AssemblyConnector];
 		assemblyConnectors->forEach(connector) {
 			log('[findAssemblyContextForAssemblyConnector: check assemblyConnector/assemblyConnector: ' + connector.id +'/'+ assemblyConnector + ']');
-			var isSame : Boolean := (connector.id = assemblyConnector);
 			if (connector.id = assemblyConnector) then {
 				var assemblyCtx : AssemblyContext = connector.requiringAssemblyContext_AssemblyConnector;
 				log('Found AssemblyContext[' + assemblyCtx.entityName +', ' + assemblyCtx.id +']');
