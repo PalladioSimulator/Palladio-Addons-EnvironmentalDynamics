@@ -5,11 +5,11 @@
     <booleanAttribute key="org.eclipse.m2m.qvt.oml.interpreter.clearContents2" value="true"/>
     <booleanAttribute key="org.eclipse.m2m.qvt.oml.interpreter.clearContents3" value="true"/>
     <mapAttribute key="org.eclipse.m2m.qvt.oml.interpreter.configurationProperties">
-        <mapEntry key="link" value="_sWqfUMWTEem8XvI7PKw-OA"/>
+        <mapEntry key="assemblyConnector" value="_rXRwoMVsEem8XvI7PKw-OA"/>
         <mapEntry key="referenceName" value="TransmissionPower10to6"/>
         <mapEntry key="value" value="1"/>
     </mapAttribute>
-    <intAttribute key="org.eclipse.m2m.qvt.oml.interpreter.elemCount" value="3"/>
+    <intAttribute key="org.eclipse.m2m.qvt.oml.interpreter.elemCount" value="1"/>
     <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.featureName1" value=""/>
     <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.featureName2" value=""/>
     <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.featureName3" value=""/>
