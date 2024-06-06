@@ -8,12 +8,12 @@ modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/Syst
 modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2';
 modeltype PCM_PARAM uses 'http://palladiosimulator.org/PalladioComponentModel/Parameter/5.2';
 
-transformation changeLinkDistribution(inout pcmRepository : PCM_REP, in pcmResEnv : PCM_RES_ENV, in pcmAlloc : PCM_ALLOC) {
+transformation changeLinkDistribution(inout pcmRepository : PCM_REP, in pcmSystem : PCM_SYS) {
 
 	// action parameters passed to qvto transformation to update PCM model
-	configuration property link : String;		// link id
+	configuration property assemblyConnector : String;				// assemblyConnector id
 	configuration property probabilisticBranchTransition : String;	// variable probabilisticBranchTransition; refers to appliedBranch in *.reconfiugurationParams
-	configuration property value : Real;		// distribution value
+	configuration property value : Real;							// distribution value
 
 
 	main() {
@@ -28,70 +28,42 @@ transformation changeLinkDistribution(inout pcmRepository : PCM_REP, in pcmResEn
 	 * Distribution factor adjustment.
 	 */
 	helper adjustDistributionFactor() {
-		var rc : ResourceContainer = findResourceContainerForLink(link);
-		assert fatal(rc != null) with log('No ResourceContainer found with link id: ' + link);
+		var assemblyCtx : AssemblyContext = findAssemblyContextForAssemblyConnector(assemblyConnector);
+		assert fatal(assemblyCtx != null) with log('No AssemblyContext found with for assemblyConnector/probabilisticBranchTransition: ' + assemblyConnector + '/' + probabilisticBranchTransition);
 
-		var branchToAdjust : ProbabilisticBranchTransition = findProbabilisticBranchTransitionForLinkingResource(rc, probabilisticBranchTransition); 
-		assert fatal(branchToAdjust != null) with log('No ProbabilisticBranchTransition found with for link/probabilisticBranchTransition: ' + link + '/' + probabilisticBranchTransition);
+		var branchToAdjust : ProbabilisticBranchTransition = findProbabilisticBranchTransitionForLinkingResource(assemblyCtx, probabilisticBranchTransition); 
+		assert fatal(branchToAdjust != null) with log('No ProbabilisticBranchTransition found with for assemblyConnector/probabilisticBranchTransition: ' + assemblyConnector + '/' + probabilisticBranchTransition);
 
 		log('[changeLinkDistribution: set branchProbability ' + branchToAdjust.entityName + ' to value:' + value.toString() + ']');
 		branchToAdjust.branchProbability := value;
 	}
 	
-	query findComponentForAssemblyContext(in assemblyCtx :  AssemblyContext) : BasicComponent {
+	
+	query findAssemblyContextForAssemblyConnector(in assemblyConnector : String) : AssemblyContext {
+		log('[findAssemblyContextForAssemblyConnector: search assemblyConnector: ' + assemblyConnector + ']');
+		var assemblyConnectors : Bag(AssemblyConnector) = pcmSystem.rootObjects()[System].allSubobjects()[AssemblyConnector];
+		assemblyConnectors->forEach(connector) {
+			log('[findAssemblyContextForAssemblyConnector: check assemblyConnector/assemblyConnector: ' + connector.id +'/'+ assemblyConnector + ']');
+			if (connector.id = assemblyConnector) then {
+				var assemblyCtx : AssemblyContext = connector.providingAssemblyContext_AssemblyConnector;
+				log('Found AssemblyContext[' + assemblyCtx.entityName +', ' + assemblyCtx.id +']');
+				return assemblyCtx;
+			}endif;
+		};
+		return null;
+	}
+	
+	
+	query findProbabilisticBranchTransitionForLinkingResource(in assemblyCtx : AssemblyContext, in probabilisticBranchTransition : String) : ProbabilisticBranchTransition {
 		var basicComponent : BasicComponent := assemblyCtx.encapsulatedComponent__AssemblyContext.oclAsType(BasicComponent);
-		return basicComponent;
-	}
-	
-	
-	query findResourceContainerForLink(in link : String ) : ResourceContainer {
-		var linkingResources = pcmResEnv.rootObjects()[ResourceEnvironment].allSubobjects()[LinkingResource];
-	
-		linkingResources->forEach(linkResource){
-			if linkResource.id = link then {
-				var resourceContainers : Set(ResourceContainer) := linkResource.connectedResourceContainers_LinkingResource;
-				var sourceRC : ResourceContainer := resourceContainers->asList()->first();
-				log('Found ResourceContainer[' + sourceRC.entityName +', ' + sourceRC.id +']');
-				return sourceRC;
-			}
-			endif
+		var branchTransitions : Bag(ProbabilisticBranchTransition) := basicComponent.serviceEffectSpecifications__BasicComponent.allSubobjects()[ProbabilisticBranchTransition];
+		branchTransitions->forEach(branchTransition) {
+			if (branchTransition.entityName = probabilisticBranchTransition ) {
+				var branchToAdjust : ProbabilisticBranchTransition := branchTransition;
+				return branchToAdjust;
+			} endif;			
 		};
 		return null;
 	}
 	
-	
-	query findProbabilisticBranchTransitionForLinkingResource(in rc : ResourceContainer, in probabilisticBranchTransition : String) : ProbabilisticBranchTransition {
-		var assemblyCtxs : Set(AssemblyContext) = findAssemblyContextsForResourceContainer(rc);
-		
-		assemblyCtxs->forEach(assemblyCtx){
-			var basicComponent : BasicComponent := assemblyCtx.encapsulatedComponent__AssemblyContext.oclAsType(BasicComponent);
-			var branchTransitions : Bag(ProbabilisticBranchTransition) := basicComponent.serviceEffectSpecifications__BasicComponent.allSubobjects()[ProbabilisticBranchTransition];
-			branchTransitions->forEach(branchTransition) {
-				if (branchTransition.entityName = probabilisticBranchTransition ) {
-					var branchToAdjust : ProbabilisticBranchTransition := branchTransition;
-					return branchToAdjust;
-				} endif;			
-			}
-		};
-		return null;
-	}
-	
-	query findAssemblyContextsForResourceContainer(in rc : ResourceContainer) : Set(AssemblyContext) {
-		var contexts : Set(AssemblyContext);
-		var allocations : Set(Allocation) = pcmAlloc.rootObjects()[Allocation];
-		
-		allocations->forEach(allocation) {
-			var ctxs = allocation.allSubobjectsOfKind(AllocationContext);
-			ctxs->forEach(context) {
-				log('Check context[' + context.entityName + ']');
-				var rcContext = context.resourceContainer_AllocationContext;
-				if (rcContext = rc) then {
-					contexts += context.assemblyContext_AllocationContext;
-				} endif;
-			}
-		};
-		
-		return contexts;
-	}
-
 }
