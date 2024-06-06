@@ -5,7 +5,7 @@ modelName = "DeltaIoTDefaultReconfigurationStrategy";
 const int CHANGE_POWER_VALUE = 1;
 const double CHANGE_DIST_VALUE = 0.1; 				// original value from Paper: 10.0
 
-// constants to represent links; refers to the id of assemblyConnector in *.system
+// variables to represent links; refers to the id of assemblyConnector in *.system
 // as we have to adjust 
 // (1) the power settings and
 // (2) the distribution factor
@@ -14,23 +14,23 @@ const double CHANGE_DIST_VALUE = 0.1; 				// original value from Paper: 10.0
 // (2) the enclosed component to identify the seff with the contained ProbabilisticBranchTransitions
 // As physical representation of a link (a linking resource in *.resourceenvironment) has no direction we have to use
 // the logical representation of a link (the assemblyConnector in *.system) instead.
-const string link1_assemblyConnector = "_obHaIMVvEem8XvI7PKw-OA";	// entityName="Connector PassiveInfraredSensor13 -> ST13to11"
-const string link2_assemblyConnector = "_Ii4dQMVvEem8XvI7PKw-OA"; 	// entityName="Connector PassiveInfraredSensor14 -> ST14to12"	
-const string link3_assemblyConnector = "_CvuL0MVvEem8XvI7PKw-OA"; 	// entityName="Connector TemperatureSensor15 -> ST15to12"
-const string link4_assemblyConnector = "_iHdDsMVvEem8XvI7PKw-OA";	// entityName="Connector RFIDSensor11 -> ST11to7"
-const string link5_assemblyConnector = "_XhB3kMVvEem8XvI7PKw-OA";	// entityName="Connector RFIDSensor12 -> DT12to3_7" // link 5/6				(Achtung: verweist auf TransmissionPower12to7 und TransmissionPower12to3)
-const string link6_assemblyConnector = "_XhB3kMVvEem8XvI7PKw-OA";	// entityName="Connector RFIDSensor12 -> DT12to3_7" // link 5/6				(Achtung: verweist auf TransmissionPower12to7 und TransmissionPower12to3)
-const string link7_assemblyConnector = "_Qf-sIMVuEem8XvI7PKw-OA";	// entityName="Connector RFIDSensor7 -> DT7to3_2"	// link7/8				(Achtung: verweist auf TransmissionPower7to3 und TransmissionPower7to2)
-const string link8_assemblyConnector = "_Qf-sIMVuEem8XvI7PKw-OA";	// entityName="Connector RFIDSensor7 -> DT7to3_2"	// link7/8				(Achtung: verweist auf TransmissionPower7to3 und TransmissionPower7to2)
-const string link9_assemblyConnector = "_2IYtUMVtEem8XvI7PKw-OA";	// entityName="Connector PassiveInfraredSensor2 -> ST2to4"
-const string link10_assemblyConnector = "_hxkNVsTtEem6vJHOl6M9XA";	// entityName="Temparature3ToSingleTransmitter"
-const string link11_assemblyConnector = "_ca-RNsTvEem6vJHOl6M9XA";	// entityName="Infrared8ToSingleTransmitter"
-const string link12_assemblyConnector = "_3VY94MVrEem8XvI7PKw-OA";	// entityName="Connector PassiveInfraredSensor4 -> ST4to1"
-const string link13_assemblyConnector = "_l85BAMVrEem8XvI7PKw-OA";	// entityName="Connector TemperatureSensor9 -> ST9to1"
-const string link14_assemblyConnector = "_7mslkMVsEem8XvI7PKw-OA";	// entityName="Connector TemperatureSensor6 -> ST6to4"
-const string link15_assemblyConnector = "_rXRwoMVsEem8XvI7PKw-OA";	// entityName="Connector PassiveInfraredSensor10 -> DT10to6_5"			//link15; solle eigentlich auch auf 16 verweisen	(Achtung: verweist auf TransmissionPower10to6, und TransmissionPower10to5 )
-const string link16_assemblyConnector = "_qMbHEMVsEem8XvI7PKw-OA";	// entityName="Connector DT10to6_5 -> RFIDSensor5"						// Fehler im Modell; verweist nicht auf AssemblyCtx mit PowerSetting; sollte analog zu link15_assemblyConnector sein
-const string link17_assemblyConnector = "_k5dYoMVsEem8XvI7PKw-OA";	// entityName="Connector RFIDSensor5 -> ST5to9"
+var string link1_assemblyConnector = "_obHaIMVvEem8XvI7PKw-OA";	// entityName="Connector PassiveInfraredSensor13 -> ST13to11"
+var string link2_assemblyConnector = "_Ii4dQMVvEem8XvI7PKw-OA"; 	// entityName="Connector PassiveInfraredSensor14 -> ST14to12"	
+var string link3_assemblyConnector = "_CvuL0MVvEem8XvI7PKw-OA"; 	// entityName="Connector TemperatureSensor15 -> ST15to12"
+var string link4_assemblyConnector = "_iHdDsMVvEem8XvI7PKw-OA";	// entityName="Connector RFIDSensor11 -> ST11to7"
+var string link5_assemblyConnector = "_XhB3kMVvEem8XvI7PKw-OA";	// entityName="Connector RFIDSensor12 -> DT12to3_7" // link 5/6				(Achtung: verweist auf TransmissionPower12to7 und TransmissionPower12to3)
+var string link6_assemblyConnector = "_XhB3kMVvEem8XvI7PKw-OA";	// entityName="Connector RFIDSensor12 -> DT12to3_7" // link 5/6				(Achtung: verweist auf TransmissionPower12to7 und TransmissionPower12to3)
+var string link7_assemblyConnector = "_Qf-sIMVuEem8XvI7PKw-OA";	// entityName="Connector RFIDSensor7 -> DT7to3_2"	// link7/8				(Achtung: verweist auf TransmissionPower7to3 und TransmissionPower7to2)
+var string link8_assemblyConnector = "_Qf-sIMVuEem8XvI7PKw-OA";	// entityName="Connector RFIDSensor7 -> DT7to3_2"	// link7/8				(Achtung: verweist auf TransmissionPower7to3 und TransmissionPower7to2)
+var string link9_assemblyConnector = "_2IYtUMVtEem8XvI7PKw-OA";	// entityName="Connector PassiveInfraredSensor2 -> ST2to4"
+var string link10_assemblyConnector = "_hxkNVsTtEem6vJHOl6M9XA";	// entityName="Temparature3ToSingleTransmitter"
+var string link11_assemblyConnector = "_ca-RNsTvEem6vJHOl6M9XA";	// entityName="Infrared8ToSingleTransmitter"
+var string link12_assemblyConnector = "_3VY94MVrEem8XvI7PKw-OA";	// entityName="Connector PassiveInfraredSensor4 -> ST4to1"
+var string link13_assemblyConnector = "_l85BAMVrEem8XvI7PKw-OA";	// entityName="Connector TemperatureSensor9 -> ST9to1"
+var string link14_assemblyConnector = "_7mslkMVsEem8XvI7PKw-OA";	// entityName="Connector TemperatureSensor6 -> ST6to4"
+var string link15_assemblyConnector = "_rXRwoMVsEem8XvI7PKw-OA";	// entityName="Connector PassiveInfraredSensor10 -> DT10to6_5"			//link15; solle eigentlich auch auf 16 verweisen	(Achtung: verweist auf TransmissionPower10to6, und TransmissionPower10to5 )
+var string link16_assemblyConnector = "_qMbHEMVsEem8XvI7PKw-OA";	// entityName="Connector DT10to6_5 -> RFIDSensor5"						// Fehler im Modell; verweist nicht auf AssemblyCtx mit PowerSetting; sollte analog zu link15_assemblyConnector sein
+var string link17_assemblyConnector = "_k5dYoMVsEem8XvI7PKw-OA";	// entityName="Connector RFIDSensor5 -> ST5to9"
 
 
 // local variables to store referenceName; additionally required due to PCM metamodel constraints 
