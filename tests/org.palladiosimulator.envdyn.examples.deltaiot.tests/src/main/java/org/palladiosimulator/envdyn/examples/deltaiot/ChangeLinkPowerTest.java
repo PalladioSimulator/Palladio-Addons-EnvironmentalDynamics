@@ -93,7 +93,13 @@ public class ChangeLinkPowerTest {
     }
 
     private URI getTransaformationUri(String resourceName) throws URISyntaxException {
-        return getResourceUri(resourceName);
+        ClassLoader classLoader = getClass().getClassLoader();
+        String resourcePath = getClass().getPackageName()
+            .replace(".", "/") + "/reconfigurations/" + resourceName;
+        URL resourceURL = classLoader.getResource(resourcePath);
+        java.net.URI javaURI = resourceURL.toURI(); // Java URI
+        URI systemURI = URI.createURI(javaURI.toString()); // EMF URI
+        return systemURI;
     }
 
     private URI getResourceUri(String resourceName) throws URISyntaxException {
