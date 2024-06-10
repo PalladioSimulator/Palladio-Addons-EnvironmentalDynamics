@@ -10,13 +10,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 public class ResourceHelper {
 
     public URI getTransaformationUri(String resourceName) throws URISyntaxException {
-        ClassLoader classLoader = getClass().getClassLoader();
-        String resourcePath = getClass().getPackageName()
-            .replace(".", "/") + "/reconfigurations/" + resourceName;
-        URL resourceURL = classLoader.getResource(resourcePath);
-        java.net.URI javaURI = resourceURL.toURI(); // Java URI
-        URI systemURI = URI.createURI(javaURI.toString()); // EMF URI
-        return systemURI;
+        return getResourceUri("reconfigurations/" + resourceName);
     }
 
     public URI getResourceUri(String resourceName) throws URISyntaxException {
