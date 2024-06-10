@@ -1,5 +1,3 @@
-import Strings;
-
 // declaration: externally defined metamodels
 modeltype PCM_CORE uses 'http://palladiosimulator.org/PalladioComponentModel/Core/5.2';
 modeltype PCM_CORE_COMP uses 'http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2';
