@@ -89,7 +89,7 @@ public class ChangeLinkPowerTest {
         assertThat(actualResult.getSeverity()).isEqualTo(Diagnostic.OK);
         System actualSystem = (System) systemObject;
         PCMRandomVariable actualRandomVariable = findRandomVariable(actualSystem, ASSEMBLY_CONNECTOR, REFERENCE_NAME);
-        assertThat(actualRandomVariable.getSpecification()).isEqualTo(VALUE);
+        assertThat(actualRandomVariable.getSpecification()).isEqualTo(String.valueOf(VALUE));
     }
 
     private URI getTransaformationUri(String resourceName) throws URISyntaxException {
