@@ -3,16 +3,15 @@ modeltype PCM_CORE uses 'http://palladiosimulator.org/PalladioComponentModel/Cor
 modeltype PCM_CORE_COMP uses 'http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2';
 modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2';
 modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.2';
-modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2';
 modeltype PCM_PARAM uses 'http://palladiosimulator.org/PalladioComponentModel/Parameter/5.2';
 
 
-transformation  changeLinkPower(inout pcmSystem : PCM_SYS, in pcmResEnv : PCM_RES_ENV, in pcmAlloc : PCM_ALLOC) {
+transformation  changeLinkPower(inout pcmSystem : PCM_SYS) {
 
 	// action parameters passed to qvto transformation to update PCM model
-	configuration property link : String;			// link id
-	configuration property referenceName : String;	// variable referenceName
-	configuration property value : Integer;			// power value
+	configuration property assemblyConnector : String;			// assemblyConnector id
+	configuration property referenceName : String;				// variable referenceName
+	configuration property value : Integer;						// power value
 
 	main() {
 		log('*** STARTED: Transformation rule [changeLinkPower] ...');
@@ -21,70 +20,31 @@ transformation  changeLinkPower(inout pcmSystem : PCM_SYS, in pcmResEnv : PCM_RE
 	}
 	
 	helper adjustPowerSettings() {
-		var rc : ResourceContainer = findResourceContainerForLink(link);
-		assert fatal(rc != null) with log('No ResourceContainer found with link id: ' + link);
-	
-		var assemblyCtx : AssemblyContext = findAssemblyContextForLinkingResource(rc, referenceName);
-		assert fatal(assemblyCtx != null) with log('No AssemblyContext found with for link/referenceName: ' + link + '/' + referenceName);
+		var assemblyCtx : AssemblyContext = findAssemblyContextForAssemblyConnector(assemblyConnector, referenceName);
+		assert fatal(assemblyCtx != null) with log('No AssemblyContext found with for assemblyConnector/referenceName: ' + assemblyConnector + '/' + referenceName);
 		
 		var variableUsage : VariableUsage := assemblyCtx.configParameterUsages__AssemblyContext->any(namedReference__VariableUsage.referenceName = referenceName);
 		assert fatal(variableUsage != null) with log('No VariableUsage found with reference name: ' + referenceName);
 		
 		var variableToAdjust : PCMRandomVariable := variableUsage.variableCharacterisation_VariableUsage->asSequence()->first().specification_VariableCharacterisation;
-		assert fatal(variableToAdjust != null) with log('No PCMRandomVariable found for link/referenceName: ' + link + '/' + referenceName);
+		assert fatal(variableToAdjust != null) with log('No PCMRandomVariable found for assemblyConnector/referenceName: ' + assemblyConnector + '/' + referenceName);
 		
-		log('[changeLinkPower: set link/referenceName=' + link + '/' + referenceName + ' to value:' + value.toString() + ']');
+		log('[changeLinkPower: set assemblyConnector/referenceName=' + assemblyConnector + '/' + referenceName + ' to value:' + value.toString() + ']');
 		variableToAdjust.specification := value.toString();
 	}
+	
+	query findAssemblyContextForAssemblyConnector(in assemblyConnector : String, in referenceName : String ) : AssemblyContext {
+		log('[findAssemblyContextForAssemblyConnector: search assemblyConnector/referenceName: ' + assemblyConnector +'/' + referenceName + ']');
+		var assemblyConnectors : Bag(AssemblyConnector) = pcmSystem.rootObjects()[System].allSubobjects()[AssemblyConnector];
+		assemblyConnectors->forEach(connector) {
+			log('[findAssemblyContextForAssemblyConnector: check assemblyConnector/assemblyConnector: ' + connector.id +'/'+ assemblyConnector + ']');
+			if (connector.id = assemblyConnector) then {
+				var assemblyCtx : AssemblyContext = connector.requiringAssemblyContext_AssemblyConnector;
+				log('Found AssemblyContext[' + assemblyCtx.entityName +', ' + assemblyCtx.id +']');
+				return assemblyCtx;
+			}endif;
+		};
+		return null;
+	}
 
-	query findResourceContainerForLink(in link : String ) : ResourceContainer {
-		var linkingResources = pcmResEnv.rootObjects()[ResourceEnvironment].allSubobjects()[LinkingResource];
-	
-		linkingResources->forEach(linkResource){
-			if linkResource.id = link then {
-				var resourceContainers : Set(ResourceContainer) := linkResource.connectedResourceContainers_LinkingResource;
-				var sourceRC : ResourceContainer := resourceContainers->asList()->first();
-				log('Found ResourceContainer[' + sourceRC.entityName +', ' + sourceRC.id +']');
-				return sourceRC;
-			}
-			endif
-		};
-		return null;
-	}
-	
-	query findAssemblyContextForLinkingResource(in rc : ResourceContainer, in referenceName : String) : AssemblyContext {
-		log('[findAssemblyContextForLinkingResource: search referenceName: ' + referenceName + ']');
-		var assemblyCtxs : Set(AssemblyContext) = findAssemblyContextsForResourceContainer(rc);
-		
-		assemblyCtxs->forEach(assemblyCtx){
-			log('[findAssemblyContextForLinkingResource: check assemblyCtx: ' + assemblyCtx.id + ']');
-			assemblyCtx.configParameterUsages__AssemblyContext->forEach(ref) {
-				log('[findAssemblyContextForLinkingResource: check ref: ' + ref.namedReference__VariableUsage.referenceName + ']');
-				if ref.namedReference__VariableUsage.referenceName = referenceName then {
-					return assemblyCtx;					
-				}endif;			
-			};
-		};
-		
-		log('[findAssemblyContextForLinkingResource: no context found]');
-		return null;
-	}
-	
-	query findAssemblyContextsForResourceContainer(in rc : ResourceContainer) : Set(AssemblyContext) {
-		var contexts : Set(AssemblyContext);
-		var allocations : Set(Allocation) = pcmAlloc.rootObjects()[Allocation];
-		
-		allocations->forEach(allocation) {
-			var ctxs = allocation.allSubobjectsOfKind(AllocationContext);
-			ctxs->forEach(context) {
-				log('Check context[' + context.entityName + ']');
-				var rcContext = context.resourceContainer_AllocationContext;
-				if (rcContext = rc) then {
-					contexts += context.assemblyContext_AllocationContext;
-				} endif;
-			}
-		};
-		
-		return contexts;
-	}
 }

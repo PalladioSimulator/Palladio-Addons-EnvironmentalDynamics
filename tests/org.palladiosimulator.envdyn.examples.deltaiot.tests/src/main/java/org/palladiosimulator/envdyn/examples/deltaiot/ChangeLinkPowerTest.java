@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -27,12 +28,12 @@ import org.eclipse.m2m.qvt.oml.ModelExtent;
 import org.eclipse.m2m.qvt.oml.TransformationExecutor;
 import org.junit.Before;
 import org.junit.Test;
-import org.palladiosimulator.pcm.allocation.AllocationPackage;
 import org.palladiosimulator.pcm.core.PCMRandomVariable;
+import org.palladiosimulator.pcm.core.composition.AssemblyConnector;
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.core.composition.Connector;
 import org.palladiosimulator.pcm.parameter.VariableCharacterisation;
 import org.palladiosimulator.pcm.parameter.VariableUsage;
-import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 import org.palladiosimulator.pcm.system.System;
 import org.palladiosimulator.pcm.system.SystemPackage;
 
@@ -40,14 +41,17 @@ import de.uka.ipd.sdq.stoex.VariableReference;
 
 public class ChangeLinkPowerTest {
 
-    private static final String REFERENCE_NAME = "TransmissionPower6to4";
+    private static final String ASSEMBLY_CONNECTOR = "_rXRwoMVsEem8XvI7PKw-OA";
+    private static final String REFERENCE_NAME = "TransmissionPower10to6";
+    private static final int VALUE = 1;
 
     private ResourceSet rs;
 
     @Before
     public void setUp() throws Exception {
-        List<EPackage> packages = Arrays.asList(SystemPackage.eINSTANCE, ResourceenvironmentPackage.eINSTANCE,
-                AllocationPackage.eINSTANCE);
+        List<EPackage> packages = Arrays.asList(SystemPackage.eINSTANCE);// ,
+                                                                         // ResourceenvironmentPackage.eINSTANCE,
+                                                                         // AllocationPackage.eINSTANCE);
 
         Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
         registerFactories(reg, packages);
@@ -73,32 +77,19 @@ public class ChangeLinkPowerTest {
     @Test
     public void testChangeLinkPower() throws URISyntaxException {
         URI systemURI = getResourceUri("DeltaIoTSystem.system");
-        URI resourceEnvironmentURI = getResourceUri("DeltaIoTResources.resourceenvironment");
-        URI allocationURI = getResourceUri("DeltaIotAllocation.allocation");
         URI transformationURI = getResourceUri("changeLinkPower.qvto");
         Resource systemResource = loadResource(rs, systemURI);
         EObject systemObject = systemResource.getContents()
             .get(0);
-        Resource resourceEnvironmentResource = loadResource(rs, resourceEnvironmentURI);
-        EObject resourceEnvironmentObject = resourceEnvironmentResource.getContents()
-            .get(0);
-        Resource allocationResource = loadResource(rs, allocationURI);
-        EObject allocationObject = allocationResource.getContents()
-            .get(0);
         ModelExtent systemInput = new BasicModelExtent(Collections.singletonList(systemObject));
-        ModelExtent resourceEnvironmentInput = new BasicModelExtent(
-                Collections.singletonList(resourceEnvironmentObject));
-        ModelExtent allocationInput = new BasicModelExtent(Collections.singletonList(allocationObject));
-        ExecutionContextImpl context = createExecutionContext("_oDy78MWTEem8XvI7PKw-OA", 1);
+        ExecutionContextImpl context = createExecutionContext(ASSEMBLY_CONNECTOR, REFERENCE_NAME, VALUE);
 
-        ExecutionDiagnostic actualResult = executeTrafo(transformationURI, context, systemInput,
-                resourceEnvironmentInput, allocationInput);
+        ExecutionDiagnostic actualResult = executeTrafo(transformationURI, context, systemInput);
 
         assertThat(actualResult.getSeverity()).isEqualTo(Diagnostic.OK);
         System actualSystem = (System) systemObject;
-        PCMRandomVariable actualRandomVariable = findRandomVariable(actualSystem, "_uUhk4MVsEem8XvI7PKw-OA",
-                REFERENCE_NAME);
-        assertThat(actualRandomVariable.getSpecification()).isEqualTo("1");
+        PCMRandomVariable actualRandomVariable = findRandomVariable(actualSystem, ASSEMBLY_CONNECTOR, REFERENCE_NAME);
+        assertThat(actualRandomVariable.getSpecification()).isEqualTo(VALUE);
     }
 
     private URI getResourceUri(String resourceName) throws URISyntaxException {
@@ -119,8 +110,8 @@ public class ChangeLinkPowerTest {
         return resource;
     }
 
-    private PCMRandomVariable findRandomVariable(System system, String assemblyContextId, String referenceName) {
-        AssemblyContext actualContext = findAssemblyContext(system, assemblyContextId);
+    private PCMRandomVariable findRandomVariable(System system, String assemblyConnector, String referenceName) {
+        AssemblyContext actualContext = findAssemblyContext(system, assemblyConnector);
         assertNotNull(actualContext);
         VariableUsage actualVariableUsage = findUsage(actualContext, referenceName);
         VariableCharacterisation actualVariableCharacterisation = actualVariableUsage
@@ -130,11 +121,14 @@ public class ChangeLinkPowerTest {
         return randomVariable;
     }
 
-    private AssemblyContext findAssemblyContext(System actualSystem, String id) {
-        for (AssemblyContext ac : actualSystem.getAssemblyContexts__ComposedStructure()) {
-            if (ac.getId()
-                .equals(id)) {
-                return ac;
+    private AssemblyContext findAssemblyContext(System actualSystem, String assemblyConnectorId) {
+        EList<Connector> connectors = actualSystem.getConnectors__ComposedStructure();
+        for (Connector connector : connectors) {
+            AssemblyConnector assembyCon = (AssemblyConnector) connector;
+            if (assembyCon.getId()
+                .equals(assemblyConnectorId)) {
+                AssemblyContext assemblyCtxt = assembyCon.getRequiringAssemblyContext_AssemblyConnector();
+                return assemblyCtxt;
             }
         }
         return null;
@@ -151,11 +145,11 @@ public class ChangeLinkPowerTest {
         return null;
     }
 
-    private ExecutionContextImpl createExecutionContext(String linkId, int value) {
+    private ExecutionContextImpl createExecutionContext(String assemblyConnector, String referenceName, int value) {
         ExecutionContextImpl context = new ExecutionContextImpl();
         context.setLog(new TestQVTOLogger());
-        context.setConfigProperty("link", linkId);
-        context.setConfigProperty("referenceName", REFERENCE_NAME);
+        context.setConfigProperty("assemblyConnector", assemblyConnector);
+        context.setConfigProperty("referenceName", referenceName);
         context.setConfigProperty("value", value);
         return context;
     }
