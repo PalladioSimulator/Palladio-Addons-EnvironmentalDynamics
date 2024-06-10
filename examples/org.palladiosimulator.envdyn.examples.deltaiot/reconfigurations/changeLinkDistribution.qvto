@@ -34,7 +34,7 @@ transformation changeLinkDistribution(inout pcmRepository : PCM_REP, in pcmSyste
 		var branchToAdjust : ProbabilisticBranchTransition = findProbabilisticBranchTransitionForLinkingResource(assemblyCtx, probabilisticBranchTransition); 
 		assert fatal(branchToAdjust != null) with log('No ProbabilisticBranchTransition found with for assemblyConnector/probabilisticBranchTransition: ' + assemblyConnector + '/' + probabilisticBranchTransition);
 
-		log('[changeLinkDistribution: set branchProbability ' + branchToAdjust.entityName + ' to value:' + value.toString() + ']');
+		log('[changeLinkDistribution: set branchProbability of ProbabilisticBranchTransition ' + branchToAdjust.entityName + ' to value:' + value.toString() + ']');
 		branchToAdjust.branchProbability := value;
 	}
 	
