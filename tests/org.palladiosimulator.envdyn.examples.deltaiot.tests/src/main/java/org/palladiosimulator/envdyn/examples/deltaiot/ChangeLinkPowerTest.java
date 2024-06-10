@@ -77,7 +77,7 @@ public class ChangeLinkPowerTest {
     @Test
     public void testChangeLinkPower() throws URISyntaxException {
         URI systemURI = getResourceUri("DeltaIoTSystem.system");
-        URI transformationURI = getResourceUri("changeLinkPower.qvto");
+        URI transformationURI = getTransaformationUri("changeLinkPower.qvto");
         Resource systemResource = loadResource(rs, systemURI);
         EObject systemObject = systemResource.getContents()
             .get(0);
@@ -90,6 +90,10 @@ public class ChangeLinkPowerTest {
         System actualSystem = (System) systemObject;
         PCMRandomVariable actualRandomVariable = findRandomVariable(actualSystem, ASSEMBLY_CONNECTOR, REFERENCE_NAME);
         assertThat(actualRandomVariable.getSpecification()).isEqualTo(VALUE);
+    }
+
+    private URI getTransaformationUri(String resourceName) throws URISyntaxException {
+        return getResourceUri(resourceName);
     }
 
     private URI getResourceUri(String resourceName) throws URISyntaxException {
