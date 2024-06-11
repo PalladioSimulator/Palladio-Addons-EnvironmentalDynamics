@@ -36,6 +36,7 @@ import org.palladiosimulator.pcm.repository.Repository;
 import org.palladiosimulator.pcm.repository.RepositoryComponent;
 import org.palladiosimulator.pcm.repository.RepositoryPackage;
 import org.palladiosimulator.pcm.seff.AbstractAction;
+import org.palladiosimulator.pcm.seff.AbstractBranchTransition;
 import org.palladiosimulator.pcm.seff.BranchAction;
 import org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition;
 import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF;
@@ -164,11 +165,15 @@ public class ChangeLinkDistributionTest {
                         if (nextAction instanceof StopAction) {
                             break;
                         }
-                        if (nextAction instanceof ProbabilisticBranchTransition) {
-                            ProbabilisticBranchTransition probBranchTransition = (ProbabilisticBranchTransition) nextAction;
-                            if (probBranchTransition.getEntityName()
-                                .equals(probabilisticBranchTransition)) {
-                                return probBranchTransition;
+                        if (nextAction instanceof BranchAction) {
+                            EList<AbstractBranchTransition> branchTransitions = ((BranchAction) nextAction)
+                                .getBranches_Branch();
+                            for (AbstractBranchTransition branchTrans : branchTransitions) {
+                                ProbabilisticBranchTransition probBranchTransition = (ProbabilisticBranchTransition) branchTrans;
+                                if (probBranchTransition.getEntityName()
+                                    .equals(probabilisticBranchTransition)) {
+                                    return probBranchTransition;
+                                }
                             }
                         }
                         nextAction = nextAction.getSuccessor_AbstractAction();
