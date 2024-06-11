@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
 
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -51,6 +50,8 @@ public class ChangeLinkDistributionTest {
     private static final String PROBABILISTIC_BRANCH_TRANSITION = "TransmitToMote6";
     private static final double VALUE = 0.4;
 
+    private final ResourceHelper resourceHelper = new ResourceHelper();
+
     private ResourceSet rs;
 
     @Before
@@ -80,13 +81,13 @@ public class ChangeLinkDistributionTest {
 
     @Test
     public void testChangeLinkDistribution() throws URISyntaxException {
-        URI systemURI = getResourceUri("DeltaIoTSystem.system");
-        URI repositoryURI = getResourceUri("DeltaIoTRepository.repository");
-        URI transformationURI = getResourceUri("changeLinkDistribution.qvto");
-        Resource systemResource = loadResource(rs, systemURI);
+        URI systemURI = resourceHelper.getResourceUri("DeltaIoTSystem.system");
+        URI repositoryURI = resourceHelper.getResourceUri("DeltaIoTRepository.repository");
+        URI transformationURI = resourceHelper.getTransaformationUri("changeLinkDistribution.qvto");
+        Resource systemResource = resourceHelper.loadResource(rs, systemURI);
         EObject systemObject = systemResource.getContents()
             .get(0);
-        Resource repositoryResource = loadResource(rs, repositoryURI);
+        Resource repositoryResource = resourceHelper.loadResource(rs, repositoryURI);
         EObject repositoryObject = repositoryResource.getContents()
             .get(0);
         ModelExtent systemInput = new BasicModelExtent(Collections.singletonList(systemObject));
@@ -103,24 +104,6 @@ public class ChangeLinkDistributionTest {
                 (System) systemObject, ASSEMBLY_CONNECTOR, PROBABILISTIC_BRANCH_TRANSITION);
         assertThat(actualBranchTrans.getBranchProbability()).isEqualTo(VALUE);
 
-    }
-
-    private URI getResourceUri(String resourceName) throws URISyntaxException {
-        ClassLoader classLoader = getClass().getClassLoader();
-        String resourcePath = getClass().getPackageName()
-            .replace(".", "/") + "/" + resourceName;
-        URL resourceURL = classLoader.getResource(resourcePath);
-        java.net.URI javaURI = resourceURL.toURI(); // Java URI
-        URI systemURI = URI.createURI(javaURI.toString()); // EMF URI
-        return systemURI;
-    }
-
-    private Resource loadResource(ResourceSet rs, URI uri) {
-        Resource resource = rs.getResource(uri, true);
-        if (resource == null) {
-            throw new RuntimeException("unable to load: " + uri);
-        }
-        return resource;
     }
 
     private ExecutionContextImpl createExecutionContext(String assemblyConnector, String probabilisticBranchTransition,
