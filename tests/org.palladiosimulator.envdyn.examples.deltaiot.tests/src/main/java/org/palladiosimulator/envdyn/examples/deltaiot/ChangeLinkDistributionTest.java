@@ -46,7 +46,10 @@ import org.palladiosimulator.pcm.system.SystemPackage;
 
 public class ChangeLinkDistributionTest {
 
-    private static final String ASSEMBLY_CONNECTOR = "_rXRwoMVsEem8XvI7PKw-OA";
+    /**
+     * Mote10; link15
+     */
+    private static final String ASSEMBLY_CONNECTOR = "_0knC4MVsEem8XvI7PKw-OA";
     private static final String PROBABILISTIC_BRANCH_TRANSITION = "TransmitToMote6";
     private static final double VALUE = 0.4;
 
@@ -173,7 +176,7 @@ public class ChangeLinkDistributionTest {
             AssemblyConnector assembyCon = (AssemblyConnector) connector;
             if (assembyCon.getId()
                 .equals(assemblyConnectorId)) {
-                AssemblyContext assemblyCtxt = assembyCon.getProvidingAssemblyContext_AssemblyConnector();
+                AssemblyContext assemblyCtxt = assembyCon.getRequiringAssemblyContext_AssemblyConnector();
                 return assemblyCtxt;
             }
         }
