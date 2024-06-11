@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<uriMap:MappingContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uriMap="http:///www.eclipse.org/m2m/qvt/oml/MModelUriMap/1.0.0">
+  <mapping sourceURI="http://palladiosimulator.org/PalladioComponentModel/Core/5.2" targetURI="platform:/resource/org.palladiosimulator.pcm/model/pcm.ecore#//core"/>
+  <mapping sourceURI="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" targetURI="platform:/resource/org.palladiosimulator.pcm/model/pcm.ecore#//allocation"/>
+  <mapping sourceURI="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" targetURI="platform:/resource/org.palladiosimulator.pcm/model/pcm.ecore#//core/composition"/>
+  <mapping sourceURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" targetURI="platform:/resource/org.palladiosimulator.pcm/model/pcm.ecore#//repository"/>
+  <mapping sourceURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" targetURI="platform:/resource/org.palladiosimulator.pcm/model/pcm.ecore#//seff"/>
+  <mapping sourceURI="http://palladiosimulator.org/PalladioComponentModel/System/5.2" targetURI="platform:/resource/org.palladiosimulator.pcm/model/pcm.ecore#//system"/>
+  <mapping sourceURI="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2" targetURI="platform:/resource/org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment"/>
+  <mapping sourceURI="http://palladiosimulator.org/PalladioComponentModel/Parameter/5.2" targetURI="platform:/resource/org.palladiosimulator.pcm/model/pcm.ecore#//parameter"/>
+  <mapping sourceURI="http://sdq.ipd.uka.de/StochasticExpressions/2.2" targetURI="platform:/resource/de.uka.ipd.sdq.stoex/model/stoex.ecore#/"/>
+  <mapping sourceURI="http://palladiosimulator.org/PalladioComponentModel/Core/Entity/5.2" targetURI="platform:/resource/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity"/>
+  <mapping sourceURI="http://palladiosimulator.org/reconfigurationparams/1.0" targetURI="platform:/resource/org.palladiosimulator.simexp.pcm.examples.deltaiot.param/model/DeltaIoTReconfigurationParams.ecore#/"/>
+</uriMap:MappingContainer>
