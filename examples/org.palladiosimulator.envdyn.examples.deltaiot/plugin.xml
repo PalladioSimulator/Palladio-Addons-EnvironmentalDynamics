@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.m2m.qvt.oml.runtime.qvtTransformationContainer">
       <sourceContainer
-            path="reconfigurations">
+            path="src/main/resources/org/palladiosimulator/envdyn/examples/deltaiot/reconfigurations">
       </sourceContainer>
    </extension>
 

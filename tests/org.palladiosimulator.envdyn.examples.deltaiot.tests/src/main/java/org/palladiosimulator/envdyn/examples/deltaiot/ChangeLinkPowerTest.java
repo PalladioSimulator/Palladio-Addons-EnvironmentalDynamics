@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
 
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -45,6 +44,8 @@ public class ChangeLinkPowerTest {
     private static final String REFERENCE_NAME = "TransmissionPower10to6";
     private static final int VALUE = 1;
 
+    private final ResourceHelper resourceHelper = new ResourceHelper();
+
     private ResourceSet rs;
 
     @Before
@@ -76,9 +77,9 @@ public class ChangeLinkPowerTest {
 
     @Test
     public void testChangeLinkPower() throws URISyntaxException {
-        URI systemURI = getResourceUri("DeltaIoTSystem.system");
-        URI transformationURI = getResourceUri("changeLinkPower.qvto");
-        Resource systemResource = loadResource(rs, systemURI);
+        URI systemURI = resourceHelper.getResourceUri("DeltaIoTSystem.system");
+        URI transformationURI = resourceHelper.getTransaformationUri("changeLinkPower.qvto");
+        Resource systemResource = resourceHelper.loadResource(rs, systemURI);
         EObject systemObject = systemResource.getContents()
             .get(0);
         ModelExtent systemInput = new BasicModelExtent(Collections.singletonList(systemObject));
@@ -90,24 +91,6 @@ public class ChangeLinkPowerTest {
         System actualSystem = (System) systemObject;
         PCMRandomVariable actualRandomVariable = findRandomVariable(actualSystem, ASSEMBLY_CONNECTOR, REFERENCE_NAME);
         assertThat(actualRandomVariable.getSpecification()).isEqualTo(String.valueOf(VALUE));
-    }
-
-    private URI getResourceUri(String resourceName) throws URISyntaxException {
-        ClassLoader classLoader = getClass().getClassLoader();
-        String resourcePath = getClass().getPackageName()
-            .replace(".", "/") + "/" + resourceName;
-        URL resourceURL = classLoader.getResource(resourcePath);
-        java.net.URI javaURI = resourceURL.toURI(); // Java URI
-        URI systemURI = URI.createURI(javaURI.toString()); // EMF URI
-        return systemURI;
-    }
-
-    private Resource loadResource(ResourceSet rs, URI uri) {
-        Resource resource = rs.getResource(uri, true);
-        if (resource == null) {
-            throw new RuntimeException("unable to load: " + uri);
-        }
-        return resource;
     }
 
     private PCMRandomVariable findRandomVariable(System system, String assemblyConnector, String referenceName) {

@@ -20,7 +20,7 @@
 			<arguments>
 				<dictionary>
 					<key>src_container</key>
-					<value>reconfigurations</value>
+					<value>src/main/resources/org/palladiosimulator/envdyn/examples/deltaiot/reconfigurations</value>
 				</dictionary>
 			</arguments>
 		</buildCommand>
