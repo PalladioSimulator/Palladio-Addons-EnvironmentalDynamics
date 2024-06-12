@@ -15,9 +15,9 @@ const double CHANGE_DIST_VALUE = 0.1; 				// original value from Paper: 10.0
 // As physical representation of a link (a linking resource in *.resourceenvironment) has no direction we have to use
 // the logical representation of a link (the assemblyConnector in *.system) instead.
 var string link1_assemblyConnector = "_obHaIMVvEem8XvI7PKw-OA";	// entityName="Connector PassiveInfraredSensor13 -> ST13to11"
-var string link2_assemblyConnector = "_Ii4dQMVvEem8XvI7PKw-OA";			// entityName="Connector PassiveInfraredSensor14 -> ST14to12"
+var string link2_assemblyConnector = "_Ii4dQMVvEem8XvI7PKw-OA";				// entityName="Connector PassiveInfraredSensor14 -> ST14to12"
 var string link3_assemblyConnector = "_CvuL0MVvEem8XvI7PKw-OA"; 	// entityName="Connector TemperatureSensor15 -> ST15to12"
-var string link4_assemblyConnector = "_iHdDsMVvEem8XvI7PKw-OA";	// entityName="Connector RFIDSensor11 -> ST11to7"
+var string link4_assemblyConnector = "_iHdDsMVvEem8XvI7PKw-OA";				// entityName="Connector RFIDSensor11 -> ST11to7"
 var string link5_assemblyConnector_power = "_bWKWEMVvEem8XvI7PKw-OA";		// entityName="Connector DT12to3_7 -> RFIDSensor7"
 var string link5_assemblyConnector_dist = "_bWKWEMVvEem8XvI7PKw-OA";		// entityName="Connector DT12to3_7 -> RFIDSensor7"
 var string link6_assemblyConnector_power = "_Z86rMMVvEem8XvI7PKw-OA";		// entityName="Connector DT12to3_7 -> TemperatureSensor3"
@@ -174,18 +174,18 @@ if (!(SRN_14to12Link_SignalToNoiseRatioInstantiation > 0 && link2_power == 0) ||
 //		changeLinkPower(assemblyConnector=link7_assemblyConnector_power, referenceName=link7_referenceName, value=link7_power);
 //	}
 //}
-//
-//if (!(SRN_11to7Link_SignalToNoiseRatioInstantiation > 0 && link4_power == 0) || !(SRN_11to7Link_SignalToNoiseRatioInstantiation < 0 && link4_power == 15)) {
-//	if (SRN_11to7Link_SignalToNoiseRatioInstantiation < 0) {
-//		link4_power = link4_power + CHANGE_POWER_VALUE;
-//		changeLinkPower(assemblyConnector=link4_assemblyConnector, referenceName=link4_referenceName, value=link4_power);
-//	}
-//	if (SRN_11to7Link_SignalToNoiseRatioInstantiation > 0) {
-//		link4_power = link4_power - CHANGE_POWER_VALUE;
-//		changeLinkPower(assemblyConnector=link4_assemblyConnector, referenceName=link4_referenceName, value=link4_power);
-//	}
-//}
-//
+
+if (!(SRN_11to7Link_SignalToNoiseRatioInstantiation > 0 && link4_power == 0) || !(SRN_11to7Link_SignalToNoiseRatioInstantiation < 0 && link4_power == 15)) {
+	if (SRN_11to7Link_SignalToNoiseRatioInstantiation < 0) {
+		link4_power = link4_power + CHANGE_POWER_VALUE;
+		changeLinkPower(assemblyConnector=link4_assemblyConnector, referenceName=link4_referenceName, value=link4_power);
+	}
+	if (SRN_11to7Link_SignalToNoiseRatioInstantiation > 0) {
+		link4_power = link4_power - CHANGE_POWER_VALUE;
+		changeLinkPower(assemblyConnector=link4_assemblyConnector, referenceName=link4_referenceName, value=link4_power);
+	}
+}
+
 //if (!(SRN_15to12Link_SignalToNoiseRatioInstantiation > 0 && link3_power == 0) || !(SRN_15to12Link_SignalToNoiseRatioInstantiation < 0 && link3_power == 15)) {	
 //	if (SRN_15to12Link_SignalToNoiseRatioInstantiation < 0) {
 //		link3_power = link3_power + CHANGE_POWER_VALUE;
