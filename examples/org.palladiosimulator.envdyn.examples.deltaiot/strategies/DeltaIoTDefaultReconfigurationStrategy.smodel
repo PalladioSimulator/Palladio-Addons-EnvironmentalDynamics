@@ -307,16 +307,16 @@ if (!(SRN_3to1Link_SignalToNoiseRatioInstantiation > 0 && link10_power == 0) || 
 	}
 }
 
-//if (!(SRN_2to4Link_SignalToNoiseRatioInstantiation > 0 && link9_power == 0) || !(SRN_2to4Link_SignalToNoiseRatioInstantiation < 0 && link9_power == 15)) {
-//	if (SRN_2to4Link_SignalToNoiseRatioInstantiation < 0) {
-//		link9_power = link9_power + CHANGE_POWER_VALUE;
-//		changeLinkPower(assemblyConnector=link9_assemblyConnector, referenceName=link9_referenceName, value=link9_power);
-//	}
-//	if (SRN_2to4Link_SignalToNoiseRatioInstantiation > 0) {
-//		link9_power = link9_power - CHANGE_POWER_VALUE;
-//		changeLinkPower(assemblyConnector=link9_assemblyConnector, referenceName=link9_referenceName, value=link9_power);
-//	}
-//}	
+if (!(SRN_2to4Link_SignalToNoiseRatioInstantiation > 0 && link9_power == 0) || !(SRN_2to4Link_SignalToNoiseRatioInstantiation < 0 && link9_power == 15)) {
+	if (SRN_2to4Link_SignalToNoiseRatioInstantiation < 0) {
+		link9_power = link9_power + CHANGE_POWER_VALUE;
+		changeLinkPower(assemblyConnector=link9_assemblyConnector, referenceName=link9_referenceName, value=link9_power);
+	}
+	if (SRN_2to4Link_SignalToNoiseRatioInstantiation > 0) {
+		link9_power = link9_power - CHANGE_POWER_VALUE;
+		changeLinkPower(assemblyConnector=link9_assemblyConnector, referenceName=link9_referenceName, value=link9_power);
+	}
+}	
 	
 
 // check that 'allLinkUseSamePower' for Motes with 2 outgoing links
