@@ -36,7 +36,7 @@ var string link15_assemblyConnector_power = "_0knC4MVsEem8XvI7PKw-OA";	// entity
 var string link15_assemblyConnector_dist = "_0knC4MVsEem8XvI7PKw-OA";	// entityName="Connector DT10to6_5 -> TemperatureSensor6"
 var string link16_assemblyConnector_power = "_qMbHEMVsEem8XvI7PKw-OA";	// entityName="Connector DT10to6_5 -> RFIDSensor5"						// Fehler im Modell; verweist nicht auf AssemblyCtx mit PowerSetting; sollte analog zu link15_assemblyConnector sein
 var string link16_assemblyConnector_dist = "_qMbHEMVsEem8XvI7PKw-OA";	// entityName="Connector DT10to6_5 -> RFIDSensor5"						// Fehler im Modell; verweist nicht auf AssemblyCtx mit PowerSetting; sollte analog zu link15_assemblyConnector sein
-var string link17_assemblyConnector = "_k5dYoMVsEem8XvI7PKw-OA";	// entityName="Connector RFIDSensor5 -> ST5to9"
+var string link17_assemblyConnector = "_k5dYoMVsEem8XvI7PKw-OA";		// entityName="Connector RFIDSensor5 -> ST5to9"
 
 
 // local variables to store referenceName; additionally required due to PCM metamodel constraints 
@@ -142,17 +142,17 @@ if (!(SRN_6to4Link_SignalToNoiseRatioInstantiation > 0 && link14_power == 0) || 
 	}
 }
 
-//if (!(SRN_5to9Link_SignalToNoiseRatioInstantiation > 0 && link17_power == 0) || !(SRN_5to9Link_SignalToNoiseRatioInstantiation < 0 && link17_power == 15)) {	
-//	if (SRN_5to9Link_SignalToNoiseRatioInstantiation < 0) {
-//		link17_power = link17_power + CHANGE_POWER_VALUE;
-//		changeLinkPower(assemblyConnector=link17_assemblyConnector, referenceName=link17_referenceName, value=link17_power);
-//	}
-//	if (SRN_5to9Link_SignalToNoiseRatioInstantiation > 0) {
-//		link17_power = link17_power - CHANGE_POWER_VALUE;
-//		changeLinkPower(assemblyConnector=link17_assemblyConnector, referenceName=link17_referenceName, value=link17_power);
-//	}
-//}
-//
+if (!(SRN_5to9Link_SignalToNoiseRatioInstantiation > 0 && link17_power == 0) || !(SRN_5to9Link_SignalToNoiseRatioInstantiation < 0 && link17_power == 15)) {	
+	if (SRN_5to9Link_SignalToNoiseRatioInstantiation < 0) {
+		link17_power = link17_power + CHANGE_POWER_VALUE;
+		changeLinkPower(assemblyConnector=link17_assemblyConnector, referenceName=link17_referenceName, value=link17_power);
+	}
+	if (SRN_5to9Link_SignalToNoiseRatioInstantiation > 0) {
+		link17_power = link17_power - CHANGE_POWER_VALUE;
+		changeLinkPower(assemblyConnector=link17_assemblyConnector, referenceName=link17_referenceName, value=link17_power);
+	}
+}
+
 //if (!(SRN_14to12Link_SignalToNoiseRatioInstantiation > 0 && link2_power == 0) || !(SRN_14to12Link_SignalToNoiseRatioInstantiation < 0 && link2_power == 15)) {
 //	if (SRN_14to12Link_SignalToNoiseRatioInstantiation < 0) {
 //		link2_power = link2_power + CHANGE_POWER_VALUE;
