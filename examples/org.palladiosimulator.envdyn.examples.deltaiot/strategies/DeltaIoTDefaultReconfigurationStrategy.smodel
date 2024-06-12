@@ -296,17 +296,17 @@ if (!(SRN_8to1Link_SignalToNoiseRatioInstantiation > 0 && link11_power == 0) || 
 //	}
 //}
 //
-//if (!(SRN_3to1Link_SignalToNoiseRatioInstantiation > 0 && link10_power == 0) || !(SRN_3to1Link_SignalToNoiseRatioInstantiation < 0 && link10_power == 15)) {
-//	if (SRN_3to1Link_SignalToNoiseRatioInstantiation < 0) {
-//		link10_power = link10_power + CHANGE_POWER_VALUE;
-//		changeLinkPower(assemblyConnector=link10_assemblyConnector, referenceName=link10_referenceName, value=link10_power);
-//	}
-//	if (SRN_3to1Link_SignalToNoiseRatioInstantiation > 0) {
-//		link10_power = link10_power - CHANGE_POWER_VALUE;
-//		changeLinkPower(assemblyConnector=link10_assemblyConnector, referenceName=link10_referenceName, value=link10_power);
-//	}
-//}
-//
+if (!(SRN_3to1Link_SignalToNoiseRatioInstantiation > 0 && link10_power == 0) || !(SRN_3to1Link_SignalToNoiseRatioInstantiation < 0 && link10_power == 15)) {
+	if (SRN_3to1Link_SignalToNoiseRatioInstantiation < 0) {
+		link10_power = link10_power + CHANGE_POWER_VALUE;
+		changeLinkPower(assemblyConnector=link10_assemblyConnector, referenceName=link10_referenceName, value=link10_power);
+	}
+	if (SRN_3to1Link_SignalToNoiseRatioInstantiation > 0) {
+		link10_power = link10_power - CHANGE_POWER_VALUE;
+		changeLinkPower(assemblyConnector=link10_assemblyConnector, referenceName=link10_referenceName, value=link10_power);
+	}
+}
+
 //if (!(SRN_2to4Link_SignalToNoiseRatioInstantiation > 0 && link9_power == 0) || !(SRN_2to4Link_SignalToNoiseRatioInstantiation < 0 && link9_power == 15)) {
 //	if (SRN_2to4Link_SignalToNoiseRatioInstantiation < 0) {
 //		link9_power = link9_power + CHANGE_POWER_VALUE;
