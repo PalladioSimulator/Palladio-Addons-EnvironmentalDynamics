@@ -41,14 +41,14 @@
       <steps_Behaviour xsi:type="seff:StartAction" id="_azl-UMTcEem6vJHOl6M9XA" successor_AbstractAction="_UvM9gMTdEem6vJHOl6M9XA"/>
       <steps_Behaviour xsi:type="seff:StopAction" id="_azl-UcTcEem6vJHOl6M9XA" predecessor_AbstractAction="_UvM9gMTdEem6vJHOl6M9XA"/>
       <steps_Behaviour xsi:type="seff:BranchAction" id="_UvM9gMTdEem6vJHOl6M9XA" entityName="ProbabilisticTransmitting" predecessor_AbstractAction="_azl-UMTcEem6vJHOl6M9XA" successor_AbstractAction="_azl-UcTcEem6vJHOl6M9XA">
-        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_b9JK4MTdEem6vJHOl6M9XA" entityName="TransmitToMote6" branchProbability="0.6">
+        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_b9JK4MTdEem6vJHOl6M9XA" entityName="TransmitToMote6" branchProbability="0.5">
           <branchBehaviour_BranchTransition id="_b9JK4cTdEem6vJHOl6M9XA">
             <steps_Behaviour xsi:type="seff:StartAction" id="_b9Jx8MTdEem6vJHOl6M9XA" entityName="StartForwardingToNeighbour1" successor_AbstractAction="_SobBxsTeEem6vJHOl6M9XA"/>
             <steps_Behaviour xsi:type="seff:StopAction" id="_b9Jx8cTdEem6vJHOl6M9XA" entityName="StopForwardingToNeighbour1" predecessor_AbstractAction="_SobBxsTeEem6vJHOl6M9XA"/>
             <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_SobBxsTeEem6vJHOl6M9XA" entityName="transmitToNeighbour1" predecessor_AbstractAction="_b9Jx8MTdEem6vJHOl6M9XA" successor_AbstractAction="_b9Jx8cTdEem6vJHOl6M9XA" calledService_ExternalService="_qaz0gMTAEem6vJHOl6M9XA" role_ExternalService="_vdR3wMTfEem6vJHOl6M9XA"/>
           </branchBehaviour_BranchTransition>
         </branches_Branch>
-        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_exC14MTdEem6vJHOl6M9XA" entityName="TransmitToMote5" branchProbability="0.4">
+        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_exC14MTdEem6vJHOl6M9XA" entityName="TransmitToMote5" branchProbability="0.5">
           <branchBehaviour_BranchTransition id="_exC14cTdEem6vJHOl6M9XA">
             <steps_Behaviour xsi:type="seff:StartAction" id="_exC14sTdEem6vJHOl6M9XA" successor_AbstractAction="_jqHoNsTeEem6vJHOl6M9XA"/>
             <steps_Behaviour xsi:type="seff:StopAction" id="_exC148TdEem6vJHOl6M9XA" predecessor_AbstractAction="_jqHoNsTeEem6vJHOl6M9XA"/>
@@ -66,14 +66,14 @@
       <steps_Behaviour xsi:type="seff:StartAction" id="_iTsSscTcEem6vJHOl6M9XA" successor_AbstractAction="_vvhhgMTjEem6vJHOl6M9XA"/>
       <steps_Behaviour xsi:type="seff:StopAction" id="_iTsSssTcEem6vJHOl6M9XA" predecessor_AbstractAction="_vvhhgMTjEem6vJHOl6M9XA"/>
       <steps_Behaviour xsi:type="seff:BranchAction" id="_vvhhgMTjEem6vJHOl6M9XA" entityName="ProbabilisticTransmitting" predecessor_AbstractAction="_iTsSscTcEem6vJHOl6M9XA" successor_AbstractAction="_iTsSssTcEem6vJHOl6M9XA">
-        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_1MCNgMTjEem6vJHOl6M9XA" entityName="TransmitToMote3" branchProbability="0.6">
+        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_1MCNgMTjEem6vJHOl6M9XA" entityName="TransmitToMote3" branchProbability="1.0">
           <branchBehaviour_BranchTransition id="_1MC0kMTjEem6vJHOl6M9XA">
             <steps_Behaviour xsi:type="seff:StartAction" id="_1MC0kcTjEem6vJHOl6M9XA" successor_AbstractAction="_JTRolsTkEem6vJHOl6M9XA"/>
             <steps_Behaviour xsi:type="seff:StopAction" id="_1MC0ksTjEem6vJHOl6M9XA" predecessor_AbstractAction="_JTRolsTkEem6vJHOl6M9XA"/>
             <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_JTRolsTkEem6vJHOl6M9XA" entityName="sendToNeighbour1" predecessor_AbstractAction="_1MC0kcTjEem6vJHOl6M9XA" successor_AbstractAction="_1MC0ksTjEem6vJHOl6M9XA" calledService_ExternalService="_qaz0gMTAEem6vJHOl6M9XA" role_ExternalService="_c6ULgMTiEem6vJHOl6M9XA"/>
           </branchBehaviour_BranchTransition>
         </branches_Branch>
-        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_3LSIcMTjEem6vJHOl6M9XA" entityName="TransmitToMote7" branchProbability="0.4">
+        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_3LSIcMTjEem6vJHOl6M9XA" entityName="TransmitToMote7">
           <branchBehaviour_BranchTransition id="_3LSIccTjEem6vJHOl6M9XA">
             <steps_Behaviour xsi:type="seff:StartAction" id="_3LSvgMTjEem6vJHOl6M9XA" successor_AbstractAction="_M7DnlsTkEem6vJHOl6M9XA"/>
             <steps_Behaviour xsi:type="seff:StopAction" id="_3LSvgcTjEem6vJHOl6M9XA" predecessor_AbstractAction="_M7DnlsTkEem6vJHOl6M9XA"/>
@@ -100,14 +100,14 @@
       <steps_Behaviour xsi:type="seff:StartAction" id="_vAuY0MooEem4ZN5Unn2ciQ" entityName="start" successor_AbstractAction="_Ev9agMorEem4ZN5Unn2ciQ"/>
       <steps_Behaviour xsi:type="seff:StopAction" id="_vAuY0cooEem4ZN5Unn2ciQ" entityName="stop" predecessor_AbstractAction="_Ev9agMorEem4ZN5Unn2ciQ"/>
       <steps_Behaviour xsi:type="seff:BranchAction" id="_Ev9agMorEem4ZN5Unn2ciQ" entityName="ProbabilisticTransmitting" predecessor_AbstractAction="_vAuY0MooEem4ZN5Unn2ciQ" successor_AbstractAction="_vAuY0cooEem4ZN5Unn2ciQ">
-        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_LRnwsMorEem4ZN5Unn2ciQ" entityName="TransmitFrom7ToMote3" branchProbability="0.6">
+        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_LRnwsMorEem4ZN5Unn2ciQ" entityName="TransmitFrom7ToMote3" branchProbability="1.0">
           <branchBehaviour_BranchTransition id="_LRoXwMorEem4ZN5Unn2ciQ">
             <steps_Behaviour xsi:type="seff:StartAction" id="_LRoXwcorEem4ZN5Unn2ciQ" successor_AbstractAction="_RMVboMorEem4ZN5Unn2ciQ"/>
             <steps_Behaviour xsi:type="seff:StopAction" id="_LRoXwsorEem4ZN5Unn2ciQ" predecessor_AbstractAction="_RMVboMorEem4ZN5Unn2ciQ"/>
             <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_RMVboMorEem4ZN5Unn2ciQ" entityName="ExternalCallAction1" predecessor_AbstractAction="_LRoXwcorEem4ZN5Unn2ciQ" successor_AbstractAction="_LRoXwsorEem4ZN5Unn2ciQ" calledService_ExternalService="_qaz0gMTAEem6vJHOl6M9XA" role_ExternalService="_vdR3wMTfEem6vJHOl6M9XA"/>
           </branchBehaviour_BranchTransition>
         </branches_Branch>
-        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_ZfeWgMorEem4ZN5Unn2ciQ" entityName="TransmitToMote2" branchProbability="0.4">
+        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_ZfeWgMorEem4ZN5Unn2ciQ" entityName="TransmitToMote2">
           <branchBehaviour_BranchTransition id="_ZfeWgcorEem4ZN5Unn2ciQ">
             <steps_Behaviour xsi:type="seff:StartAction" id="_ZfeWgsorEem4ZN5Unn2ciQ" successor_AbstractAction="_c__P4MorEem4ZN5Unn2ciQ"/>
             <steps_Behaviour xsi:type="seff:StopAction" id="_ZfeWg8orEem4ZN5Unn2ciQ" predecessor_AbstractAction="_c__P4MorEem4ZN5Unn2ciQ"/>
