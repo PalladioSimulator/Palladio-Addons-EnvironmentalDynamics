@@ -25,7 +25,7 @@
     <instantiated href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
   </distributions>
   <distributions xsi:type="distributionfunction:ProbabilityDistribution" id="_QMq_YBKuEeqXWPQDIrbTtg" entityName="SignalToNoiseRatio5to9" params="_Yi31URKuEeqXWPQDIrbTtg">
-    <randomVariables id="_ZBHm0MZnEe6cz4woW_5crA" entityName="SNR_5to9" valueSpace="CATEGORY"/>
+    <randomVariables id="_2ub1ABKuEeqXWPQDIrbTtg" entityName="SNR_5to9" valueSpace="CATEGORY"/>
     <instantiated href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_4B7EsNMJEemr7qd1LI_fyw"/>
   </distributions>
   <distributions xsi:type="distributionfunction:ProbabilityDistribution" id="_QojYoEfsEeqXQ7PJJHW2Yg" entityName="SignalToNoiseRatio2to4" params="_bm9FQUf_EeqXQ7PJJHW2Yg">
@@ -153,23 +153,23 @@
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-2</conditonals>
-        <entry type="SAMPLESPACE" value="{-10.7,1.0}"/>
+        <entry type="SAMPLESPACE" value="{1.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-1</conditonals>
-        <entry type="SAMPLESPACE" value="{-9.7,1.0}"/>
+        <entry type="SAMPLESPACE" value="{2.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>0</conditonals>
-        <entry type="SAMPLESPACE" value="{-8.7,1.0}"/>
+        <entry type="SAMPLESPACE" value="{3.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>1</conditonals>
-        <entry type="SAMPLESPACE" value="{-7.7,1.0}"/>
+        <entry type="SAMPLESPACE" value="{4.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>2</conditonals>
-        <entry type="SAMPLESPACE" value="{-6.7,1.0}"/>
+        <entry type="SAMPLESPACE" value="{5.0,1.0}"/>
       </cpdEntries>
     </representation>
   </params>
@@ -178,126 +178,27 @@
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-2</conditonals>
-        <entry type="SAMPLESPACE" value="{-2.2,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-1.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-1</conditonals>
-        <entry type="SAMPLESPACE" value="{-1.2,1.0}"/>
+        <entry type="SAMPLESPACE" value="{0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>0</conditonals>
-        <entry type="SAMPLESPACE" value="{0.2,1.0}"/>
+        <entry type="SAMPLESPACE" value="{1.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>1</conditonals>
-        <entry type="SAMPLESPACE" value="{1.2,1.0}"/>
+        <entry type="SAMPLESPACE" value="{2.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>2</conditonals>
-        <entry type="SAMPLESPACE" value="{2.2,1.0}"/>
+        <entry type="SAMPLESPACE" value="{3.0,1.0}"/>
       </cpdEntries>
     </representation>
   </params>
   <params id="_6u1vcRHqEeqoTZlPvrooWg" entityName="SNR_8to1">
-    <instantiated href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_8MFYAdMJEemr7qd1LI_fyw"/>
-    <representation xsi:type="distributionfunction:TabularCPD">
-      <cpdEntries>
-        <conditonals>-5</conditonals>
-        <entry type="SAMPLESPACE" value="{-5.8,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>-4</conditonals>
-        <entry type="SAMPLESPACE" value="{-4.8,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>-3</conditonals>
-        <entry type="SAMPLESPACE" value="{-3.8,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>-2</conditonals>
-        <entry type="SAMPLESPACE" value="{-2.8,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>-1</conditonals>
-        <entry type="SAMPLESPACE" value="{-1.8,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>0</conditonals>
-        <entry type="SAMPLESPACE" value="{-0.8,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>1</conditonals>
-        <entry type="SAMPLESPACE" value="{1.8,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>2</conditonals>
-        <entry type="SAMPLESPACE" value="{2.8,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>3</conditonals>
-        <entry type="SAMPLESPACE" value="{3.8,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>4</conditonals>
-        <entry type="SAMPLESPACE" value="{4.8,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>5</conditonals>
-        <entry type="SAMPLESPACE" value="{5.8,1.0}"/>
-      </cpdEntries>
-    </representation>
-  </params>
-  <params id="_9AaJcRHqEeqoTZlPvrooWg" entityName="SNR_9to1">
-    <instantiated href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_8MFYAdMJEemr7qd1LI_fyw"/>
-    <representation xsi:type="distributionfunction:TabularCPD">
-      <cpdEntries>
-        <conditonals>-2</conditonals>
-        <entry type="SAMPLESPACE" value="{-10.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>-1</conditonals>
-        <entry type="SAMPLESPACE" value="{-9.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>0</conditonals>
-        <entry type="SAMPLESPACE" value="{-8.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>1</conditonals>
-        <entry type="SAMPLESPACE" value="{-7.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>2</conditonals>
-        <entry type="SAMPLESPACE" value="{-6.0,1.0}"/>
-      </cpdEntries>
-    </representation>
-  </params>
-  <params id="_Yi31URKuEeqXWPQDIrbTtg" entityName="SNR_5to9">
-    <instantiated href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_8MFYAdMJEemr7qd1LI_fyw"/>
-    <representation xsi:type="distributionfunction:TabularCPD">
-      <cpdEntries>
-        <conditonals>-2</conditonals>
-        <entry type="SAMPLESPACE" value="{-8.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>-1</conditonals>
-        <entry type="SAMPLESPACE" value="{-7.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>0</conditonals>
-        <entry type="SAMPLESPACE" value="{-6.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>1</conditonals>
-        <entry type="SAMPLESPACE" value="{-5.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>2</conditonals>
-        <entry type="SAMPLESPACE" value="{-4.0,1.0}"/>
-      </cpdEntries>
-    </representation>
-  </params>
-  <params id="_bm9FQUf_EeqXQ7PJJHW2Yg" entityName="SNR_2to4">
     <instantiated href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_8MFYAdMJEemr7qd1LI_fyw"/>
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
@@ -346,77 +247,176 @@
       </cpdEntries>
     </representation>
   </params>
+  <params id="_9AaJcRHqEeqoTZlPvrooWg" entityName="SNR_9to1">
+    <instantiated href="pathmap://PROBDIST_BASIC/BasicDistributionTypes.distributiontype#_8MFYAdMJEemr7qd1LI_fyw"/>
+    <representation xsi:type="distributionfunction:TabularCPD">
+      <cpdEntries>
+        <conditonals>-2</conditonals>
+        <entry type="SAMPLESPACE" value="{-8.8,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>-1</conditonals>
+        <entry type="SAMPLESPACE" value="{-7.8,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>0</conditonals>
+        <entry type="SAMPLESPACE" value="{-6.8,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>1</conditonals>
+        <entry type="SAMPLESPACE" value="{-5.8,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>2</conditonals>
+        <entry type="SAMPLESPACE" value="{-4.8,1.0}"/>
+      </cpdEntries>
+    </representation>
+  </params>
+  <params id="_Yi31URKuEeqXWPQDIrbTtg" entityName="SNR_5to9">
+    <instantiated href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_8MFYAdMJEemr7qd1LI_fyw"/>
+    <representation xsi:type="distributionfunction:TabularCPD">
+      <cpdEntries>
+        <conditonals>-2</conditonals>
+        <entry type="SAMPLESPACE" value="{0.6,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>-1</conditonals>
+        <entry type="SAMPLESPACE" value="{1.6,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>0</conditonals>
+        <entry type="SAMPLESPACE" value="{2.6,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>1</conditonals>
+        <entry type="SAMPLESPACE" value="{3.6,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>2</conditonals>
+        <entry type="SAMPLESPACE" value="{4.6,1.0}"/>
+      </cpdEntries>
+    </representation>
+  </params>
+  <params id="_bm9FQUf_EeqXQ7PJJHW2Yg" entityName="SNR_2to4">
+    <instantiated href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_8MFYAdMJEemr7qd1LI_fyw"/>
+    <representation xsi:type="distributionfunction:TabularCPD">
+      <cpdEntries>
+        <conditonals>-5</conditonals>
+        <entry type="SAMPLESPACE" value="{3.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>-4</conditonals>
+        <entry type="SAMPLESPACE" value="{4.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>-3</conditonals>
+        <entry type="SAMPLESPACE" value="{5.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>-2</conditonals>
+        <entry type="SAMPLESPACE" value="{6.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>-1</conditonals>
+        <entry type="SAMPLESPACE" value="{7.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>0</conditonals>
+        <entry type="SAMPLESPACE" value="{8.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>1</conditonals>
+        <entry type="SAMPLESPACE" value="{9.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>2</conditonals>
+        <entry type="SAMPLESPACE" value="{10.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>3</conditonals>
+        <entry type="SAMPLESPACE" value="{11.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>4</conditonals>
+        <entry type="SAMPLESPACE" value="{12.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>5</conditonals>
+        <entry type="SAMPLESPACE" value="{13.0,1.0}"/>
+      </cpdEntries>
+    </representation>
+  </params>
   <params id="_cTursUf_EeqXQ7PJJHW2Yg" entityName="SNR_6to4">
     <instantiated href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_8MFYAdMJEemr7qd1LI_fyw"/>
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-2</conditonals>
-        <entry type="SAMPLESPACE" value="{-2.2,1.0}"/>
+        <entry type="SAMPLESPACE" value="{5.6,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-1</conditonals>
-        <entry type="SAMPLESPACE" value="{-1.2,1.0}"/>
+        <entry type="SAMPLESPACE" value="{6.6,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>0</conditonals>
-        <entry type="SAMPLESPACE" value="{0.2,1.0}"/>
+        <entry type="SAMPLESPACE" value="{7.6,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>1</conditonals>
-        <entry type="SAMPLESPACE" value="{1.2,1.0}"/>
+        <entry type="SAMPLESPACE" value="{8.6,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>2</conditonals>
-        <entry type="SAMPLESPACE" value="{2.2,1.0}"/>
+        <entry type="SAMPLESPACE" value="{9.6,1.0}"/>
       </cpdEntries>
     </representation>
   </params>
   <params id="_c2T0UUf_EeqXQ7PJJHW2Yg" entityName="SNR_7to2">
-    <instantiated href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_8MFYAdMJEemr7qd1LI_fyw"/>
+    <instantiated href="pathmap://PROBDIST_BASIC/BasicDistributionTypes.distributiontype#_8MFYAdMJEemr7qd1LI_fyw"/>
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-5</conditonals>
-        <entry type="SAMPLESPACE" value="{-8.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>-4</conditonals>
-        <entry type="SAMPLESPACE" value="{-7.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>-3</conditonals>
-        <entry type="SAMPLESPACE" value="{-6.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>-2</conditonals>
-        <entry type="SAMPLESPACE" value="{-5.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>-1</conditonals>
-        <entry type="SAMPLESPACE" value="{-4.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>0</conditonals>
-        <entry type="SAMPLESPACE" value="{-3.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>1</conditonals>
-        <entry type="SAMPLESPACE" value="{-2.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>2</conditonals>
-        <entry type="SAMPLESPACE" value="{-1.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>3</conditonals>
         <entry type="SAMPLESPACE" value="{0.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
-        <conditonals>4</conditonals>
+        <conditonals>-4</conditonals>
         <entry type="SAMPLESPACE" value="{1.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
-        <conditonals>5</conditonals>
+        <conditonals>-3</conditonals>
         <entry type="SAMPLESPACE" value="{2.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>-2</conditonals>
+        <entry type="SAMPLESPACE" value="{3.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>-1</conditonals>
+        <entry type="SAMPLESPACE" value="{4.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>0</conditonals>
+        <entry type="SAMPLESPACE" value="{5.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>1</conditonals>
+        <entry type="SAMPLESPACE" value="{6.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>2</conditonals>
+        <entry type="SAMPLESPACE" value="{7.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>3</conditonals>
+        <entry type="SAMPLESPACE" value="{8.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>4</conditonals>
+        <entry type="SAMPLESPACE" value="{9.0,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>5</conditonals>
+        <entry type="SAMPLESPACE" value="{10.0,1.0}"/>
       </cpdEntries>
     </representation>
   </params>
@@ -425,47 +425,47 @@
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-5</conditonals>
-        <entry type="SAMPLESPACE" value="{-12.9,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-11.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-4</conditonals>
-        <entry type="SAMPLESPACE" value="{-11.9,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-10.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-3</conditonals>
-        <entry type="SAMPLESPACE" value="{-10.9,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-9.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-2</conditonals>
-        <entry type="SAMPLESPACE" value="{-9.9,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-8.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-1</conditonals>
-        <entry type="SAMPLESPACE" value="{-8.9,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-7.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>0</conditonals>
-        <entry type="SAMPLESPACE" value="{-7.9,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-6.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>1</conditonals>
-        <entry type="SAMPLESPACE" value="{-6.9,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-5.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>2</conditonals>
-        <entry type="SAMPLESPACE" value="{-5.9,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-4.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>3</conditonals>
-        <entry type="SAMPLESPACE" value="{-4.9,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-3.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>4</conditonals>
-        <entry type="SAMPLESPACE" value="{-3.9,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-2.8,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>5</conditonals>
-        <entry type="SAMPLESPACE" value="{-2.9,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-1.8,1.0}"/>
       </cpdEntries>
     </representation>
   </params>
@@ -474,47 +474,47 @@
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-5</conditonals>
-        <entry type="SAMPLESPACE" value="{-8.5,1.0}"/>
+        <entry type="SAMPLESPACE" value="{1.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-4</conditonals>
-        <entry type="SAMPLESPACE" value="{-7.5,1.0}"/>
+        <entry type="SAMPLESPACE" value="{2.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-3</conditonals>
-        <entry type="SAMPLESPACE" value="{-6.5,1.0}"/>
+        <entry type="SAMPLESPACE" value="{3.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-2</conditonals>
-        <entry type="SAMPLESPACE" value="{-5.5,1.0}"/>
+        <entry type="SAMPLESPACE" value="{4.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-1</conditonals>
-        <entry type="SAMPLESPACE" value="{-4.5,1.0}"/>
+        <entry type="SAMPLESPACE" value="{5.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>0</conditonals>
-        <entry type="SAMPLESPACE" value="{-3.5,1.0}"/>
+        <entry type="SAMPLESPACE" value="{6.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>1</conditonals>
-        <entry type="SAMPLESPACE" value="{-2.5,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-7.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>2</conditonals>
-        <entry type="SAMPLESPACE" value="{-1.5,1.0}"/>
+        <entry type="SAMPLESPACE" value="{8.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>3</conditonals>
-        <entry type="SAMPLESPACE" value="{-0.5,1.0}"/>
+        <entry type="SAMPLESPACE" value="{9.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>4</conditonals>
-        <entry type="SAMPLESPACE" value="{0.5,1.0}"/>
+        <entry type="SAMPLESPACE" value="{10.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>5</conditonals>
-        <entry type="SAMPLESPACE" value="{1.5,1.0}"/>
+        <entry type="SAMPLESPACE" value="{11.0,1.0}"/>
       </cpdEntries>
     </representation>
   </params>
@@ -523,47 +523,47 @@
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-5</conditonals>
-        <entry type="SAMPLESPACE" value="{-13.1,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-1.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-4</conditonals>
-        <entry type="SAMPLESPACE" value="{-12.1,1.0}"/>
+        <entry type="SAMPLESPACE" value="{0.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-3</conditonals>
-        <entry type="SAMPLESPACE" value="{-11.1,1.0}"/>
+        <entry type="SAMPLESPACE" value="{1.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-2</conditonals>
-        <entry type="SAMPLESPACE" value="{-10.1,1.0}"/>
+        <entry type="SAMPLESPACE" value="{2.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-1</conditonals>
-        <entry type="SAMPLESPACE" value="{-9.1,1.0}"/>
+        <entry type="SAMPLESPACE" value="{3.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>0</conditonals>
-        <entry type="SAMPLESPACE" value="{-8.1,1.0}"/>
+        <entry type="SAMPLESPACE" value="{4.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>1</conditonals>
-        <entry type="SAMPLESPACE" value="{-7.1,1.0}"/>
+        <entry type="SAMPLESPACE" value="{5.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>2</conditonals>
-        <entry type="SAMPLESPACE" value="{-6.1,1.0}"/>
+        <entry type="SAMPLESPACE" value="{6.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>3</conditonals>
-        <entry type="SAMPLESPACE" value="{-5.1,1.0}"/>
+        <entry type="SAMPLESPACE" value="{7.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>4</conditonals>
-        <entry type="SAMPLESPACE" value="{-4.1,1.0}"/>
+        <entry type="SAMPLESPACE" value="{8.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>5</conditonals>
-        <entry type="SAMPLESPACE" value="{-3.1,1.0}"/>
+        <entry type="SAMPLESPACE" value="{9.0,1.0}"/>
       </cpdEntries>
     </representation>
   </params>
@@ -572,32 +572,7 @@
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-2</conditonals>
-        <entry type="SAMPLESPACE" value="{-6.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>-1</conditonals>
-        <entry type="SAMPLESPACE" value="{-5.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>0</conditonals>
         <entry type="SAMPLESPACE" value="{-4.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>1</conditonals>
-        <entry type="SAMPLESPACE" value="{-3.0,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>2</conditonals>
-        <entry type="SAMPLESPACE" value="{-2.0,1.0}"/>
-      </cpdEntries>
-    </representation>
-  </params>
-  <params id="_frkKMUf_EeqXQ7PJJHW2Yg" entityName="SNR_12to3">
-    <instantiated href="../../../plugin/tools.mdsd.probdist.model.basic/model/BasicDistributionTypes.distributiontype#_8MFYAdMJEemr7qd1LI_fyw"/>
-    <representation xsi:type="distributionfunction:TabularCPD">
-      <cpdEntries>
-        <conditonals>-2</conditonals>
-        <entry type="SAMPLESPACE" value="{4.0,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-1</conditonals>
@@ -614,6 +589,31 @@
       <cpdEntries>
         <conditonals>2</conditonals>
         <entry type="SAMPLESPACE" value="{8.0,1.0}"/>
+      </cpdEntries>
+    </representation>
+  </params>
+  <params id="_frkKMUf_EeqXQ7PJJHW2Yg" entityName="SNR_12to3">
+    <instantiated href="pathmap://PROBDIST_BASIC/BasicDistributionTypes.distributiontype#_8MFYAdMJEemr7qd1LI_fyw"/>
+    <representation xsi:type="distributionfunction:TabularCPD">
+      <cpdEntries>
+        <conditonals>-2</conditonals>
+        <entry type="SAMPLESPACE" value="{5.5,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>-1</conditonals>
+        <entry type="SAMPLESPACE" value="{6.5,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>0</conditonals>
+        <entry type="SAMPLESPACE" value="{7.5,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>1</conditonals>
+        <entry type="SAMPLESPACE" value="{8.5,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>2</conditonals>
+        <entry type="SAMPLESPACE" value="{9.5,1.0}"/>
       </cpdEntries>
     </representation>
   </params>
@@ -647,47 +647,47 @@
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-5</conditonals>
-        <entry type="SAMPLESPACE" value="{-8.8,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-1.7,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-4</conditonals>
-        <entry type="SAMPLESPACE" value="{-7.8,1.0}"/>
+        <entry type="SAMPLESPACE" value="{0.7,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-3</conditonals>
-        <entry type="SAMPLESPACE" value="{-6.8,1.0}"/>
+        <entry type="SAMPLESPACE" value="{1.7,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-2</conditonals>
-        <entry type="SAMPLESPACE" value="{-5.8,1.0}"/>
+        <entry type="SAMPLESPACE" value="{2.7,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-1</conditonals>
-        <entry type="SAMPLESPACE" value="{-4.8,1.0}"/>
+        <entry type="SAMPLESPACE" value="{3.7,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>0</conditonals>
-        <entry type="SAMPLESPACE" value="{-3.8,1.0}"/>
+        <entry type="SAMPLESPACE" value="{4.7,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>1</conditonals>
-        <entry type="SAMPLESPACE" value="{-2.8,1.0}"/>
+        <entry type="SAMPLESPACE" value="{5.7,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>2</conditonals>
-        <entry type="SAMPLESPACE" value="{-1.8,1.0}"/>
+        <entry type="SAMPLESPACE" value="{6.7,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>3</conditonals>
-        <entry type="SAMPLESPACE" value="{-0.8,1.0}"/>
+        <entry type="SAMPLESPACE" value="{7.7,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>4</conditonals>
-        <entry type="SAMPLESPACE" value="{0.2,1.0}"/>
+        <entry type="SAMPLESPACE" value="{8.7,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>5</conditonals>
-        <entry type="SAMPLESPACE" value="{1.2,1.0}"/>
+        <entry type="SAMPLESPACE" value="{9.7,1.0}"/>
       </cpdEntries>
     </representation>
   </params>
@@ -696,47 +696,47 @@
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-5</conditonals>
-        <entry type="SAMPLESPACE" value="{-11.6,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-10.1,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-4</conditonals>
-        <entry type="SAMPLESPACE" value="{-10.6,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-9.1,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-3</conditonals>
-        <entry type="SAMPLESPACE" value="{-9.6,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-8.1,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-2</conditonals>
-        <entry type="SAMPLESPACE" value="{-8.6,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-7.1,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>-1</conditonals>
-        <entry type="SAMPLESPACE" value="{-7.6,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-6.1,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>0</conditonals>
-        <entry type="SAMPLESPACE" value="{-6.6,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-5.1,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>1</conditonals>
-        <entry type="SAMPLESPACE" value="{-5.6,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-4.1,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>2</conditonals>
-        <entry type="SAMPLESPACE" value="{-4.6,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-3.1,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>3</conditonals>
-        <entry type="SAMPLESPACE" value="{-3.6,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-2.1,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>4</conditonals>
-        <entry type="SAMPLESPACE" value="{-2.6,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-1.1,1.0}"/>
       </cpdEntries>
       <cpdEntries>
         <conditonals>5</conditonals>
-        <entry type="SAMPLESPACE" value="{-1.6,1.0}"/>
+        <entry type="SAMPLESPACE" value="{-0.1,1.0}"/>
       </cpdEntries>
     </representation>
   </params>
@@ -745,23 +745,23 @@
     <representation xsi:type="distributionfunction:TabularCPD">
       <cpdEntries>
         <conditonals>-2</conditonals>
-        <entry type="SAMPLESPACE" value="{-10.3,1.0}"/>
-      </cpdEntries>
-      <cpdEntries>
-        <conditonals>-1</conditonals>
         <entry type="SAMPLESPACE" value="{-9.3,1.0}"/>
       </cpdEntries>
       <cpdEntries>
-        <conditonals>0</conditonals>
+        <conditonals>-1</conditonals>
         <entry type="SAMPLESPACE" value="{-8.3,1.0}"/>
       </cpdEntries>
       <cpdEntries>
-        <conditonals>1</conditonals>
+        <conditonals>0</conditonals>
         <entry type="SAMPLESPACE" value="{-7.3,1.0}"/>
       </cpdEntries>
       <cpdEntries>
-        <conditonals>2</conditonals>
+        <conditonals>1</conditonals>
         <entry type="SAMPLESPACE" value="{-6.3,1.0}"/>
+      </cpdEntries>
+      <cpdEntries>
+        <conditonals>2</conditonals>
+        <entry type="SAMPLESPACE" value="{-5.3,1.0}"/>
       </cpdEntries>
     </representation>
   </params>
