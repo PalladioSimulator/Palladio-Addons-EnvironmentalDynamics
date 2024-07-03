@@ -56,6 +56,7 @@ transformation adaptDistributionFactor(inout pcmRepository : PCM_REP, in reconfP
 						assert fatal(branchToAdjust != null) with log('The found component ' + component.entityName + ' does not include the branch to adjust; as specified in the reconfiguration params.');
 						
 						branchToAdjust.branchProbability := branchToAdjust.branchProbability + value.value;
+						log('[adaptDistributionFactor: set branchProbability of ProbabilisticBranchTransition ' + branchToAdjust.entityName + ' to value:' + branchToAdjust.branchProbability.toString() + ']');
 					};
 				} 
 				endif
