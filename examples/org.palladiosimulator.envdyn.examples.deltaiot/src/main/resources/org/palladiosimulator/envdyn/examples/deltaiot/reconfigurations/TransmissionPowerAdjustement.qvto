@@ -55,6 +55,7 @@ transformation adaptTransmissionPower(inout pcmSystem : PCM_SYS, in reconfParamR
 						assert fatal(variableToAdjust != null) with log('The found assembly ' + assembly.entityName + ' does not include the power settings to adjust; as specified in the reconfiguration params.');
 						
 						variableToAdjust.specification := value.powerSetting.toString();
+						log('[adaptTransmissionPower: set assembly ' + assembly.entityName + ' specification to ' + variableToAdjust.specification.toString());
 					};
 				} 
 				endif
