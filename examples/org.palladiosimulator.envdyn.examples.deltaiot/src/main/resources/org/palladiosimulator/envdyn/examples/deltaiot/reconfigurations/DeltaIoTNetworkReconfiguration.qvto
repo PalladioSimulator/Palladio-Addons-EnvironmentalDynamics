@@ -57,6 +57,7 @@ transformation adaptDeltaIoTNetwork(inout pcmRepository : PCM_REP, inout pcmSyst
 						assert fatal(branchToAdjust != null) with log('The found component ' + component.entityName + ' does not include the branch to adjust; as specified in the reconfiguration params.');
 						
 						branchToAdjust.branchProbability := branchToAdjust.branchProbability + value.value;
+						log('[adaptDistributionFactor: set branchProbability of ProbabilisticBranchTransition ' + branchToAdjust.entityName + ' to value:' + branchToAdjust.branchProbability.toString() + ']');
 					};
 				} 
 				endif
@@ -82,6 +83,7 @@ transformation adaptDeltaIoTNetwork(inout pcmRepository : PCM_REP, inout pcmSyst
 						assert fatal(variableToAdjust != null) with log('The found assembly ' + assembly.entityName + ' does not include the power settings to adjust; as specified in the reconfiguration params.');
 						
 						variableToAdjust.specification := value.powerSetting.toString();
+						log('[adaptTransmissionPower: set assembly ' + assembly.entityName + ' specification to ' + variableToAdjust.specification.toString());
 					};
 				} 
 				endif
