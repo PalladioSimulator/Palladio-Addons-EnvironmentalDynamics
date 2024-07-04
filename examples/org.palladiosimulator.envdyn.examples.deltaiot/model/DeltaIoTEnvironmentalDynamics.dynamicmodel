@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <dynamicmodel:DynamicBehaviourRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dynamicmodel="http://palladiosimulator.org/Environment/DynamicModel/1.0" xmlns:templatevariable="http://palladiosimulator.org/Environment/TemplateVariable/1.0" id="_0N9t4EgYEeqmX4BX0ajhxA">
   <extensions id="_bSV8IMcjEe6opMss_lUEBw">
-    <model href="DeltaIoTNonTemporalEnvironment.staticmodel#_oac2YMZpEe6cz4woW_5crA"/>
+    <model href="DeltaIoTNonTemporalEnvironment.staticmodel#_8lfv4UdwEeq4nph5UDtc-g"/>
     <behaviour xsi:type="dynamicmodel:InductiveDynamicBehaviour">
       <localModels id="_0PtaUEgYEeqmX4BX0ajhxA" entityName="6to4Link_WirelessInterferenceInstantiation_Temporal">
         <instantiatedFactor xsi:type="templatevariable:ProbabilisticTemplateFactor" href="DeltaIoTTemplateVariables.templatevariable#_-c_hERqOEeqUnKwnXyGFlw"/>
