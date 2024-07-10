@@ -109,6 +109,62 @@ public class ChangeLinkDistributionTest {
 
     }
 
+    @Test
+    public void testChangeLinkDistributionSanityCheckLessOrEqualZero() throws URISyntaxException {
+        double expectedNegativeValue = -0.02;
+        double expectedValue = 0.0;
+        URI systemURI = resourceHelper.getResourceUri("DeltaIoTSystem.system");
+        URI repositoryURI = resourceHelper.getResourceUri("DeltaIoTRepository.repository");
+        URI transformationURI = resourceHelper.getTransaformationUri("changeLinkDistribution.qvto");
+        Resource systemResource = resourceHelper.loadResource(rs, systemURI);
+        EObject systemObject = systemResource.getContents()
+            .get(0);
+        Resource repositoryResource = resourceHelper.loadResource(rs, repositoryURI);
+        EObject repositoryObject = repositoryResource.getContents()
+            .get(0);
+        ModelExtent systemInput = new BasicModelExtent(Collections.singletonList(systemObject));
+        ModelExtent repositoryInput = new BasicModelExtent(Collections.singletonList(repositoryObject));
+        ExecutionContextImpl context = createExecutionContext(ASSEMBLY_CONNECTOR, PROBABILISTIC_BRANCH_TRANSITION,
+                expectedNegativeValue);
+
+        ExecutionDiagnostic actualResult = executeTrafo(transformationURI, context, repositoryInput, systemInput);
+
+        assertThat(actualResult.getSeverity()).isEqualTo(Diagnostic.OK);
+        Repository actualRepository = (Repository) repositoryObject;
+
+        ProbabilisticBranchTransition actualBranchTrans = findProbabilisticBranchTransition(actualRepository,
+                (System) systemObject, ASSEMBLY_CONNECTOR, PROBABILISTIC_BRANCH_TRANSITION);
+        assertThat(actualBranchTrans.getBranchProbability()).isEqualTo(expectedValue);
+    }
+
+    @Test
+    public void testChangeLinkDistributionSanityCheckGreaterOrEqualOne() throws URISyntaxException {
+        double expectedNegativeValue = 1.02;
+        double expectedValue = 1.0;
+        URI systemURI = resourceHelper.getResourceUri("DeltaIoTSystem.system");
+        URI repositoryURI = resourceHelper.getResourceUri("DeltaIoTRepository.repository");
+        URI transformationURI = resourceHelper.getTransaformationUri("changeLinkDistribution.qvto");
+        Resource systemResource = resourceHelper.loadResource(rs, systemURI);
+        EObject systemObject = systemResource.getContents()
+            .get(0);
+        Resource repositoryResource = resourceHelper.loadResource(rs, repositoryURI);
+        EObject repositoryObject = repositoryResource.getContents()
+            .get(0);
+        ModelExtent systemInput = new BasicModelExtent(Collections.singletonList(systemObject));
+        ModelExtent repositoryInput = new BasicModelExtent(Collections.singletonList(repositoryObject));
+        ExecutionContextImpl context = createExecutionContext(ASSEMBLY_CONNECTOR, PROBABILISTIC_BRANCH_TRANSITION,
+                expectedNegativeValue);
+
+        ExecutionDiagnostic actualResult = executeTrafo(transformationURI, context, repositoryInput, systemInput);
+
+        assertThat(actualResult.getSeverity()).isEqualTo(Diagnostic.OK);
+        Repository actualRepository = (Repository) repositoryObject;
+
+        ProbabilisticBranchTransition actualBranchTrans = findProbabilisticBranchTransition(actualRepository,
+                (System) systemObject, ASSEMBLY_CONNECTOR, PROBABILISTIC_BRANCH_TRANSITION);
+        assertThat(actualBranchTrans.getBranchProbability()).isEqualTo(expectedValue);
+    }
+
     private ExecutionContextImpl createExecutionContext(String assemblyConnector, String probabilisticBranchTransition,
             double value) {
         ExecutionContextImpl context = new ExecutionContextImpl();
