@@ -34,8 +34,21 @@ transformation changeLinkDistribution(inout pcmRepository : PCM_REP, in pcmSyste
 		var branchToAdjust : ProbabilisticBranchTransition = findProbabilisticBranchTransitionForLinkingResource(assemblyCtx, probabilisticBranchTransition); 
 		assert fatal(branchToAdjust != null) with log('No ProbabilisticBranchTransition found with for assemblyConnector/probabilisticBranchTransition: ' + assemblyConnector + '/' + probabilisticBranchTransition);
 
-		log('[changeLinkDistribution: set branchProbability of ProbabilisticBranchTransition ' + branchToAdjust.entityName + ' to value:' + value.toString() + ']');
-		branchToAdjust.branchProbability := value;
+		// sanity checks: normalize value to be within [0.0, 1.0]
+		log('changeLinkDistribution: sanity checking for distribution factor value=' + value.toString() + ' ...');
+		var normalizedValue = value;
+		if (normalizedValue >= 1.0) {
+			normalizedValue := 1.0;
+			log('changeLinkDistribution: sanity check (value >= 1) -> rounded value from ' + value.toString() + ' to ' + normalizedValue.toString());
+		};
+		if (normalizedValue <= 0.0) {
+			normalizedValue := 0.0;
+			log('changeLinkDistribution: sanity check (value <= 0) -> rounded value from ' + value.toString() + ' to ' + normalizedValue.toString());
+		};
+		assert fatal(value > 0.0 or value < 1.0) with log('Distribution factor not within range [0.0,1.0]: value=' + normalizedValue.toString());
+		
+		log('[changeLinkDistribution: set branchProbability of ProbabilisticBranchTransition ' + branchToAdjust.entityName + ' to value:' + normalizedValue.toString() + ']');
+		branchToAdjust.branchProbability := normalizedValue;
 	}
 	
 	
