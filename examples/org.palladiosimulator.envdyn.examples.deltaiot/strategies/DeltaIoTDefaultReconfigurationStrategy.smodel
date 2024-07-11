@@ -133,7 +133,6 @@ envvar double SRN_2to4Link_SignalToNoiseRatioInstantiation: variableId="_8lfI0Ed
 // actions in this case are no QVTO transformations but Model-to-Text Transformations of Prism Input files
 action changeLinkPower(param string assemblyConnector, param string referenceName, param int value); // referenceName required as additional parameter compared to original DeltaIoT strategy
 action changeLinkDistribution(param string assemblyConnector, param string probabilisticBranchTransition, param double value); 
-action assertDistributionFactors(param string assemblyConnectorLeft, param double left, param string assemblyConnectorRight, param double right);
 
 
 /** check link conditions */
@@ -343,13 +342,11 @@ if(!(link7_power == link8_power)){
 		changeLinkDistribution(assemblyConnector=link7_assemblyConnector_dist, probabilisticBranchTransition=link7_probabilisticBranchTransition, value=link7_dist);
 		link8_dist = link8_dist + CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link8_assemblyConnector_dist, probabilisticBranchTransition=link8_probabilisticBranchTransition, value=link8_dist);
-		assertDistributionFactors(assemblyConnectorLeft=link7_assemblyConnector_dist, left=link7_dist, assemblyConnectorRight=link8_assemblyConnector_dist, right=link8_dist);
 	} else {
 		link7_dist = link7_dist + CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link7_assemblyConnector_dist, probabilisticBranchTransition=link7_probabilisticBranchTransition, value=link7_dist);
 		link8_dist = link8_dist - CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link8_assemblyConnector_dist, probabilisticBranchTransition=link8_probabilisticBranchTransition, value=link8_dist);
-		assertDistributionFactors(assemblyConnectorLeft=link8_assemblyConnector_dist, left=link8_dist, assemblyConnectorRight=link7_assemblyConnector_dist, right=link7_dist);
 	}
 }
 // Mote 10: link15, link16
@@ -364,13 +361,11 @@ if(!(link15_power == link16_power)){
 		changeLinkDistribution(assemblyConnector=link15_assemblyConnector_dist, probabilisticBranchTransition=link15_probabilisticBranchTransition, value=link15_dist);
 		link16_dist = link16_dist + CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link16_assemblyConnector_dist, probabilisticBranchTransition=link16_probabilisticBranchTransition, value=link16_dist);
-		assertDistributionFactors(assemblyConnectorLeft=link15_assemblyConnector_dist, left=link15_dist, assemblyConnectorRight=link16_assemblyConnector_dist, right=link16_dist);
 	} else {
 		link15_dist = link15_dist + CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link15_assemblyConnector_dist, probabilisticBranchTransition=link15_probabilisticBranchTransition, value=link15_dist);
 		link16_dist = link16_dist - CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link16_assemblyConnector_dist, probabilisticBranchTransition=link16_probabilisticBranchTransition, value=link16_dist);
-		assertDistributionFactors(assemblyConnectorLeft=link16_assemblyConnector_dist, left=link16_dist, assemblyConnectorRight=link15_assemblyConnector_dist, right=link15_dist);
 	}
 }
 // Mote12: link5, link6
@@ -385,12 +380,10 @@ if(!(link5_power == link6_power)){
 		changeLinkDistribution(assemblyConnector=link5_assemblyConnector_dist, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist);
 		link6_dist = link6_dist + CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link6_assemblyConnector_dist, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist);
-		assertDistributionFactors(assemblyConnectorLeft=link5_assemblyConnector_dist, left=link5_dist, assemblyConnectorRight=link6_assemblyConnector_dist, right=link6_dist);
 	} else {
 		link5_dist = link5_dist + CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link5_assemblyConnector_dist, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist);
 		link6_dist = link6_dist - CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link6_assemblyConnector_dist, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist);
-		assertDistributionFactors(assemblyConnectorLeft=link6_assemblyConnector_dist, left=link6_dist, assemblyConnectorRight=link5_assemblyConnector_dist,right=link5_dist);
 	}
 }
