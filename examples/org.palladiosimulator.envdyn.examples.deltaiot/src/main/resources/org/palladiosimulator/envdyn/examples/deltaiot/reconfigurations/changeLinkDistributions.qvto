@@ -1,0 +1,113 @@
+// declaration: externally defined metamodels
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2';
+modeltype PCM_CORE uses 'http://palladiosimulator.org/PalladioComponentModel/Core/5.2';
+modeltype PCM_COMP uses 'http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2';
+modeltype PCM_REP uses 'http://palladiosimulator.org/PalladioComponentModel/Repository/5.2';
+modeltype PCM_SEFF uses 'http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.2';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2';
+modeltype PCM_PARAM uses 'http://palladiosimulator.org/PalladioComponentModel/Parameter/5.2';
+
+transformation changeLinkDistributions(inout pcmRepository : PCM_REP, in pcmSystem : PCM_SYS) {
+
+	// action parameters passed to qvto transformation to update PCM model
+	configuration property assemblyConnectorLeft : String;				// assemblyConnector id
+	configuration property probabilisticBranchTransitionLeft : String;	// variable probabilisticBranchTransition; refers to appliedBranch in *.reconfiugurationParams
+	configuration property valueLeft : Real;							// distribution value
+
+	configuration property assemblyConnectorRight : String;				// assemblyConnector id
+	configuration property probabilisticBranchTransitionRight : String;	// variable probabilisticBranchTransition; refers to appliedBranch in *.reconfiugurationParams
+	configuration property valueRight : Real;							// distribution value
+
+
+	main() {
+	
+		log('*** STARTED: Transformation rule [changeLinkDistribution] ...');
+		adjustDistributionFactors();
+		log('*** DONE: Transformation rule [changeLinkDistribution]');
+						 								  
+	}
+	
+	/**
+	 * Distribution factor adjustment.
+	 */
+	helper adjustDistributionFactors() {
+		var branchToAdjustLeft : ProbabilisticBranchTransition = findBranchToAdjust(assemblyConnectorLeft, probabilisticBranchTransitionLeft);
+		assert fatal(branchToAdjustLeft != null) with log('No ProbabilisticBranchTransition found with for assemblyConnector/probabilisticBranchTransition: ' + assemblyConnectorLeft + '/' + probabilisticBranchTransitionLeft);
+
+		var branchToAdjustRight : ProbabilisticBranchTransition = findBranchToAdjust(assemblyConnectorRight, probabilisticBranchTransitionRight);
+		assert fatal(branchToAdjustRight != null) with log('No ProbabilisticBranchTransition found with for assemblyConnector/probabilisticBranchTransition: ' + assemblyConnectorRight + '/' + probabilisticBranchTransitionRight);
+
+		var normalizedValueLeft = valueLeft;
+		var normalizedValueRight = valueRight;
+		if (isEqualToOne(valueLeft) and isEqualToOne(valueRight)) {
+			normalizedValueLeft := 0.5;
+			normalizedValueRight := 0.5;
+		};
+		
+		if (isSmallerThanOne(normalizedValueLeft) and isSmallerThanOne(normalizedValueRight)) {
+            branchToAdjustLeft.branchProbability := normalizedValueLeft;
+			log('[changeLinkDistribution: set branchProbability of ProbabilisticBranchTransition ' + branchToAdjustLeft.entityName + ' to value:' + normalizedValueLeft.toString() + ']');
+			branchToAdjustRight.branchProbability := normalizedValueRight;
+			log('[changeLinkDistribution: set branchProbability of ProbabilisticBranchTransition ' + branchToAdjustRight.entityName + ' to value:' + normalizedValueRight.toString() + ']');
+		};
+		
+	}
+	
+	
+	helper isEqualToOne(in value: Real) : Boolean {
+		if ((1.0 - value).abs() < 0.0001) {
+			log('changeLinkDistribution: sanity check (value < 0.00001) -> found value=' + value.toString()+ ']');
+			return true;
+		};
+		return false;
+	};
+	
+	helper isSmallerThanOne(in value: Real) : Boolean {
+		if (value < 1.0 and isEqualToOne(value) = false) {
+			log('changeLinkDistribution: sanity check (value < 1.0) -> found value=' + value.toString()+ ']');
+			return true;
+		};
+		return false;
+	};
+	
+	
+	query findBranchToAdjust(in assemblyConnector : String, in probabilisticBranchTransition : String) : ProbabilisticBranchTransition {
+		var assemblyCtx : AssemblyContext = findAssemblyContextForAssemblyConnector(assemblyConnector);
+		assert fatal(assemblyCtx != null) with log('No AssemblyContext found with for assemblyConnector/probabilisticBranchTransition: ' + assemblyConnectorLeft + '/' + probabilisticBranchTransition);
+
+		var branchToAdjust : ProbabilisticBranchTransition = findProbabilisticBranchTransitionForLinkingResource(assemblyCtx, probabilisticBranchTransition); 
+		assert fatal(branchToAdjust != null) with log('No ProbabilisticBranchTransition found with for assemblyConnector/probabilisticBranchTransition: ' + assemblyConnector + '/' + probabilisticBranchTransition);
+		return branchToAdjust;
+	}
+	
+	query findAssemblyContextForAssemblyConnector(in assemblyConnector : String) : AssemblyContext {
+		log('[findAssemblyContextForAssemblyConnector: search assemblyConnector: ' + assemblyConnector + ']');
+		var assemblyConnectors : Bag(AssemblyConnector) = pcmSystem.rootObjects()[System].allSubobjects()[AssemblyConnector];
+		assemblyConnectors->forEach(connector) {
+			log('[findAssemblyContextForAssemblyConnector: check assemblyConnector/assemblyConnector: ' + connector.id +'/'+ assemblyConnector + ']');
+			if (connector.id = assemblyConnector) then {
+				var assemblyCtx : AssemblyContext = connector.requiringAssemblyContext_AssemblyConnector;
+				log('Found AssemblyContext[' + assemblyCtx.entityName +', ' + assemblyCtx.id +']');
+				return assemblyCtx;
+			}endif;
+		};
+		return null;
+	}
+	
+	
+	query findProbabilisticBranchTransitionForLinkingResource(in assemblyCtx : AssemblyContext, in probabilisticBranchTransition : String) : ProbabilisticBranchTransition {
+		var basicComponent : BasicComponent := assemblyCtx.encapsulatedComponent__AssemblyContext.oclAsType(BasicComponent);
+		var branchTransitions : Bag(ProbabilisticBranchTransition) := basicComponent.serviceEffectSpecifications__BasicComponent.allSubobjects()[ProbabilisticBranchTransition];
+		branchTransitions->forEach(branchTransition) {
+			if (branchTransition.entityName = probabilisticBranchTransition ) {
+				var branchToAdjust : ProbabilisticBranchTransition := branchTransition;
+				return branchToAdjust;
+			} endif;			
+		};
+		return null;
+	}
+	
+	
+	
+}
