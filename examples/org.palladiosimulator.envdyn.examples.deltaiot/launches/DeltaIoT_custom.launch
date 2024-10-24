@@ -6,6 +6,9 @@
     <stringAttribute key="Simulation Engine" value="PRISM"/>
     <stringAttribute key="SimulationID" value="DeltaIoT_custom"/>
     <stringAttribute key="Simulator Type" value="CUSTOM"/>
+    <setAttribute key="TransformationsActive">
+        <setEntry value="adaptDeltaIoTNetwork"/>
+    </setAttribute>
     <stringAttribute key="allocationFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIotAllocation.allocation"/>
     <stringAttribute key="dynamicModelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTEnvironmentalDynamics.dynamicmodel"/>
     <stringAttribute key="experimentsFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTExperiment.experiments"/>
