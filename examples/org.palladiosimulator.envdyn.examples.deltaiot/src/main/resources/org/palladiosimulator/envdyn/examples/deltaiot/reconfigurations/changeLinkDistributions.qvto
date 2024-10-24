@@ -38,38 +38,12 @@ transformation changeLinkDistributions(inout pcmRepository : PCM_REP, in pcmSyst
 		var branchToAdjustRight : ProbabilisticBranchTransition = findBranchToAdjust(assemblyConnectorRight, probabilisticBranchTransitionRight);
 		assert fatal(branchToAdjustRight != null) with log('No ProbabilisticBranchTransition found with for assemblyConnector/probabilisticBranchTransition: ' + assemblyConnectorRight + '/' + probabilisticBranchTransitionRight);
 
-		var normalizedValueLeft = valueLeft;
-		var normalizedValueRight = valueRight;
-		if (isEqualToOne(valueLeft) and isEqualToOne(valueRight)) {
-			normalizedValueLeft := 0.5;
-			normalizedValueRight := 0.5;
-		};
-		
-		if (isSmallerThanOne(normalizedValueLeft) and isSmallerThanOne(normalizedValueRight)) {
-            branchToAdjustLeft.branchProbability := normalizedValueLeft;
-			log('[changeLinkDistribution: set branchProbability of ProbabilisticBranchTransition ' + branchToAdjustLeft.entityName + ' to value:' + normalizedValueLeft.toString() + ']');
-			branchToAdjustRight.branchProbability := normalizedValueRight;
-			log('[changeLinkDistribution: set branchProbability of ProbabilisticBranchTransition ' + branchToAdjustRight.entityName + ' to value:' + normalizedValueRight.toString() + ']');
-		};
+        branchToAdjustLeft.branchProbability := valueLeft;
+		log('[changeLinkDistribution: set branchProbability of ProbabilisticBranchTransition ' + branchToAdjustLeft.entityName + ' to value:' + valueLeft.toString() + ']');
+		branchToAdjustRight.branchProbability := valueRight;
+		log('[changeLinkDistribution: set branchProbability of ProbabilisticBranchTransition ' + branchToAdjustRight.entityName + ' to value:' + valueRight.toString() + ']');
 		
 	}
-	
-	
-	helper isEqualToOne(in value: Real) : Boolean {
-		if ((1.0 - value).abs() < 0.0001) {
-			log('changeLinkDistribution: sanity check (value < 0.00001) -> found value=' + value.toString()+ ']');
-			return true;
-		};
-		return false;
-	};
-	
-	helper isSmallerThanOne(in value: Real) : Boolean {
-		if (value < 1.0 and isEqualToOne(value) = false) {
-			log('changeLinkDistribution: sanity check (value < 1.0) -> found value=' + value.toString()+ ']');
-			return true;
-		};
-		return false;
-	};
 	
 	
 	query findBranchToAdjust(in assemblyConnector : String, in probabilisticBranchTransition : String) : ProbabilisticBranchTransition {
@@ -85,7 +59,7 @@ transformation changeLinkDistributions(inout pcmRepository : PCM_REP, in pcmSyst
 		log('[findAssemblyContextForAssemblyConnector: search assemblyConnector: ' + assemblyConnector + ']');
 		var assemblyConnectors : Bag(AssemblyConnector) = pcmSystem.rootObjects()[System].allSubobjects()[AssemblyConnector];
 		assemblyConnectors->forEach(connector) {
-			log('[findAssemblyContextForAssemblyConnector: check assemblyConnector/assemblyConnector: ' + connector.id +'/'+ assemblyConnector + ']');
+//			log('[findAssemblyContextForAssemblyConnector: check assemblyConnector/assemblyConnector: ' + connector.id +'/'+ assemblyConnector + ']');
 			if (connector.id = assemblyConnector) then {
 				var assemblyCtx : AssemblyContext = connector.requiringAssemblyContext_AssemblyConnector;
 				log('Found AssemblyContext[' + assemblyCtx.entityName +', ' + assemblyCtx.id +']');
