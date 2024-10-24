@@ -34,25 +34,8 @@ transformation changeLinkDistribution(inout pcmRepository : PCM_REP, in pcmSyste
 		var branchToAdjust : ProbabilisticBranchTransition = findProbabilisticBranchTransitionForLinkingResource(assemblyCtx, probabilisticBranchTransition); 
 		assert fatal(branchToAdjust != null) with log('No ProbabilisticBranchTransition found with for assemblyConnector/probabilisticBranchTransition: ' + assemblyConnector + '/' + probabilisticBranchTransition);
 
-		// sanity checks: normalize value to be within [0.0, 1.0]
-		log('changeLinkDistribution: sanity checking for distribution factor value=' + value.toString() + ' ...');
-		var normalizedValue = value;
-		if (normalizedValue >= 1.0) {
-			normalizedValue := value.round();
-			log('changeLinkDistribution: sanity check (value >= 1) -> rounded value from ' + value.toString() + ' to ' + normalizedValue.toString());
-		};
-		if (normalizedValue <= 0.0) {
-			normalizedValue := 0.0;
-			log('changeLinkDistribution: sanity check (value <= 0) -> rounded value from ' + value.toString() + ' to ' + normalizedValue.toString());
-		};
-		if ((1.0 - value).abs() < 0.0001) {
-			normalizedValue := value.round();
-			log('changeLinkDistribution: sanity check (value < 0.00001) -> rounded value from ' + value.toString() + ' to ' + normalizedValue.toString());
-		};
-		assert fatal(value > 0.0 or value < 1.0) with log('Distribution factor not within range [0.0,1.0]: value=' + normalizedValue.toString());
-		
-		log('[changeLinkDistribution: set branchProbability of ProbabilisticBranchTransition ' + branchToAdjust.entityName + ' to value:' + normalizedValue.toString() + ']');
-		branchToAdjust.branchProbability := normalizedValue;
+		log('[changeLinkDistribution: set branchProbability of ProbabilisticBranchTransition ' + branchToAdjust.entityName + ' to value:' + value.toString() + ']');
+		branchToAdjust.branchProbability := value;
 	}
 	
 	
@@ -60,7 +43,7 @@ transformation changeLinkDistribution(inout pcmRepository : PCM_REP, in pcmSyste
 		log('[findAssemblyContextForAssemblyConnector: search assemblyConnector: ' + assemblyConnector + ']');
 		var assemblyConnectors : Bag(AssemblyConnector) = pcmSystem.rootObjects()[System].allSubobjects()[AssemblyConnector];
 		assemblyConnectors->forEach(connector) {
-			log('[findAssemblyContextForAssemblyConnector: check assemblyConnector/assemblyConnector: ' + connector.id +'/'+ assemblyConnector + ']');
+//			log('[findAssemblyContextForAssemblyConnector: check assemblyConnector/assemblyConnector: ' + connector.id +'/'+ assemblyConnector + ']');
 			if (connector.id = assemblyConnector) then {
 				var assemblyCtx : AssemblyContext = connector.requiringAssemblyContext_AssemblyConnector;
 				log('Found AssemblyContext[' + assemblyCtx.entityName +', ' + assemblyCtx.id +']');
