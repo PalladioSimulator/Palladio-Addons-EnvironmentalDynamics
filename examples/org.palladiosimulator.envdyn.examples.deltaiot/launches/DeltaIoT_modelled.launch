@@ -6,6 +6,10 @@
     <stringAttribute key="Simulation Engine" value="PRISM"/>
     <stringAttribute key="SimulationID" value="DeltaIoT_modelled"/>
     <stringAttribute key="Simulator Type" value="MODELLED"/>
+    <setAttribute key="TransformationsActive">
+        <setEntry value="changeLinkDistribution"/>
+        <setEntry value="changeLinkPower"/>
+    </setAttribute>
     <stringAttribute key="allocationFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIotAllocation.allocation"/>
     <stringAttribute key="dynamicModelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTEnvironmentalDynamics.dynamicmodel"/>
     <stringAttribute key="experimentsFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTExperiment.experiments"/>
@@ -19,7 +23,7 @@
         <listEntry value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/prism/EnergyConsumption.props"/>
         <listEntry value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/prism/PacketLoss.props"/>
     </listAttribute>
-    <stringAttribute key="smodelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/strategies/DeltaIoTDefaultReconfigurationStrategy.smodel"/>
+    <stringAttribute key="smodelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/strategies/DeltaIoTDefaultReconfigurationStrategyValidation.smodel"/>
     <stringAttribute key="staticModelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel"/>
     <stringAttribute key="usageFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/dummy.usagemodel"/>
 </launchConfiguration>
