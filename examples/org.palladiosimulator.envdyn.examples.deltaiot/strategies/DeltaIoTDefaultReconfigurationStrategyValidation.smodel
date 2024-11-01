@@ -344,14 +344,14 @@ if(!(link7_power == link8_power)){
 	
 //  if (leftTransmissionPower > rightTransmissionPower
 //          && isSmallerThanOne(leftDistributionFactor)) {
-	if((link7_power > link8_power) && (link7_dist < 10) && (link7_dist != 10)) {
+	if((link7_power > link8_power) && (link7_dist < 10)) {
 				link7_dist = link7_dist + CHANGE_DIST_VALUE;
 				changeLinkDistribution(assemblyConnector=link7_assemblyConnector_dist, probabilisticBranchTransition=link7_probabilisticBranchTransition, value=link7_dist / 10.0);
 				link8_dist = link8_dist - CHANGE_DIST_VALUE;
 				changeLinkDistribution(assemblyConnector=link8_assemblyConnector_dist, probabilisticBranchTransition=link8_probabilisticBranchTransition, value=link8_dist / 10.0);		
 	} else {
 //          if (isSmallerThanOne(rightDistributionFactor)) {}
-			if(link8_dist < 10 && (link8_dist != 10)){
+			if(link8_dist < 10){
 					link7_dist = link7_dist - CHANGE_DIST_VALUE;
 					changeLinkDistribution(assemblyConnector=link7_assemblyConnector_dist, probabilisticBranchTransition=link7_probabilisticBranchTransition, value=link7_dist / 10.0);
 					link8_dist = link8_dist + CHANGE_DIST_VALUE;
@@ -372,14 +372,14 @@ if(!(link15_power == link16_power)){
 	
 //  if (leftTransmissionPower > rightTransmissionPower
 //          && isSmallerThanOne(leftDistributionFactor)) {
-	if((link15_power > link16_power) && (link15_dist < 10) && (link15_dist != 10)) {
+	if((link15_power > link16_power) && (link15_dist < 10)) {
 				link15_dist = link15_dist + CHANGE_DIST_VALUE;
 				changeLinkDistribution(assemblyConnector=link15_assemblyConnector_dist, probabilisticBranchTransition=link15_probabilisticBranchTransition, value=link15_dist / 10.0);
 				link16_dist = link16_dist - CHANGE_DIST_VALUE;
 				changeLinkDistribution(assemblyConnector=link16_assemblyConnector_dist, probabilisticBranchTransition=link16_probabilisticBranchTransition, value=link16_dist / 10.0);
 	} else {
 //          if (isSmallerThanOne(rightDistributionFactor)) {}
-		if(link16_dist < 10 && (link16_dist != 10)){
+		if(link16_dist < 10){
 				link15_dist = link15_dist - CHANGE_DIST_VALUE;
 				changeLinkDistribution(assemblyConnector=link15_assemblyConnector_dist, probabilisticBranchTransition=link15_probabilisticBranchTransition, value=link15_dist / 10.0);
 				link16_dist = link16_dist + CHANGE_DIST_VALUE;
@@ -400,7 +400,7 @@ if(!(link5_power == link6_power)){
 	
 //  if (leftTransmissionPower > rightTransmissionPower
 //          && isSmallerThanOne(leftDistributionFactor)) {
-	if((link5_power > link6_power) && (link5_dist < 10) && (link5_dist != 10)) {
+	if((link5_power > link6_power) && (link5_dist < 10)) {
 			if (link5_dist < 10 && link5_dist == 10) {
 				link5_dist = link5_dist + CHANGE_DIST_VALUE;
 				changeLinkDistribution(assemblyConnector=link5_assemblyConnector_dist, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist / 10.0);
@@ -409,7 +409,7 @@ if(!(link5_power == link6_power)){
 			}
 	} else {
 //          if (isSmallerThanOne(rightDistributionFactor)) {}
-		if(link6_dist < 10 && (link6_dist != 10)){
+		if(link6_dist < 10){
 				link5_dist = link5_dist - CHANGE_DIST_VALUE;
 				changeLinkDistribution(assemblyConnector=link5_assemblyConnector_dist, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist / 10.0);
 				link6_dist = link6_dist + CHANGE_DIST_VALUE;
