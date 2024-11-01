@@ -401,12 +401,10 @@ if(!(link5_power == link6_power)){
 //  if (leftTransmissionPower > rightTransmissionPower
 //          && isSmallerThanOne(leftDistributionFactor)) {
 	if((link5_power > link6_power) && (link5_dist < 10)) {
-			if (link5_dist < 10 && link5_dist == 10) {
 				link5_dist = link5_dist + CHANGE_DIST_VALUE;
 				changeLinkDistribution(assemblyConnector=link5_assemblyConnector_dist, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist / 10.0);
 				link6_dist = link6_dist - CHANGE_DIST_VALUE;
 				changeLinkDistribution(assemblyConnector=link6_assemblyConnector_dist, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist / 10.0);
-			}
 	} else {
 //          if (isSmallerThanOne(rightDistributionFactor)) {}
 		if(link6_dist < 10){
