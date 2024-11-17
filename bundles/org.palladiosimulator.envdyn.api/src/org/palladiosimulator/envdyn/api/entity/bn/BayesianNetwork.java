@@ -1,11 +1,12 @@
 package org.palladiosimulator.envdyn.api.entity.bn;
 
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
 import static org.palladiosimulator.envdyn.api.util.TemplateDefinitionsQuerying.areEqual;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.palladiosimulator.envdyn.api.entity.ProbabilisticModel;
 import org.palladiosimulator.envdyn.api.entity.TemplateVariableTopology;
@@ -199,7 +200,7 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
             .stream()
             .map(GroundRandomVariable::getInstantiatedTemplate)
             .distinct()
-            .collect(toSet());
+            .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     public GroundProbabilisticNetwork get() {

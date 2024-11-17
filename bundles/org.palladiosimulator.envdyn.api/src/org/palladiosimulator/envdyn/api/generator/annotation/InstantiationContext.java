@@ -19,78 +19,81 @@ import com.google.common.collect.Sets;
 
 public class InstantiationContext {
 
-	private final String id;
-	private final Stereotype tag;
-	private final Argument argument;
-	private final EObject appliedObject;
-	private final Set<TemplateVariable> instantiatedTemplates;
+    private final String id;
+    private final Stereotype tag;
+    private final Argument argument;
+    private final EObject appliedObject;
+    private final Set<TemplateVariable> instantiatedTemplates;
 
-	public InstantiationContext(Stereotype tag, EObject appliedObject) {
-		this.id = getTaggedId(appliedObject, tag);
-		this.tag = tag;
-		this.argument = InstantiationContextProvider.ANNOTATION_HANDLER.getArgument(appliedObject, tag)
-				.orElseThrow(() -> new EnvironmentalDynamicsException("There is no argument specified."));
-		this.appliedObject = appliedObject;
-		this.instantiatedTemplates = Sets.newHashSet();
-	}
+    public InstantiationContext(Stereotype tag, EObject appliedObject) {
+        this.id = getTaggedId(appliedObject, tag);
+        this.tag = tag;
+        this.argument = InstantiationContextProvider.ANNOTATION_HANDLER.getArgument(appliedObject, tag)
+            .orElseThrow(() -> new EnvironmentalDynamicsException("There is no argument specified."));
+        this.appliedObject = appliedObject;
+        this.instantiatedTemplates = Sets.newLinkedHashSet();
+    }
 
-	public Argument getArgument() {
-		return argument;
-	}
+    public Argument getArgument() {
+        return argument;
+    }
 
-	public String getTagId() {
-		return id;
-	}
+    public String getTagId() {
+        return id;
+    }
 
-	public Stereotype getStereotype() {
-		return tag;
-	}
+    public Stereotype getStereotype() {
+        return tag;
+    }
 
-	public Set<TemplateVariable> getTemplates() {
-		return instantiatedTemplates;
-	}
+    public Set<TemplateVariable> getTemplates() {
+        return instantiatedTemplates;
+    }
 
-	public void toInstantiate(TemplateVariable template) {
-		instantiatedTemplates.add(template);
-	}
+    public void toInstantiate(TemplateVariable template) {
+        instantiatedTemplates.add(template);
+    }
 
-	public EObject getAppliedObject() {
-		return appliedObject;
-	}
+    public EObject getAppliedObject() {
+        return appliedObject;
+    }
 
-	public boolean signatureMatches(TemplateVariable template) {
-		List<Argument> signature = signatureAsArgs(template);
-		if (signature.size() > 1) {
-			return false;
-		}
-		return isIncluded(getArgument(), signature);
-	}
+    public boolean signatureMatches(TemplateVariable template) {
+        List<Argument> signature = signatureAsArgs(template);
+        if (signature.size() > 1) {
+            return false;
+        }
+        return isIncluded(getArgument(), signature);
+    }
 
-	public boolean signaturesIntersect(TemplateVariable template) {
-		return signaturesIntersect(signatureAsArgs(template));
-	}
+    public boolean signaturesIntersect(TemplateVariable template) {
+        return signaturesIntersect(signatureAsArgs(template));
+    }
 
-	public boolean signaturesIntersect(List<Argument> signature) {
-		return isIncluded(getArgument(), signature);
-	}
+    public boolean signaturesIntersect(List<Argument> signature) {
+        return isIncluded(getArgument(), signature);
+    }
 
-	private List<Argument> signatureAsArgs(TemplateVariable template) {
-		List<Argument> argSignature = Lists.newArrayList();
-		
-		Optional.ofNullable(template.getRefines()).ifPresent(t -> argSignature.addAll(signatureAsArgs(t)));
-		
-		for (LogicalVariable each : template.getSignature()) {
-			argSignature.add(each.getArgument());
-		}
-		return argSignature;
-	}
-	
-	private boolean isIncluded(Argument arg, List<Argument> signature) {
-		return signature.stream().anyMatch(equalArgs(arg));
-	}
+    private List<Argument> signatureAsArgs(TemplateVariable template) {
+        List<Argument> argSignature = Lists.newArrayList();
 
-	private Predicate<Argument> equalArgs(Argument argToCheck) {
-		return arg -> arg.getId().equals(argToCheck.getId());
-	}
+        Optional.ofNullable(template.getRefines())
+            .ifPresent(t -> argSignature.addAll(signatureAsArgs(t)));
+
+        for (LogicalVariable each : template.getSignature()) {
+            argSignature.add(each.getArgument());
+        }
+        return argSignature;
+    }
+
+    private boolean isIncluded(Argument arg, List<Argument> signature) {
+        return signature.stream()
+            .anyMatch(equalArgs(arg));
+    }
+
+    private Predicate<Argument> equalArgs(Argument argToCheck) {
+        return arg -> arg.getId()
+            .equals(argToCheck.getId());
+    }
 
 }

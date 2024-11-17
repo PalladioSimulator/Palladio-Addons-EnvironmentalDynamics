@@ -1,11 +1,12 @@
 package org.palladiosimulator.envdyn.api.generator;
 
-import static java.util.stream.Collectors.toSet;
 import static org.palladiosimulator.envdyn.api.entity.bn.BayesianNetwork.getTemplates;
 import static org.palladiosimulator.envdyn.api.util.InductiveDynamicBehaviourQuerying.deriveScopeFrom;
 
+import java.util.LinkedHashSet;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.envdyn.api.entity.bn.BayesianNetwork;
@@ -105,7 +106,7 @@ public class DynamicBayesianNetworkGenerator<I extends Value<?>>
             .map(v -> createInterTimeSliceInductions(v, defQuery))
             .filter(Optional::isPresent)
             .map(Optional::get)
-            .collect(toSet());
+            .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     private Optional<InterTimeSliceInduction> createInterTimeSliceInductions(GroundRandomVariable variable,
@@ -158,7 +159,7 @@ public class DynamicBayesianNetworkGenerator<I extends Value<?>>
         EObject defs = Lists.newArrayList(templateScope)
             .get(0)
             .eContainer();
-        return Sets.newHashSet(TemplateVariableDefinitions.class.cast(defs)
+        return Sets.newLinkedHashSet(TemplateVariableDefinitions.class.cast(defs)
             .getRelation());
     }
 
