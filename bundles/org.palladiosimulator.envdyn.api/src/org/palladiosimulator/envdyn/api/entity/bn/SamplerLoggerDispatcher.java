@@ -15,7 +15,7 @@ public enum SamplerLoggerDispatcher implements SamplerLogger {
     }
 
     @Override
-    public void onSample(GroundRandomVariable variable, Object value) {
-        logger.onSample(variable, value);
+    public void onSample(String context, GroundRandomVariable variable, Object value) {
+        logger.onSample(context, variable, value);
     }
 }
