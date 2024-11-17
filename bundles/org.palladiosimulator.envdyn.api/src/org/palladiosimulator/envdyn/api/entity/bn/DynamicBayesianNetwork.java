@@ -76,7 +76,7 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
                 throw new IllegalArgumentException("The number of time slices must match the input sequence size.");
             }
 
-            Map<Integer, List<InputValue<I>>> samplePath = Maps.newHashMap();
+            Map<Integer, List<InputValue<I>>> samplePath = Maps.newLinkedHashMap();
             for (int i = 0; i < timeSlices; i++) {
                 samplePath.put(i, samples.get(i));
             }
@@ -84,7 +84,7 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
         }
 
         public static <I extends Value<?>> Trajectory<I> create(int timeSlices) {
-            Map<Integer, List<InputValue<I>>> samplePath = Maps.newHashMap();
+            Map<Integer, List<InputValue<I>>> samplePath = Maps.newLinkedHashMap();
             for (int i = 0; i <= timeSlices; i++) {
                 samplePath.put(i, Lists.newArrayList());
             }
