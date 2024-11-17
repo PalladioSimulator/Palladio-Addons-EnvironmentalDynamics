@@ -343,7 +343,7 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
             ConditionableProbabilityDistribution<I> given = (ConditionableProbabilityDistribution<I>) localCPD
                 .given(resolved);
             I value = given.sample();
-            samplerLogger.onSample(variable, value);
+            samplerLogger.onSample(getClass().getSimpleName() + ":inter", variable, value);
             sample.add(InputValue.create(value, variable));
         }
 
@@ -351,7 +351,7 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
             ConditionableProbabilityDistribution<I> localCPD = getCPDFromInitial(each, conditionals);
             GroundRandomVariable variable = each.getAppliedGroundVariable();
             I value = localCPD.sample();
-            samplerLogger.onSample(variable, value);
+            samplerLogger.onSample(getClass().getSimpleName() + ":intra", variable, value);
             InputValue<I> inputValue = InputValue.create(value, variable);
             sample.add(inputValue);
         }
