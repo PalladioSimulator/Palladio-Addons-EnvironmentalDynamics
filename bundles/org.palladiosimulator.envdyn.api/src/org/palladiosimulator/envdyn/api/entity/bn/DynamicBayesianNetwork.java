@@ -194,6 +194,7 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
     private final TemporalProbabilityHandler probHandler;
     private final List<ConditionalInputValue<I>> conditionals;
     private final ConditionalInputValueUtil<I> conditionalInputValueUtil = new ConditionalInputValueUtil<>();
+    private final SamplerLogger samplerLogger;
 
     public DynamicBayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, BayesianNetwork<I> initialDistribution,
             DynamicBehaviourExtension dynamics, IProbabilityDistributionFactory<I> probabilityDistributionFactory) {
@@ -204,6 +205,7 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
         this.initialDistribution = initialDistribution;
         this.probHandler = new TemporalProbabilityHandler(probabilityDistributionFactory);
         this.conditionals = Lists.newArrayList();
+        this.samplerLogger = SamplerLoggerDispatcher.INSTANCE;
     }
 
     @Override
@@ -336,15 +338,21 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
         List<InputValue<I>> sample = Lists.newArrayList();
         for (InterTimeSliceInduction each : dynBehaviourQuery.getInterTimeSliceInductions()) {
             List<Conditional<I>> resolved = resolveConditionals(each, conditionals);
-            ConditionableProbabilityDistribution<I> localCPD = probHandler.getCPD(each.getAppliedGroundVariable());
+            GroundRandomVariable variable = each.getAppliedGroundVariable();
+            ConditionableProbabilityDistribution<I> localCPD = probHandler.getCPD(variable);
             ConditionableProbabilityDistribution<I> given = (ConditionableProbabilityDistribution<I>) localCPD
                 .given(resolved);
-            sample.add(InputValue.create(given.sample(), each.getAppliedGroundVariable()));
+            I value = given.sample();
+            samplerLogger.onSample(variable, value);
+            sample.add(InputValue.create(value, variable));
         }
 
         for (IntraTimeSliceInduction each : dynBehaviourQuery.getIntraTimeSliceInductions()) {
             ConditionableProbabilityDistribution<I> localCPD = getCPDFromInitial(each, conditionals);
-            InputValue<I> inputValue = InputValue.create(localCPD.sample(), each.getAppliedGroundVariable());
+            GroundRandomVariable variable = each.getAppliedGroundVariable();
+            I value = localCPD.sample();
+            samplerLogger.onSample(variable, value);
+            InputValue<I> inputValue = InputValue.create(value, variable);
             sample.add(inputValue);
         }
 
