@@ -160,7 +160,25 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
     }
 
     @Override
+    public void init(int seed) {
+        if (initialized) {
+            return;
+        }
+        initialized = true;
+
+        for (LocalProbabilisticNetwork eachLocal : groundNetwork.getLocalProbabilisticModels()) {
+            for (GroundRandomVariable eachVariable : eachLocal.getGroundRandomVariables()) {
+                ProbabilityDistributionFunction<I> pdf = probModelHandler.getPDF(eachVariable);
+                pdf.init(seed);
+            }
+        }
+    }
+
+    @Override
     public List<InputValue<I>> sample() {
+        if (!initialized) {
+            throw new RuntimeException("not initialized");
+        }
         return sampleNext();
     }
 

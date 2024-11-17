@@ -212,7 +212,28 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
     }
 
     @Override
+    public void init(int seed) {
+        if (initialized) {
+            throw new RuntimeException("already initialized");
+        }
+        initialized = true;
+
+        initialDistribution.init(seed);
+        for (InterTimeSliceInduction each : dynBehaviourQuery.getInterTimeSliceInductions()) {
+            ConditionableProbabilityDistribution<I> localCPD = probHandler.getCPD(each.getAppliedGroundVariable());
+            localCPD.init(seed);
+        }
+        for (IntraTimeSliceInduction each : dynBehaviourQuery.getIntraTimeSliceInductions()) {
+            ConditionableProbabilityDistribution<I> localCPD = getCPDFromInitial(each, conditionals);
+            localCPD.init(seed);
+        }
+    }
+
+    @Override
     public Trajectory<I> sample() {
+        if (!initialized) {
+            throw new RuntimeException("not initialized");
+        }
         return unrollForSampling(SINGLE_TIME_SLICE);
     }
 
