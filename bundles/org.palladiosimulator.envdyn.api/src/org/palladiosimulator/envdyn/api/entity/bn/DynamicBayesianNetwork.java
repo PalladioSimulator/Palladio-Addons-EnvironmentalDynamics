@@ -1,12 +1,13 @@
 package org.palladiosimulator.envdyn.api.entity.bn;
 
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
 import static org.palladiosimulator.envdyn.api.util.TemplateDefinitionsQuerying.contains;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.envdyn.api.entity.ProbabilisticModel;
@@ -385,8 +386,8 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
     }
 
     private boolean shareSameContext(GroundRandomVariable parent, GroundRandomVariable child) {
-        Set<EObject> parentContext = Sets.newHashSet(parent.getAppliedObjects());
-        Set<EObject> childContext = Sets.newHashSet(child.getAppliedObjects());
+        Set<EObject> parentContext = new LinkedHashSet<>(parent.getAppliedObjects());
+        Set<EObject> childContext = new LinkedHashSet<>(child.getAppliedObjects());
         return Sets.intersection(parentContext, childContext)
             .size() > 0;
     }
@@ -395,7 +396,7 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
         return induction.getTemporalStructure()
             .stream()
             .map(InductiveDynamicBehaviourQuerying::getSource)
-            .collect(toSet());
+            .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     private void checkValidity(List<Conditional<I>> conditionals) {

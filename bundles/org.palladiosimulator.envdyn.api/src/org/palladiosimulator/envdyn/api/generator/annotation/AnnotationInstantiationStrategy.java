@@ -28,150 +28,156 @@ import com.google.common.collect.Sets;
 
 public class AnnotationInstantiationStrategy implements NetworkInstantiationStrategy {
 
-	private final static StaticmodelFactory MODEL_FACTORY = StaticmodelFactory.eINSTANCE;
+    private final static StaticmodelFactory MODEL_FACTORY = StaticmodelFactory.eINSTANCE;
 
-	private final InstantiationContextProvider contextProvider;
+    private final InstantiationContextProvider contextProvider;
 
-	public AnnotationInstantiationStrategy(TemplateVariableDefinitions templateDefinitions) {
-		this.contextProvider = new InstantiationContextProvider(templateDefinitions);
-	}
+    public AnnotationInstantiationStrategy(TemplateVariableDefinitions templateDefinitions) {
+        this.contextProvider = new InstantiationContextProvider(templateDefinitions);
+    }
 
-	@Override
-	public GroundProbabilisticNetwork instantiate(ResourceSet appliedModels) {
-		contextProvider.resolve(appliedModels);
-		return instantiateNetwork();
-	}
+    @Override
+    public GroundProbabilisticNetwork instantiate(ResourceSet appliedModels) {
+        contextProvider.resolve(appliedModels);
+        return instantiateNetwork();
+    }
 
-	private GroundProbabilisticNetwork instantiateNetwork() {
-		List<LocalProbabilisticNetwork> localNetworks = Lists.newArrayList();
-		List<GroundProbabilisticModel> groundModels = Lists.newArrayList();
-		for (String eachTag : contextProvider.getInstantiationTags()) {
-			ResolvedInstantiationContext resolved = contextProvider.getInstantiationContextsOf(eachTag);
-			List<GroundRandomVariable> groundVariables = instantiateGroundVariables(resolved);
-			for (GroundRandomVariable each : groundVariables) {
-				groundModels.add(instantiateAndSetLocalModel(each, resolved));
-			}
+    private GroundProbabilisticNetwork instantiateNetwork() {
+        List<LocalProbabilisticNetwork> localNetworks = Lists.newArrayList();
+        List<GroundProbabilisticModel> groundModels = Lists.newArrayList();
+        for (String eachTag : contextProvider.getInstantiationTags()) {
+            ResolvedInstantiationContext resolved = contextProvider.getInstantiationContextsOf(eachTag);
+            List<GroundRandomVariable> groundVariables = instantiateGroundVariables(resolved);
+            for (GroundRandomVariable each : groundVariables) {
+                groundModels.add(instantiateAndSetLocalModel(each, resolved));
+            }
 
-			localNetworks.add(createLocalProbabilisticModel(groundVariables));
-		}
+            localNetworks.add(createLocalProbabilisticModel(groundVariables));
+        }
 
-		return instantiateGroundNetwork(groundModels, localNetworks);
-	}
+        return instantiateGroundNetwork(groundModels, localNetworks);
+    }
 
-	private LocalProbabilisticNetwork createLocalProbabilisticModel(List<GroundRandomVariable> variables) {
-		LocalProbabilisticNetwork model = MODEL_FACTORY.createLocalProbabilisticNetwork();
-		model.getGroundRandomVariables().addAll(variables);
-		return model;
-	}
+    private LocalProbabilisticNetwork createLocalProbabilisticModel(List<GroundRandomVariable> variables) {
+        LocalProbabilisticNetwork model = MODEL_FACTORY.createLocalProbabilisticNetwork();
+        model.getGroundRandomVariables()
+            .addAll(variables);
+        return model;
+    }
 
-	private List<GroundRandomVariable> instantiateGroundVariables(ResolvedInstantiationContext resolved) {
-		List<GroundRandomVariable> result = Lists.newArrayList();
-		for (TemplateVariable each : resolved.getInstantiatedTemplates()) {
-			if (resolved.singleInstantiation(each)) {
-				result.add(createRandomVariable(each, resolved));
-			} else {
-				result.addAll(createRandomVariables(each, resolved));
-			}
-		}
-		return result;
-	}
+    private List<GroundRandomVariable> instantiateGroundVariables(ResolvedInstantiationContext resolved) {
+        List<GroundRandomVariable> result = Lists.newArrayList();
+        for (TemplateVariable each : resolved.getInstantiatedTemplates()) {
+            if (resolved.singleInstantiation(each)) {
+                result.add(createRandomVariable(each, resolved));
+            } else {
+                result.addAll(createRandomVariables(each, resolved));
+            }
+        }
+        return result;
+    }
 
-	private GroundRandomVariable createRandomVariable(TemplateVariable template,
-			ResolvedInstantiationContext resolved) {
-		TemplateDefinitionsQuerying defQuery = TemplateDefinitionsQuerying
-				.withBaseTemplatesOnly((TemplateVariableDefinitions) template.eContainer());
+    private GroundRandomVariable createRandomVariable(TemplateVariable template,
+            ResolvedInstantiationContext resolved) {
+        TemplateDefinitionsQuerying defQuery = TemplateDefinitionsQuerying
+            .withBaseTemplatesOnly((TemplateVariableDefinitions) template.eContainer());
 
-		Set<EObject> appliedObjects = resolved.filterElementsInstantiating(template);
-		Set<DependenceRelation> dependenceStructure = defQuery.filterRelationsWithTarget(Sets.newHashSet(template));
+        Set<EObject> appliedObjects = resolved.filterElementsInstantiating(template);
+        Set<DependenceRelation> dependenceStructure = defQuery.filterRelationsWithTarget(Sets.newHashSet(template));
 
-		return createRandomVariable(template, dependenceStructure, appliedObjects);
-	}
+        return createRandomVariable(template, dependenceStructure, appliedObjects);
+    }
 
-	private List<GroundRandomVariable> createRandomVariables(TemplateVariable template,
-			ResolvedInstantiationContext resolved) {
-		List<GroundRandomVariable> variables = Lists.newArrayList();
-		for (InstantiationContext each : resolved.filterContextsIncluding(template)) {
-			TemplateDefinitionsQuerying defQuery = TemplateDefinitionsQuerying
-					.withBaseTemplatesOnly((TemplateVariableDefinitions) template.eContainer());
+    private List<GroundRandomVariable> createRandomVariables(TemplateVariable template,
+            ResolvedInstantiationContext resolved) {
+        List<GroundRandomVariable> variables = Lists.newArrayList();
+        for (InstantiationContext each : resolved.filterContextsIncluding(template)) {
+            TemplateDefinitionsQuerying defQuery = TemplateDefinitionsQuerying
+                .withBaseTemplatesOnly((TemplateVariableDefinitions) template.eContainer());
 
-			Set<EObject> appliedObjects = Sets.newHashSet(each.getAppliedObject());
-			Set<DependenceRelation> dependenceStructure = defQuery.filterRelationsWithTarget(Sets.newHashSet(template));
+            Set<EObject> appliedObjects = Sets.newHashSet(each.getAppliedObject());
+            Set<DependenceRelation> dependenceStructure = defQuery.filterRelationsWithTarget(Sets.newHashSet(template));
 
-			variables.add(createRandomVariable(template, dependenceStructure, appliedObjects));
-		}
-		return variables;
-	}
+            variables.add(createRandomVariable(template, dependenceStructure, appliedObjects));
+        }
+        return variables;
+    }
 
-	private GroundRandomVariable createRandomVariable(TemplateVariable template,
-			Set<DependenceRelation> dependenceStructure, Set<EObject> appliedObjects) {
-		GroundRandomVariable variable = MODEL_FACTORY.createGroundRandomVariable();
-		variable.setEntityName(constructNameOf(template, appliedObjects));
-		variable.getAppliedObjects().addAll(appliedObjects);
-		variable.setInstantiatedTemplate(template);
-		variable.getDependenceStructure().addAll(dependenceStructure);
-		return variable;
-	}
+    private GroundRandomVariable createRandomVariable(TemplateVariable template,
+            Set<DependenceRelation> dependenceStructure, Set<EObject> appliedObjects) {
+        GroundRandomVariable variable = MODEL_FACTORY.createGroundRandomVariable();
+        variable.setEntityName(constructNameOf(template, appliedObjects));
+        variable.getAppliedObjects()
+            .addAll(appliedObjects);
+        variable.setInstantiatedTemplate(template);
+        variable.getDependenceStructure()
+            .addAll(dependenceStructure);
+        return variable;
+    }
 
-	private GroundProbabilisticModel instantiateAndSetLocalModel(GroundRandomVariable variable,
-			ResolvedInstantiationContext resolved) {
-		return createAndSetLocalModel(variable, resolveTemplateFactor(variable, resolved));
-	}
+    private GroundProbabilisticModel instantiateAndSetLocalModel(GroundRandomVariable variable,
+            ResolvedInstantiationContext resolved) {
+        return createAndSetLocalModel(variable, resolveTemplateFactor(variable, resolved));
+    }
 
-	private GroundProbabilisticModel createAndSetLocalModel(GroundRandomVariable variable, TemplateFactor factor) {
-		GroundProbabilisticModel model = createLocalModel(variable, factor);
-		variable.setDescriptiveModel(model);
-		return model;
-	}
+    private GroundProbabilisticModel createAndSetLocalModel(GroundRandomVariable variable, TemplateFactor factor) {
+        GroundProbabilisticModel model = createLocalModel(variable, factor);
+        variable.setDescriptiveModel(model);
+        return model;
+    }
 
-	private GroundProbabilisticModel createLocalModel(GroundRandomVariable variable, TemplateFactor factor) {
-		GroundProbabilisticModel localModel = MODEL_FACTORY.createGroundProbabilisticModel();
-		localModel.setEntityName(constructNameOf(variable, factor));
-		localModel.setInstantiatedFactor(factor);
-		return localModel;
-	}
+    private GroundProbabilisticModel createLocalModel(GroundRandomVariable variable, TemplateFactor factor) {
+        GroundProbabilisticModel localModel = MODEL_FACTORY.createGroundProbabilisticModel();
+        localModel.setEntityName(constructNameOf(variable, factor));
+        localModel.setInstantiatedFactor(factor);
+        return localModel;
+    }
 
-	private TemplateFactor resolveTemplateFactor(GroundRandomVariable variable, ResolvedInstantiationContext resolved) {
-		TemplateDefinitionsQuerying defQuery = TemplateDefinitionsQuerying
-				.withTemplateScope(resolved.getInstantiatedTemplates());
+    private TemplateFactor resolveTemplateFactor(GroundRandomVariable variable, ResolvedInstantiationContext resolved) {
+        TemplateDefinitionsQuerying defQuery = TemplateDefinitionsQuerying
+            .withTemplateScope(resolved.getInstantiatedTemplates());
 
-		TemplateVariable instantiated = variable.getInstantiatedTemplate();
-		List<TemplateVariable> scope = Lists.newArrayList(instantiated);
-		scope.addAll(defQuery.getParents(defQuery.filterRelationsWithTarget(Sets.newHashSet(instantiated))));
+        TemplateVariable instantiated = variable.getInstantiatedTemplate();
+        List<TemplateVariable> scope = Lists.newArrayList(instantiated);
+        scope.addAll(defQuery.getParents(defQuery.filterRelationsWithTarget(Sets.newHashSet(instantiated))));
 
-		return defQuery.findNonTemporalTemplateFactorWith(scope)
-				.orElseThrow(() -> new EnvironmentalDynamicsException(
-						String.format("There is no template factor for template variable %s",
-								variable.getInstantiatedTemplate().getEntityName())));
-	}
+        return defQuery.findNonTemporalTemplateFactorWith(scope)
+            .orElseThrow(() -> new EnvironmentalDynamicsException(String
+                .format("There is no template factor for template variable %s", variable.getInstantiatedTemplate()
+                    .getEntityName())));
+    }
 
-	private GroundProbabilisticNetwork instantiateGroundNetwork(List<GroundProbabilisticModel> goundModels,
-			List<LocalProbabilisticNetwork> localNetworks) {
-		GroundProbabilisticNetwork network = MODEL_FACTORY.createGroundProbabilisticNetwork();
-		network.getLocalModels().addAll(goundModels);
-		network.getLocalProbabilisticModels().addAll(localNetworks);
-		return network;
-	}
+    private GroundProbabilisticNetwork instantiateGroundNetwork(List<GroundProbabilisticModel> goundModels,
+            List<LocalProbabilisticNetwork> localNetworks) {
+        GroundProbabilisticNetwork network = MODEL_FACTORY.createGroundProbabilisticNetwork();
+        network.getLocalModels()
+            .addAll(goundModels);
+        network.getLocalProbabilisticModels()
+            .addAll(localNetworks);
+        return network;
+    }
 
-	private String constructNameOf(TemplateVariable template, Set<EObject> appliedObjects) {
-		StringBuilder builder = new StringBuilder();
-		builder.append(constructNameOf(Lists.newArrayList(appliedObjects)));
-		builder.append(GROUND_VARIABLE_DELIMITER);
-		builder.append(template.getEntityName());
-		builder.append(INSTANTIATION_POSTFIX);
-		return builder.toString();
-	}
+    private String constructNameOf(TemplateVariable template, Set<EObject> appliedObjects) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(constructNameOf(Lists.newArrayList(appliedObjects)));
+        builder.append(GROUND_VARIABLE_DELIMITER);
+        builder.append(template.getEntityName());
+        builder.append(INSTANTIATION_POSTFIX);
+        return builder.toString();
+    }
 
-	private String constructNameOf(GroundRandomVariable variable, TemplateFactor factor) {
-		return concat(variable.getEntityName(), concat(factor.getEntityName(), INSTANTIATION_POSTFIX));
-	}
+    private String constructNameOf(GroundRandomVariable variable, TemplateFactor factor) {
+        return concat(variable.getEntityName(), concat(factor.getEntityName(), INSTANTIATION_POSTFIX));
+    }
 
-	private String constructNameOf(List<EObject> appliedObjects) {
-		EObject any = appliedObjects.get(0);
-		return AnnotationHandler.getTaggedId(any, AnnotationHandler.getInstantiationTag(any));
-	}
+    private String constructNameOf(List<EObject> appliedObjects) {
+        EObject any = appliedObjects.get(0);
+        return AnnotationHandler.getTaggedId(any, AnnotationHandler.getInstantiationTag(any));
+    }
 
-	private String concat(String string1, String string2) {
-		return string1.concat(GROUND_VARIABLE_DELIMITER).concat(string2);
-	}
+    private String concat(String string1, String string2) {
+        return string1.concat(GROUND_VARIABLE_DELIMITER)
+            .concat(string2);
+    }
 
 }
