@@ -45,24 +45,26 @@ transformation adaptDeltaIoTNetwork(inout pcmRepository : PCM_REP, inout pcmSyst
 	
 		log('Start to adjust distribution factors');
 		
-		reconfParamRepo.rootObjects()[DeltaIoTReconfigurationParamRepository].allSubobjects()[DistributionFactor]->forEach(factor) {
-			pcmRepository.rootObjects()[Repository].allSubobjects()[BasicComponent]->forEach(component) {
-				if factor.appliedComponent.id = component.id then {
-					log('Found target component ' + component.entityName + ' for distribution factor adjustement.');
-					
-					factor.factorValues->forEach(value) {
-						var branchToAdjust : ProbabilisticBranchTransition := component.serviceEffectSpecifications__BasicComponent
-							.allSubobjects()[ProbabilisticBranchTransition]->any(entityName = value.appliedBranch.entityName);
+		reconfParamRepo.rootObjects()[DeltaIoTReconfigurationParamRepository]->forEach(paramRepo) {
+			paramRepo.distributionFactors->forEach(factor) {
+				pcmRepository.rootObjects()[Repository].allSubobjects()[BasicComponent]->forEach(component) {
+					if factor.appliedComponent.id = component.id then {
+						log('Found target component ' + component.entityName + ' for distribution factor adjustement.');
 						
-						assert fatal(branchToAdjust != null) with log('The found component ' + component.entityName + ' does not include the branch to adjust; as specified in the reconfiguration params.');
-						
-						branchToAdjust.branchProbability := branchToAdjust.branchProbability + value.value;
-						log('[adaptDeltaIoTNetwork distributionFactor: set branchProbability of ProbabilisticBranchTransition ' + branchToAdjust.entityName + ' to value:' + branchToAdjust.branchProbability.toString() + ']');
-					};
-				} 
-				endif
-			};
-		};	
+						factor.factorValues->forEach(value) {
+							var branchToAdjust : ProbabilisticBranchTransition := component.serviceEffectSpecifications__BasicComponent
+								.allSubobjects()[ProbabilisticBranchTransition]->any(entityName = value.appliedBranch.entityName);
+							
+							assert fatal(branchToAdjust != null) with log('The found component ' + component.entityName + ' does not include the branch to adjust; as specified in the reconfiguration params.');
+
+							branchToAdjust.branchProbability := branchToAdjust.branchProbability + value.value;
+							log('[adaptDeltaIoTNetwork distributionFactor: set branchProbability of ProbabilisticBranchTransition ' + branchToAdjust.entityName + ' to value:' + branchToAdjust.branchProbability.toString() + ']');
+						};
+					} 
+					endif
+				};
+			};	
+		};
 	}
 	
 	/**
@@ -72,21 +74,23 @@ transformation adaptDeltaIoTNetwork(inout pcmRepository : PCM_REP, inout pcmSyst
 	
 		log('Start to adjust settings of transmission power.');
 		
-		reconfParamRepo.rootObjects()[DeltaIoTReconfigurationParamRepository].allSubobjects()[TransmissionPower]->forEach(powerSetting) {
-			pcmSystem.rootObjects()[System].allSubobjects()[AssemblyContext]->forEach(assembly) {
-				if powerSetting.appliedAssembly.id = assembly.id then {
-					log('Found target assembly ' + assembly.entityName + ' for transmission power adjustement.');
-					powerSetting.transmissionPowerValues->forEach(value) {
-						var variableUsage : VariableUsage := assembly.configParameterUsages__AssemblyContext->any(namedReference__VariableUsage.referenceName = value.variableRef.referenceName);
-						var variableToAdjust : PCMRandomVariable := variableUsage.variableCharacterisation_VariableUsage->asSequence()->first().specification_VariableCharacterisation;
-						
-						assert fatal(variableToAdjust != null) with log('The found assembly ' + assembly.entityName + ' does not include the power settings to adjust; as specified in the reconfiguration params.');
-						
-						variableToAdjust.specification := value.powerSetting.toString();
-						log('[adaptDeltaIoTNetwork transmissionPower: set assembly ' + assembly.entityName + ' specification to ' + variableToAdjust.specification.toString());
-					};
-				} 
-				endif
+		reconfParamRepo.rootObjects()[DeltaIoTReconfigurationParamRepository]->forEach(paramRepo) {
+			paramRepo.transmissionPower->forEach(powerSetting) {
+				pcmSystem.rootObjects()[System].allSubobjects()[AssemblyContext]->forEach(assembly) {
+					if powerSetting.appliedAssembly.id = assembly.id then {
+						log('Found target assembly ' + assembly.entityName + ' for transmission power adjustement.');
+						powerSetting.transmissionPowerValues->forEach(value) {
+							var variableUsage : VariableUsage := assembly.configParameterUsages__AssemblyContext->any(namedReference__VariableUsage.referenceName = value.variableRef.referenceName);
+							var variableToAdjust : PCMRandomVariable := variableUsage.variableCharacterisation_VariableUsage->asSequence()->first().specification_VariableCharacterisation;
+							
+							assert fatal(variableToAdjust != null) with log('The found assembly ' + assembly.entityName + ' does not include the power settings to adjust; as specified in the reconfiguration params.');
+							
+							variableToAdjust.specification := value.powerSetting.toString();
+							log('[adaptDeltaIoTNetwork transmissionPower: set assembly ' + assembly.entityName + ' specification to ' + variableToAdjust.specification.toString());
+						};
+					} 
+					endif
+				};
 			};
 		};	
 	}
