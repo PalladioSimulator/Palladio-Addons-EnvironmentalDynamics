@@ -199,7 +199,7 @@ if (!(SRN_6to4Link_SignalToNoiseRatioInstantiation > 0 && link14_power > 0) || !
 		changeLinkPower(assemblyConnector=link14_assemblyConnector, referenceName=link14_referenceName, value=link14_power_new);
 	}
 	if (SRN_6to4Link_SignalToNoiseRatioInstantiation > 0  && link14_power > 0) {
-		link1_power_new = link14_power - CHANGE_POWER_VALUE;
+		link14_power_new = link14_power - CHANGE_POWER_VALUE;
 		changeLinkPower(assemblyConnector=link14_assemblyConnector, referenceName=link14_referenceName, value=link14_power_new);
 	}
 }

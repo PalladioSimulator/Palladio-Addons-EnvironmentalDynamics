@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.palladiosimulator.simexp.ui.workflow.launchConfigurationType1">
     <intAttribute key="NumberOfRuns" value="1"/>
-    <intAttribute key="NumberOfSimulationsPerRun" value="2"/>
+    <intAttribute key="NumberOfSimulationsPerRun" value="3"/>
     <stringAttribute key="Quality Objective" value="PERFORMANCE"/>
     <stringAttribute key="Simulation Engine" value="PRISM"/>
     <stringAttribute key="SimulationID" value="DeltaIoT_modelled"/>
