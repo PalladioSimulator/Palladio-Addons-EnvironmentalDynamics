@@ -15,58 +15,58 @@ const int UNIFORM_DIST_VALUE = 5;
 // (2) the enclosed component to identify the seff with the contained ProbabilisticBranchTransitions
 // As physical representation of a link (a linking resource in *.resourceenvironment) has no direction we have to use
 // the logical representation of a link (the assemblyConnector in *.system) instead.
-var string link1_assemblyConnector = "_obHaIMVvEem8XvI7PKw-OA";	// entityName="Connector PassiveInfraredSensor13 -> ST13to11"
-var string link2_assemblyConnector = "_Ii4dQMVvEem8XvI7PKw-OA";				// entityName="Connector PassiveInfraredSensor14 -> ST14to12"
-var string link3_assemblyConnector = "_CvuL0MVvEem8XvI7PKw-OA"; 			// entityName="Connector TemperatureSensor15 -> ST15to12"
-var string link4_assemblyConnector = "_iHdDsMVvEem8XvI7PKw-OA";				// entityName="Connector RFIDSensor11 -> ST11to7"
+const string link1_assemblyConnector = "_obHaIMVvEem8XvI7PKw-OA";	// entityName="Connector PassiveInfraredSensor13 -> ST13to11"
+const string link2_assemblyConnector = "_Ii4dQMVvEem8XvI7PKw-OA";	// entityName="Connector PassiveInfraredSensor14 -> ST14to12"
+const string link3_assemblyConnector = "_CvuL0MVvEem8XvI7PKw-OA"; 	// entityName="Connector TemperatureSensor15 -> ST15to12"
+const string link4_assemblyConnector = "_iHdDsMVvEem8XvI7PKw-OA";	// entityName="Connector RFIDSensor11 -> ST11to7"
 
 // Mote 12
-var string link5_assemblyConnector_power = "_9HessMsbEem-osfd2_mNhw";		// entityName="Connector RFIDSensor12 -> DT12to3_7"							// same as link6_assemblyConnector_power
-var string link5_assemblyConnector_dist = "_bWKWEMVvEem8XvI7PKw-OA";		// entityName="Connector DT12to3_7 -> RFIDSensor7"
-var string link6_assemblyConnector_power = "_9HessMsbEem-osfd2_mNhw";		// entityName="Connector RFIDSensor12 -> DT12to3_7"							// same as link6_assemblyConnector_power
-var string link6_assemblyConnector_dist = "_Z86rMMVvEem8XvI7PKw-OA";		// entityName="Connector DT12to3_7 -> TemperatureSensor3"
+const string link5_assemblyConnector_power = "_9HessMsbEem-osfd2_mNhw";		// entityName="Connector RFIDSensor12 -> DT12to3_7"							// same as link6_assemblyConnector_power
+const string link5_assemblyConnector_dist = "_bWKWEMVvEem8XvI7PKw-OA";		// entityName="Connector DT12to3_7 -> RFIDSensor7"
+const string link6_assemblyConnector_power = "_9HessMsbEem-osfd2_mNhw";		// entityName="Connector RFIDSensor12 -> DT12to3_7"							// same as link6_assemblyConnector_power
+const string link6_assemblyConnector_dist = "_Z86rMMVvEem8XvI7PKw-OA";		// entityName="Connector DT12to3_7 -> TemperatureSensor3"
 
 // Mote7
-var string link7_assemblyConnector_power = "_Qf-sIMVuEem8XvI7PKw-OA";		// entityName="Connector RFIDSensor7 -> DT7to3_2"							// todo: prüfen ob Zuordnung stimmt; ggf mit link8 tauschen
-var string link7_assemblyConnector_dist = "_RDMt8MVuEem8XvI7PKw-OA";		// entityName="Connector DT7to3_2 -> TemperatureSensor3"
-var string link8_assemblyConnector_power = "_DQ13oMscEem-osfd2_mNhw";		// entityName="Connector RFIDSensor7 -> DT7to3_2"							/ todo: prüfen ob Zuordnung stimmt; ggf mit link7 tauschen			
-var string link8_assemblyConnector_dist = "_R1u-IMVuEem8XvI7PKw-OA";           // entityName="Connector DT7to3_2 -> PassiveInfraredSensor2"
+const string link7_assemblyConnector_power = "_Qf-sIMVuEem8XvI7PKw-OA";		// entityName="Connector RFIDSensor7 -> DT7to3_2"							// todo: prüfen ob Zuordnung stimmt; ggf mit link8 tauschen
+const string link7_assemblyConnector_dist = "_RDMt8MVuEem8XvI7PKw-OA";		// entityName="Connector DT7to3_2 -> TemperatureSensor3"
+const string link8_assemblyConnector_power = "_DQ13oMscEem-osfd2_mNhw";		// entityName="Connector RFIDSensor7 -> DT7to3_2"							/ todo: prüfen ob Zuordnung stimmt; ggf mit link7 tauschen			
+const string link8_assemblyConnector_dist = "_R1u-IMVuEem8XvI7PKw-OA";		// entityName="Connector DT7to3_2 -> PassiveInfraredSensor2"
 
-var string link9_assemblyConnector = "_2IYtUMVtEem8XvI7PKw-OA";				// entityName="Connector PassiveInfraredSensor2 -> ST2to4"
-var string link10_assemblyConnector = "_hxkNVsTtEem6vJHOl6M9XA";			// entityName="Temparature3ToSingleTransmitter"
-var string link11_assemblyConnector = "_ca-RNsTvEem6vJHOl6M9XA";			// entityName="Infrared8ToSingleTransmitter"
-var string link12_assemblyConnector = "_3VY94MVrEem8XvI7PKw-OA";			// entityName="Connector PassiveInfraredSensor4 -> ST4to1"
-var string link13_assemblyConnector = "_l85BAMVrEem8XvI7PKw-OA";			// entityName="Connector TemperatureSensor9 -> ST9to1"
-var string link14_assemblyConnector = "_7mslkMVsEem8XvI7PKw-OA";			// entityName="Connector TemperatureSensor6 -> ST6to4"
+const string link9_assemblyConnector = "_2IYtUMVtEem8XvI7PKw-OA";			// entityName="Connector PassiveInfraredSensor2 -> ST2to4"
+const string link10_assemblyConnector = "_hxkNVsTtEem6vJHOl6M9XA";			// entityName="Temparature3ToSingleTransmitter"
+const string link11_assemblyConnector = "_ca-RNsTvEem6vJHOl6M9XA";			// entityName="Infrared8ToSingleTransmitter"
+const string link12_assemblyConnector = "_3VY94MVrEem8XvI7PKw-OA";			// entityName="Connector PassiveInfraredSensor4 -> ST4to1"
+const string link13_assemblyConnector = "_l85BAMVrEem8XvI7PKw-OA";			// entityName="Connector TemperatureSensor9 -> ST9to1"
+const string link14_assemblyConnector = "_7mslkMVsEem8XvI7PKw-OA";			// entityName="Connector TemperatureSensor6 -> ST6to4"
 
 // Mote10
-var string link15_assemblyConnector_power = "_rXRwoMVsEem8XvI7PKw-OA";		// entityName="Connector PassiveInfraredSensor10 -> DT10to6_5"				// same as link16_assemblyConnector_power
-var string link15_assemblyConnector_dist = "_0knC4MVsEem8XvI7PKw-OA";		// entityName="Connector DT10to6_5 -> TemperatureSensor6"
-var string link16_assemblyConnector_power = "_rXRwoMVsEem8XvI7PKw-OA";		// entityName="Connector PassiveInfraredSensor10 -> DT10to6_5"				// same as link15_assemblyConnector_power
-var string link16_assemblyConnector_dist = "_qMbHEMVsEem8XvI7PKw-OA";		// entityName="Connector DT10to6_5 -> RFIDSensor5"						
+const string link15_assemblyConnector_power = "_rXRwoMVsEem8XvI7PKw-OA";	// entityName="Connector PassiveInfraredSensor10 -> DT10to6_5"				// same as link16_assemblyConnector_power
+const string link15_assemblyConnector_dist = "_0knC4MVsEem8XvI7PKw-OA";		// entityName="Connector DT10to6_5 -> TemperatureSensor6"
+const string link16_assemblyConnector_power = "_rXRwoMVsEem8XvI7PKw-OA";	// entityName="Connector PassiveInfraredSensor10 -> DT10to6_5"				// same as link15_assemblyConnector_power
+const string link16_assemblyConnector_dist = "_qMbHEMVsEem8XvI7PKw-OA";		// entityName="Connector DT10to6_5 -> RFIDSensor5"						
 
-var string link17_assemblyConnector = "_k5dYoMVsEem8XvI7PKw-OA";			// entityName="Connector RFIDSensor5 -> ST5to9"
+const string link17_assemblyConnector = "_k5dYoMVsEem8XvI7PKw-OA";			// entityName="Connector RFIDSensor5 -> ST5to9"
 
 
 // local variables to store referenceName; additionally required due to PCM metamodel constraints 
 // as 2nd key to identify assembly context for link; not part of the original DeltaIoT strategy; 
-var string link1_referenceName = "TransmissionPower13to11";
-var string link2_referenceName = "TransmissionPower14to12";		// Mote 7
-var string link3_referenceName = "TransmissionPower15to12";		// Mote 7, Mote 3
-var string link4_referenceName = "TransmissionPower11to7";
-var string link5_referenceName = "TransmissionPower12to7";		// Mote 10
-var string link6_referenceName = "TransmissionPower12to3";		// Mote 10
-var string link7_referenceName = "TransmissionPower7to3";		// Mote 7
-var string link8_referenceName = "TransmissionPower7to2";
-var string link9_referenceName = "TransmissionPower2to4";
-var string link10_referenceName = "TransmissionPower3to1";		
-var string link11_referenceName = "TransmissionPower8to1";
-var string link12_referenceName = "TransmissionPower4to1";
-var string link13_referenceName = "TransmissionPower9to1";
-var string link14_referenceName = "TransmissionPower6to4";
-var string link15_referenceName = "TransmissionPower10to6";
-var string link16_referenceName = "TransmissionPower10to5";
-var string link17_referenceName = "TransmissionPower5to9";
+const string link1_referenceName = "TransmissionPower13to11";
+const string link2_referenceName = "TransmissionPower14to12";		// Mote 7
+const string link3_referenceName = "TransmissionPower15to12";		// Mote 7, Mote 3
+const string link4_referenceName = "TransmissionPower11to7";
+const string link5_referenceName = "TransmissionPower12to7";		// Mote 10
+const string link6_referenceName = "TransmissionPower12to3";		// Mote 10
+const string link7_referenceName = "TransmissionPower7to3";			// Mote 7
+const string link8_referenceName = "TransmissionPower7to2";
+const string link9_referenceName = "TransmissionPower2to4";
+const string link10_referenceName = "TransmissionPower3to1";		
+const string link11_referenceName = "TransmissionPower8to1";
+const string link12_referenceName = "TransmissionPower4to1";
+const string link13_referenceName = "TransmissionPower9to1";
+const string link14_referenceName = "TransmissionPower6to4";
+const string link15_referenceName = "TransmissionPower10to6";
+const string link16_referenceName = "TransmissionPower10to5";
+const string link17_referenceName = "TransmissionPower5to9";
 
 
 // Local variables to store current power settings per link; ; initial values taken from *.reconfigurationparams
@@ -125,12 +125,12 @@ var int link6_dist = 4;
 
 // local variables to store probabilisticBranchTransition; additionally required due to PCM metamodel constraints 
 // as 2nd key to identify assembly context for link; not part of the original DeltaIoT strategy; 
-var string link5_probabilisticBranchTransition = "TransmitToMote7";			// Mote 12
-var string link6_probabilisticBranchTransition = "TransmitToMote3";			// Mote 12
-var string link7_probabilisticBranchTransition = "TransmitFrom7ToMote3";	// Mote 7
-var string link8_probabilisticBranchTransition = "TransmitToMote2";			// Mote 7
-var string link15_probabilisticBranchTransition = "TransmitToMote6";		// Mote10
-var string link16_probabilisticBranchTransition = "TransmitToMote5";		// Mote10
+const string link5_probabilisticBranchTransition = "TransmitToMote7";		// Mote 12
+const string link6_probabilisticBranchTransition = "TransmitToMote3";		// Mote 12
+const string link7_probabilisticBranchTransition = "TransmitFrom7ToMote3";	// Mote 7
+const string link8_probabilisticBranchTransition = "TransmitToMote2";		// Mote 7
+const string link15_probabilisticBranchTransition = "TransmitToMote6";		// Mote10
+const string link16_probabilisticBranchTransition = "TransmitToMote5";		// Mote10
 
 // Environment variables 'SNR'
 envvar double SRN_6to4Link_SignalToNoiseRatioInstantiation: variableId="_8lRGYEdwEeq4nph5UDtc-g";
