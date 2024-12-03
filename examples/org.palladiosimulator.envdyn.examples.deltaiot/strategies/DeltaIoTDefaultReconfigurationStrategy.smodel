@@ -70,23 +70,23 @@ var string link17_referenceName = "TransmissionPower5to9";
 
 
 // Local variables to store current power settings per link; ; initial values taken from *.reconfigurationparams
-var int link1_power_new = 0;
-var int link2_power_new = 0;		// Mote 7
-var int link3_power_new = 0;		// Mote 7, Mote 3
-var int link4_power_new = 0;
-var int link5_power_new = 0;		// Mote 10
-var int link6_power_new = 0;		// Mote 10
-var int link7_power_new = 0;		// Mote 7
-var int link8_power_new = 0;
-var int link9_power_new = 0;
-var int link10_power_new = 0;		
-var int link11_power_new = 0;
-var int link12_power_new = 0;
-var int link13_power_new = 0;
-var int link14_power_new = 0;
-var int link15_power_new = 0;
-var int link16_power_new = 0;
-var int link17_power_new = 0;
+var int link1_power_new = 15;
+var int link2_power_new = 15;		// Mote 7
+var int link3_power_new = 15;		// Mote 7, Mote 3
+var int link4_power_new = 15;
+var int link5_power_new = 15;		// Mote 10
+var int link6_power_new = 15;		// Mote 10
+var int link7_power_new = 15;		// Mote 7
+var int link8_power_new = 15;
+var int link9_power_new = 15;
+var int link10_power_new = 15;
+var int link11_power_new = 15;
+var int link12_power_new = 15;
+var int link13_power_new = 15;
+var int link14_power_new = 15;
+var int link15_power_new = 15;
+var int link16_power_new = 15;
+var int link17_power_new = 15;
 
 var int link1_power = 0;
 var int link2_power = 0;		// Mote 7
@@ -108,18 +108,18 @@ var int link17_power = 0;
 
 
 // Local variables to store current distribution settings per link; initial values taken from *.reconfigurationparams
-var int link7_dist_new = 4;
-var int link8_dist_new = 6;
-var int link15_dist_new = 4;
-var int link16_dist_new = 6;
-var int link5_dist_new = 6;	
-var int link6_dist_new = 4;
+var int link7_dist_new = 10;
+var int link8_dist_new = 0;
+var int link15_dist_new = 5;
+var int link16_dist_new = 5;
+var int link5_dist_new = 0;
+var int link6_dist_new = 10;
 
 var int link7_dist = 4;		
 var int link8_dist = 6;
 var int link15_dist = 4;
 var int link16_dist = 6;
-var int link5_dist = 6;	
+var int link5_dist = 6;
 var int link6_dist = 4;
 
 
@@ -427,15 +427,17 @@ if(!(link5_power == link6_power)){
 		link5_dist = UNIFORM_DIST_VALUE;
 		link6_dist = UNIFORM_DIST_VALUE;
 	}
-	if(link5_power > link6_power){
+	if((link5_power > link6_power) && (link6_dist < 10)) {
 		link5_dist_new = link5_dist - CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link5_assemblyConnector_dist, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist_new / 10.0);
 		link6_dist_new = link6_dist + CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link6_assemblyConnector_dist, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist_new / 10.0);
 	} else {
-		link5_dist_new = link5_dist + CHANGE_DIST_VALUE;
-		changeLinkDistribution(assemblyConnector=link5_assemblyConnector_dist, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist_new / 10.0);
-		link6_dist_new = link6_dist - CHANGE_DIST_VALUE;
-		changeLinkDistribution(assemblyConnector=link6_assemblyConnector_dist, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist_new / 10.0);
-	}
+		if (link5_dist < 10) {
+			link5_dist_new = link5_dist + CHANGE_DIST_VALUE;
+			changeLinkDistribution(assemblyConnector=link5_assemblyConnector_dist, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist_new / 10.0);
+			link6_dist_new = link6_dist - CHANGE_DIST_VALUE;
+			changeLinkDistribution(assemblyConnector=link6_assemblyConnector_dist, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist_new / 10.0);
+			}
+		}
 }
