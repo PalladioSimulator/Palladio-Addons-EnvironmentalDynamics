@@ -23,7 +23,7 @@
         <listEntry value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/prism/EnergyConsumption.props"/>
         <listEntry value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/prism/PacketLoss.props"/>
     </listAttribute>
-    <stringAttribute key="smodelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/strategies/DeltaIoTDefaultReconfigurationStrategyValidation.smodel"/>
+    <stringAttribute key="smodelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/strategies/DeltaIoTDefaultReconfigurationStrategy.smodel"/>
     <stringAttribute key="staticModelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel"/>
     <stringAttribute key="usageFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/dummy.usagemodel"/>
 </launchConfiguration>
