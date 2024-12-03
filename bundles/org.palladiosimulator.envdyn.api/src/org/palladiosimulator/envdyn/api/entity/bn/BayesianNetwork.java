@@ -87,7 +87,6 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
     private final LocalProbabilisticModelHandler probModelHandler;
     private final ProbabilityCalculator<I> probabilityCalculator;
     private final ConditionalInputValueUtil<I> conditionalInputValueUtil = new ConditionalInputValueUtil<>();
-    private final SamplerLogger samplerLogger;
 
     public BayesianNetwork(ProbabilityDistributionSkeleton distSkeleton, GroundProbabilisticNetwork groundNetwork,
             IProbabilityDistributionFactory<I> probabilityDistributionFactory) {
@@ -96,7 +95,6 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
         this.groundNetwork = groundNetwork;
         this.probModelHandler = new LocalProbabilisticModelHandler(probabilityDistributionFactory);
         this.probabilityCalculator = probabilityDistributionFactory.getProbabilityCalculator();
-        this.samplerLogger = SamplerLoggerDispatcher.INSTANCE;
 
         checkConsistency();
     }
@@ -255,7 +253,6 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
             for (GroundRandomVariable eachVariable : orderGroundVariablesTopologically(eachLocal)) {
                 ProbabilityDistributionFunction<I> pdf = getPDF(eachVariable, samples);
                 I value = pdf.sample();
-                samplerLogger.onSample(getClass().getSimpleName(), eachVariable, value);
                 samples.add(InputValue.create(value, eachVariable));
             }
         }
