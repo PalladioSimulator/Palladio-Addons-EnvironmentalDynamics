@@ -6,6 +6,7 @@ import static org.palladiosimulator.envdyn.api.util.TemplateDefinitionsQuerying.
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -214,7 +215,7 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
     }
 
     @Override
-    public void init(ISeedProvider seedProvider) {
+    public void init(Optional<ISeedProvider> seedProvider) {
         if (initialized) {
             throw new RuntimeException("already initialized");
         }

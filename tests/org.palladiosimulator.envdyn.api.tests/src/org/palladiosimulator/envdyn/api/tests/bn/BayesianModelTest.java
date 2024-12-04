@@ -1,5 +1,7 @@
 package org.palladiosimulator.envdyn.api.tests.bn;
 
+import java.util.Optional;
+
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.junit.BeforeClass;
@@ -15,7 +17,6 @@ import tools.mdsd.probdist.api.factory.IProbabilityDistributionRegistry;
 import tools.mdsd.probdist.api.factory.ProbabilityDistributionFactory;
 import tools.mdsd.probdist.api.parser.DefaultParameterParser;
 import tools.mdsd.probdist.api.parser.ParameterParser;
-import tools.mdsd.probdist.api.random.NoSeedProvider;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionRepository;
 
 public class BayesianModelTest {
@@ -41,7 +42,7 @@ public class BayesianModelTest {
         IProbabilityDistributionRepositoryLookup probDistRepoLookup = new ProbabilityDistributionRepositoryLookup(
                 distTypes);
 
-        defaultProbabilityDistributionFactory = new ProbabilityDistributionFactory(new NoSeedProvider());
+        defaultProbabilityDistributionFactory = new ProbabilityDistributionFactory(Optional.empty());
         IProbabilityDistributionRegistry<CategoricalValue> probabilityDistributionRegistry = defaultProbabilityDistributionFactory;
         ParameterParser parameterParser = new DefaultParameterParser();
         probabilityDistributionRegistry

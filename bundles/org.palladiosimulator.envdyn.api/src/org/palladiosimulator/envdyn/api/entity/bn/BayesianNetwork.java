@@ -5,6 +5,7 @@ import static org.palladiosimulator.envdyn.api.util.TemplateDefinitionsQuerying.
 
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -162,7 +163,7 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
     }
 
     @Override
-    public void init(ISeedProvider seedProvider) {
+    public void init(Optional<ISeedProvider> seedProvider) {
         if (initialized) {
             return;
         }
