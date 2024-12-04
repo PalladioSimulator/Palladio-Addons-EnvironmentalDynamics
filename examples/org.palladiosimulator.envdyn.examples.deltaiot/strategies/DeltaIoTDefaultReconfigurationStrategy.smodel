@@ -389,16 +389,16 @@ if(!(link7_power == link8_power)){
 		link15_dist = UNIFORM_DIST_VALUE;
 		link16_dist = UNIFORM_DIST_VALUE;
 	}
-	if((link7_power > link8_power) && (link8_dist < 10)) {
-		link7_dist_new = link7_dist - CHANGE_DIST_VALUE;
+	if((link7_power > link8_power) && (link7_dist < 10)) {
+		link7_dist_new = link7_dist + CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link7_assemblyConnector_dist, probabilisticBranchTransition=link7_probabilisticBranchTransition, value=link7_dist_new / 10.0);
-		link8_dist_new = link8_dist + CHANGE_DIST_VALUE;
+		link8_dist_new = link8_dist - CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link8_assemblyConnector_dist, probabilisticBranchTransition=link8_probabilisticBranchTransition, value=link8_dist_new / 10.0);
 	} else {
-		if (link7_dist < 10) {
-			link7_dist_new = link7_dist + CHANGE_DIST_VALUE;
+		if (link8_dist < 10) {
+			link7_dist_new = link7_dist - CHANGE_DIST_VALUE;
 			changeLinkDistribution(assemblyConnector=link7_assemblyConnector_dist, probabilisticBranchTransition=link7_probabilisticBranchTransition, value=link7_dist_new / 10.0);
-			link8_dist_new = link8_dist - CHANGE_DIST_VALUE;
+			link8_dist_new = link8_dist + CHANGE_DIST_VALUE;
 			changeLinkDistribution(assemblyConnector=link8_assemblyConnector_dist, probabilisticBranchTransition=link8_probabilisticBranchTransition, value=link8_dist_new / 10.0);
 		}
 	}
@@ -410,16 +410,16 @@ if(!(link15_power == link16_power)){
 		link15_dist = UNIFORM_DIST_VALUE;
 		link16_dist = UNIFORM_DIST_VALUE;
 	}
-	if((link16_power > link15_power) && (link15_dist < 10)) {
-		link16_dist_new = link16_dist - CHANGE_DIST_VALUE;
+	if((link16_power > link15_power) && (link16_dist < 10)) {
+		link16_dist_new = link16_dist + CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link16_assemblyConnector_dist, probabilisticBranchTransition=link16_probabilisticBranchTransition, value=link16_dist_new / 10.0);
-		link15_dist_new = link15_dist + CHANGE_DIST_VALUE;
+		link15_dist_new = link15_dist - CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link15_assemblyConnector_dist, probabilisticBranchTransition=link15_probabilisticBranchTransition, value=link15_dist_new / 10.0);
 	} else {
-		if (link16_dist < 10) {
-			link16_dist_new = link16_dist + CHANGE_DIST_VALUE;
+		if (link15_dist < 10) {
+			link16_dist_new = link16_dist - CHANGE_DIST_VALUE;
 			changeLinkDistribution(assemblyConnector=link16_assemblyConnector_dist, probabilisticBranchTransition=link16_probabilisticBranchTransition, value=link16_dist_new / 10.0);
-			link15_dist_new = link15_dist - CHANGE_DIST_VALUE;
+			link15_dist_new = link15_dist + CHANGE_DIST_VALUE;
 			changeLinkDistribution(assemblyConnector=link16_assemblyConnector_dist, probabilisticBranchTransition=link15_probabilisticBranchTransition, value=link15_dist_new / 10.0);
 		}
 	}
@@ -431,16 +431,16 @@ if(!(link5_power == link6_power)){
 		link5_dist = UNIFORM_DIST_VALUE;
 		link6_dist = UNIFORM_DIST_VALUE;
 	}
-	if((link6_power > link5_power) && (link5_dist < 10)) {
-		link6_dist_new = link6_dist - CHANGE_DIST_VALUE;
+	if((link6_power > link5_power) && (link6_dist < 10)) {
+		link6_dist_new = link6_dist + CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link6_assemblyConnector_dist, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist_new / 10.0);
-		link5_dist_new = link5_dist + CHANGE_DIST_VALUE;
+		link5_dist_new = link5_dist - CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link5_assemblyConnector_dist, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist_new / 10.0);
 	} else {
-		if (link6_dist < 10) {
-			link6_dist_new = link6_dist + CHANGE_DIST_VALUE;
+		if (link5_dist < 10) {
+			link6_dist_new = link6_dist - CHANGE_DIST_VALUE;
 			changeLinkDistribution(assemblyConnector=link6_assemblyConnector_dist, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist_new / 10.0);
-			link5_dist_new = link5_dist - CHANGE_DIST_VALUE;
+			link5_dist_new = link5_dist + CHANGE_DIST_VALUE;
 			changeLinkDistribution(assemblyConnector=link5_assemblyConnector_dist, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist_new / 10.0);
 			}
 		}
