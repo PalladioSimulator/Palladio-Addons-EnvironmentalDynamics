@@ -31,6 +31,7 @@ import tools.mdsd.probdist.api.entity.ConditionableProbabilityDistribution;
 import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
 import tools.mdsd.probdist.api.entity.Value;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
+import tools.mdsd.probdist.api.random.ISeedProvider;
 import tools.mdsd.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
@@ -213,20 +214,20 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
     }
 
     @Override
-    public void init(int seed) {
+    public void init(ISeedProvider seedProvider) {
         if (initialized) {
             throw new RuntimeException("already initialized");
         }
         initialized = true;
 
-        initialDistribution.init(seed);
+        initialDistribution.init(seedProvider);
         for (InterTimeSliceInduction each : dynBehaviourQuery.getInterTimeSliceInductions()) {
             ConditionableProbabilityDistribution<I> localCPD = probHandler.getCPD(each.getAppliedGroundVariable());
-            localCPD.init(seed);
+            localCPD.init(seedProvider);
         }
         for (IntraTimeSliceInduction each : dynBehaviourQuery.getIntraTimeSliceInductions()) {
             ConditionableProbabilityDistribution<I> localCPD = getCPDFromInitial(each, conditionals);
-            localCPD.init(seed);
+            localCPD.init(seedProvider);
         }
     }
 

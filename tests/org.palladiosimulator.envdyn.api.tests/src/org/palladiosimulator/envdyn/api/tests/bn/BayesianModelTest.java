@@ -15,6 +15,7 @@ import tools.mdsd.probdist.api.factory.IProbabilityDistributionRegistry;
 import tools.mdsd.probdist.api.factory.ProbabilityDistributionFactory;
 import tools.mdsd.probdist.api.parser.DefaultParameterParser;
 import tools.mdsd.probdist.api.parser.ParameterParser;
+import tools.mdsd.probdist.api.random.NoSeedProvider;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionRepository;
 
 public class BayesianModelTest {
@@ -40,7 +41,7 @@ public class BayesianModelTest {
         IProbabilityDistributionRepositoryLookup probDistRepoLookup = new ProbabilityDistributionRepositoryLookup(
                 distTypes);
 
-        defaultProbabilityDistributionFactory = new ProbabilityDistributionFactory();
+        defaultProbabilityDistributionFactory = new ProbabilityDistributionFactory(new NoSeedProvider());
         IProbabilityDistributionRegistry<CategoricalValue> probabilityDistributionRegistry = defaultProbabilityDistributionFactory;
         ParameterParser parameterParser = new DefaultParameterParser();
         probabilityDistributionRegistry
