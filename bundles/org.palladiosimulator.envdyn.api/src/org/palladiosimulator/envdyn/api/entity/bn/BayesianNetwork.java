@@ -28,6 +28,7 @@ import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
 import tools.mdsd.probdist.api.entity.Value;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
 import tools.mdsd.probdist.api.factory.ProbabilityCalculator;
+import tools.mdsd.probdist.api.random.ISeedProvider;
 import tools.mdsd.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
@@ -161,7 +162,7 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
     }
 
     @Override
-    public void init(int seed) {
+    public void init(ISeedProvider seedProvider) {
         if (initialized) {
             return;
         }
@@ -170,7 +171,7 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
         for (LocalProbabilisticNetwork eachLocal : groundNetwork.getLocalProbabilisticModels()) {
             for (GroundRandomVariable eachVariable : eachLocal.getGroundRandomVariables()) {
                 ProbabilityDistributionFunction<I> pdf = probModelHandler.getPDF(eachVariable);
-                pdf.init(seed);
+                pdf.init(seedProvider);
             }
         }
     }
