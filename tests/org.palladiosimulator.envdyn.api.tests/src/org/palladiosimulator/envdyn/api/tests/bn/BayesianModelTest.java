@@ -1,5 +1,7 @@
 package org.palladiosimulator.envdyn.api.tests.bn;
 
+import java.util.Optional;
+
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.junit.BeforeClass;
@@ -40,7 +42,7 @@ public class BayesianModelTest {
         IProbabilityDistributionRepositoryLookup probDistRepoLookup = new ProbabilityDistributionRepositoryLookup(
                 distTypes);
 
-        defaultProbabilityDistributionFactory = new ProbabilityDistributionFactory();
+        defaultProbabilityDistributionFactory = new ProbabilityDistributionFactory(Optional.empty());
         IProbabilityDistributionRegistry<CategoricalValue> probabilityDistributionRegistry = defaultProbabilityDistributionFactory;
         ParameterParser parameterParser = new DefaultParameterParser();
         probabilityDistributionRegistry

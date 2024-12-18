@@ -1,12 +1,14 @@
 package org.palladiosimulator.envdyn.api.entity.bn;
 
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
 import static org.palladiosimulator.envdyn.api.util.TemplateDefinitionsQuerying.contains;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.envdyn.api.entity.ProbabilisticModel;
@@ -30,6 +32,7 @@ import tools.mdsd.probdist.api.entity.ConditionableProbabilityDistribution;
 import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
 import tools.mdsd.probdist.api.entity.Value;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
+import tools.mdsd.probdist.api.random.ISeedProvider;
 import tools.mdsd.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
@@ -75,7 +78,7 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
                 throw new IllegalArgumentException("The number of time slices must match the input sequence size.");
             }
 
-            Map<Integer, List<InputValue<I>>> samplePath = Maps.newHashMap();
+            Map<Integer, List<InputValue<I>>> samplePath = Maps.newLinkedHashMap();
             for (int i = 0; i < timeSlices; i++) {
                 samplePath.put(i, samples.get(i));
             }
@@ -83,7 +86,7 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
         }
 
         public static <I extends Value<?>> Trajectory<I> create(int timeSlices) {
-            Map<Integer, List<InputValue<I>>> samplePath = Maps.newHashMap();
+            Map<Integer, List<InputValue<I>>> samplePath = Maps.newLinkedHashMap();
             for (int i = 0; i <= timeSlices; i++) {
                 samplePath.put(i, Lists.newArrayList());
             }
@@ -212,7 +215,28 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
     }
 
     @Override
+    public void init(Optional<ISeedProvider> seedProvider) {
+        if (initialized) {
+            throw new RuntimeException("already initialized");
+        }
+        initialized = true;
+
+        initialDistribution.init(seedProvider);
+        for (InterTimeSliceInduction each : dynBehaviourQuery.getInterTimeSliceInductions()) {
+            ConditionableProbabilityDistribution<I> localCPD = probHandler.getCPD(each.getAppliedGroundVariable());
+            localCPD.init(seedProvider);
+        }
+        for (IntraTimeSliceInduction each : dynBehaviourQuery.getIntraTimeSliceInductions()) {
+            ConditionableProbabilityDistribution<I> localCPD = getCPDFromInitial(each, conditionals);
+            localCPD.init(seedProvider);
+        }
+    }
+
+    @Override
     public Trajectory<I> sample() {
+        if (!initialized) {
+            throw new RuntimeException("not initialized");
+        }
         return unrollForSampling(SINGLE_TIME_SLICE);
     }
 
@@ -315,15 +339,19 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
         List<InputValue<I>> sample = Lists.newArrayList();
         for (InterTimeSliceInduction each : dynBehaviourQuery.getInterTimeSliceInductions()) {
             List<Conditional<I>> resolved = resolveConditionals(each, conditionals);
-            ConditionableProbabilityDistribution<I> localCPD = probHandler.getCPD(each.getAppliedGroundVariable());
+            GroundRandomVariable variable = each.getAppliedGroundVariable();
+            ConditionableProbabilityDistribution<I> localCPD = probHandler.getCPD(variable);
             ConditionableProbabilityDistribution<I> given = (ConditionableProbabilityDistribution<I>) localCPD
                 .given(resolved);
-            sample.add(InputValue.create(given.sample(), each.getAppliedGroundVariable()));
+            I value = given.sample();
+            sample.add(InputValue.create(value, variable));
         }
 
         for (IntraTimeSliceInduction each : dynBehaviourQuery.getIntraTimeSliceInductions()) {
             ConditionableProbabilityDistribution<I> localCPD = getCPDFromInitial(each, conditionals);
-            InputValue<I> inputValue = InputValue.create(localCPD.sample(), each.getAppliedGroundVariable());
+            GroundRandomVariable variable = each.getAppliedGroundVariable();
+            I value = localCPD.sample();
+            InputValue<I> inputValue = InputValue.create(value, variable);
             sample.add(inputValue);
         }
 
@@ -356,8 +384,8 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
     }
 
     private boolean shareSameContext(GroundRandomVariable parent, GroundRandomVariable child) {
-        Set<EObject> parentContext = Sets.newHashSet(parent.getAppliedObjects());
-        Set<EObject> childContext = Sets.newHashSet(child.getAppliedObjects());
+        Set<EObject> parentContext = new LinkedHashSet<>(parent.getAppliedObjects());
+        Set<EObject> childContext = new LinkedHashSet<>(child.getAppliedObjects());
         return Sets.intersection(parentContext, childContext)
             .size() > 0;
     }
@@ -366,7 +394,7 @@ public class DynamicBayesianNetwork<I extends Value<?>> extends ProbabilityDistr
         return induction.getTemporalStructure()
             .stream()
             .map(InductiveDynamicBehaviourQuerying::getSource)
-            .collect(toSet());
+            .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     private void checkValidity(List<Conditional<I>> conditionals) {

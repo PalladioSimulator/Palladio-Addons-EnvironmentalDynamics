@@ -1,11 +1,13 @@
 package org.palladiosimulator.envdyn.api.entity.bn;
 
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
 import static org.palladiosimulator.envdyn.api.util.TemplateDefinitionsQuerying.areEqual;
 
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.palladiosimulator.envdyn.api.entity.ProbabilisticModel;
 import org.palladiosimulator.envdyn.api.entity.TemplateVariableTopology;
@@ -27,6 +29,7 @@ import tools.mdsd.probdist.api.entity.ProbabilityDistributionFunction;
 import tools.mdsd.probdist.api.entity.Value;
 import tools.mdsd.probdist.api.factory.IProbabilityDistributionFactory;
 import tools.mdsd.probdist.api.factory.ProbabilityCalculator;
+import tools.mdsd.probdist.api.random.ISeedProvider;
 import tools.mdsd.probdist.distributionfunction.Domain;
 import tools.mdsd.probdist.distributionfunction.ProbabilityDistribution;
 import tools.mdsd.probdist.distributiontype.ProbabilityDistributionSkeleton;
@@ -160,7 +163,25 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
     }
 
     @Override
+    public void init(Optional<ISeedProvider> seedProvider) {
+        if (initialized) {
+            return;
+        }
+        initialized = true;
+
+        for (LocalProbabilisticNetwork eachLocal : groundNetwork.getLocalProbabilisticModels()) {
+            for (GroundRandomVariable eachVariable : eachLocal.getGroundRandomVariables()) {
+                ProbabilityDistributionFunction<I> pdf = probModelHandler.getPDF(eachVariable);
+                pdf.init(seedProvider);
+            }
+        }
+    }
+
+    @Override
     public List<InputValue<I>> sample() {
+        if (!initialized) {
+            throw new RuntimeException("not initialized");
+        }
         return sampleNext();
     }
 
@@ -179,7 +200,7 @@ public class BayesianNetwork<I extends Value<?>> extends ProbabilityDistribution
             .stream()
             .map(GroundRandomVariable::getInstantiatedTemplate)
             .distinct()
-            .collect(toSet());
+            .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     public GroundProbabilisticNetwork get() {
