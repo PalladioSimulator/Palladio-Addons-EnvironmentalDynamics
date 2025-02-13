@@ -32,7 +32,7 @@
 		<unit id="org.palladiosimulator.mdsdprofiles.feature.feature.group" version="tbd"/>
 	</location>
 	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
-		<repository location="https://updatesite.palladio-simulator.com/palladio-supporting-mdsdprofiles/nightly/"/>
+		<repository location="https://updatesite.palladio-simulator.com/palladio-supporting-mdsdprofiles/branches/no_ui-workflow"/>
 		<unit id="org.palladiosimulator.mdsdprofiles.feature.feature.group" version="tbd"/>
 	</location>
 	
@@ -59,7 +59,7 @@
 		<unit id="org.palladiosimulator.pcm.feature.feature.group" version="tbd"/>
 	</location>
 	<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
-		<repository location="https://updatesite.palladio-simulator.com/palladio-core-pcm/nightly/"/>
+		<repository location="https://updatesite.palladio-simulator.com/palladio-core-pcm/branches/no_ui-workflow"/>
 		<unit id="org.palladiosimulator.pcm.feature.feature.group" version="tbd"/>
 	</location>
 </locations>
