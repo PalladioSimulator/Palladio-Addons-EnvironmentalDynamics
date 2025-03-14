@@ -3,7 +3,12 @@
 modelName = "DeltaIoTDefaultReconfigurationStrategy";
 
 const int CHANGE_DIST_VALUE = 1; 				// original value from Paper: 10.0
+const int DIST_MIN = 0;            // 0-5
+const int DIST_MIN_MAX_DELTA = 10; // 2-5
+const int DIST_UPPER = DIST_MIN + DIST_MIN_MAX_DELTA;
 const int UNIFORM_DIST_VALUE = 5;
+const int DIST_MAX = DIST_UPPER - CHANGE_DIST_VALUE + 1;
+
 
 const int CHANGE_POWER_VALUE = 1;
 const int POWER_MIN = 0;
@@ -390,17 +395,17 @@ if (!(SRN_2to4Link_SignalToNoiseRatioInstantiation > 0 && link9_power > POWER_MI
 // Mote 7: link7, link8
 if(!(link7_power == link8_power)){
 	
-	if (link15_dist == 10 && link16_dist == 10) {
+	if (link15_dist == DIST_UPPER && link16_dist == DIST_UPPER) {
 		link15_dist = UNIFORM_DIST_VALUE;
 		link16_dist = UNIFORM_DIST_VALUE;
 	}
-	if((link7_power > link8_power) && (link7_dist < 10)) {
+	if((link7_power > link8_power) && (link7_dist < DIST_MAX)) {
 		link7_dist_new = link7_dist + CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link7_assemblyConnector_dist, probabilisticBranchTransition=link7_probabilisticBranchTransition, value=link7_dist_new / 10.0);
 		link8_dist_new = link8_dist - CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link8_assemblyConnector_dist, probabilisticBranchTransition=link8_probabilisticBranchTransition, value=link8_dist_new / 10.0);
 	} else {
-		if (link8_dist < 10) {
+		if (link8_dist < DIST_MAX) {
 			link7_dist_new = link7_dist - CHANGE_DIST_VALUE;
 			changeLinkDistribution(assemblyConnector=link7_assemblyConnector_dist, probabilisticBranchTransition=link7_probabilisticBranchTransition, value=link7_dist_new / 10.0);
 			link8_dist_new = link8_dist + CHANGE_DIST_VALUE;
@@ -411,17 +416,17 @@ if(!(link7_power == link8_power)){
 // Mote 10: link15, link16
 if(!(link15_power == link16_power)){
 
-	if (link15_dist == 10 && link16_dist == 10) {
+	if (link15_dist == DIST_UPPER && link16_dist == DIST_UPPER) {
 		link15_dist = UNIFORM_DIST_VALUE;
 		link16_dist = UNIFORM_DIST_VALUE;
 	}
-	if((link16_power > link15_power) && (link16_dist < 10)) {
+	if((link16_power > link15_power) && (link16_dist < DIST_MAX)) {
 		link16_dist_new = link16_dist + CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link16_assemblyConnector_dist, probabilisticBranchTransition=link16_probabilisticBranchTransition, value=link16_dist_new / 10.0);
 		link15_dist_new = link15_dist - CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link15_assemblyConnector_dist, probabilisticBranchTransition=link15_probabilisticBranchTransition, value=link15_dist_new / 10.0);
 	} else {
-		if (link15_dist < 10) {
+		if (link15_dist < DIST_MAX) {
 			link16_dist_new = link16_dist - CHANGE_DIST_VALUE;
 			changeLinkDistribution(assemblyConnector=link16_assemblyConnector_dist, probabilisticBranchTransition=link16_probabilisticBranchTransition, value=link16_dist_new / 10.0);
 			link15_dist_new = link15_dist + CHANGE_DIST_VALUE;
@@ -432,17 +437,17 @@ if(!(link15_power == link16_power)){
 // Mote12: link5, link6
 if(!(link5_power == link6_power)){
 
-	if (link5_dist == 10 && link6_dist == 10) {
+	if (link5_dist == DIST_UPPER && link6_dist == DIST_UPPER) {
 		link5_dist = UNIFORM_DIST_VALUE;
 		link6_dist = UNIFORM_DIST_VALUE;
 	}
-	if((link6_power > link5_power) && (link6_dist < 10)) {
+	if((link6_power > link5_power) && (link6_dist < DIST_MAX)) {
 		link6_dist_new = link6_dist + CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link6_assemblyConnector_dist, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist_new / 10.0);
 		link5_dist_new = link5_dist - CHANGE_DIST_VALUE;
 		changeLinkDistribution(assemblyConnector=link5_assemblyConnector_dist, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist_new / 10.0);
 	} else {
-		if (link5_dist < 10) {
+		if (link5_dist < DIST_MAX) {
 			link6_dist_new = link6_dist - CHANGE_DIST_VALUE;
 			changeLinkDistribution(assemblyConnector=link6_assemblyConnector_dist, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist_new / 10.0);
 			link5_dist_new = link5_dist + CHANGE_DIST_VALUE;
