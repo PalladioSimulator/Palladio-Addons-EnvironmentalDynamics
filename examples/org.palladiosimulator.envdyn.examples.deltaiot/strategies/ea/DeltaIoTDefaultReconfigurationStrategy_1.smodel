@@ -113,19 +113,19 @@ var int link17_power = 0;
 
 
 // Local variables to store current distribution settings per link; initial values taken from *.reconfigurationparams
-var int link7_dist_new = 10;	// 7  -> 3 left
-var int link8_dist_new = 0;		// 7  -> 2 right
-var int link15_dist_new = 5;	// 10 -> 6 right
-var int link16_dist_new = 5;	// 10 -> 5 left
-var int link5_dist_new = 0;		// 12 -> 7 right
-var int link6_dist_new = 10;	// 12 -> 3 left
+var int link7_dist_new = 10;	// 7  -> 3 left  (old: 4)
+var int link8_dist_new = 0;		// 7  -> 2 right (old: 6)
+var int link15_dist_new = 5;	// 10 -> 6 right (old: 4)
+var int link16_dist_new = 5;	// 10 -> 5 left  (old: 6)
+var int link5_dist_new = 0;		// 12 -> 7 right (old: 6)
+var int link6_dist_new = 10;	// 12 -> 3 left  (old: 4)
 
-var int link7_dist = 4;		
-var int link8_dist = 6;
-var int link15_dist = 4;
-var int link16_dist = 6;
-var int link5_dist = 6;
-var int link6_dist = 4;
+var int link7_dist = 0;		
+var int link8_dist = 0;
+var int link15_dist = 0;
+var int link16_dist = 0;
+var int link5_dist = 0;
+var int link6_dist = 0;
 
 
 // local variables to store probabilisticBranchTransition; additionally required due to PCM metamodel constraints 
