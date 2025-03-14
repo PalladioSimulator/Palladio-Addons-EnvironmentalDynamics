@@ -75,23 +75,23 @@ const string link17_referenceName = "TransmissionPower5to9";
 
 
 // Local variables to store current power settings per link; ; initial values taken from *.reconfigurationparams
-var int link1_power_new = 15;
-var int link2_power_new = 15;		// Mote 7
-var int link3_power_new = 15;		// Mote 7, Mote 3
-var int link4_power_new = 15;
-var int link5_power_new = 15;		// Mote 10
-var int link6_power_new = 15;		// Mote 10
-var int link7_power_new = 15;		// Mote 7
-var int link8_power_new = 15;
-var int link9_power_new = 15;
-var int link10_power_new = 15;
-var int link11_power_new = 15;
-var int link12_power_new = 15;
-var int link13_power_new = 15;
-var int link14_power_new = 15;
-var int link15_power_new = 15;
-var int link16_power_new = 15;
-var int link17_power_new = 15;
+var int link1_power_new = POWER_UPPER;
+var int link2_power_new = POWER_UPPER;		// Mote 7
+var int link3_power_new = POWER_UPPER;		// Mote 7, Mote 3
+var int link4_power_new = POWER_UPPER;
+var int link5_power_new = POWER_UPPER;		// Mote 10
+var int link6_power_new = POWER_UPPER;		// Mote 10
+var int link7_power_new = POWER_UPPER;		// Mote 7
+var int link8_power_new = POWER_UPPER;
+var int link9_power_new = POWER_UPPER;
+var int link10_power_new = POWER_UPPER;
+var int link11_power_new = POWER_UPPER;
+var int link12_power_new = POWER_UPPER;
+var int link13_power_new = POWER_UPPER;
+var int link14_power_new = POWER_UPPER;
+var int link15_power_new = POWER_UPPER;
+var int link16_power_new = POWER_UPPER;
+var int link17_power_new = POWER_UPPER;
 
 var int link1_power = 0;
 var int link2_power = 0;		// Mote 7
