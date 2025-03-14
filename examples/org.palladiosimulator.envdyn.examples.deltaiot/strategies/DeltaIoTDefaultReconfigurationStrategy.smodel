@@ -385,9 +385,9 @@ if (!(SRN_2to4Link_SignalToNoiseRatioInstantiation > 0 && link9_power > 0) || !(
 // Mote 7: link7, link8
 if(!(link7_power == link8_power)){
 	
-	if (link15_dist == 10 && link16_dist == 10) {
-		link15_dist = UNIFORM_DIST_VALUE;
-		link16_dist = UNIFORM_DIST_VALUE;
+	if (link7_dist == 10 && link8_dist == 10) {
+		link7_dist = UNIFORM_DIST_VALUE;
+		link8_dist = UNIFORM_DIST_VALUE;
 	}
 	if((link7_power > link8_power) && (link7_dist < 10)) {
 		link7_dist_new = link7_dist + CHANGE_DIST_VALUE;
