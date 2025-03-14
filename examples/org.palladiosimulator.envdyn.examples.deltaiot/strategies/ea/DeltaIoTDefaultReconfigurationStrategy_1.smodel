@@ -3,10 +3,10 @@
 modelName = "DeltaIoTDefaultReconfigurationStrategy";
 
 const int CHANGE_DIST_VALUE = 1; 				// original value from Paper: 10.0
-const int DIST_MIN = 0;            // 0-5
-const int DIST_MIN_MAX_DELTA = 10; // 2-5
-const int DIST_UPPER = DIST_MIN + DIST_MIN_MAX_DELTA;
 const int UNIFORM_DIST_VALUE = 5;
+const int DIST_MIN = 0;
+const int DIST_MIN_MAX_DELTA = 10;
+const int DIST_UPPER = DIST_MIN + DIST_MIN_MAX_DELTA;
 const int DIST_MAX = DIST_UPPER - CHANGE_DIST_VALUE + 1;
 
 
