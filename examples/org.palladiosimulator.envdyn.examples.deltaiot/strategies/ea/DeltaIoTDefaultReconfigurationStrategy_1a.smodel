@@ -2,19 +2,25 @@
 
 modelName = "DeltaIoTDefaultReconfigurationStrategy";
 
-const int CHANGE_DIST_VALUE = 1; 				// original value from Paper: 10.0
+//const int CHANGE_DIST_VALUE = 1; 				// original value from Paper: 10.0
+optimizable int[1,6,1] CHANGE_DIST_VALUE; // open (stop not included)
 const int UNIFORM_DIST_VALUE = 5;
 const int DIST_MIN = 0;
 const int DIST_MIN_MAX_DELTA = 10;
 const int DIST_UPPER = DIST_MIN + DIST_MIN_MAX_DELTA;
-const int DIST_MAX = DIST_UPPER - CHANGE_DIST_VALUE + 1;
+//const int DIST_MAX = DIST_UPPER - CHANGE_DIST_VALUE + 1;
+var int DIST_MAX = -1;
 
-
-const int CHANGE_POWER_VALUE = 1;
-const int POWER_MIN = 0;
-const int POWER_MIN_MAX_DELTA = 15;
-const int POWER_UPPER = POWER_MIN + POWER_MIN_MAX_DELTA;
-const int POWER_MAX = POWER_UPPER - CHANGE_POWER_VALUE + 1;
+//const int CHANGE_POWER_VALUE = 1;
+optimizable int[1,9,1] CHANGE_POWER_VALUE;
+//const int POWER_MIN = 0;
+optimizable int[0,9,1] POWER_MIN;
+//const int POWER_MIN_MAX_DELTA = 15;
+optimizable int[1,6,1] POWER_MIN_MAX_DELTA;
+//const int POWER_UPPER = POWER_MIN + POWER_MIN_MAX_DELTA;
+var int POWER_UPPER = -1; 
+//const int POWER_MAX = POWER_UPPER - CHANGE_POWER_VALUE + 1;
+var int POWER_MAX = -1; // will be assigned later down
 
 // variables to represent links; refers to the id of assemblyConnector in *.system
 // as we have to adjust 
@@ -80,23 +86,23 @@ const string link17_referenceName = "TransmissionPower5to9";
 
 
 // Local variables to store current power settings per link; ; initial values taken from *.reconfigurationparams
-var int link1_power_new = POWER_UPPER;
-var int link2_power_new = POWER_UPPER;		// Mote 7
-var int link3_power_new = POWER_UPPER;		// Mote 7, Mote 3
-var int link4_power_new = POWER_UPPER;
-var int link5_power_new = POWER_UPPER;		// Mote 10
-var int link6_power_new = POWER_UPPER;		// Mote 10
-var int link7_power_new = POWER_UPPER;		// Mote 7
-var int link8_power_new = POWER_UPPER;
-var int link9_power_new = POWER_UPPER;
-var int link10_power_new = POWER_UPPER;
-var int link11_power_new = POWER_UPPER;
-var int link12_power_new = POWER_UPPER;
-var int link13_power_new = POWER_UPPER;
-var int link14_power_new = POWER_UPPER;
-var int link15_power_new = POWER_UPPER;
-var int link16_power_new = POWER_UPPER;
-var int link17_power_new = POWER_UPPER;
+var int link1_power_new = 0;
+var int link2_power_new = 0;		// Mote 7
+var int link3_power_new = 0;		// Mote 7, Mote 3
+var int link4_power_new = 0;
+var int link5_power_new = 0;		// Mote 10
+var int link6_power_new = 0;		// Mote 10
+var int link7_power_new = 0;		// Mote 7
+var int link8_power_new = 0;
+var int link9_power_new = 0;
+var int link10_power_new = 0;
+var int link11_power_new = 0;
+var int link12_power_new = 0;
+var int link13_power_new = 0;
+var int link14_power_new = 0;
+var int link15_power_new = 0;
+var int link16_power_new = 0;
+var int link17_power_new = 0;
 
 var int link1_power = 0;
 var int link2_power = 0;		// Mote 7
@@ -161,13 +167,41 @@ envvar double SRN_12to3Link_SignalToNoiseRatioInstantiation: variableId="_8ldTok
 envvar double SRN_3to1Link_SignalToNoiseRatioInstantiation: variableId="_8ld6sEdwEeq4nph5UDtc-g";
 envvar double SRN_2to4Link_SignalToNoiseRatioInstantiation: variableId="_8lfI0EdwEeq4nph5UDtc-g";
 
+var bool initialized = false;
 
 // probes: Motes; definition is superfluous as we are only interested in the links
 
 
 // actions in this case are no QVTO transformations but Model-to-Text Transformations of Prism Input files
 action changeLinkPower(param string assemblyConnector, param string referenceName, param int value); // referenceName required as additional parameter compared to original DeltaIoT strategy
-action changeLinkDistribution(param string assemblyConnector, param string probabilisticBranchTransition, param double value); 
+action changeLinkDistribution(param string assemblyConnector, param string probabilisticBranchTransition, param double value);
+
+if (!initialized) {
+	initialized = true;
+	
+	DIST_MAX = DIST_UPPER - CHANGE_DIST_VALUE + 1;
+	
+	POWER_UPPER = POWER_MIN + POWER_MIN_MAX_DELTA;
+	POWER_MAX = POWER_UPPER - CHANGE_POWER_VALUE + 1;
+	
+	link1_power_new = POWER_UPPER;
+	link2_power_new = POWER_UPPER;		// Mote 7
+	link3_power_new = POWER_UPPER;		// Mote 7, Mote 3
+	link4_power_new = POWER_UPPER;
+	link5_power_new = POWER_UPPER;		// Mote 10
+	link6_power_new = POWER_UPPER;		// Mote 10
+	link7_power_new = POWER_UPPER;		// Mote 7
+	link8_power_new = POWER_UPPER;
+	link9_power_new = POWER_UPPER;
+	link10_power_new = POWER_UPPER;
+	link11_power_new = POWER_UPPER;
+	link12_power_new = POWER_UPPER;
+	link13_power_new = POWER_UPPER;
+	link14_power_new = POWER_UPPER;
+	link15_power_new = POWER_UPPER;
+	link16_power_new = POWER_UPPER;
+	link17_power_new = POWER_UPPER;
+} 
 
 // Take over values
 if (true) {
