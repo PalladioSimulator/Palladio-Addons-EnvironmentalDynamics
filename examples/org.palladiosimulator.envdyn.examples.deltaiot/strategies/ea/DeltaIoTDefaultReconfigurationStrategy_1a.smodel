@@ -10,11 +10,11 @@ const int DIST_UPPER = DIST_MIN + DIST_MIN_MAX_DELTA;
 const int DIST_MAX = DIST_UPPER - CHANGE_DIST_VALUE + 1;
 
 //const int CHANGE_POWER_VALUE = 1;
-optimizable int[1,9,1] CHANGE_POWER_VALUE;
+optimizable int[1,9,1) CHANGE_POWER_VALUE;
 //const int POWER_MIN = 0;
-optimizable int[0,9,1] POWER_MIN;
+optimizable int[0,9,1) POWER_MIN;
 //const int POWER_MIN_MAX_DELTA = 15;
-optimizable int[1,6,1] POWER_MIN_MAX_DELTA;
+optimizable int[1,6,1) POWER_MIN_MAX_DELTA;
 //const int POWER_UPPER = POWER_MIN + POWER_MIN_MAX_DELTA;
 var int POWER_UPPER = -1; 
 //const int POWER_MAX = POWER_UPPER - CHANGE_POWER_VALUE + 1;
