@@ -3,20 +3,18 @@
 modelName = "DeltaIoTDefaultReconfigurationStrategy";
 
 const int CHANGE_DIST_VALUE = 1; 				// original value from Paper: 10.0
-//optimizable int[1,6,1] CHANGE_DIST_VALUE; // open (stop not included)
 const int UNIFORM_DIST_VALUE = 5;
 const int DIST_MIN = 0;
 const int DIST_MIN_MAX_DELTA = 10;
 const int DIST_UPPER = DIST_MIN + DIST_MIN_MAX_DELTA;
-//const int DIST_MAX = DIST_UPPER - CHANGE_DIST_VALUE + 1;
-var int DIST_MAX = -1;
+const int DIST_MAX = DIST_UPPER - CHANGE_DIST_VALUE + 1;
 
 //const int CHANGE_POWER_VALUE = 1;
-optimizable int[1,9,1] CHANGE_POWER_VALUE;
+optimizable int[1,4,1] CHANGE_POWER_VALUE;
 //const int POWER_MIN = 0;
-optimizable int[0,9,1] POWER_MIN;
+optimizable int[0,5,1] POWER_MIN;
 //const int POWER_MIN_MAX_DELTA = 15;
-optimizable int[1,6,1] POWER_MIN_MAX_DELTA;
+optimizable int[4,10,1] POWER_MIN_MAX_DELTA;
 //const int POWER_UPPER = POWER_MIN + POWER_MIN_MAX_DELTA;
 var int POWER_UPPER = -1; 
 //const int POWER_MAX = POWER_UPPER - CHANGE_POWER_VALUE + 1;
@@ -178,8 +176,6 @@ action changeLinkDistribution(param string assemblyConnector, param string proba
 
 if (!initialized) {
 	initialized = true;
-	
-	DIST_MAX = DIST_UPPER - CHANGE_DIST_VALUE + 1;
 	
 	POWER_UPPER = POWER_MIN + POWER_MIN_MAX_DELTA;
 	POWER_MAX = POWER_UPPER - CHANGE_POWER_VALUE + 1;
