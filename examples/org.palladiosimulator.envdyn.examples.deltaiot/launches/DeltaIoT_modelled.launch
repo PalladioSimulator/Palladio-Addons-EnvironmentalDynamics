@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.palladiosimulator.simexp.ui.workflow.launchConfigurationType1">
+    <stringAttribute key="ErrorReward" value="0.000000"/>
+    <intAttribute key="MEMORY_USAGE" value="0"/>
     <stringAttribute key="ModelledOptimizationType" value="SIMPLE"/>
-    <intAttribute key="NumberOfRuns" value="1"/>
-    <intAttribute key="NumberOfSimulationsPerRun" value="3"/>
+    <intAttribute key="NumberOfRuns" value="50"/>
+    <intAttribute key="NumberOfSimulationsPerRun" value="10"/>
     <intAttribute key="PopulationSize" value="0"/>
     <stringAttribute key="Quality Objective" value="PERFORMANCE"/>
     <stringAttribute key="Reward Type" value="EXPECTED"/>
