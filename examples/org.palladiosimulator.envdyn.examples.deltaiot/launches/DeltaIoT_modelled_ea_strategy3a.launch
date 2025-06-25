@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.palladiosimulator.simexp.ui.workflow.launchConfigurationType1">
+    <stringAttribute key="CrossoverRate" value="0.200000"/>
+    <stringAttribute key="ErrorReward" value="0.000000"/>
+    <intAttribute key="MEMORY_USAGE" value="2"/>
+    <intAttribute key="MaxGenerations" value="50"/>
+    <stringAttribute key="ModelledOptimizationType" value="EVOLUTIONARY_ALGORITHM"/>
+    <stringAttribute key="MutationRate" value="0.150000"/>
+    <intAttribute key="NumberOfRuns" value="10"/>
+    <intAttribute key="NumberOfSimulationsPerRun" value="96"/>
+    <intAttribute key="PopulationSize" value="100"/>
+    <stringAttribute key="Quality Objective" value="PERFORMANCE"/>
+    <stringAttribute key="Reward Type" value="EXPECTED"/>
+    <stringAttribute key="Simulation Engine" value="PRISM"/>
+    <stringAttribute key="SimulationID" value="DeltaIoT_modelled_ea_strategy3a"/>
+    <stringAttribute key="Simulator Type" value="MODELLED"/>
+    <intAttribute key="SteadyFitness" value="12"/>
+    <setAttribute key="TransformationsActive">
+        <setEntry value="changeLinkDistribution"/>
+        <setEntry value="changeLinkPower"/>
+    </setAttribute>
+    <stringAttribute key="allocationFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIotAllocation.allocation"/>
+    <stringAttribute key="dynamicModelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTEnvironmentalDynamics.dynamicmodel"/>
+    <stringAttribute key="experimentsFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTExperiment.experiments"/>
+    <listAttribute key="monitors"/>
+    <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
+    <listAttribute key="prismModuleFile">
+        <listEntry value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/prism/EnergyConsumption.prism"/>
+        <listEntry value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/prism/PacketLoss.prism"/>
+    </listAttribute>
+    <listAttribute key="prismPropertyFile">
+        <listEntry value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/prism/EnergyConsumption.props"/>
+        <listEntry value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/prism/PacketLoss.props"/>
+    </listAttribute>
+    <stringAttribute key="smodelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/strategies/ea/DeltaIoTDefaultReconfigurationStrategy_3a.smodel"/>
+    <stringAttribute key="staticModelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel"/>
+    <stringAttribute key="usageFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/dummy.usagemodel"/>
+</launchConfiguration>
