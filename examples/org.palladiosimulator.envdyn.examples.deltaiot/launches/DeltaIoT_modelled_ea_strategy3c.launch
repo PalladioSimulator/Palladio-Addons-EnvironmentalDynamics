@@ -12,7 +12,7 @@
     <stringAttribute key="Quality Objective" value="PERFORMANCE"/>
     <stringAttribute key="Reward Type" value="EXPECTED"/>
     <stringAttribute key="Simulation Engine" value="PRISM"/>
-    <stringAttribute key="SimulationID" value="DeltaIoT_modelled_ea_strategy4"/>
+    <stringAttribute key="SimulationID" value="DeltaIoT_modelled_ea_strategy3c"/>
     <stringAttribute key="Simulator Type" value="MODELLED"/>
     <intAttribute key="SteadyFitness" value="12"/>
     <setAttribute key="TransformationsActive">
@@ -32,7 +32,7 @@
         <listEntry value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/prism/EnergyConsumption.props"/>
         <listEntry value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/prism/PacketLoss.props"/>
     </listAttribute>
-    <stringAttribute key="smodelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/strategies/ea/DeltaIoTDefaultReconfigurationStrategy_4.smodel"/>
+    <stringAttribute key="smodelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/strategies/ea/DeltaIoTDefaultReconfigurationStrategy_3c.smodel"/>
     <stringAttribute key="staticModelFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/DeltaIoTNonTemporalEnvironment.staticmodel"/>
     <stringAttribute key="usageFile" value="platform:/resource/org.palladiosimulator.envdyn.examples.deltaiot/model/dummy.usagemodel"/>
 </launchConfiguration>
