@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.palladiosimulator.simexp.ui.workflow.launchConfigurationType1">
-    <stringAttribute key="CrossoverRate" value="0.800000"/>
+    <stringAttribute key="CrossoverRate" value="0.200000"/>
     <stringAttribute key="ErrorReward" value="0.000000"/>
     <intAttribute key="MEMORY_USAGE" value="2"/>
     <intAttribute key="MaxGenerations" value="50"/>
     <stringAttribute key="ModelledOptimizationType" value="EVOLUTIONARY_ALGORITHM"/>
-    <stringAttribute key="MutationRate" value="0.010000"/>
+    <stringAttribute key="MutationRate" value="0.150000"/>
     <intAttribute key="NumberOfRuns" value="10"/>
     <intAttribute key="NumberOfSimulationsPerRun" value="96"/>
     <intAttribute key="PopulationSize" value="100"/>
