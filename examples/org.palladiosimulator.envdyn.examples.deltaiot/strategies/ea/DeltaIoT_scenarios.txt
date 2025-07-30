@@ -1,0 +1,66 @@
+Optimization scenarios for DeltaIoT case study
+------------------------------------------------
+
+Base (original):
+- #links: 15
+- per link: power consumption setting, distribution factor setting
+
+-------------
+Scenario 1a: constant distribution factor, optimize power setting
+identical for all 15 links
+                - change power
+                - min power
+                - delta (max) power
+
+-------------
+Scenario 1b: optimize distribution factor, optimize power setting
+identical for all 15 links
+                - change power
+                - min power
+                - delta (max) power
+
+-------------
+Scenario 1c: optimize distribution factor per connection, optimize power setting
+identical for all 15 links
+                - change power
+                - min power
+                - delta (max) power
+
+-------------
+Scenario 2a: constant distribution factor, optimize power setting
+identical for all 15 links
+                - min power
+                - delta (max) power
+
+per link
+                - change power
+
+-------------
+Scenario 2b: optimize distribution factor, optimize power setting
+identical for all 15 links
+                - min power
+                - delta (max) power
+
+per link
+                - change power
+
+---------------
+Scenario 3a: constant distribution factor, optimize power setting
+per link
+                - change power
+                - min power
+                - delta (max) power
+
+---------------
+Scenario 3b: optimize distribution factor, optimize power setting
+per link
+                - change power
+                - min power
+                - delta (max) power
+
+---------------
+Scenario 3c: optimize distribution factor per connection, optimize power setting
+per link
+                - change power
+                - min power
+                - delta (max) power
