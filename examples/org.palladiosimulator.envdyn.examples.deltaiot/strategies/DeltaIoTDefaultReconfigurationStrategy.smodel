@@ -4,6 +4,7 @@ modelName = "DeltaIoTDefaultReconfigurationStrategy";
 
 const int CHANGE_POWER_VALUE = 1;
 const int CHANGE_DIST_VALUE = 1; 				// original value from Paper: 10.0, in Java 0.1
+const double DIST_ADAPTION_FACTOR = 10.0;		// to convert int dist value for QVTO
 const int UNIFORM_DIST_VALUE = 5;
 
 // variables to represent links; refers to the id of assemblyConnector in *.system
@@ -456,15 +457,15 @@ if (adaptationRequired) {
 			}
 			if((link7_power > link8_power) && (link7_dist < 10)) {
 				link7_dist_new = link7_dist + CHANGE_DIST_VALUE;
-				changeLinkDistribution(assemblyConnector=link7_assemblyConnector_dist, probabilisticBranchTransition=link7_probabilisticBranchTransition, value=link7_dist_new / 10.0);
+				changeLinkDistribution(assemblyConnector=link7_assemblyConnector_dist, probabilisticBranchTransition=link7_probabilisticBranchTransition, value=link7_dist_new / DIST_ADAPTION_FACTOR);
 				link8_dist_new = link8_dist - CHANGE_DIST_VALUE;
-				changeLinkDistribution(assemblyConnector=link8_assemblyConnector_dist, probabilisticBranchTransition=link8_probabilisticBranchTransition, value=link8_dist_new / 10.0);
+				changeLinkDistribution(assemblyConnector=link8_assemblyConnector_dist, probabilisticBranchTransition=link8_probabilisticBranchTransition, value=link8_dist_new / DIST_ADAPTION_FACTOR);
 			} else {
 				if (link8_dist < 10) {
 					link7_dist_new = link7_dist - CHANGE_DIST_VALUE;
-					changeLinkDistribution(assemblyConnector=link7_assemblyConnector_dist, probabilisticBranchTransition=link7_probabilisticBranchTransition, value=link7_dist_new / 10.0);
+					changeLinkDistribution(assemblyConnector=link7_assemblyConnector_dist, probabilisticBranchTransition=link7_probabilisticBranchTransition, value=link7_dist_new / DIST_ADAPTION_FACTOR);
 					link8_dist_new = link8_dist + CHANGE_DIST_VALUE;
-					changeLinkDistribution(assemblyConnector=link8_assemblyConnector_dist, probabilisticBranchTransition=link8_probabilisticBranchTransition, value=link8_dist_new / 10.0);
+					changeLinkDistribution(assemblyConnector=link8_assemblyConnector_dist, probabilisticBranchTransition=link8_probabilisticBranchTransition, value=link8_dist_new / DIST_ADAPTION_FACTOR);
 				}
 			}
 		}
@@ -479,15 +480,15 @@ if (adaptationRequired) {
 			}
 			if((link16_power > link15_power) && (link16_dist < 10)) {
 				link16_dist_new = link16_dist + CHANGE_DIST_VALUE;
-				changeLinkDistribution(assemblyConnector=link16_assemblyConnector_dist, probabilisticBranchTransition=link16_probabilisticBranchTransition, value=link16_dist_new / 10.0);
+				changeLinkDistribution(assemblyConnector=link16_assemblyConnector_dist, probabilisticBranchTransition=link16_probabilisticBranchTransition, value=link16_dist_new / DIST_ADAPTION_FACTOR);
 				link15_dist_new = link15_dist - CHANGE_DIST_VALUE;
-				changeLinkDistribution(assemblyConnector=link15_assemblyConnector_dist, probabilisticBranchTransition=link15_probabilisticBranchTransition, value=link15_dist_new / 10.0);
+				changeLinkDistribution(assemblyConnector=link15_assemblyConnector_dist, probabilisticBranchTransition=link15_probabilisticBranchTransition, value=link15_dist_new / DIST_ADAPTION_FACTOR);
 			} else {
 				if (link15_dist < 10) {
 					link16_dist_new = link16_dist - CHANGE_DIST_VALUE;
-					changeLinkDistribution(assemblyConnector=link16_assemblyConnector_dist, probabilisticBranchTransition=link16_probabilisticBranchTransition, value=link16_dist_new / 10.0);
+					changeLinkDistribution(assemblyConnector=link16_assemblyConnector_dist, probabilisticBranchTransition=link16_probabilisticBranchTransition, value=link16_dist_new / DIST_ADAPTION_FACTOR);
 					link15_dist_new = link15_dist + CHANGE_DIST_VALUE;
-					changeLinkDistribution(assemblyConnector=link16_assemblyConnector_dist, probabilisticBranchTransition=link15_probabilisticBranchTransition, value=link15_dist_new / 10.0);
+					changeLinkDistribution(assemblyConnector=link16_assemblyConnector_dist, probabilisticBranchTransition=link15_probabilisticBranchTransition, value=link15_dist_new / DIST_ADAPTION_FACTOR);
 				}
 			}
 		}
@@ -502,15 +503,15 @@ if (adaptationRequired) {
 			}
 			if((link6_power > link5_power) && (link6_dist < 10)) {
 				link6_dist_new = link6_dist + CHANGE_DIST_VALUE;
-				changeLinkDistribution(assemblyConnector=link6_assemblyConnector_dist, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist_new / 10.0);
+				changeLinkDistribution(assemblyConnector=link6_assemblyConnector_dist, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist_new / DIST_ADAPTION_FACTOR);
 				link5_dist_new = link5_dist - CHANGE_DIST_VALUE;
-				changeLinkDistribution(assemblyConnector=link5_assemblyConnector_dist, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist_new / 10.0);
+				changeLinkDistribution(assemblyConnector=link5_assemblyConnector_dist, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist_new / DIST_ADAPTION_FACTOR);
 			} else {
 				if (link5_dist < 10) {
 					link6_dist_new = link6_dist - CHANGE_DIST_VALUE;
-					changeLinkDistribution(assemblyConnector=link6_assemblyConnector_dist, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist_new / 10.0);
+					changeLinkDistribution(assemblyConnector=link6_assemblyConnector_dist, probabilisticBranchTransition=link6_probabilisticBranchTransition, value=link6_dist_new / DIST_ADAPTION_FACTOR);
 					link5_dist_new = link5_dist + CHANGE_DIST_VALUE;
-					changeLinkDistribution(assemblyConnector=link5_assemblyConnector_dist, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist_new / 10.0);
+					changeLinkDistribution(assemblyConnector=link5_assemblyConnector_dist, probabilisticBranchTransition=link5_probabilisticBranchTransition, value=link5_dist_new / DIST_ADAPTION_FACTOR);
 				}
 			}
 		}
