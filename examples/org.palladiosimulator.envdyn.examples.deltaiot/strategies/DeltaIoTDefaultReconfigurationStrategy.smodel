@@ -192,7 +192,7 @@ if (true) {
 	link6_dist = link6_dist_new;
 }
 
-// Monitor
+// Analyze
 if (true) {
 	adaptationRequired = false;
 }
