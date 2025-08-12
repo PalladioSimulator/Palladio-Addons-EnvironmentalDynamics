@@ -3,6 +3,7 @@
 modelName = "DeltaIoTDefaultReconfigurationStrategy";
 
 const int CHANGE_DIST_VALUE = 1; 				// original value from Paper: 10.0
+const double DIST_ADAPTION_FACTOR = 10.0;		// to convert int dist value for QVTO
 const int UNIFORM_DIST_VALUE = 5;
 const int DIST_MIN = 0;
 const int DIST_MIN_MAX_DELTA = 10;
@@ -231,7 +232,7 @@ if (true) {
 	link6_dist = link6_dist_new;
 }
 
-// Monitor
+// Analyze
 if (true) {
 	adaptationRequired = false;
 }
