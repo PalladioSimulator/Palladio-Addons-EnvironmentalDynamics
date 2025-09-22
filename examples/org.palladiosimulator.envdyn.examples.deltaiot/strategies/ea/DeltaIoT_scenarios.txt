@@ -27,6 +27,8 @@ identical for all 15 links
                 - delta (max) power
 
 -------------
+!!! NOTE: these tests still have the issue with > POWER_MIN instead of correct > POWER_LOWER (see 068a74c)
+-------------
 Scenario 2a: constant distribution factor, optimize power setting
 identical for all 15 links
                 - min power
