@@ -3,9 +3,9 @@
 modelName = "DeltaIoTDefaultReconfigurationStrategy";
 
 //const int CHANGE_DIST_VALUE = 1; 				// original value from Paper: 10.0
-optimizable int[1,5,1] CHANGE_DIST_VALUE_7_8; // open (stop not included)
-optimizable int[1,5,1] CHANGE_DIST_VALUE_15_16; // open (stop not included)
-optimizable int[1,5,1] CHANGE_DIST_VALUE_5_6; // open (stop not included)
+optimizable int[1,5,1] CHANGE_DIST_VALUE_7_8; // closed (stop included)
+optimizable int[1,5,1] CHANGE_DIST_VALUE_15_16; // closed (stop included)
+optimizable int[1,5,1] CHANGE_DIST_VALUE_5_6; // closed (stop included)
 const double DIST_ADAPTION_FACTOR = 10.0;		// to convert int dist value for QVTO
 
 const int UNIFORM_DIST_VALUE = 5;
@@ -18,11 +18,11 @@ var int DIST_MAX_15_16 = -1;
 var int DIST_MAX_5_6 = -1;
 
 //const int CHANGE_POWER_VALUE = 1;
-optimizable int[1,4,1] CHANGE_POWER_VALUE;
+optimizable int[1,4,1] CHANGE_POWER_VALUE;	// closed (stop included)
 //const int POWER_MIN = 0;
-optimizable int[0,5,1] POWER_MIN;
+optimizable int[0,5,1] POWER_MIN;	// closed (stop included)
 //const int POWER_MIN_MAX_DELTA = 15;
-optimizable int[4,10,1] POWER_MIN_MAX_DELTA;
+optimizable int[4,10,1] POWER_MIN_MAX_DELTA;	// closed (stop included)
 //const int POWER_UPPER = POWER_MIN + POWER_MIN_MAX_DELTA;
 var int POWER_UPPER = -1; 
 //const int POWER_MAX = POWER_UPPER - CHANGE_POWER_VALUE + 1;
