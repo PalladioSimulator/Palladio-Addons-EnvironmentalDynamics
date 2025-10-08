@@ -324,6 +324,7 @@ if(!(link5_power == link6_power)){
 
 // Plan
 if (adaptationRequired) {
+	// Only second link is relevant (like DeltaIoT simulator handling)
 	powerChangingMote7 = false;
 	powerChangingMote10 = false;
 	powerChangingMote12 = false;
@@ -385,12 +386,12 @@ if (adaptationRequired) {
 	}
 
 	if (SRN_12to7Link_SignalToNoiseRatioInstantiation < 0 && link5_power < POWER_UPPER) {
-		powerChangingMote12 = true;
+		// powerChangingMote12 = true;
 		link5_power_new = link5_power + CHANGE_POWER_VALUE;
 		changeLinkPower(assemblyConnector=link5_assemblyConnector_power, referenceName=link5_referenceName, value=link5_power_new);
 	}
 	if (SRN_12to7Link_SignalToNoiseRatioInstantiation > 0 && link5_power > POWER_LOWER) {
-		powerChangingMote12 = true;
+		// powerChangingMote12 = true;
 		link5_power_new = link5_power - CHANGE_POWER_VALUE;
 		changeLinkPower(assemblyConnector=link5_assemblyConnector_power, referenceName=link5_referenceName, value=link5_power_new);
 	}
@@ -405,23 +406,23 @@ if (adaptationRequired) {
 	}
 
 	if (SRN_7to2Link_SignalToNoiseRatioInstantiation < 0 && link8_power < POWER_UPPER) {
-		powerChangingMote7 = true;
+		// powerChangingMote7 = true;
 		link8_power_new = link8_power + CHANGE_POWER_VALUE;
 		changeLinkPower(assemblyConnector=link8_assemblyConnector_power, referenceName=link8_referenceName, value=link8_power_new);
 	}
 	if (SRN_7to2Link_SignalToNoiseRatioInstantiation > 0 && link8_power > POWER_LOWER) {
-		powerChangingMote7 = true;
+		// powerChangingMote7 = true;
 		link8_power_new = link8_power - CHANGE_POWER_VALUE;
 		changeLinkPower(assemblyConnector=link8_assemblyConnector_power, referenceName=link8_referenceName, value=link8_power_new);
 	}
 
 	if (SRN_10to6Link_SignalToNoiseRatioInstantiation < 0 && link15_power < POWER_UPPER) {
-		powerChangingMote10 = true;
+		// powerChangingMote10 = true;
 		link15_power_new = link15_power + CHANGE_POWER_VALUE;
 		changeLinkPower(assemblyConnector=link15_assemblyConnector_power, referenceName=link15_referenceName, value=link15_power_new);
 	}
 	if (SRN_10to6Link_SignalToNoiseRatioInstantiation > 0 && link15_power > POWER_LOWER) {
-		powerChangingMote10 = true;
+		// powerChangingMote10 = true;
 		link15_power_new = link15_power - CHANGE_POWER_VALUE;
 		changeLinkPower(assemblyConnector=link15_assemblyConnector_power, referenceName=link15_referenceName, value=link15_power_new);
 	}
