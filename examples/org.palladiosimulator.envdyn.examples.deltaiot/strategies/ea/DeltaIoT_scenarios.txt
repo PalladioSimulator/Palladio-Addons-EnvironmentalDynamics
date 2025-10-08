@@ -30,6 +30,7 @@ identical for all 15 links
 !!! NOTE: 
 - these tests still have the issue with > POWER_MIN instead of correct > POWER_LOWER (see 068a74c)
 - POWER_UPPER and POWER_MAX have been exchanged (see 2944590)
+- power_changing for 2 link motes (see ffa6279)
 -------------
 Scenario 2a: constant distribution factor, optimize power setting
 identical for all 15 links
