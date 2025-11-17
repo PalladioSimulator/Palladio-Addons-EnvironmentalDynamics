@@ -38,8 +38,8 @@ per link
 -------------
 !!! NOTE: 
 - these tests still have not applied corrected monitor logic (see 5e6cf01)
-- these tests still have the issue with > POWER_MIN instead of correct > POWER_LOWER (see 0ce895b)
-- POWER_UPPER and POWER_MAX have been exchanged (see e00c503)
+- these tests still have the issue with > POWER_MIN instead of correct > POWER_LOWER (see 1ea57cc)
+- POWER_UPPER and POWER_MAX have been exchanged (see 273d5c8)
 -------------
 Scenario 2b: optimize distribution factor, optimize power setting
 identical for all 15 links
