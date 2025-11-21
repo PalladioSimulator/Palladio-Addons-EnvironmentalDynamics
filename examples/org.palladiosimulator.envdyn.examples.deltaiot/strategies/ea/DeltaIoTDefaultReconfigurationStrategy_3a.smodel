@@ -67,6 +67,24 @@ var int POWER_UPPER14 = -1;
 var int POWER_UPPER15 = -1;
 var int POWER_UPPER16 = -1;
 var int POWER_UPPER17 = -1;
+
+var int POWER_LOWER1 = -1;
+var int POWER_LOWER2 = -1;
+var int POWER_LOWER3 = -1;
+var int POWER_LOWER4 = -1;
+var int POWER_LOWER5 = -1;
+var int POWER_LOWER6 = -1;
+var int POWER_LOWER7 = -1;
+var int POWER_LOWER8 = -1;
+var int POWER_LOWER9 = -1;
+var int POWER_LOWER10 = -1;
+var int POWER_LOWER11 = -1;
+var int POWER_LOWER12 = -1;
+var int POWER_LOWER13 = -1;
+var int POWER_LOWER14 = -1;
+var int POWER_LOWER15 = -1;
+var int POWER_LOWER16 = -1;
+var int POWER_LOWER17 = -1;
  
 //const int POWER_MAX = POWER_UPPER - CHANGE_POWER_VALUE + 1;
 var int POWER_MAX1 = -1; // will be assigned later down
@@ -249,59 +267,77 @@ action changeLinkDistribution(param string assemblyConnector, param string proba
 if (!initialized) {
 	initialized = true;
 	
-	POWER_UPPER1  = POWER_MIN1  + POWER_MIN_MAX_DELTA;
-	POWER_UPPER2  = POWER_MIN2  + POWER_MIN_MAX_DELTA;
-	POWER_UPPER3  = POWER_MIN3  + POWER_MIN_MAX_DELTA;
-	POWER_UPPER4  = POWER_MIN4  + POWER_MIN_MAX_DELTA;
-	POWER_UPPER5  = POWER_MIN5  + POWER_MIN_MAX_DELTA;
-	POWER_UPPER6  = POWER_MIN6  + POWER_MIN_MAX_DELTA;
-	POWER_UPPER7  = POWER_MIN7  + POWER_MIN_MAX_DELTA;
-	POWER_UPPER8  = POWER_MIN8  + POWER_MIN_MAX_DELTA;
-	POWER_UPPER9  = POWER_MIN9  + POWER_MIN_MAX_DELTA;
-	POWER_UPPER10 = POWER_MIN10 + POWER_MIN_MAX_DELTA;
-	POWER_UPPER11 = POWER_MIN11 + POWER_MIN_MAX_DELTA;
-	POWER_UPPER12 = POWER_MIN12 + POWER_MIN_MAX_DELTA;
-	POWER_UPPER13 = POWER_MIN13 + POWER_MIN_MAX_DELTA;
-	POWER_UPPER14 = POWER_MIN14 + POWER_MIN_MAX_DELTA;
-	POWER_UPPER15 = POWER_MIN15 + POWER_MIN_MAX_DELTA;
-	POWER_UPPER16 = POWER_MIN16 + POWER_MIN_MAX_DELTA;
-	POWER_UPPER17 = POWER_MIN17 + POWER_MIN_MAX_DELTA;
+	POWER_LOWER1 = POWER_MIN1 + CHANGE_POWER_VALUE1 - 1;
+	POWER_LOWER2 = POWER_MIN2 + CHANGE_POWER_VALUE2 - 1;
+	POWER_LOWER3 = POWER_MIN3 + CHANGE_POWER_VALUE3 - 1;
+	POWER_LOWER4 = POWER_MIN4 + CHANGE_POWER_VALUE4 - 1;
+	POWER_LOWER5 = POWER_MIN5 + CHANGE_POWER_VALUE5 - 1;
+	POWER_LOWER6 = POWER_MIN6 + CHANGE_POWER_VALUE6 - 1;
+	POWER_LOWER7 = POWER_MIN7 + CHANGE_POWER_VALUE7 - 1;
+	POWER_LOWER8 = POWER_MIN8 + CHANGE_POWER_VALUE8 - 1;
+	POWER_LOWER9 = POWER_MIN9 + CHANGE_POWER_VALUE9 - 1;
+	POWER_LOWER10 = POWER_MIN10 + CHANGE_POWER_VALUE10 - 1;
+	POWER_LOWER11 = POWER_MIN11 + CHANGE_POWER_VALUE11 - 1;
+	POWER_LOWER12 = POWER_MIN12 + CHANGE_POWER_VALUE12 - 1;
+	POWER_LOWER13 = POWER_MIN13 + CHANGE_POWER_VALUE13 - 1;
+	POWER_LOWER14 = POWER_MIN14 + CHANGE_POWER_VALUE14 - 1;
+	POWER_LOWER15 = POWER_MIN15 + CHANGE_POWER_VALUE15 - 1;
+	POWER_LOWER16 = POWER_MIN16 + CHANGE_POWER_VALUE16 - 1;
+	POWER_LOWER17 = POWER_MIN17 + CHANGE_POWER_VALUE17 - 1;
 	
-	POWER_MAX1  = POWER_UPPER1  - CHANGE_POWER_VALUE1  + 1;
-	POWER_MAX2  = POWER_UPPER2  - CHANGE_POWER_VALUE2  + 1;
-	POWER_MAX3  = POWER_UPPER3  - CHANGE_POWER_VALUE3  + 1;
-	POWER_MAX4  = POWER_UPPER4  - CHANGE_POWER_VALUE4  + 1;
-	POWER_MAX5  = POWER_UPPER5  - CHANGE_POWER_VALUE5  + 1;
-	POWER_MAX6  = POWER_UPPER6  - CHANGE_POWER_VALUE6  + 1;
-	POWER_MAX7  = POWER_UPPER7  - CHANGE_POWER_VALUE7  + 1;
-	POWER_MAX8  = POWER_UPPER8  - CHANGE_POWER_VALUE8  + 1;
-	POWER_MAX9  = POWER_UPPER9  - CHANGE_POWER_VALUE9  + 1;
-	POWER_MAX10 = POWER_UPPER10 - CHANGE_POWER_VALUE10 + 1;
-	POWER_MAX11 = POWER_UPPER11 - CHANGE_POWER_VALUE11 + 1;
-	POWER_MAX12 = POWER_UPPER12 - CHANGE_POWER_VALUE12 + 1;
-	POWER_MAX13 = POWER_UPPER13 - CHANGE_POWER_VALUE13 + 1;
-	POWER_MAX14 = POWER_UPPER14 - CHANGE_POWER_VALUE14 + 1;
-	POWER_MAX15 = POWER_UPPER15 - CHANGE_POWER_VALUE15 + 1;
-	POWER_MAX16 = POWER_UPPER16 - CHANGE_POWER_VALUE16 + 1;
-	POWER_MAX17 = POWER_UPPER17 - CHANGE_POWER_VALUE17 + 1;
+	POWER_MAX1  = POWER_MIN1 + POWER_MIN_MAX_DELTA;
+	POWER_MAX2  = POWER_MIN2 + POWER_MIN_MAX_DELTA;
+	POWER_MAX3  = POWER_MIN3 + POWER_MIN_MAX_DELTA;
+	POWER_MAX4  = POWER_MIN4 + POWER_MIN_MAX_DELTA;
+	POWER_MAX5  = POWER_MIN5 + POWER_MIN_MAX_DELTA;
+	POWER_MAX6  = POWER_MIN6 + POWER_MIN_MAX_DELTA;
+	POWER_MAX7  = POWER_MIN7 + POWER_MIN_MAX_DELTA;
+	POWER_MAX8  = POWER_MIN8 + POWER_MIN_MAX_DELTA;
+	POWER_MAX9  = POWER_MIN9 + POWER_MIN_MAX_DELTA;
+	POWER_MAX10 = POWER_MIN10 + POWER_MIN_MAX_DELTA;
+	POWER_MAX11 = POWER_MIN11 + POWER_MIN_MAX_DELTA;
+	POWER_MAX12 = POWER_MIN12 + POWER_MIN_MAX_DELTA;
+	POWER_MAX13 = POWER_MIN13 + POWER_MIN_MAX_DELTA;
+	POWER_MAX14 = POWER_MIN14 + POWER_MIN_MAX_DELTA;
+	POWER_MAX15 = POWER_MIN15 + POWER_MIN_MAX_DELTA;
+	POWER_MAX16 = POWER_MIN16 + POWER_MIN_MAX_DELTA;
+	POWER_MAX17 = POWER_MIN17 + POWER_MIN_MAX_DELTA;
 	
-	link1_power_new = POWER_UPPER1;
-	link2_power_new = POWER_UPPER2;		// Mote 7
-	link3_power_new = POWER_UPPER3;		// Mote 7, Mote 3
-	link4_power_new = POWER_UPPER4;
-	link5_power_new = POWER_UPPER5;		// Mote 10
-	link6_power_new = POWER_UPPER6;		// Mote 10
-	link7_power_new = POWER_UPPER7;		// Mote 7
-	link8_power_new = POWER_UPPER8;
-	link9_power_new = POWER_UPPER9;
-	link10_power_new = POWER_UPPER10;
-	link11_power_new = POWER_UPPER11;
-	link12_power_new = POWER_UPPER12;
-	link13_power_new = POWER_UPPER13;
-	link14_power_new = POWER_UPPER14;
-	link15_power_new = POWER_UPPER15;
-	link16_power_new = POWER_UPPER16;
-	link17_power_new = POWER_UPPER17;
+	POWER_UPPER1 = POWER_MAX1 - CHANGE_POWER_VALUE1 + 1;
+	POWER_UPPER2 = POWER_MAX2 - CHANGE_POWER_VALUE2 + 1;
+	POWER_UPPER3 = POWER_MAX3 - CHANGE_POWER_VALUE3 + 1;
+	POWER_UPPER4 = POWER_MAX4 - CHANGE_POWER_VALUE4 + 1;
+	POWER_UPPER5 = POWER_MAX5 - CHANGE_POWER_VALUE5 + 1;
+	POWER_UPPER6 = POWER_MAX6 - CHANGE_POWER_VALUE6 + 1;
+	POWER_UPPER7 = POWER_MAX7 - CHANGE_POWER_VALUE7 + 1;
+	POWER_UPPER8 = POWER_MAX8 - CHANGE_POWER_VALUE8 + 1;
+	POWER_UPPER9 = POWER_MAX9 - CHANGE_POWER_VALUE9 + 1;
+	POWER_UPPER10 = POWER_MAX10 - CHANGE_POWER_VALUE10 + 1;
+	POWER_UPPER11 = POWER_MAX11 - CHANGE_POWER_VALUE11 + 1;
+	POWER_UPPER12 = POWER_MAX12 - CHANGE_POWER_VALUE12 + 1;
+	POWER_UPPER13 = POWER_MAX13 - CHANGE_POWER_VALUE13 + 1;
+	POWER_UPPER14 = POWER_MAX14 - CHANGE_POWER_VALUE14 + 1;
+	POWER_UPPER15 = POWER_MAX15 - CHANGE_POWER_VALUE15 + 1;
+	POWER_UPPER16 = POWER_MAX16 - CHANGE_POWER_VALUE16 + 1;
+	POWER_UPPER17 = POWER_MAX17 - CHANGE_POWER_VALUE17 + 1;
+	
+	link1_power_new = POWER_MAX1;
+	link2_power_new = POWER_MAX2;		// Mote 7
+	link3_power_new = POWER_MAX3;		// Mote 7, Mote 3
+	link4_power_new = POWER_MAX4;
+	link5_power_new = POWER_MAX5;		// Mote 10
+	link6_power_new = POWER_MAX6;		// Mote 10
+	link7_power_new = POWER_MAX7;		// Mote 7
+	link8_power_new = POWER_MAX8;
+	link9_power_new = POWER_MAX9;
+	link10_power_new = POWER_MAX10;
+	link11_power_new = POWER_MAX11;
+	link12_power_new = POWER_MAX12;
+	link13_power_new = POWER_MAX13;
+	link14_power_new = POWER_MAX14;
+	link15_power_new = POWER_MAX15;
+	link16_power_new = POWER_MAX16;
+	link17_power_new = POWER_MAX17;
 } 
 
 // Take over values
@@ -341,55 +377,55 @@ if (true) {
 
 // check for each link that 'isPowerOptimal': Check whether SNR > 0 and Power == 0 OR SNR < 0 && Power == 15 : originally from paper, but checking power settings for equality is wrong
 // check for each link that 'isPowerOptimal': Check whether SNR > 0 and Power > 0 OR SNR < 0 && Power < 15	: correct version from DeltaIoT implementation
-if (!(SRN_6to4Link_SignalToNoiseRatioInstantiation > 0 && link14_power > POWER_MIN14) || !(SRN_6to4Link_SignalToNoiseRatioInstantiation < 0 && link14_power < POWER_MAX14)) {
+if (!(SRN_6to4Link_SignalToNoiseRatioInstantiation > 0 && link14_power > POWER_LOWER14) || !(SRN_6to4Link_SignalToNoiseRatioInstantiation < 0 && link14_power < POWER_UPPER14)) {
 	adaptationRequired = true;
 }
-if (!(SRN_5to9Link_SignalToNoiseRatioInstantiation > 0 && link17_power > POWER_MIN17) || !(SRN_5to9Link_SignalToNoiseRatioInstantiation < 0 && link17_power < POWER_MAX17)) {	
+if (!(SRN_5to9Link_SignalToNoiseRatioInstantiation > 0 && link17_power > POWER_LOWER17) || !(SRN_5to9Link_SignalToNoiseRatioInstantiation < 0 && link17_power < POWER_UPPER17)) {	
 	adaptationRequired = true;
 }
-if (!(SRN_14to12Link_SignalToNoiseRatioInstantiation > 0 && link2_power > POWER_MIN2) || !(SRN_14to12Link_SignalToNoiseRatioInstantiation < 0 && link2_power < POWER_MAX2)) {
+if (!(SRN_14to12Link_SignalToNoiseRatioInstantiation > 0 && link2_power > POWER_LOWER2) || !(SRN_14to12Link_SignalToNoiseRatioInstantiation < 0 && link2_power < POWER_UPPER2)) {
 	adaptationRequired = true;
 }
-if (!(SRN_7to3Link_SignalToNoiseRatioInstantiation > 0 && link7_power > POWER_MIN7) || !(SRN_7to3Link_SignalToNoiseRatioInstantiation < 0 && link7_power < POWER_MAX7)) {
+if (!(SRN_7to3Link_SignalToNoiseRatioInstantiation > 0 && link7_power > POWER_LOWER7) || !(SRN_7to3Link_SignalToNoiseRatioInstantiation < 0 && link7_power < POWER_UPPER7)) {
 	adaptationRequired = true;
 }
-if (!(SRN_11to7Link_SignalToNoiseRatioInstantiation > 0 && link4_power > POWER_MIN4) || !(SRN_11to7Link_SignalToNoiseRatioInstantiation < 0 && link4_power < POWER_MAX4)) {
+if (!(SRN_11to7Link_SignalToNoiseRatioInstantiation > 0 && link4_power > POWER_LOWER4) || !(SRN_11to7Link_SignalToNoiseRatioInstantiation < 0 && link4_power < POWER_UPPER4)) {
 	adaptationRequired = true;
 }
-if (!(SRN_15to12Link_SignalToNoiseRatioInstantiation > 0 && link3_power > POWER_MIN3) || !(SRN_15to12Link_SignalToNoiseRatioInstantiation < 0 && link3_power < POWER_MAX3)) {	
+if (!(SRN_15to12Link_SignalToNoiseRatioInstantiation > 0 && link3_power > POWER_LOWER3) || !(SRN_15to12Link_SignalToNoiseRatioInstantiation < 0 && link3_power < POWER_UPPER3)) {	
 	adaptationRequired = true;
 }
-if (!(SRN_12to7Link_SignalToNoiseRatioInstantiation > 0 && link5_power > POWER_MIN5) || !(SRN_12to7Link_SignalToNoiseRatioInstantiation < 0 && link5_power < POWER_MAX5)) {
+if (!(SRN_12to7Link_SignalToNoiseRatioInstantiation > 0 && link5_power > POWER_LOWER5) || !(SRN_12to7Link_SignalToNoiseRatioInstantiation < 0 && link5_power < POWER_UPPER5)) {
 	adaptationRequired = true;
 }
-if (!(SRN_13to11Link_SignalToNoiseRatioInstantiation > 0 && link1_power > POWER_MIN1) || !(SRN_13to11Link_SignalToNoiseRatioInstantiation < 0 && link1_power < POWER_MAX1)) {
+if (!(SRN_13to11Link_SignalToNoiseRatioInstantiation > 0 && link1_power > POWER_LOWER1) || !(SRN_13to11Link_SignalToNoiseRatioInstantiation < 0 && link1_power < POWER_UPPER1)) {
 	adaptationRequired = true;
 }
-if (!(SRN_7to2Link_SignalToNoiseRatioInstantiation > 0 && link8_power > POWER_MIN8) || !(SRN_7to2Link_SignalToNoiseRatioInstantiation < 0 && link8_power < POWER_MAX8)) {
+if (!(SRN_7to2Link_SignalToNoiseRatioInstantiation > 0 && link8_power > POWER_LOWER8) || !(SRN_7to2Link_SignalToNoiseRatioInstantiation < 0 && link8_power < POWER_UPPER8)) {
 	adaptationRequired = true;
 }
-if (!(SRN_10to6Link_SignalToNoiseRatioInstantiation > 0 && link15_power > POWER_MIN15) || !(SRN_10to6Link_SignalToNoiseRatioInstantiation < 0 && link15_power < POWER_MAX15)) {
+if (!(SRN_10to6Link_SignalToNoiseRatioInstantiation > 0 && link15_power > POWER_LOWER15) || !(SRN_10to6Link_SignalToNoiseRatioInstantiation < 0 && link15_power < POWER_UPPER15)) {
 	adaptationRequired = true;
 }
-if (!(SRN_9to1Link_SignalToNoiseRatioInstantiation > 0 && link13_power > POWER_MIN13) || !(SRN_9to1Link_SignalToNoiseRatioInstantiation < 0 && link13_power < POWER_MAX13)) {
+if (!(SRN_9to1Link_SignalToNoiseRatioInstantiation > 0 && link13_power > POWER_LOWER13) || !(SRN_9to1Link_SignalToNoiseRatioInstantiation < 0 && link13_power < POWER_UPPER13)) {
 	adaptationRequired = true;
 }
-if (!(SRN_10to5Link_SignalToNoiseRatioInstantiation > 0 && link16_power > POWER_MIN16) || !(SRN_10to5Link_SignalToNoiseRatioInstantiation < 0 && link16_power < POWER_MAX16)) {
+if (!(SRN_10to5Link_SignalToNoiseRatioInstantiation > 0 && link16_power > POWER_LOWER16) || !(SRN_10to5Link_SignalToNoiseRatioInstantiation < 0 && link16_power < POWER_UPPER16)) {
 	adaptationRequired = true;
 }
-if (!(SRN_4to1Link_SignalToNoiseRatioInstantiation > 0 && link12_power > POWER_MIN12) || !(SRN_4to1Link_SignalToNoiseRatioInstantiation < 0 && link12_power < POWER_MAX12)) {
+if (!(SRN_4to1Link_SignalToNoiseRatioInstantiation > 0 && link12_power > POWER_LOWER12) || !(SRN_4to1Link_SignalToNoiseRatioInstantiation < 0 && link12_power < POWER_UPPER12)) {
 	adaptationRequired = true;
 }
-if (!(SRN_8to1Link_SignalToNoiseRatioInstantiation > 0 && link11_power > POWER_MIN11) || !(SRN_8to1Link_SignalToNoiseRatioInstantiation < 0 && link11_power < POWER_MAX11)) {
+if (!(SRN_8to1Link_SignalToNoiseRatioInstantiation > 0 && link11_power > POWER_LOWER11) || !(SRN_8to1Link_SignalToNoiseRatioInstantiation < 0 && link11_power < POWER_UPPER11)) {
 	adaptationRequired = true;
 }
-if (!(SRN_12to3Link_SignalToNoiseRatioInstantiation > 0 && link6_power > POWER_MIN6) || !(SRN_12to3Link_SignalToNoiseRatioInstantiation < 0 && link6_power < POWER_MAX6)) {
+if (!(SRN_12to3Link_SignalToNoiseRatioInstantiation > 0 && link6_power > POWER_LOWER6) || !(SRN_12to3Link_SignalToNoiseRatioInstantiation < 0 && link6_power < POWER_UPPER6)) {
 	adaptationRequired = true;
 }
-if (!(SRN_3to1Link_SignalToNoiseRatioInstantiation > 0 && link10_power > POWER_MIN10) || !(SRN_3to1Link_SignalToNoiseRatioInstantiation < 0 && link10_power < POWER_MAX10)) {
+if (!(SRN_3to1Link_SignalToNoiseRatioInstantiation > 0 && link10_power > POWER_LOWER10) || !(SRN_3to1Link_SignalToNoiseRatioInstantiation < 0 && link10_power < POWER_UPPER10)) {
 	adaptationRequired = true;
 }
-if (!(SRN_2to4Link_SignalToNoiseRatioInstantiation > 0 && link9_power > POWER_MIN9) || !(SRN_2to4Link_SignalToNoiseRatioInstantiation < 0 && link9_power < POWER_MAX9)) {
+if (!(SRN_2to4Link_SignalToNoiseRatioInstantiation > 0 && link9_power > POWER_LOWER9) || !(SRN_2to4Link_SignalToNoiseRatioInstantiation < 0 && link9_power < POWER_UPPER9)) {
 	adaptationRequired = true;
 }	
 	
@@ -415,167 +451,167 @@ if (adaptationRequired) {
 	powerChangingMote10 = false;
 	powerChangingMote12 = false;
 	
-	if (SRN_6to4Link_SignalToNoiseRatioInstantiation < 0 && link14_power < POWER_MAX14) {
+	if (SRN_6to4Link_SignalToNoiseRatioInstantiation < 0 && link14_power < POWER_UPPER14) {
 		link14_power_new = link14_power + CHANGE_POWER_VALUE14;
 		changeLinkPower(assemblyConnector=link14_assemblyConnector, referenceName=link14_referenceName, value=link14_power_new);
 	}
-	if (SRN_6to4Link_SignalToNoiseRatioInstantiation > 0  && link14_power > POWER_MIN14) {
+	if (SRN_6to4Link_SignalToNoiseRatioInstantiation > 0  && link14_power > POWER_LOWER14) {
 		link14_power_new = link14_power - CHANGE_POWER_VALUE14;
 		changeLinkPower(assemblyConnector=link14_assemblyConnector, referenceName=link14_referenceName, value=link14_power_new);
 	}
 
-	if (SRN_5to9Link_SignalToNoiseRatioInstantiation < 0 && link17_power < POWER_MAX17) {
+	if (SRN_5to9Link_SignalToNoiseRatioInstantiation < 0 && link17_power < POWER_UPPER17) {
 		link17_power_new = link17_power + CHANGE_POWER_VALUE17;
 		changeLinkPower(assemblyConnector=link17_assemblyConnector, referenceName=link17_referenceName, value=link17_power_new);
 	}
-	if (SRN_5to9Link_SignalToNoiseRatioInstantiation > 0 && link17_power > POWER_MIN17) {
+	if (SRN_5to9Link_SignalToNoiseRatioInstantiation > 0 && link17_power > POWER_LOWER17) {
 		link17_power_new = link17_power - CHANGE_POWER_VALUE17;
 		changeLinkPower(assemblyConnector=link17_assemblyConnector, referenceName=link17_referenceName, value=link17_power_new);
 	}
 
-	if (SRN_14to12Link_SignalToNoiseRatioInstantiation < 0 && link2_power < POWER_MAX2) {
+	if (SRN_14to12Link_SignalToNoiseRatioInstantiation < 0 && link2_power < POWER_UPPER2) {
 		link2_power_new = link2_power + CHANGE_POWER_VALUE2;
 		changeLinkPower(assemblyConnector=link2_assemblyConnector, referenceName=link2_referenceName, value=link2_power_new);
 	}
-	if (SRN_14to12Link_SignalToNoiseRatioInstantiation > 0 && link2_power > POWER_MIN2) {
+	if (SRN_14to12Link_SignalToNoiseRatioInstantiation > 0 && link2_power > POWER_LOWER2) {
 		link2_power_new = link2_power - CHANGE_POWER_VALUE2;
 		changeLinkPower(assemblyConnector=link2_assemblyConnector, referenceName=link2_referenceName, value=link2_power_new);
 	}
 
-	if (SRN_7to3Link_SignalToNoiseRatioInstantiation < 0 && link7_power < POWER_MAX7) {
+	if (SRN_7to3Link_SignalToNoiseRatioInstantiation < 0 && link7_power < POWER_UPPER7) {
 		powerChangingMote7 = true;
 		link7_power_new = link7_power + CHANGE_POWER_VALUE7;
 		changeLinkPower(assemblyConnector=link7_assemblyConnector_power, referenceName=link7_referenceName, value=link7_power_new);
 	}
-	if (SRN_7to3Link_SignalToNoiseRatioInstantiation > 0 && link7_power > POWER_MIN7) {
+	if (SRN_7to3Link_SignalToNoiseRatioInstantiation > 0 && link7_power > POWER_LOWER7) {
 		powerChangingMote7 = true;
 		link7_power_new = link7_power - CHANGE_POWER_VALUE7;
 		changeLinkPower(assemblyConnector=link7_assemblyConnector_power, referenceName=link7_referenceName, value=link7_power_new);
 	}
 
-	if (SRN_11to7Link_SignalToNoiseRatioInstantiation < 0 && link4_power < POWER_MAX4) {
+	if (SRN_11to7Link_SignalToNoiseRatioInstantiation < 0 && link4_power < POWER_UPPER4) {
 		link4_power_new = link4_power + CHANGE_POWER_VALUE4;
 		changeLinkPower(assemblyConnector=link4_assemblyConnector, referenceName=link4_referenceName, value=link4_power_new);
 	}
-	if (SRN_11to7Link_SignalToNoiseRatioInstantiation > 0 && link4_power > POWER_MIN4) {
+	if (SRN_11to7Link_SignalToNoiseRatioInstantiation > 0 && link4_power > POWER_LOWER4) {
 		link4_power_new = link4_power - CHANGE_POWER_VALUE4;
 		changeLinkPower(assemblyConnector=link4_assemblyConnector, referenceName=link4_referenceName, value=link4_power_new);
 	}
 
-	if (SRN_15to12Link_SignalToNoiseRatioInstantiation < 0 && link3_power < POWER_MAX3) {
+	if (SRN_15to12Link_SignalToNoiseRatioInstantiation < 0 && link3_power < POWER_UPPER3) {
 		link3_power_new = link3_power + CHANGE_POWER_VALUE3;
 		changeLinkPower(assemblyConnector=link3_assemblyConnector, referenceName=link3_referenceName, value=link3_power_new);
 	}
-	if (SRN_15to12Link_SignalToNoiseRatioInstantiation > 0 && link3_power > POWER_MIN3) {
+	if (SRN_15to12Link_SignalToNoiseRatioInstantiation > 0 && link3_power > POWER_LOWER3) {
 		link3_power_new = link3_power - CHANGE_POWER_VALUE3;
 		changeLinkPower(assemblyConnector=link3_assemblyConnector, referenceName=link3_referenceName, value=link3_power_new);
 	}
 
-	if (SRN_12to7Link_SignalToNoiseRatioInstantiation < 0 && link5_power < POWER_MAX5) {
+	if (SRN_12to7Link_SignalToNoiseRatioInstantiation < 0 && link5_power < POWER_UPPER5) {
 		// powerChangingMote12 = true;
 		link5_power_new = link5_power + CHANGE_POWER_VALUE5;
 		changeLinkPower(assemblyConnector=link5_assemblyConnector_power, referenceName=link5_referenceName, value=link5_power_new);
 	}
-	if (SRN_12to7Link_SignalToNoiseRatioInstantiation > 0 && link5_power > POWER_MIN5) {
+	if (SRN_12to7Link_SignalToNoiseRatioInstantiation > 0 && link5_power > POWER_LOWER5) {
 		// powerChangingMote12 = true;
 		link5_power_new = link5_power - CHANGE_POWER_VALUE5;
 		changeLinkPower(assemblyConnector=link5_assemblyConnector_power, referenceName=link5_referenceName, value=link5_power_new);
 	}
 
-	if (SRN_13to11Link_SignalToNoiseRatioInstantiation < 0 && link1_power < POWER_MAX1) {
+	if (SRN_13to11Link_SignalToNoiseRatioInstantiation < 0 && link1_power < POWER_UPPER1) {
 		link1_power_new = link1_power + CHANGE_POWER_VALUE1;
 		changeLinkPower(assemblyConnector=link1_assemblyConnector, referenceName=link1_referenceName, value=link1_power_new);
 	}
-	if (SRN_13to11Link_SignalToNoiseRatioInstantiation > 0 && link1_power > POWER_MIN1) {
+	if (SRN_13to11Link_SignalToNoiseRatioInstantiation > 0 && link1_power > POWER_LOWER1) {
 		link1_power_new = link1_power - CHANGE_POWER_VALUE1;
 		changeLinkPower(assemblyConnector=link1_assemblyConnector, referenceName=link1_referenceName, value=link1_power_new);
 	}
 
-	if (SRN_7to2Link_SignalToNoiseRatioInstantiation < 0 && link8_power < POWER_MAX8) {
+	if (SRN_7to2Link_SignalToNoiseRatioInstantiation < 0 && link8_power < POWER_UPPER8) {
 		// powerChangingMote7 = true;
 		link8_power_new = link8_power + CHANGE_POWER_VALUE8;
 		changeLinkPower(assemblyConnector=link8_assemblyConnector_power, referenceName=link8_referenceName, value=link8_power_new);
 	}
-	if (SRN_7to2Link_SignalToNoiseRatioInstantiation > 0 && link8_power > POWER_MIN8) {
+	if (SRN_7to2Link_SignalToNoiseRatioInstantiation > 0 && link8_power > POWER_LOWER8) {
 		// powerChangingMote7 = true;
 		link8_power_new = link8_power - CHANGE_POWER_VALUE8;
 		changeLinkPower(assemblyConnector=link8_assemblyConnector_power, referenceName=link8_referenceName, value=link8_power_new);
 	}
 
-	if (SRN_10to6Link_SignalToNoiseRatioInstantiation < 0 && link15_power < POWER_MAX15) {
+	if (SRN_10to6Link_SignalToNoiseRatioInstantiation < 0 && link15_power < POWER_UPPER15) {
 		// powerChangingMote10 = true;
 		link15_power_new = link15_power + CHANGE_POWER_VALUE15;
 		changeLinkPower(assemblyConnector=link15_assemblyConnector_power, referenceName=link15_referenceName, value=link15_power_new);
 	}
-	if (SRN_10to6Link_SignalToNoiseRatioInstantiation > 0 && link15_power > POWER_MIN15) {
+	if (SRN_10to6Link_SignalToNoiseRatioInstantiation > 0 && link15_power > POWER_LOWER15) {
 		// powerChangingMote10 = true;
 		link15_power_new = link15_power - CHANGE_POWER_VALUE15;
 		changeLinkPower(assemblyConnector=link15_assemblyConnector_power, referenceName=link15_referenceName, value=link15_power_new);
 	}
 
-	if (SRN_9to1Link_SignalToNoiseRatioInstantiation < 0 && link13_power < POWER_MAX13) {
+	if (SRN_9to1Link_SignalToNoiseRatioInstantiation < 0 && link13_power < POWER_UPPER13) {
 		link13_power_new = link13_power + CHANGE_POWER_VALUE13;
 		changeLinkPower(assemblyConnector=link13_assemblyConnector, referenceName=link13_referenceName, value=link13_power_new);
 	}
-	if (SRN_9to1Link_SignalToNoiseRatioInstantiation > 0 && link13_power > POWER_MIN13) {
+	if (SRN_9to1Link_SignalToNoiseRatioInstantiation > 0 && link13_power > POWER_LOWER13) {
 		link13_power_new = link13_power - CHANGE_POWER_VALUE13;
 		changeLinkPower(assemblyConnector=link13_assemblyConnector, referenceName=link13_referenceName, value=link13_power_new);
 	}
 
-	if (SRN_10to5Link_SignalToNoiseRatioInstantiation < 0 && link16_power < POWER_MAX16) {
+	if (SRN_10to5Link_SignalToNoiseRatioInstantiation < 0 && link16_power < POWER_UPPER16) {
 		powerChangingMote10 = true;
 		link16_power_new = link16_power + CHANGE_POWER_VALUE16;
 		changeLinkPower(assemblyConnector=link16_assemblyConnector_power, referenceName=link16_referenceName, value=link16_power_new);
 	}
-	if (SRN_10to5Link_SignalToNoiseRatioInstantiation > 0 && link16_power > POWER_MIN16) {
+	if (SRN_10to5Link_SignalToNoiseRatioInstantiation > 0 && link16_power > POWER_LOWER16) {
 		powerChangingMote10 = true;
 		link16_power_new = link16_power - CHANGE_POWER_VALUE16;
 		changeLinkPower(assemblyConnector=link16_assemblyConnector_power, referenceName=link16_referenceName, value=link16_power_new);
 	}
 
-	if (SRN_4to1Link_SignalToNoiseRatioInstantiation < 0 && link12_power < POWER_MAX12) {
+	if (SRN_4to1Link_SignalToNoiseRatioInstantiation < 0 && link12_power < POWER_UPPER12) {
 		link12_power_new = link12_power + CHANGE_POWER_VALUE12;
 		changeLinkPower(assemblyConnector=link12_assemblyConnector, referenceName=link12_referenceName, value=link12_power_new);
 	}
-	if (SRN_4to1Link_SignalToNoiseRatioInstantiation > 0 && link12_power > POWER_MIN12) {
+	if (SRN_4to1Link_SignalToNoiseRatioInstantiation > 0 && link12_power > POWER_LOWER12) {
 		link12_power_new = link12_power - CHANGE_POWER_VALUE12;
 		changeLinkPower(assemblyConnector=link12_assemblyConnector, referenceName=link12_referenceName, value=link12_power_new);
 	}
 
-	if (SRN_8to1Link_SignalToNoiseRatioInstantiation < 0 && link11_power < POWER_MAX11) {
+	if (SRN_8to1Link_SignalToNoiseRatioInstantiation < 0 && link11_power < POWER_UPPER11) {
 		link11_power_new = link11_power + CHANGE_POWER_VALUE11;
 		changeLinkPower(assemblyConnector=link11_assemblyConnector, referenceName=link11_referenceName, value=link11_power_new);
 	}
-	if (SRN_8to1Link_SignalToNoiseRatioInstantiation > 0 && link11_power > POWER_MIN11) {
+	if (SRN_8to1Link_SignalToNoiseRatioInstantiation > 0 && link11_power > POWER_LOWER11) {
 		link11_power_new = link11_power - CHANGE_POWER_VALUE11;
 		changeLinkPower(assemblyConnector=link11_assemblyConnector, referenceName=link11_referenceName, value=link11_power_new);
 	}
 
-	if (SRN_12to3Link_SignalToNoiseRatioInstantiation < 0 && link6_power < POWER_MAX6) {
+	if (SRN_12to3Link_SignalToNoiseRatioInstantiation < 0 && link6_power < POWER_UPPER6) {
 		powerChangingMote12 = true;
 		link6_power_new = link6_power + CHANGE_POWER_VALUE6;
 		changeLinkPower(assemblyConnector=link6_assemblyConnector_power, referenceName=link6_referenceName, value=link6_power_new);
 	}
-	if (SRN_12to3Link_SignalToNoiseRatioInstantiation > 0 && link6_power > POWER_MIN6) {
+	if (SRN_12to3Link_SignalToNoiseRatioInstantiation > 0 && link6_power > POWER_LOWER6) {
 		powerChangingMote12 = true;
 		link6_power_new = link6_power - CHANGE_POWER_VALUE6;
 		changeLinkPower(assemblyConnector=link6_assemblyConnector_power, referenceName=link6_referenceName, value=link6_power_new);
 	}
 
-	if (SRN_3to1Link_SignalToNoiseRatioInstantiation < 0 && link10_power < POWER_MAX10) {
+	if (SRN_3to1Link_SignalToNoiseRatioInstantiation < 0 && link10_power < POWER_UPPER10) {
 		link10_power_new = link10_power + CHANGE_POWER_VALUE10;
 		changeLinkPower(assemblyConnector=link10_assemblyConnector, referenceName=link10_referenceName, value=link10_power_new);
 	}
-	if (SRN_3to1Link_SignalToNoiseRatioInstantiation > 0 && link10_power > POWER_MIN10) {
+	if (SRN_3to1Link_SignalToNoiseRatioInstantiation > 0 && link10_power > POWER_LOWER10) {
 		link10_power_new = link10_power - CHANGE_POWER_VALUE10;
 		changeLinkPower(assemblyConnector=link10_assemblyConnector, referenceName=link10_referenceName, value=link10_power_new);
 	}
 
-	if (SRN_2to4Link_SignalToNoiseRatioInstantiation < 0 && link9_power < POWER_MAX9) {
+	if (SRN_2to4Link_SignalToNoiseRatioInstantiation < 0 && link9_power < POWER_UPPER9) {
 		link9_power_new = link9_power + CHANGE_POWER_VALUE9;
 		changeLinkPower(assemblyConnector=link9_assemblyConnector, referenceName=link9_referenceName, value=link9_power_new);
 	} 
-	if (SRN_2to4Link_SignalToNoiseRatioInstantiation > 0 && link9_power > POWER_MIN9) {
+	if (SRN_2to4Link_SignalToNoiseRatioInstantiation > 0 && link9_power > POWER_LOWER9) {
 		link9_power_new = link9_power - CHANGE_POWER_VALUE9;
 		changeLinkPower(assemblyConnector=link9_assemblyConnector, referenceName=link9_referenceName, value=link9_power_new);
 	}
