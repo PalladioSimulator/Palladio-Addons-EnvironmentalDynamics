@@ -2,8 +2,8 @@
 
 modelName = "DeltaIoTDefaultReconfigurationStrategy";
 
-// const int CHANGE_DIST_VALUE = 1; 				// original value from Paper: 10.0
-optimizable int[1,5,1] CHANGE_DIST_VALUE; // open (stop not included)
+// const int CHANGE_DIST_VALUE = 1; 			// original value from Paper: 10.0
+optimizable int[1,5,1] CHANGE_DIST_VALUE;		// closed (stop included)
 const int UNIFORM_DIST_VALUE = 5;
 const int DIST_MIN = 0;
 const int DIST_MIN_MAX_DELTA = 10;
@@ -12,7 +12,7 @@ const int DIST_UPPER = DIST_MIN + DIST_MIN_MAX_DELTA;
 var int DIST_MAX = -1;
 
 //const int CHANGE_POWER_VALUE = 1;
-optimizable int[1,4,1] CHANGE_POWER_VALUE1;
+optimizable int[1,4,1] CHANGE_POWER_VALUE1;		// closed (stop included)
 optimizable int[1,4,1] CHANGE_POWER_VALUE2;
 optimizable int[1,4,1] CHANGE_POWER_VALUE3;
 optimizable int[1,4,1] CHANGE_POWER_VALUE4;
@@ -31,9 +31,9 @@ optimizable int[1,4,1] CHANGE_POWER_VALUE16;
 optimizable int[1,4,1] CHANGE_POWER_VALUE17;
 
 //const int POWER_MIN = 0;
-optimizable int[0,5,1] POWER_MIN;
+optimizable int[0,5,1] POWER_MIN;				// closed (stop included)
 //const int POWER_MIN_MAX_DELTA = 15;
-optimizable int[4,10,1] POWER_MIN_MAX_DELTA;
+optimizable int[4,10,1] POWER_MIN_MAX_DELTA;	// closed (stop included)
 //const int POWER_UPPER = POWER_MIN + POWER_MIN_MAX_DELTA;
 var int POWER_LOWER1 = -1;
 var int POWER_LOWER2 = -1;
