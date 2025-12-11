@@ -12,6 +12,10 @@ Scenario 0a: optimize power setting, no distribution adaption
 identical for all 15 links
                 - change power
 
+-------------
+Scenario 0b: optimize power setting, tiktok adaption, constant distribution adaption
+identical for all 15 links
+                - change power
 
 -------------
 Scenario 1a: constant distribution factor, optimize power setting
