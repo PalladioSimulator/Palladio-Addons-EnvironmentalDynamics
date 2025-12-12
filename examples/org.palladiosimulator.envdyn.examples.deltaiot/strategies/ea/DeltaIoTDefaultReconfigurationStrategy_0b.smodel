@@ -1,6 +1,6 @@
 //  This is a strategy model for DeltaIoT.
 
-modelName = "DeltaIoTDefaultReconfigurationStrategy_0a";
+modelName = "DeltaIoTDefaultReconfigurationStrategy_0b";
 
 const int CHANGE_DIST_VALUE = 10; 				// original value from Paper: 10.0
 const int MAX_DIST = 100;
