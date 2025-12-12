@@ -122,9 +122,6 @@ var int link5_dist = 0;
 var int link6_dist = 0;
 
 var bool adaptationRequired = false;
-var bool powerChangingMote7 = false;
-var bool powerChangingMote10 = false;
-var bool powerChangingMote12 = false;
 var int maxChange = 0;
 
 // local variables to store probabilisticBranchTransition; additionally required due to PCM metamodel constraints 
@@ -300,11 +297,6 @@ if(!(link5_power == link6_power)){
 
 // Plan
 if (adaptationRequired) {
-	// Only second link is relevant (like DeltaIoT simulator handling)
-	powerChangingMote7 = false;
-	powerChangingMote10 = false;
-	powerChangingMote12 = false;
-
 	if (SRN_6to4Link_SignalToNoiseRatioInstantiation > 0  && link14_power > 0) {
 		if (CHANGE_POWER_VALUE < link14_power) {
 			maxChange = CHANGE_POWER_VALUE;
@@ -368,7 +360,6 @@ if (adaptationRequired) {
 		} else {
 			maxChange = link7_power;
 		}		
-		powerChangingMote7 = true;
 		link7_power_new = link7_power - maxChange;
 		changeLinkPower(assemblyConnector=link7_assemblyConnector_power, referenceName=link7_referenceName, value=link7_power_new);
 	}
@@ -378,7 +369,6 @@ if (adaptationRequired) {
 		} else {
 			maxChange = 15 - link7_power;
 		}		
-		powerChangingMote7 = true;
 		link7_power_new = link7_power + maxChange;
 		changeLinkPower(assemblyConnector=link7_assemblyConnector_power, referenceName=link7_referenceName, value=link7_power_new);
 	}
@@ -427,7 +417,6 @@ if (adaptationRequired) {
 		} else {
 			maxChange = link5_power;
 		}		
-		powerChangingMote12 = true;
 		link5_power_new = link5_power - maxChange;
 		changeLinkPower(assemblyConnector=link5_assemblyConnector_power, referenceName=link5_referenceName, value=link5_power_new);
 	}
@@ -437,7 +426,6 @@ if (adaptationRequired) {
 		} else {
 			maxChange = 15 - link5_power;
 		}		
-		powerChangingMote12 = true;
 		link5_power_new = link5_power + maxChange;
 		changeLinkPower(assemblyConnector=link5_assemblyConnector_power, referenceName=link5_referenceName, value=link5_power_new);
 	}
@@ -467,7 +455,6 @@ if (adaptationRequired) {
 		} else {
 			maxChange = link8_power;
 		}		
-		powerChangingMote7 = true;
 		link8_power_new = link8_power - maxChange;
 		changeLinkPower(assemblyConnector=link8_assemblyConnector_power, referenceName=link8_referenceName, value=link8_power_new);
 	}
@@ -477,7 +464,6 @@ if (adaptationRequired) {
 		} else {
 			maxChange = 15 - link8_power;
 		}		
-		powerChangingMote7 = true;
 		link8_power_new = link8_power + maxChange;
 		changeLinkPower(assemblyConnector=link8_assemblyConnector_power, referenceName=link8_referenceName, value=link8_power_new);
 	}
@@ -488,7 +474,6 @@ if (adaptationRequired) {
 		} else {
 			maxChange = link15_power;
 		}		
-		powerChangingMote10 = true;
 		link15_power_new = link15_power - maxChange;
 		changeLinkPower(assemblyConnector=link15_assemblyConnector_power, referenceName=link15_referenceName, value=link15_power_new);
 	}
@@ -498,7 +483,6 @@ if (adaptationRequired) {
 		} else {
 			maxChange = 15 - link15_power;
 		}		
-		powerChangingMote10 = true;
 		link15_power_new = link15_power + maxChange;
 		changeLinkPower(assemblyConnector=link15_assemblyConnector_power, referenceName=link15_referenceName, value=link15_power_new);
 	}
@@ -528,7 +512,6 @@ if (adaptationRequired) {
 		} else {
 			maxChange = link16_power;
 		}		
-		powerChangingMote10 = true;
 		link16_power_new = link16_power - maxChange;
 		changeLinkPower(assemblyConnector=link16_assemblyConnector_power, referenceName=link16_referenceName, value=link16_power_new);
 	}
@@ -538,7 +521,6 @@ if (adaptationRequired) {
 		} else {
 			maxChange = 15 - link16_power;
 		}		
-		powerChangingMote10 = true;
 		link16_power_new = link16_power + maxChange;
 		changeLinkPower(assemblyConnector=link16_assemblyConnector_power, referenceName=link16_referenceName, value=link16_power_new);
 	}
@@ -587,7 +569,6 @@ if (adaptationRequired) {
 		} else {
 			maxChange = link6_power;
 		}		
-		powerChangingMote12 = true;
 		link6_power_new = link6_power - maxChange;
 		changeLinkPower(assemblyConnector=link6_assemblyConnector_power, referenceName=link6_referenceName, value=link6_power_new);
 	}
@@ -597,7 +578,6 @@ if (adaptationRequired) {
 		} else {
 			maxChange = 15 - link6_power;
 		}		
-		powerChangingMote12 = true;
 		link6_power_new = link6_power + maxChange;
 		changeLinkPower(assemblyConnector=link6_assemblyConnector_power, referenceName=link6_referenceName, value=link6_power_new);
 	}
