@@ -42,6 +42,11 @@ Scenario 1c: optimize power setting, optimize tiktok adaption, constant distribu
 per link
                 - change power
 
+-------------
+Scenario 1d: optimize power setting, optimize tiktok adaption, optimize distribution adaption
+per link
+                - change power
+
 
 -- old scenarios
 
