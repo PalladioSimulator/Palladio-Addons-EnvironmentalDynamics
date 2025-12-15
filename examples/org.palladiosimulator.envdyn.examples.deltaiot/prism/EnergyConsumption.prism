@@ -479,6 +479,8 @@ formula calculateSendingEnergyConsumption = packets * SFTime *
 		 (power = 14 ? PCR14 :
 		 PCR15)))))))))))))))/CoulombUnit;
 formula calculateReceivingEnergyConsumption = (((10) * MAX_SLOTS) * receptionTime * receptionCost)/CoulombUnit;
+formula calculateReceivingEnergyConsumptionPerPacket = (packets * receptionTime * receptionCost)/CoulombUnit;
+
 /////////////////////////////////////////////////////////////////
 rewards "EnergyConsumption"
 	[sendData24] true: calculateSendingEnergyConsumption;
@@ -498,7 +500,7 @@ rewards "EnergyConsumption"
 	[sendData1311] true: calculateSendingEnergyConsumption;
 	[sendData1412] true: calculateSendingEnergyConsumption;
 	[sendData1512] true: calculateSendingEnergyConsumption;
-	[turn] true: calculateReceivingEnergyConsumption;
+	[turn] true: calculateReceivingEnergyConsumptionPerPacket;
 endrewards
 
 //rewards "Packets"
