@@ -3,18 +3,18 @@
     <stringAttribute key="CrossoverRate" value="0.200000"/>
     <stringAttribute key="ErrorReward" value="0.000000"/>
     <intAttribute key="MEMORY_USAGE" value="2"/>
-    <intAttribute key="MaxGenerations" value="50"/>
+    <intAttribute key="MaxGenerations" value="10"/>
     <stringAttribute key="ModelledOptimizationType" value="EVOLUTIONARY_ALGORITHM"/>
     <stringAttribute key="MutationRate" value="0.150000"/>
     <intAttribute key="NumberOfRuns" value="10"/>
     <intAttribute key="NumberOfSimulationsPerRun" value="96"/>
-    <intAttribute key="PopulationSize" value="100"/>
+    <intAttribute key="PopulationSize" value="4"/>
     <stringAttribute key="Quality Objective" value="PERFORMANCE"/>
     <stringAttribute key="Reward Type" value="EXPECTED"/>
     <stringAttribute key="Simulation Engine" value="PRISM"/>
     <stringAttribute key="SimulationID" value="DeltaIoT_modelled_ea_strategy0a"/>
     <stringAttribute key="Simulator Type" value="MODELLED"/>
-    <intAttribute key="SteadyFitness" value="12"/>
+    <intAttribute key="SteadyFitness" value="5"/>
     <setAttribute key="TransformationsActive">
         <setEntry value="changeLinkDistribution"/>
         <setEntry value="changeLinkPower"/>
