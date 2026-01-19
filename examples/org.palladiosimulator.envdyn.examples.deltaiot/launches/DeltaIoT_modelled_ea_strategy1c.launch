@@ -14,7 +14,7 @@
     <stringAttribute key="Simulation Engine" value="PRISM"/>
     <stringAttribute key="SimulationID" value="DeltaIoT_modelled_ea_strategy1c"/>
     <stringAttribute key="Simulator Type" value="MODELLED"/>
-    <intAttribute key="SteadyFitness" value="12"/>
+    <intAttribute key="SteadyFitness" value="10"/>
     <setAttribute key="TransformationsActive">
         <setEntry value="changeLinkDistribution"/>
         <setEntry value="changeLinkPower"/>
