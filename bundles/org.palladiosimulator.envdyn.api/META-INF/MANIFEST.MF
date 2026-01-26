@@ -2,14 +2,14 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Api
 Bundle-SymbolicName: org.palladiosimulator.envdyn.api
-Bundle-Version: 5.2.0.qualifier
+Bundle-Version: 6.0.0.qualifier
 Bundle-Activator: org.palladiosimulator.envdyn.api.Activator
 Require-Bundle: org.eclipse.core.runtime,
  tools.mdsd.probdist.api;bundle-version="1.0.0",
  tools.mdsd.probdist.api.apache;bundle-version="1.0.0",
  tools.mdsd.probdist.model;bundle-version="0.1.0",
  org.palladiosimulator.envdyn.model,
- org.palladiosimulator.mdsdprofiles.api;bundle-version="1.0.1",
+ org.palladiosimulator.mdsdprofiles.api,
  com.google.guava;bundle-version="21.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: org.palladiosimulator.envdyn.api
