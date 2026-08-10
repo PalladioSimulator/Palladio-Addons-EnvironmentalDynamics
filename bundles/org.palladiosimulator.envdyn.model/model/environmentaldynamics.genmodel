@@ -4,7 +4,7 @@
     editorDirectory="/org.palladiosimulator.envdyn.model.editor/src-gen" modelPluginID="org.palladiosimulator.envdyn.model"
     modelName="Environmentaldynamics" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     testsDirectory="/org.palladiosimulator.envdyn.model.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="11.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier platform:/plugin/tools.mdsd.probdist.model/model/probdist.genmodel#//probdist"
+    complianceLevel="17.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/plugin/tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier platform:/plugin/tools.mdsd.probdist.model/model/probdist.genmodel#//probdist"
     operationReflection="true" importOrganizing="true">
   <foreignModel>environmentaldynamics.ecore</foreignModel>
   <genPackages prefix="Environment" basePackage="org.palladiosimulator.envdyn" disposableProviderFactory="true"

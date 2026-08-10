@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: org.palladiosimulator.envdyn.examples.deltaiot.tests
 Bundle-SymbolicName: org.palladiosimulator.envdyn.examples.deltaiot.tests
 Bundle-Version: 1.0.0.qualifier
-Fragment-Host: org.palladiosimulator.envdyn.examples.deltaiot;bundle-version="1.0.0"
+Fragment-Host: org.palladiosimulator.envdyn.examples.deltaiot
 Require-Bundle: org.junit;bundle-version="4.13.0",
  org.assertj;bundle-version="3.20.2",
  org.eclipse.m2m.qvt.oml,
