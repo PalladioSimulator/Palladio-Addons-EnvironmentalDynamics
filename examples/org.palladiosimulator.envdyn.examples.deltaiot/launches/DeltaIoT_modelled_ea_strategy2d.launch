@@ -10,6 +10,8 @@
     <intAttribute key="NumberOfSimulationsPerRun" value="96"/>
     <intAttribute key="PopulationSize" value="100"/>
     <stringAttribute key="Quality Objective" value="PERFORMANCE"/>
+    <stringAttribute key="Random Sample Type" value="COUNT"/>
+    <intAttribute key="RandomSampleCount" value="1"/>
     <stringAttribute key="Reward Type" value="EXPECTED"/>
     <stringAttribute key="Simulation Engine" value="PRISM"/>
     <stringAttribute key="SimulationID" value="DeltaIoT_modelled_ea_strategy2d"/>
