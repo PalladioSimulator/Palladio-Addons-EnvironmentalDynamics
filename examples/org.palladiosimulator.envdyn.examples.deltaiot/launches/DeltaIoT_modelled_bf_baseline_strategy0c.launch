@@ -15,7 +15,7 @@
     <stringAttribute key="RandomSampleRatio" value="1.000000"/>
     <stringAttribute key="Reward Type" value="EXPECTED"/>
     <stringAttribute key="Simulation Engine" value="PRISM"/>
-    <stringAttribute key="SimulationID" value="DeltaIoT_modelled_bf_strategy0c"/>
+    <stringAttribute key="SimulationID" value="DeltaIoT_modelled_bf_baseline_strategy0c"/>
     <stringAttribute key="Simulator Type" value="MODELLED"/>
     <intAttribute key="SteadyFitness" value="5"/>
     <setAttribute key="TransformationsActive">
